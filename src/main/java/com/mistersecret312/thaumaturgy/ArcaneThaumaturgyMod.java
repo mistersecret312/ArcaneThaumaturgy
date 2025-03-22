@@ -1,9 +1,9 @@
 package com.mistersecret312.thaumaturgy;
 
-import com.mistersecret312.datapack.Aspect;
-import com.mistersecret312.init.BlockInit;
-import com.mistersecret312.init.ItemInit;
-import com.mistersecret312.init.ItemTabInit;
+import com.mistersecret312.thaumaturgy.datapack.Aspect;
+import com.mistersecret312.thaumaturgy.init.BlockInit;
+import com.mistersecret312.thaumaturgy.init.ItemInit;
+import com.mistersecret312.thaumaturgy.init.ItemTabInit;
 import com.mojang.logging.LogUtils;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;

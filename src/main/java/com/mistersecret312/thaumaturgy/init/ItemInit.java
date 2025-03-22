@@ -1,10 +1,8 @@
-package com.mistersecret312.init;
+package com.mistersecret312.thaumaturgy.init;
 
-import com.mistersecret312.datapack.Aspect;
-import com.mistersecret312.items.AspectDisplayTest;
+import com.mistersecret312.thaumaturgy.items.AspectDisplayTest;
 import com.mistersecret312.thaumaturgy.ArcaneThaumaturgyMod;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;

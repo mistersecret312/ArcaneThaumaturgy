@@ -1,4 +1,4 @@
-package com.mistersecret312.init;
+package com.mistersecret312.thaumaturgy.init;
 
 import com.mistersecret312.thaumaturgy.ArcaneThaumaturgyMod;
 import net.minecraft.world.level.block.Block;

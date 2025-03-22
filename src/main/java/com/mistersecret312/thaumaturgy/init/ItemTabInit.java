@@ -1,7 +1,7 @@
-package com.mistersecret312.init;
+package com.mistersecret312.thaumaturgy.init;
 
-import com.mistersecret312.datapack.Aspect;
-import com.mistersecret312.items.AspectDisplayTest;
+import com.mistersecret312.thaumaturgy.datapack.Aspect;
+import com.mistersecret312.thaumaturgy.items.AspectDisplayTest;
 import com.mistersecret312.thaumaturgy.ArcaneThaumaturgyMod;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;

@@ -1,4 +1,4 @@
-package com.mistersecret312.blocks;
+package com.mistersecret312.thaumaturgy.blocks;
 
 import net.minecraft.world.level.block.Block;
 

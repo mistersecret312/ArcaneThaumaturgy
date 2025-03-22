@@ -1,8 +1,7 @@
-package com.mistersecret312.datapack;
+package com.mistersecret312.thaumaturgy.datapack;
 
 import com.mistersecret312.thaumaturgy.ArcaneThaumaturgyMod;
 import com.mojang.serialization.Codec;
-import com.mojang.serialization.DataResult;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
