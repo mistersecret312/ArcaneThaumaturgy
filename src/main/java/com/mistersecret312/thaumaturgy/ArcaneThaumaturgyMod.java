@@ -1,6 +1,7 @@
 package com.mistersecret312.thaumaturgy;
 
 import com.mistersecret312.thaumaturgy.datapack.Aspect;
+import com.mistersecret312.thaumaturgy.init.BlockEntityInit;
 import com.mistersecret312.thaumaturgy.init.BlockInit;
 import com.mistersecret312.thaumaturgy.init.ItemInit;
 import com.mistersecret312.thaumaturgy.init.ItemTabInit;
@@ -36,6 +37,7 @@ public class ArcaneThaumaturgyMod
         modEventBus.addListener(this::commonSetup);
 
         BlockInit.register(modEventBus);
+        BlockEntityInit.register(modEventBus);
         ItemInit.register(modEventBus);
         ItemTabInit.register(modEventBus);
 
