@@ -4,9 +4,10 @@
   "package": "com.mistersecret312.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+
   ],
   "client": [
-    "GuiGraphicsMixin"
+
   ],
   "injectors": {
     "defaultRequire": 1

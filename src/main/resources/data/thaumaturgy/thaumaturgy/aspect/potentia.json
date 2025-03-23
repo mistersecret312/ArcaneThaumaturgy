@@ -2,7 +2,7 @@
   "name": "potentia",
   "rgb":[255, 255, 255],
   "texture": "thaumaturgy:textures/aspect/potentia",
-  "derivative":
+  "combination":
   {
     "first_aspect": "thaumaturgy:ordo",
     "second_aspect": "thaumaturgy:ignis"
