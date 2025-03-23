@@ -16,11 +16,11 @@ import net.minecraft.world.item.ItemStack;
 public class AspectTooltipComponent implements ClientTooltipComponent, TooltipComponent
 {
 
-    public ItemStack stack;
+    public Aspect aspect;
 
-    public AspectTooltipComponent(ItemStack stack)
+    public AspectTooltipComponent(Aspect aspect)
     {
-        this.stack = stack;
+        this.aspect = aspect;
     }
 
     @Override
@@ -28,22 +28,13 @@ public class AspectTooltipComponent implements ClientTooltipComponent, TooltipCo
     {
         final PoseStack pose = pGuiGraphics.pose();
 
-        if(stack.getItem() instanceof AspectDisplayTest item)
+        if (aspect != null)
         {
-            Minecraft minecraft = Minecraft.getInstance();
-            ClientPacketListener clientPacketListener = minecraft.getConnection();
-            RegistryAccess registries = clientPacketListener.registryAccess();
-            Registry<Aspect> aspectsRegistry = registries.registryOrThrow(Aspect.REGISTRY_KEY);
-
-            Aspect aspect = aspectsRegistry.get(item.getAspect(stack));
-            if(aspect != null)
-            {
-                //pose.pushPose();
-                //pGuiGraphics.blit(aspect.getTexture(), pX, pY, 0, 0, 18, 18, 18, 18);
-                //pose.popPose();
-            }
+            pose.pushPose();
+            pGuiGraphics.blit(aspect.getTexture(), pX, pY, 0, 0, 18, 18, 18, 18);
+            pFont.drawInBatch("15", pX + 8, pY + 10, -1, true, pose.last().pose(), pGuiGraphics.bufferSource(), Font.DisplayMode.NORMAL, 0, 15728880);
+            pose.popPose();
         }
-
     }
 
     @Override

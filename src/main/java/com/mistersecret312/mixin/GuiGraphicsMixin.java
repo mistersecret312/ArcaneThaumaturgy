@@ -68,13 +68,13 @@ public class GuiGraphicsMixin
             if(aspect != null)
             {
                 pose.pushPose();
-                this.transparentBlit(new ResourceLocation(ArcaneThaumaturgyMod.MODID, "textures/aspect_shadow.png"), vector2ic.x()-6, vector2ic.x()-6+22, vector2ic.y()-26, vector2ic.y()-26+22, 0, 0, 22, 0, 22);
+                //this.transparentBlit(new ResourceLocation(ArcaneThaumaturgyMod.MODID, "textures/aspect_shadow.png"), vector2ic.x()-6, vector2ic.x()-6+22, vector2ic.y()-26, vector2ic.y()-26+22, 0, 0, 22, 0, 22);
                 //graphics.blit(new ResourceLocation(ArcaneThaumaturgyMod.MODID, "textures/aspect_shadow.png"), vector2ic.x()-6, vector2ic.y()-26, 0, 0, 22, 22, 22, 22);
                 pose.popPose();
 
                 pose.pushPose();
-                graphics.blit(aspect.getTexture(), vector2ic.x()-4, vector2ic.y()-24, 0, 0, 18, 18, 18, 18);
-                pFont.drawInBatch("15", vector2ic.x()+12, vector2ic.y()-12, -1, true, pose.last().pose(), this.bufferSource, Font.DisplayMode.NORMAL, 0, 15728880);
+                //graphics.blit(aspect.getTexture(), vector2ic.x()-4, vector2ic.y()-24, 0, 0, 18, 18, 18, 18);
+                //pFont.drawInBatch("15", vector2ic.x()+12, vector2ic.y()-12, -1, true, pose.last().pose(), this.bufferSource, Font.DisplayMode.NORMAL, 0, 15728880);
                 pose.popPose();
             }
         }

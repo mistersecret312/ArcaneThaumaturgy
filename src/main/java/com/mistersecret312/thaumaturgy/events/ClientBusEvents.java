@@ -3,7 +3,9 @@ package com.mistersecret312.thaumaturgy.events;
 import com.mistersecret312.thaumaturgy.ArcaneThaumaturgyMod;
 import com.mistersecret312.thaumaturgy.datapack.Aspect;
 import com.mistersecret312.thaumaturgy.items.AspectDisplayTest;
+import com.mistersecret312.thaumaturgy.tooltipcomponents.AspectTooltipComponent;
 import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.datafixers.util.Either;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientPacketListener;
 import net.minecraft.core.Registry;
@@ -20,5 +22,23 @@ import org.joml.Vector2ic;
 public class ClientBusEvents
 {
 
+    @SubscribeEvent
+    public static void aspectTooltip(RenderTooltipEvent.GatherComponents event)
+    {
+        ItemStack stack = event.getItemStack();
+        if(stack.getItem() instanceof AspectDisplayTest item)
+        {
+            Minecraft minecraft = Minecraft.getInstance();
+            ClientPacketListener clientPacketListener = minecraft.getConnection();
+            RegistryAccess registries = clientPacketListener.registryAccess();
+            Registry<Aspect> aspectsRegistry = registries.registryOrThrow(Aspect.REGISTRY_KEY);
+
+            Aspect aspect = aspectsRegistry.get(item.getAspect(stack));
+            if(aspect != null)
+            {
+                event.getTooltipElements().add(Either.right(new AspectTooltipComponent(aspect)));
+            }
+        }
+    }
 
 }

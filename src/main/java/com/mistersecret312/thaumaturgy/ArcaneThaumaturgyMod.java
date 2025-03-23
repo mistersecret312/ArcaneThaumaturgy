@@ -4,7 +4,10 @@ import com.mistersecret312.thaumaturgy.datapack.Aspect;
 import com.mistersecret312.thaumaturgy.init.BlockInit;
 import com.mistersecret312.thaumaturgy.init.ItemInit;
 import com.mistersecret312.thaumaturgy.init.ItemTabInit;
+import com.mistersecret312.thaumaturgy.tooltipcomponents.AspectTooltipComponent;
 import com.mojang.logging.LogUtils;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.client.event.RegisterClientTooltipComponentFactoriesEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
@@ -15,6 +18,8 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DataPackRegistryEvent;
 import org.slf4j.Logger;
+
+import java.util.function.Function;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(ArcaneThaumaturgyMod.MODID)
@@ -60,5 +65,15 @@ public class ArcaneThaumaturgyMod
     public void onServerStarting(ServerStartingEvent event)
     {
 
+    }
+
+    @Mod.EventBusSubscriber(modid = MODID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+    public static class ClientModEvents
+    {
+        @SubscribeEvent
+        public static void registerTooltip(RegisterClientTooltipComponentFactoriesEvent event)
+        {
+            event.register(AspectTooltipComponent.class, Function.identity());
+        }
     }
 }
