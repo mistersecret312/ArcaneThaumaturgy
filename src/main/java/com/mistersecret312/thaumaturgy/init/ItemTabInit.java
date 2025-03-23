@@ -36,6 +36,8 @@ public class ItemTabInit
 
                         output.accept(ItemInit.IRON_KNOB.get());
                         output.accept(ItemInit.GOLD_KNOB.get());
+
+                        output.accept(ItemInit.GOGGLES.get());
                     })
                     .build());
 

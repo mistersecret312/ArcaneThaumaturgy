@@ -2,6 +2,7 @@ package com.mistersecret312.thaumaturgy.init;
 
 import com.mistersecret312.thaumaturgy.items.AspectDisplayTest;
 import com.mistersecret312.thaumaturgy.ArcaneThaumaturgyMod;
+import com.mistersecret312.thaumaturgy.items.GogglesItem;
 import com.mistersecret312.thaumaturgy.items.WandItem;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -27,6 +28,8 @@ public class ItemInit
     public static final RegistryObject<Item> CRYSTALLIZED_TERRA_SHARD = ITEMS.register("crystallized_terra_shard", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> CRYSTALLIZED_ORDO_SHARD = ITEMS.register("crystallized_ordo_shard", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> CRYSTALLIZED_PERDITIO_SHARD = ITEMS.register("crystallized_perditio_shard", () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<GogglesItem> GOGGLES = ITEMS.register("goggles", () -> new GogglesItem(new Item.Properties().stacksTo(1)));
 
     public static void register(IEventBus bus)
     {
