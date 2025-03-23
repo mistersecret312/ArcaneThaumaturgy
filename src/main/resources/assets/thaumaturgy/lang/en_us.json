@@ -1,11 +1,62 @@
 {
-  "creativetab.main_tab": "Arcane Thaumaturgy",
-
-  "block.thaumaturgy.crucible": "Crucible",
+  "_creative_tabs": "Creative Tabs",
+  "tabs.thaumaturgy.main_tab": "Arcane Thaumaturgy",
+  "tabs.thaumaturgy.resources_tab": "Thaumic Resources",
 
   "item.thaumaturgy.iron_wand": "Iron Wand",
   "item.thaumaturgy.gold_wand": "Gold Wand",
 
   "item.thaumaturgy.iron_knob": "Iron Knob",
-  "item.thaumaturgy.gold_knob": "Gold Knob"
+  "item.thaumaturgy.gold_knob": "Gold Knob",
+
+  "item.thaumaturgy.crystallized_aer_shard": "Crystallized Aer Shard",
+  "item.thaumaturgy.crystallized_ignis_shard": "Crystallized Ignis Shard",
+  "item.thaumaturgy.crystallized_aqua_shard": "Crystallized Aqua Shard",
+  "item.thaumaturgy.crystallized_terra_shard": "Crystallized Terra Shard",
+  "item.thaumaturgy.crystallized_ordo_shard": "Crystallized Ordo Shard",
+  "item.thaumaturgy.crystallized_perditio_shard": "Crystallized Perditio Shard",
+
+  "block.thaumaturgy.crucible": "Crucible",
+
+  "block.thaumaturgy.crystallized_aer_block": "Crystallized Aer Block",
+  "block.thaumaturgy.crystallized_ignis_block": "Crystallized Ignis Block",
+  "block.thaumaturgy.crystallized_aqua_block": "Crystallized Aqua Block",
+  "block.thaumaturgy.crystallized_terra_block": "Crystallized Terra Block",
+  "block.thaumaturgy.crystallized_ordo_block": "Crystallized Ordo Block",
+  "block.thaumaturgy.crystallized_perditio_block": "Crystallized Perditio Block",
+
+  "block.thaumaturgy.budding_crystallized_aer": "Budding Crystallized Aer",
+  "block.thaumaturgy.budding_crystallized_ignis": "Budding Crystallized Ignis",
+  "block.thaumaturgy.budding_crystallized_aqua": "Budding Crystallized Aqua",
+  "block.thaumaturgy.budding_crystallized_terra": "Budding Crystallized Terra",
+  "block.thaumaturgy.budding_crystallized_ordo": "Budding Crystallized Ordo",
+  "block.thaumaturgy.budding_crystallized_perditio": "Budding Crystallized Perditio",
+
+  "block.thaumaturgy.crystallized_aer_cluster": "Crystallized Aer Cluster",
+  "block.thaumaturgy.crystallized_ignis_cluster": "Crystallized Ignis Cluster",
+  "block.thaumaturgy.crystallized_aqua_cluster": "Crystallized Aqua Cluster",
+  "block.thaumaturgy.crystallized_terra_cluster": "Crystallized Terra Cluster",
+  "block.thaumaturgy.crystallized_ordo_cluster": "Crystallized Ordo Cluster",
+  "block.thaumaturgy.crystallized_perditio_cluster": "Crystallized Perditio Cluster",
+
+  "block.thaumaturgy.large_crystallized_aer_bud": "Large Crystallized Aer Bud",
+  "block.thaumaturgy.large_crystallized_ignis_bud": "Large Crystallized Ignis Bud",
+  "block.thaumaturgy.large_crystallized_aqua_bud": "Large Crystallized Aqua Bud",
+  "block.thaumaturgy.large_crystallized_terra_bud": "Large Crystallized Terra Bud",
+  "block.thaumaturgy.large_crystallized_ordo_bud": "Large Crystallized Ordo Bud",
+  "block.thaumaturgy.large_crystallized_perditio_bud": "Large Crystallized Perditio Bud",
+
+  "block.thaumaturgy.medium_crystallized_aer_bud": "Medium Crystallized Aer Bud",
+  "block.thaumaturgy.medium_crystallized_ignis_bud": "Medium Crystallized Ignis Bud",
+  "block.thaumaturgy.medium_crystallized_aqua_bud": "Medium Crystallized Aqua Bud",
+  "block.thaumaturgy.medium_crystallized_terra_bud": "Medium Crystallized Terra Bud",
+  "block.thaumaturgy.medium_crystallized_ordo_bud": "Medium Crystallized Ordo Bud",
+  "block.thaumaturgy.medium_crystallized_perditio_bud": "Medium Crystallized Perditio Bud",
+
+  "block.thaumaturgy.small_crystallized_aer_bud": "Small Crystallized Aer Bud",
+  "block.thaumaturgy.small_crystallized_ignis_bud": "Small Crystallized Ignis Bud",
+  "block.thaumaturgy.small_crystallized_aqua_bud": "Small Crystallized Aqua Bud",
+  "block.thaumaturgy.small_crystallized_terra_bud": "Small Crystallized Terra Bud",
+  "block.thaumaturgy.small_crystallized_ordo_bud": "Small Crystallized Ordo Bud",
+  "block.thaumaturgy.small_crystallized_perditio_bud": "Small Crystallized Perditio Bud"
 }

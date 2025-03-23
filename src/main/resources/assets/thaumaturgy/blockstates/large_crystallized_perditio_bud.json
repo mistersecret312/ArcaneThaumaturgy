@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "thaumaturgy:block/large_crystallized_perditio_bud",
+      "x": 180
+    },
+    "facing=east": {
+      "model": "thaumaturgy:block/large_crystallized_perditio_bud",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north": {
+      "model": "thaumaturgy:block/large_crystallized_perditio_bud",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "thaumaturgy:block/large_crystallized_perditio_bud",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up": {
+      "model": "thaumaturgy:block/large_crystallized_perditio_bud"
+    },
+    "facing=west": {
+      "model": "thaumaturgy:block/large_crystallized_perditio_bud",
+      "x": 90,
+      "y": 270
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "thaumaturgy:block/medium_crystallized_aer_bud"
+  }
+}

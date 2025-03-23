@@ -21,6 +21,13 @@ public class ItemInit
     public static final RegistryObject<WandItem> IRON_WAND = ITEMS.register("iron_wand", () -> new WandItem(new Item.Properties().stacksTo(1)));
     public static final RegistryObject<WandItem> GOLD_WAND = ITEMS.register("gold_wand", () -> new WandItem(new Item.Properties().stacksTo(1)));
 
+    public static final RegistryObject<Item> CRYSTALLIZED_AER_SHARD = ITEMS.register("crystallized_aer_shard", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> CRYSTALLIZED_IGNIS_SHARD = ITEMS.register("crystallized_ignis_shard", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> CRYSTALLIZED_AQUA_SHARD = ITEMS.register("crystallized_aqua_shard", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> CRYSTALLIZED_TERRA_SHARD = ITEMS.register("crystallized_terra_shard", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> CRYSTALLIZED_ORDO_SHARD = ITEMS.register("crystallized_ordo_shard", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> CRYSTALLIZED_PERDITIO_SHARD = ITEMS.register("crystallized_perditio_shard", () -> new Item(new Item.Properties()));
+
     public static void register(IEventBus bus)
     {
         ITEMS.register(bus);
