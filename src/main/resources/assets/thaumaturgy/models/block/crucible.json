@@ -1,5 +1,6 @@
 {
 	"render_type": "minecraft:translucent",
+	"parent": "block/block",
 	"credit": "Made with Blockbench",
 	"ambientocclusion": false,
 	"textures": {
