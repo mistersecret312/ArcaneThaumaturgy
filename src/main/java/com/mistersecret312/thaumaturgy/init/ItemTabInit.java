@@ -24,6 +24,9 @@ public class ItemTabInit
                     .displayItems((parameters, output) ->
                     {
                         output.accept(BlockInit.CRUCIBLE.get());
+
+                        output.accept(BlockInit.RUNIC_MATRIX.get());
+
                         output.accept(AspectDisplayTest.create(ResourceKey.create(Aspect.REGISTRY_KEY, new ResourceLocation("thaumaturgy:terra"))));
 
                         output.accept(WandItem.createFull(ItemInit.IRON_WAND.get(), 25));

@@ -21,6 +21,8 @@ public class BlockInit
 
     public static final RegistryObject<CrucibleBlock> CRUCIBLE = registerBlock("crucible", () -> new CrucibleBlock(BlockBehaviour.Properties.of().strength(5f)));
 
+    public static final RegistryObject<Block> RUNIC_MATRIX = registerBlock("runic_matrix", () -> new Block(BlockBehaviour.Properties.of().strength(5f).noOcclusion().mapColor(MapColor.COLOR_GRAY).sound(SoundType.DEEPSLATE_BRICKS)));
+
     public static final RegistryObject<AmethystBlock> CRYSTALLIZED_AER_BLOCK = registerBlock("crystallized_aer_block", () -> new AmethystBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_YELLOW).strength(1.5F).sound(SoundType.AMETHYST).requiresCorrectToolForDrops()));
     public static final RegistryObject<AmethystBlock> BUDDING_CRYSTALLIZED_AER = registerBlock("budding_crystallized_aer", () -> new BuddingAmethystBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_YELLOW).randomTicks().strength(1.5F).sound(SoundType.AMETHYST).requiresCorrectToolForDrops().pushReaction(PushReaction.DESTROY)));
     public static final RegistryObject<AmethystClusterBlock> CRYSTALLIZED_AER_CLUSTER = registerBlock("crystallized_aer_cluster", () -> new AmethystClusterBlock(7, 3,BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_YELLOW).forceSolidOn().noOcclusion().randomTicks().sound(SoundType.AMETHYST_CLUSTER).strength(1.5F).lightLevel((state) -> 5).pushReaction(PushReaction.DESTROY)));
