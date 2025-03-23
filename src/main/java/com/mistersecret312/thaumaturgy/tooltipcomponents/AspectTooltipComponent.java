@@ -2,15 +2,12 @@ package com.mistersecret312.thaumaturgy.tooltipcomponents;
 
 import com.mistersecret312.thaumaturgy.datapack.Aspect;
 import com.mistersecret312.thaumaturgy.datapack.AspectComposition;
-import com.mistersecret312.thaumaturgy.items.GogglesItem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.tooltip.ClientTooltipComponent;
-import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.core.Registry;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.inventory.tooltip.TooltipComponent;
 
 public class AspectTooltipComponent implements ClientTooltipComponent, TooltipComponent

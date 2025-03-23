@@ -19,7 +19,7 @@ public class ItemTabInit
             DeferredRegister.create(Registries.CREATIVE_MODE_TAB, ArcaneThaumaturgyMod.MODID);
 
     public static final RegistryObject<CreativeModeTab> MAIN_TAB = TABS.register("main_tab",
-            () -> CreativeModeTab.builder().icon(() -> BlockInit.CRUCIBLE.get().asItem().getDefaultInstance())
+            () -> CreativeModeTab.builder().icon(() -> ItemInit.REVELATION_GOGGLES.get().asItem().getDefaultInstance())
                     .title(Component.translatable("tabs.thaumaturgy.main_tab"))
                     .displayItems((parameters, output) ->
                     {
@@ -37,7 +37,7 @@ public class ItemTabInit
                         output.accept(ItemInit.IRON_KNOB.get());
                         output.accept(ItemInit.GOLD_KNOB.get());
 
-                        output.accept(ItemInit.GOGGLES.get());
+                        output.accept(ItemInit.REVELATION_GOGGLES.get());
                     })
                     .build());
 

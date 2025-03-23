@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "  K",
+    " S ",
+    "K  "
+  ],
+  "key": {
+    "K": {
+      "item": "thaumaturgy:gold_knob"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "thaumaturgy:gold_wand"
+  }
+}
