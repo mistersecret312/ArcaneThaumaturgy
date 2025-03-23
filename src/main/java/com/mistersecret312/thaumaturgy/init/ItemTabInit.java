@@ -23,6 +23,8 @@ public class ItemTabInit
                     .title(Component.translatable("tabs.thaumaturgy.main_tab"))
                     .displayItems((parameters, output) ->
                     {
+                        output.accept(BlockInit.ARCANE_STONE.get());
+
                         output.accept(BlockInit.CRUCIBLE.get());
 
                         output.accept(BlockInit.RUNIC_MATRIX.get());
