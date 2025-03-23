@@ -21,7 +21,7 @@ public class Aspect
             Codec.STRING.fieldOf("name").forGetter(Aspect::getName),
             Codec.INT.listOf().fieldOf("rgb").forGetter(Aspect::getColor),
             ResourceLocation.CODEC.fieldOf("texture").forGetter(Aspect::getTexture),
-            DerivativeAspectData.CODEC.optionalFieldOf("derivative").forGetter(Aspect::getDerivativeAspectData)
+            DerivativeAspectData.CODEC.optionalFieldOf("combination").forGetter(Aspect::getDerivativeAspectData)
     ).apply(instance, Aspect::new));
 
     private String name;

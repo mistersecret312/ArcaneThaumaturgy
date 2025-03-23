@@ -1,0 +1,10 @@
+{
+  "item": "minecraft:cobblestone",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:terra",
+      "amount": 5
+    }
+  ]
+}
