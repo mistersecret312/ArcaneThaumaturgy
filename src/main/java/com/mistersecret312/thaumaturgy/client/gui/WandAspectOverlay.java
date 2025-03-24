@@ -68,7 +68,7 @@ public class WandAspectOverlay
         float pivotOffsetY = -3 * (1/scale);
 
         for (int i = 0; i < aspects.length; i++) {
-            float angleDeg = angles[i] + 250;
+            float angleDeg = angles[i] + 234;
 
             float barHeight = 48f * (float) percentages[i];
 
@@ -78,7 +78,7 @@ public class WandAspectOverlay
             pose.translate(0, -40, 0);
             guiGraphics.fill(-4, -48, -4+8, (int) (-48+(barHeight)), 209);
             int cutHeight = (int) (48 * percentages[i]);  // Calculate the cut height based on the percentage
-            guiGraphics.blit(TEXTURE, -4, (int) (-48 + (48 - cutHeight)), textureX[i], 0, 8, cutHeight);
+            guiGraphics.blit(TEXTURE, -4, -48 + (48 - cutHeight), textureX[i], 0, 8, cutHeight);
             guiGraphics.blit(TEXTURE, -8, -58, 36, 0, 16, 68);
             pose.popPose();
         }

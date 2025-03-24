@@ -2,6 +2,8 @@ package com.mistersecret312.thaumaturgy.blocks;
 
 import com.mistersecret312.thaumaturgy.block_entities.CrucibleBlockEntity;
 import net.minecraft.core.BlockPos;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -50,6 +52,7 @@ public class CrucibleBlock extends Block implements EntityBlock
         {
             pPlayer.setItemInHand(pHand, Items.BUCKET.getDefaultInstance());
             pLevel.setBlockAndUpdate(pPos, pState.setValue(FILLED, FilledCrucible.FULL_1));
+            pLevel.playSound(pPlayer, pPlayer.getX(), pPlayer.getY(), pPlayer.getZ(), SoundEvents.BUCKET_EMPTY, SoundSource.PLAYERS, 1.0F, 1.0F);
             return InteractionResult.sidedSuccess(pLevel.isClientSide());
         }
         return super.use(pState, pLevel, pPos, pPlayer, pHand, pHit);
