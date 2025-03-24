@@ -33,4 +33,6 @@ public class ThaumonomiconItem extends Item
 
         return InteractionResultHolder.sidedSuccess(itemInHand, pLevel.isClientSide);
     }
+
+
 }

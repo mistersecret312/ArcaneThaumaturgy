@@ -1,7 +1,19 @@
 {
   "variants": {
-    "": {
+    "filled=empty": {
       "model": "thaumaturgy:block/crucible"
+    },
+    "filled=full_1": {
+      "model": "thaumaturgy:block/crucible_full_1"
+    },
+    "filled=full_2": {
+      "model": "thaumaturgy:block/crucible_full_2"
+    },
+    "filled=full_3": {
+      "model": "thaumaturgy:block/crucible_full_3"
+    },
+    "filled=full_4": {
+      "model": "thaumaturgy:block/crucible_full_4"
     }
   }
 }
