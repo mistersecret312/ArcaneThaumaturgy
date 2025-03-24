@@ -1,0 +1,8 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#thaumaturgy:spawns_aqua_geode",
+  "features": [
+    "thaumaturgy:aqua_geode"
+  ],
+  "step": "underground_ores"
+}

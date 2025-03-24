@@ -1,0 +1,8 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#thaumaturgy:spawns_aer_geode",
+  "features": [
+    "thaumaturgy:aer_geode"
+  ],
+  "step": "underground_ores"
+}

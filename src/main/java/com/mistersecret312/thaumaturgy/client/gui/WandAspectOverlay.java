@@ -2,11 +2,13 @@ package com.mistersecret312.thaumaturgy.client.gui;
 
 import com.mistersecret312.thaumaturgy.ArcaneThaumaturgyMod;
 import com.mistersecret312.thaumaturgy.items.WandItem;
+import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientPacketListener;
 import net.minecraft.client.player.LocalPlayer;
+import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.client.gui.overlay.IGuiOverlay;
@@ -22,6 +24,10 @@ public class WandAspectOverlay
         int x = screenWidth/2;
         int y = screenHeight/2;
         LocalPlayer player = Minecraft.getInstance().player;
+
+        RenderSystem.setShader(GameRenderer::getPositionTexShader);
+        RenderSystem.setShaderColor(1f, 1f, 1f, 1f);
+        RenderSystem.setShaderTexture(0, TEXTURE);
 
         if(player != null)
         {
@@ -47,7 +53,6 @@ public class WandAspectOverlay
                     }
 
                     pose.pushPose();
-
                     //pose.scale(0.5f, 0.5f, 0.5f);
                     guiGraphics.blit(TEXTURE, x - 285, y - 145, 0, 0, 36, 36);
 

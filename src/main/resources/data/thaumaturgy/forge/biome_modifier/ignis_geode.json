@@ -1,0 +1,8 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#thaumaturgy:spawns_ignis_geode",
+  "features": [
+    "thaumaturgy:ignis_geode"
+  ],
+  "step": "underground_ores"
+}

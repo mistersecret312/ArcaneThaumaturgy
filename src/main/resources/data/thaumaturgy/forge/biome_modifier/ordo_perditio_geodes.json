@@ -1,0 +1,9 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#minecraft:is_overworld",
+  "features": [
+    "thaumaturgy:ordo_geode",
+    "thaumaturgy:perditio_geode"
+  ],
+  "step": "underground_ores"
+}
