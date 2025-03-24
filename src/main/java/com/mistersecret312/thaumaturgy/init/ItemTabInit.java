@@ -21,6 +21,7 @@ public class ItemTabInit
                     .displayItems((parameters, output) ->
                     {
                         output.accept(BlockInit.ARCANE_STONE.get());
+                        output.accept(BlockInit.ARCANE_BRICKS.get());
 
                         output.accept(BlockInit.CRUCIBLE.get());
 
