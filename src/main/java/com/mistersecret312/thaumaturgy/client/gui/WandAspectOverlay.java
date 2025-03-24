@@ -2,6 +2,7 @@ package com.mistersecret312.thaumaturgy.client.gui;
 
 import com.mistersecret312.thaumaturgy.ArcaneThaumaturgyMod;
 import com.mistersecret312.thaumaturgy.items.WandItem;
+import com.mistersecret312.thaumaturgy.util.RenderBlitUtil;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
@@ -43,8 +44,8 @@ public class WandAspectOverlay
         }
 
         PoseStack pose = guiGraphics.pose();
-        int centerX = 32;
-        int centerY = (int) (34 + 34 * (1/scale));
+        float centerX = 32;
+        float centerY = (34 + 34 * (1/scale));
 
         RenderSystem.setShader(GameRenderer::getPositionTexShader);
         RenderSystem.setShaderColor(1f, 1f, 1f, 1f);
@@ -53,7 +54,7 @@ public class WandAspectOverlay
         pose.pushPose();
         pose.scale(0.5f, 0.5f, 0.5f);
 
-        guiGraphics.blit(TEXTURE, centerX - 18, centerY - 18, 0, 0, 36, 36);
+        RenderBlitUtil.blit(TEXTURE, pose, centerX - 18, centerY - 18, 0, 0, 36, 36);
 
 
         float angleIncrement = 18f;
@@ -64,7 +65,7 @@ public class WandAspectOverlay
             angles[i] = (i - (aspects.length / 2)) * angleIncrement;
         }
 
-        int[] textureX = { 92, 84, 60, 68, 52, 76 };
+        float[] textureX = { 92, 84, 60, 68, 52, 76 };
         float pivotOffsetY = -3 * (1/scale);
 
         for (int i = 0; i < aspects.length; i++) {
@@ -76,10 +77,10 @@ public class WandAspectOverlay
             pose.translate(centerX, (centerY + pivotOffsetY), 0);
             pose.mulPose(Axis.ZN.rotationDegrees(angleDeg));
             pose.translate(0, -40, 0);
-            guiGraphics.fill(-4, -48, -4+8, (int) (-48+(barHeight)), 209);
-            int cutHeight = (int) (48 * percentages[i]);  // Calculate the cut height based on the percentage
-            guiGraphics.blit(TEXTURE, -4, -48 + (48 - cutHeight), textureX[i], 0, 8, cutHeight);
-            guiGraphics.blit(TEXTURE, -8, -58, 36, 0, 16, 68);
+            //guiGraphics.fill(-4, -48, -4+8, (int) (-48+(barHeight)), 209);
+            float cutHeight = (float) (48 * percentages[i]);  // Calculate the cut height based on the percentage
+            RenderBlitUtil.blit(TEXTURE, pose,-4, -48 + (48 - cutHeight), textureX[i], 0, 8, cutHeight);
+            RenderBlitUtil.blit(TEXTURE, pose, -8, -58, 36, 0, 16, 68);
             pose.popPose();
         }
 
