@@ -1,6 +1,31 @@
 {
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "thaumaturgy:item/thaumonomicon"
-  }
+	"loader": "forge:separate_transforms",
+	"gui_light": "front",
+	"base":
+	{
+		"parent": "thaumaturgy:item/thaumonomicon_model"
+	},
+	"perspectives":
+	{
+		"gui":
+		{
+			"parent": "thaumaturgy:item/thaumonomicon_item"
+		},
+		"fixed":
+		{
+			"parent": "thaumaturgy:item/thaumonomicon_item"
+		},
+		"ground":
+		{
+			"parent": "thaumaturgy:item/thaumonomicon_item"
+		},
+		"firstperson_righthand":
+		{
+			"parent": "thaumaturgy:item/thaumonomicon_item"
+		},
+		"firstperson_lefthand":
+		{
+			"parent": "thaumaturgy:item/thaumonomicon_item"
+		}
+	}
 }

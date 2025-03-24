@@ -6,6 +6,8 @@ import com.klikli_dev.modonomicon.client.gui.BookGuiManager;
 import com.klikli_dev.modonomicon.data.BookDataManager;
 import com.mistersecret312.thaumaturgy.ArcaneThaumaturgyMod;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
@@ -26,6 +28,8 @@ public class ThaumonomiconItem extends Item
             Book book = BookDataManager.get().getBook(new ResourceLocation(ArcaneThaumaturgyMod.MODID, "thaumonomicon"));
             BookGuiManager.get().openBook(book.getId());
         }
+
+        pLevel.playSound(pPlayer, pPlayer.getX(), pPlayer.getY(), pPlayer.getZ(), SoundEvents.BOOK_PAGE_TURN, SoundSource.PLAYERS, 1.0F, 1.0F);
 
         return InteractionResultHolder.sidedSuccess(itemInHand, pLevel.isClientSide);
     }

@@ -22,7 +22,7 @@ public class RevelationGogglesItem extends ArmorItem
 
     public RevelationGogglesItem(Properties pProperties)
     {
-        super(ArmorMaterials.DIAMOND, Type.HELMET, pProperties);
+        super(ArmorMaterials.GOLD, Type.HELMET, pProperties);
     }
 
     @Override

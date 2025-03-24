@@ -20,12 +20,15 @@ public class ItemTabInit
                     .title(Component.translatable("tabs.thaumaturgy.main_tab"))
                     .displayItems((parameters, output) ->
                     {
-                        output.accept(ItemInit.THAUMONOMICON.get());
                         output.accept(BlockInit.ARCANE_STONE.get());
 
                         output.accept(BlockInit.CRUCIBLE.get());
 
                         output.accept(BlockInit.RUNIC_MATRIX.get());
+
+                        output.accept(ItemInit.THAUMONOMICON.get());
+
+                        output.accept(ItemInit.SCRIBING_TOOLS.get());
 
                         output.accept(WandItem.createFull(ItemInit.IRON_WAND.get(), 25));
                         output.accept(WandItem.createFull(ItemInit.GOLD_WAND.get(), 50));
@@ -34,6 +37,8 @@ public class ItemTabInit
 
                         output.accept(ItemInit.IRON_KNOB.get());
                         output.accept(ItemInit.GOLD_KNOB.get());
+
+                        output.accept(ItemInit.THAUMOMETER.get());
 
                         output.accept(ItemInit.REVELATION_GOGGLES.get());
                     })
