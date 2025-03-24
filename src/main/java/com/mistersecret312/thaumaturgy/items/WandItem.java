@@ -1,9 +1,15 @@
 package com.mistersecret312.thaumaturgy.items;
 
+import net.minecraft.ChatFormatting;
 import net.minecraft.nbt.*;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.level.Level;
+import org.jetbrains.annotations.Nullable;
 
+import java.util.List;
 import java.util.stream.IntStream;
 
 public class WandItem extends Item
@@ -30,6 +36,17 @@ public class WandItem extends Item
     public static ItemStack createFull(Item item, int capacity)
     {
         return WandItem.create(item, IntStream.generate(() -> capacity).limit(6).toArray(), capacity);
+    }
+
+    @Override
+    public void appendHoverText(ItemStack stack, @Nullable Level pLevel, List<Component> pTooltipComponents,
+                                TooltipFlag pIsAdvanced)
+    {
+        super.appendHoverText(stack, pLevel, pTooltipComponents, pIsAdvanced);
+
+        int[] aspects = this.getAspects(stack);
+        for (int i = 0; i < aspects.length; i++)
+            pTooltipComponents.add(Component.translatable("aspect.thaumaturgy."+aspectIDToName(i)).withStyle(aspectIDToColor(i)).append(": ").append(String.valueOf(aspects[i])));
     }
 
     public void setAspects(ItemStack stack, int[] aspects)
@@ -80,14 +97,27 @@ public class WandItem extends Item
     {
         return switch (id)
         {
-            case 0 -> "terra";
-            case 1 -> "aqua";
+            case 0 -> "aer";
+            case 1 -> "terra";
             case 2 -> "ignis";
-            case 3 -> "aer";
+            case 3 -> "aqua";
             case 4 -> "ordo";
             case 5 -> "perditio";
             default -> "error";
         };
+    }
 
+    public static ChatFormatting aspectIDToColor(int id)
+    {
+        return switch (id)
+        {
+            case 0 -> ChatFormatting.DARK_GRAY;
+            case 1 -> ChatFormatting.WHITE;
+            case 2 -> ChatFormatting.AQUA;
+            case 3 -> ChatFormatting.RED;
+            case 4 -> ChatFormatting.GREEN;
+            case 5 -> ChatFormatting.YELLOW;
+            default -> ChatFormatting.LIGHT_PURPLE;
+        };
     }
 }

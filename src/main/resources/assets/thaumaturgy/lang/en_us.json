@@ -4,6 +4,7 @@
   "tabs.thaumaturgy.resources_tab": "Thaumic Resources",
 
   "item.thaumaturgy.revelation_goggles": "Goggles Of Revelation",
+  "item.thaumaturgy.thaumonomicon": "Thaumonomicon",
 
   "item.thaumaturgy.iron_wand": "Iron Wand",
   "item.thaumaturgy.gold_wand": "Gold Wand",
@@ -64,5 +65,12 @@
   "block.thaumaturgy.small_crystallized_aqua_bud": "Small Crystallized Aqua Bud",
   "block.thaumaturgy.small_crystallized_terra_bud": "Small Crystallized Terra Bud",
   "block.thaumaturgy.small_crystallized_ordo_bud": "Small Crystallized Ordo Bud",
-  "block.thaumaturgy.small_crystallized_perditio_bud": "Small Crystallized Perditio Bud"
+  "block.thaumaturgy.small_crystallized_perditio_bud": "Small Crystallized Perditio Bud",
+
+  "aspect.thaumaturgy.perditio": "Perditio",
+  "aspect.thaumaturgy.ordo": "Ordo",
+  "aspect.thaumaturgy.aqua": "Aqua",
+  "aspect.thaumaturgy.ignis": "Ignis",
+  "aspect.thaumaturgy.terra": "Terra",
+  "aspect.thaumaturgy.aer": "Aer"
 }

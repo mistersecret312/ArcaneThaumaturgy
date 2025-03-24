@@ -3,7 +3,6 @@ package com.mistersecret312.thaumaturgy.block_entities;
 import com.mistersecret312.thaumaturgy.init.BlockEntityInit;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 
 public class CrucibleBlockEntity extends BlockEntity

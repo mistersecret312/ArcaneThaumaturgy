@@ -1,13 +1,10 @@
 package com.mistersecret312.thaumaturgy.init;
 
-import com.mistersecret312.thaumaturgy.datapack.Aspect;
-import com.mistersecret312.thaumaturgy.items.AspectDisplayTest;
+import com.klikli_dev.modonomicon.item.ModonomiconItem;
 import com.mistersecret312.thaumaturgy.ArcaneThaumaturgyMod;
 import com.mistersecret312.thaumaturgy.items.WandItem;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -23,16 +20,17 @@ public class ItemTabInit
                     .title(Component.translatable("tabs.thaumaturgy.main_tab"))
                     .displayItems((parameters, output) ->
                     {
+                        output.accept(ItemInit.THAUMONOMICON.get());
                         output.accept(BlockInit.ARCANE_STONE.get());
 
                         output.accept(BlockInit.CRUCIBLE.get());
 
                         output.accept(BlockInit.RUNIC_MATRIX.get());
 
-                        output.accept(AspectDisplayTest.create(ResourceKey.create(Aspect.REGISTRY_KEY, new ResourceLocation("thaumaturgy:terra"))));
-
                         output.accept(WandItem.createFull(ItemInit.IRON_WAND.get(), 25));
                         output.accept(WandItem.createFull(ItemInit.GOLD_WAND.get(), 50));
+
+                        output.accept(WandItem.create(ItemInit.GOLD_WAND.get(), new int[]{25, 25, 25, 25, 25, 25}, 50));
 
                         output.accept(ItemInit.IRON_KNOB.get());
                         output.accept(ItemInit.GOLD_KNOB.get());

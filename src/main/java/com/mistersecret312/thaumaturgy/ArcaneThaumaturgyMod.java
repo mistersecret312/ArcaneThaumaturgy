@@ -1,5 +1,6 @@
 package com.mistersecret312.thaumaturgy;
 
+import com.mistersecret312.thaumaturgy.client.Layers;
 import com.mistersecret312.thaumaturgy.client.gui.WandAspectOverlay;
 import com.mistersecret312.thaumaturgy.datapack.Aspect;
 import com.mistersecret312.thaumaturgy.datapack.AspectComposition;
@@ -59,6 +60,7 @@ public class ArcaneThaumaturgyMod
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
+        modEventBus.addListener(Layers::registerLayers);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event)
@@ -93,5 +95,6 @@ public class ArcaneThaumaturgyMod
         {
             event.registerAboveAll("wand_aspects", WandAspectOverlay.OVERLAY);
         }
+
     }
 }
