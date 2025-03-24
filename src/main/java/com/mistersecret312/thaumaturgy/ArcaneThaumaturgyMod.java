@@ -1,5 +1,6 @@
 package com.mistersecret312.thaumaturgy;
 
+import com.mistersecret312.thaumaturgy.client.gui.WandAspectOverlay;
 import com.mistersecret312.thaumaturgy.datapack.Aspect;
 import com.mistersecret312.thaumaturgy.datapack.AspectComposition;
 import com.mistersecret312.thaumaturgy.init.BlockEntityInit;
@@ -8,8 +9,13 @@ import com.mistersecret312.thaumaturgy.init.ItemInit;
 import com.mistersecret312.thaumaturgy.init.ItemTabInit;
 import com.mistersecret312.thaumaturgy.tooltipcomponents.AspectTooltipComponent;
 import com.mojang.logging.LogUtils;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.Item;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.RegisterClientTooltipComponentFactoriesEvent;
+import net.minecraftforge.client.event.RegisterGuiOverlaysEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
@@ -30,6 +36,8 @@ public class ArcaneThaumaturgyMod
     public static final String MODID = "thaumaturgy";
 
     private static final Logger LOGGER = LogUtils.getLogger();
+
+    public static final TagKey<Item> WANDS = new TagKey<>(Registries.ITEM, new ResourceLocation(MODID, "wands"));
 
     public ArcaneThaumaturgyMod(FMLJavaModLoadingContext context)
     {
@@ -78,6 +86,12 @@ public class ArcaneThaumaturgyMod
         public static void registerTooltip(RegisterClientTooltipComponentFactoriesEvent event)
         {
             event.register(AspectTooltipComponent.class, Function.identity());
+        }
+
+        @SubscribeEvent
+        public static void registerOverlays(RegisterGuiOverlaysEvent event)
+        {
+            event.registerAboveAll("wand_aspects", WandAspectOverlay.OVERLAY);
         }
     }
 }
