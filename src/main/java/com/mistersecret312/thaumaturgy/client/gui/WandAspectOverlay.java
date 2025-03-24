@@ -20,90 +20,64 @@ public class WandAspectOverlay
 
     public static final IGuiOverlay OVERLAY = ((gui, guiGraphics, partialTick, screenWidth, screenHeight)
     -> {
-        final PoseStack pose = guiGraphics.pose();
-        int x = screenWidth/2;
-        int y = screenHeight/2;
         LocalPlayer player = Minecraft.getInstance().player;
+        if (player == null) return;
+
+        ItemStack main = player.getMainHandItem();
+        ItemStack off = player.getOffhandItem();
+        boolean hasWand = main.is(ArcaneThaumaturgyMod.WANDS) || off.is(ArcaneThaumaturgyMod.WANDS);
+        if (!hasWand) return;
+
+        ItemStack wandStack = main.is(ArcaneThaumaturgyMod.WANDS) ? main : off;
+        WandItem wand = (WandItem) wandStack.getItem();
+
+        int cap = wand.getCapacity(wandStack);
+        int[] aspects = wand.getAspects(wandStack);
+        if (cap == 0 || aspects.length == 0) return;
+
+        double[] percentages = new double[aspects.length];
+        for (int i = 0; i < aspects.length; i++) {
+            percentages[i] = (double) aspects[i] / cap;
+        }
+
+        PoseStack pose = guiGraphics.pose();
+        int centerX = screenWidth / 2 - 275;
+        int centerY = screenHeight / 2 - 110;
 
         RenderSystem.setShader(GameRenderer::getPositionTexShader);
         RenderSystem.setShaderColor(1f, 1f, 1f, 1f);
         RenderSystem.setShaderTexture(0, TEXTURE);
 
-        if(player != null)
-        {
-            boolean mainHand = player.getMainHandItem().is(ArcaneThaumaturgyMod.WANDS);
-            boolean offHand = player.getOffhandItem().is(ArcaneThaumaturgyMod.WANDS);
-            if (mainHand || offHand)
-            {
-                ItemStack stack = null;
-                if(mainHand)
-                    stack = player.getMainHandItem();
-                else stack = player.getOffhandItem();
-
-                if(stack != null)
-                {
-                    WandItem item = (WandItem) stack.getItem();
-                    int cap = item.getCapacity(stack);
-                    int[] aspects = item.getAspects(stack);
-                    double[] percentages = new double[6];
-
-                    for (int i = 0; i < aspects.length; i++)
-                    {
-                        percentages[i] = (double) aspects[i]/cap;
-                    }
-
-                    pose.pushPose();
-                    //pose.scale(0.5f, 0.5f, 0.5f);
-                    guiGraphics.blit(TEXTURE, x - 285, y - 145, 0, 0, 36, 36);
-
-                    //Perditio
-                    pose.pushPose();
-                    pose.mulPose(Axis.ZP.rotationDegrees(15));
-                    guiGraphics.blit(TEXTURE, x - 271 - 5, y - 95 - 13, 92, 0, 8, ((int) (48 * percentages[0])));
-                    guiGraphics.blit(TEXTURE, x - 275 - 5, y - 105 - 13, 36, 0, 16, 68);
-                    pose.popPose();
-
-                    //Ordo
-                    pose.pushPose();
-                    //pose.mulPose(Axis.ZN.rotationDegrees(5));
-                    guiGraphics.blit(TEXTURE, x - 271 , y - 95, 84, 0, 8, ((int) (48 * percentages[1])));
-                    guiGraphics.blit(TEXTURE, x - 275 , y - 105, 36, 0, 16, 68);
-                    pose.popPose();
-
-                    //Aqua
-                    pose.pushPose();
-                    pose.mulPose(Axis.ZN.rotationDegrees(15));
-                    guiGraphics.blit(TEXTURE, x - 271 + 3, y - 95 + 15, 60, 0, 8, ((int) (48 * percentages[2])));
-                    guiGraphics.blit(TEXTURE, x - 275 + 3, y - 105 + 15, 36, 0, 16, 68);
-                    pose.popPose();
-
-                    //Ignis
-                    pose.pushPose();
-                    pose.mulPose(Axis.ZN.rotationDegrees(35));
-                    guiGraphics.blit(TEXTURE, x - 271 - 5 , y - 95 + 34, 68, 0, 8, ((int) (48 * percentages[3])));
-                    guiGraphics.blit(TEXTURE, x - 275 - 5, y - 105 + 34, 36, 0, 16, 68);
-                    pose.popPose();
-
-                    //Terra
-                    pose.pushPose();
-                    pose.mulPose(Axis.ZN.rotationDegrees(50));
-                    guiGraphics.blit(TEXTURE, x - 271 - 5, y - 95 + 34, 52, 0, 8, ((int) (48 * percentages[4])));
-                    guiGraphics.blit(TEXTURE, x - 275 - 5, y - 105 + 34, 36, 0, 16, 68);
-                    pose.popPose();
-
-                    //Aer
-                    pose.pushPose();
-                    pose.mulPose(Axis.ZN.rotationDegrees(65));
-                    guiGraphics.blit(TEXTURE, x - 271 - 5, y - 95 + 45, 76, 0, 8, ((int) (48 * percentages[5])));
-                    guiGraphics.blit(TEXTURE, x - 275 - 5, y - 105 + 45, 36, 0, 16, 68);
-                    pose.popPose();
-
-                    pose.popPose();
-
-                }
+        pose.pushPose();
+        pose.scale(0.5f, 0.5f, 0.5f);
+        guiGraphics.blit(TEXTURE, centerX - 18, centerY - 18, 0, 0, 36, 36);
 
 
-            }
+        float angleIncrement = 18f;
+        float[] angles = new float[aspects.length];
+
+
+        for (int i = 0; i < aspects.length; i++) {
+            angles[i] = (i - (aspects.length / 2)) * angleIncrement;
         }
+
+        int[] textureX = { 92, 84, 60, 68, 52, 76 };
+        float pivotOffsetY = -3;
+
+        for (int i = 0; i < aspects.length; i++) {
+            float angleDeg = angles[i] + 250;
+
+            float barHeight = 48f * (float) percentages[i];
+
+            pose.pushPose();
+            pose.translate(centerX, centerY + pivotOffsetY, 0);
+            pose.mulPose(Axis.ZN.rotationDegrees(angleDeg));
+            pose.translate(0, -40, 0);
+            guiGraphics.blit(TEXTURE, -4, (int) -barHeight, textureX[i], 0, 8, (int) barHeight);
+            guiGraphics.blit(TEXTURE, -8, (int) (-barHeight - 10), 36, 0, 16, 68);
+            pose.popPose();
+        }
+
+        pose.popPose();
     });
 }
