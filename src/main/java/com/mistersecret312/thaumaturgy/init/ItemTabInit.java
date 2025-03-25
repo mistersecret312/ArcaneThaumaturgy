@@ -19,9 +19,15 @@ public class ItemTabInit
                     .title(Component.translatable("tabs.thaumaturgy.main_tab"))
                     .displayItems((parameters, output) ->
                     {
-                        output.accept(BlockInit.ARCANE_STONE.get());
-                        output.accept(BlockInit.ARCANE_BRICKS.get());
                         output.accept(BlockInit.ARCANE_STONE_PEDESTAL.get());
+                        output.accept(BlockInit.ARCANE_STONE.get());
+                        output.accept(BlockInit.ARCANE_STONE_STAIRS.get());
+                        output.accept(BlockInit.ARCANE_STONE_SLAB.get());
+                        output.accept(BlockInit.ARCANE_STONE_WALL.get());
+                        output.accept(BlockInit.ARCANE_STONE_BRICKS.get());
+                        output.accept(BlockInit.ARCANE_STONE_BRICKS_STAIRS.get());
+                        output.accept(BlockInit.ARCANE_STONE_BRICKS_SLAB.get());
+                        output.accept(BlockInit.ARCANE_STONE_BRICKS_WALL.get());
 
                         output.accept(BlockInit.CRUCIBLE.get());
 

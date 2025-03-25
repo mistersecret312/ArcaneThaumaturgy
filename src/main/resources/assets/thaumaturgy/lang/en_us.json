@@ -23,7 +23,13 @@
   "item.thaumaturgy.perditio_vis_crystal": "Perditio Vis Crystal",
 
   "block.thaumaturgy.arcane_stone": "Arcane Stone",
-  "block.thaumaturgy.arcane_bricks": "Arcane Bricks",
+  "block.thaumaturgy.arcane_stone_slab": "Arcane Stone Slab",
+  "block.thaumaturgy.arcane_stone_stairs": "Arcane Stone Stairs",
+  "block.thaumaturgy.arcane_stone_wall": "Arcane Stone Wall",
+  "block.thaumaturgy.arcane_stone_bricks": "Arcane Stone Bricks",
+  "block.thaumaturgy.arcane_stone_bricks_slab": "Arcane Stone Bricks Slab",
+  "block.thaumaturgy.arcane_stone_bricks_stairs": "Arcane Stone Bricks Stairs",
+  "block.thaumaturgy.arcane_stone_bricks_wall": "Arcane Stone Bricks Wall",
   "block.thaumaturgy.arcane_stone_pedestal": "Arcane Stone Pedestal",
 
 

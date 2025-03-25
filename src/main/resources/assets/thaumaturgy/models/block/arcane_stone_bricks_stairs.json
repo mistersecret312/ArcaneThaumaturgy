@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "thaumaturgy:block/arcane_stone_bricks",
+    "side": "thaumaturgy:block/arcane_stone_bricks",
+    "top": "thaumaturgy:block/arcane_stone_bricks"
+  }
+}

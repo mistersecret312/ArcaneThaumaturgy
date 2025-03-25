@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "thaumaturgy:block/arcane_bricks"
+    "all": "thaumaturgy:block/arcane_stone_bricks"
   }
 }
