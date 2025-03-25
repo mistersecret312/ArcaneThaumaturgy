@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/large_amethyst_bud",
+  "textures": {
+    "layer0": "thaumaturgy:block/ordo_large_vis_crystal_bud"
+  }
+}

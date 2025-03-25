@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/medium_amethyst_bud",
+  "textures": {
+    "layer0": "thaumaturgy:block/terra_medium_vis_crystal_bud"
+  }
+}

@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:item/large_amethyst_bud",
-  "textures": {
-    "layer0": "thaumaturgy:block/large_crystallized_aer_bud"
-  }
-}

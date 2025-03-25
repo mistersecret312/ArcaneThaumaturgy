@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/amethyst_cluster",
+  "textures": {
+    "layer0": "thaumaturgy:block/aqua_vis_crystal_cluster"
+  }
+}

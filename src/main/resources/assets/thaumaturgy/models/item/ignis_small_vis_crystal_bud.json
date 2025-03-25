@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/small_amethyst_bud",
+  "textures": {
+    "layer0": "thaumaturgy:block/ignis_small_vis_crystal_bud"
+  }
+}

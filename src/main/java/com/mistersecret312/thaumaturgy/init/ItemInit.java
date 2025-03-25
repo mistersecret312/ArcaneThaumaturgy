@@ -21,12 +21,12 @@ public class ItemInit
     public static final RegistryObject<WandItem> IRON_WAND = ITEMS.register("iron_wand", () -> new WandItem(new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<WandItem> GOLD_WAND = ITEMS.register("gold_wand", () -> new WandItem(new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON)));
 
-    public static final RegistryObject<Item> CRYSTALLIZED_AER_SHARD = ITEMS.register("crystallized_aer_shard", () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> CRYSTALLIZED_IGNIS_SHARD = ITEMS.register("crystallized_ignis_shard", () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> CRYSTALLIZED_AQUA_SHARD = ITEMS.register("crystallized_aqua_shard", () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> CRYSTALLIZED_TERRA_SHARD = ITEMS.register("crystallized_terra_shard", () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> CRYSTALLIZED_ORDO_SHARD = ITEMS.register("crystallized_ordo_shard", () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> CRYSTALLIZED_PERDITIO_SHARD = ITEMS.register("crystallized_perditio_shard", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> AER_VIS_CRYSTAL = ITEMS.register("aer_vis_crystal", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> IGNIS_VIS_CRYSTAL = ITEMS.register("ignis_vis_crystal", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> AQUA_VIS_CRYSTAL = ITEMS.register("aqua_vis_crystal", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> TERRA_VIS_CRYSTAL = ITEMS.register("terra_vis_crystal", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> ORDO_VIS_CRYSTAL = ITEMS.register("ordo_vis_crystal", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> PERDITIO_VIS_CRYSTAL = ITEMS.register("perditio_vis_crystal", () -> new Item(new Item.Properties()));
 
     public static final RegistryObject<RevelationGogglesItem> REVELATION_GOGGLES = ITEMS.register("revelation_goggles", () -> new RevelationGogglesItem(new Item.Properties().stacksTo(1).rarity(Rarity.RARE)));
     public static final RegistryObject<ThaumonomiconItem> THAUMONOMICON = ITEMS.register("thaumonomicon", () -> new ThaumonomiconItem(new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON)));

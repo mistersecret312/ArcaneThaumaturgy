@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:item/medium_amethyst_bud",
-  "textures": {
-    "layer0": "thaumaturgy:block/medium_crystallized_ordo_bud"
-  }
-}

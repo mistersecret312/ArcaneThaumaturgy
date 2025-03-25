@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/cube_all",
-  "textures": {
-    "all": "thaumaturgy:block/crystallized_aqua_block"
-  }
-}

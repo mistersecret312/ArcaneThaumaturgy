@@ -1,6 +1,5 @@
 package com.mistersecret312.thaumaturgy.init;
 
-import com.klikli_dev.modonomicon.item.ModonomiconItem;
 import com.mistersecret312.thaumaturgy.ArcaneThaumaturgyMod;
 import com.mistersecret312.thaumaturgy.items.WandItem;
 import net.minecraft.core.registries.Registries;
@@ -47,57 +46,57 @@ public class ItemTabInit
                     .build());
 
     public static final RegistryObject<CreativeModeTab> RESOURCE_TAB = TABS.register("resource_tab",
-            () -> CreativeModeTab.builder().icon(() -> BlockInit.CRYSTALLIZED_AER_CLUSTER.get().asItem().getDefaultInstance())
+            () -> CreativeModeTab.builder().icon(() -> BlockInit.AER_VIS_CRYSTAL_CLUSTER.get().asItem().getDefaultInstance())
                     .title(Component.translatable("tabs.thaumaturgy.resources_tab"))
                     .displayItems((parameters, output) ->
                     {
-                        output.accept(ItemInit.CRYSTALLIZED_AER_SHARD.get());
-                        output.accept(BlockInit.CRYSTALLIZED_AER_BLOCK.get());
-                        output.accept(BlockInit.BUDDING_CRYSTALLIZED_AER.get());
-                        output.accept(BlockInit.CRYSTALLIZED_AER_CLUSTER.get());
-                        output.accept(BlockInit.LARGE_CRYSTALLIZED_AER_BUD.get());
-                        output.accept(BlockInit.MEDIUM_CRYSTALLIZED_AER_BUD.get());
-                        output.accept(BlockInit.SMALL_CRYSTALLIZED_AER_BUD.get());
+                        output.accept(ItemInit.AER_VIS_CRYSTAL.get());
+                        output.accept(BlockInit.AER_VIS_CRYSTAL_BLOCK.get());
+                        output.accept(BlockInit.AER_BUDDING_VIS_CRYSTAL.get());
+                        output.accept(BlockInit.AER_VIS_CRYSTAL_CLUSTER.get());
+                        output.accept(BlockInit.AER_LARGE_VIS_CRYSTAL_BUD.get());
+                        output.accept(BlockInit.AER_MEDIUM_VIS_CRYSTAL_BUD.get());
+                        output.accept(BlockInit.AER_SMALL_VIS_CRYSTAL_BUD.get());
 
-                        output.accept(ItemInit.CRYSTALLIZED_IGNIS_SHARD.get());
-                        output.accept(BlockInit.CRYSTALLIZED_IGNIS_BLOCK.get());
-                        output.accept(BlockInit.BUDDING_CRYSTALLIZED_IGNIS.get());
-                        output.accept(BlockInit.CRYSTALLIZED_IGNIS_CLUSTER.get());
-                        output.accept(BlockInit.LARGE_CRYSTALLIZED_IGNIS_BUD.get());
-                        output.accept(BlockInit.MEDIUM_CRYSTALLIZED_IGNIS_BUD.get());
-                        output.accept(BlockInit.SMALL_CRYSTALLIZED_IGNIS_BUD.get());
+                        output.accept(ItemInit.IGNIS_VIS_CRYSTAL.get());
+                        output.accept(BlockInit.IGNIS_VIS_CRYSTAL_BLOCK.get());
+                        output.accept(BlockInit.IGNIS_BUDDING_VIS_CRYSTAL.get());
+                        output.accept(BlockInit.IGNIS_VIS_CRYSTAL_CLUSTER.get());
+                        output.accept(BlockInit.IGNIS_LARGE_VIS_CRYSTAL_BUD.get());
+                        output.accept(BlockInit.IGNIS_MEDIUM_VIS_CRYSTAL_BUD.get());
+                        output.accept(BlockInit.IGNIS_SMALL_VIS_CRYSTAL_BUD.get());
 
-                        output.accept(ItemInit.CRYSTALLIZED_AQUA_SHARD.get());
-                        output.accept(BlockInit.CRYSTALLIZED_AQUA_BLOCK.get());
-                        output.accept(BlockInit.BUDDING_CRYSTALLIZED_AQUA.get());
-                        output.accept(BlockInit.CRYSTALLIZED_AQUA_CLUSTER.get());
-                        output.accept(BlockInit.LARGE_CRYSTALLIZED_AQUA_BUD.get());
-                        output.accept(BlockInit.MEDIUM_CRYSTALLIZED_AQUA_BUD.get());
-                        output.accept(BlockInit.SMALL_CRYSTALLIZED_AQUA_BUD.get());
+                        output.accept(ItemInit.AQUA_VIS_CRYSTAL.get());
+                        output.accept(BlockInit.AQUA_VIS_CRYSTAL_BLOCK.get());
+                        output.accept(BlockInit.AQUA_BUDDING_VIS_CRYSTAL.get());
+                        output.accept(BlockInit.AQUA_VIS_CRYSTAL_CLUSTER.get());
+                        output.accept(BlockInit.AQUA_LARGE_VIS_CRYSTAL_BUD.get());
+                        output.accept(BlockInit.AQUA_MEDIUM_VIS_CRYSTAL_BUD.get());
+                        output.accept(BlockInit.AQUA_SMALL_VIS_CRYSTAL_BUD.get());
 
-                        output.accept(ItemInit.CRYSTALLIZED_TERRA_SHARD.get());
-                        output.accept(BlockInit.CRYSTALLIZED_TERRA_BLOCK.get());
-                        output.accept(BlockInit.BUDDING_CRYSTALLIZED_TERRA.get());
-                        output.accept(BlockInit.CRYSTALLIZED_TERRA_CLUSTER.get());
-                        output.accept(BlockInit.LARGE_CRYSTALLIZED_TERRA_BUD.get());
-                        output.accept(BlockInit.MEDIUM_CRYSTALLIZED_TERRA_BUD.get());
-                        output.accept(BlockInit.SMALL_CRYSTALLIZED_TERRA_BUD.get());
+                        output.accept(ItemInit.TERRA_VIS_CRYSTAL.get());
+                        output.accept(BlockInit.TERRA_VIS_CRYSTAL_BLOCK.get());
+                        output.accept(BlockInit.TERRA_BUDDING_VIS_CRYSTAL.get());
+                        output.accept(BlockInit.TERRA_VIS_CRYSTAL_CLUSTER.get());
+                        output.accept(BlockInit.TERRA_LARGE_VIS_CRYSTAL_BUD.get());
+                        output.accept(BlockInit.TERRA_MEDIUM_VIS_CRYSTAL_BUD.get());
+                        output.accept(BlockInit.TERRA_SMALL_VIS_CRYSTAL_BUD.get());
 
-                        output.accept(ItemInit.CRYSTALLIZED_ORDO_SHARD.get());
-                        output.accept(BlockInit.CRYSTALLIZED_ORDO_BLOCK.get());
-                        output.accept(BlockInit.BUDDING_CRYSTALLIZED_ORDO.get());
-                        output.accept(BlockInit.CRYSTALLIZED_ORDO_CLUSTER.get());
-                        output.accept(BlockInit.LARGE_CRYSTALLIZED_ORDO_BUD.get());
-                        output.accept(BlockInit.MEDIUM_CRYSTALLIZED_ORDO_BUD.get());
-                        output.accept(BlockInit.SMALL_CRYSTALLIZED_ORDO_BUD.get());
+                        output.accept(ItemInit.ORDO_VIS_CRYSTAL.get());
+                        output.accept(BlockInit.ORDO_VIS_CRYSTAL_BLOCK.get());
+                        output.accept(BlockInit.ORDO_BUDDING_VIS_CRYSTAL.get());
+                        output.accept(BlockInit.ORDO_VIS_CRYSTAL_CLUSTER.get());
+                        output.accept(BlockInit.ORDO_LARGE_VIS_CRYSTAL_BUD.get());
+                        output.accept(BlockInit.ORDO_MEDIUM_VIS_CRYSTAL_BUD.get());
+                        output.accept(BlockInit.ORDO_SMALL_VIS_CRYSTAL_BUD.get());
 
-                        output.accept(ItemInit.CRYSTALLIZED_PERDITIO_SHARD.get());
-                        output.accept(BlockInit.CRYSTALLIZED_PERDITIO_BLOCK.get());
-                        output.accept(BlockInit.BUDDING_CRYSTALLIZED_PERDITIO.get());
-                        output.accept(BlockInit.CRYSTALLIZED_PERDITIO_CLUSTER.get());
-                        output.accept(BlockInit.LARGE_CRYSTALLIZED_PERDITIO_BUD.get());
-                        output.accept(BlockInit.MEDIUM_CRYSTALLIZED_PERDITIO_BUD.get());
-                        output.accept(BlockInit.SMALL_CRYSTALLIZED_PERDITIO_BUD.get());
+                        output.accept(ItemInit.PERDITIO_VIS_CRYSTAL.get());
+                        output.accept(BlockInit.PERDITIO_VIS_CRYSTAL_BLOCK.get());
+                        output.accept(BlockInit.PERDITIO_BUDDING_VIS_CRYSTAL.get());
+                        output.accept(BlockInit.PERDITIO_VIS_CRYSTAL_CLUSTER.get());
+                        output.accept(BlockInit.PERDITIO_LARGE_VIS_CRYSTAL_BUD.get());
+                        output.accept(BlockInit.PERDITIO_MEDIUM_VIS_CRYSTAL_BUD.get());
+                        output.accept(BlockInit.PERDITIO_SMALL_VIS_CRYSTAL_BUD.get());
                     })
                     .build());
 

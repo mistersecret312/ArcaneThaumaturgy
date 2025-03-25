@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "thaumaturgy:block/terra_vis_crystal_block"
+  }
+}
