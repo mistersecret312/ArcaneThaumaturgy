@@ -1,7 +1,10 @@
 {
   "variants": {
-    "": {
+    "active=false": {
       "model": "thaumaturgy:block/runic_matrix"
+    },
+    "active=true": {
+      "model": "thaumaturgy:block/runic_matrix_active"
     }
   }
 }

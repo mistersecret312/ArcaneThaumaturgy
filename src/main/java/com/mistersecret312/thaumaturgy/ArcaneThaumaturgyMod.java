@@ -2,12 +2,10 @@ package com.mistersecret312.thaumaturgy;
 
 import com.mistersecret312.thaumaturgy.client.Layers;
 import com.mistersecret312.thaumaturgy.client.gui.WandAspectOverlay;
+import com.mistersecret312.thaumaturgy.client.renderer.PedestalRenderer;
 import com.mistersecret312.thaumaturgy.datapack.Aspect;
 import com.mistersecret312.thaumaturgy.datapack.AspectComposition;
-import com.mistersecret312.thaumaturgy.init.BlockEntityInit;
-import com.mistersecret312.thaumaturgy.init.BlockInit;
-import com.mistersecret312.thaumaturgy.init.ItemInit;
-import com.mistersecret312.thaumaturgy.init.ItemTabInit;
+import com.mistersecret312.thaumaturgy.init.*;
 import com.mistersecret312.thaumaturgy.tooltipcomponents.AspectTooltipComponent;
 import com.mojang.logging.LogUtils;
 import net.minecraft.core.registries.Registries;
@@ -15,6 +13,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.client.event.RegisterClientTooltipComponentFactoriesEvent;
 import net.minecraftforge.client.event.RegisterGuiOverlaysEvent;
 import net.minecraftforge.common.MinecraftForge;
@@ -65,7 +64,9 @@ public class ArcaneThaumaturgyMod
 
     private void commonSetup(final FMLCommonSetupEvent event)
     {
-
+        event.enqueueWork(() -> {
+            NetworkInit.registerPackets();
+        });
     }
 
     // Add the example block item to the building blocks tab
@@ -94,6 +95,12 @@ public class ArcaneThaumaturgyMod
         public static void registerOverlays(RegisterGuiOverlaysEvent event)
         {
             event.registerAboveAll("wand_aspects", WandAspectOverlay.OVERLAY);
+        }
+
+        @SubscribeEvent
+        public static void registerRenderers(EntityRenderersEvent.RegisterRenderers event)
+        {
+            event.registerBlockEntityRenderer(BlockEntityInit.PEDESTAL.get(), PedestalRenderer::new);
         }
 
     }
