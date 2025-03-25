@@ -2,6 +2,7 @@ package com.mistersecret312.thaumaturgy;
 
 import com.mistersecret312.thaumaturgy.client.Layers;
 import com.mistersecret312.thaumaturgy.client.gui.WandAspectOverlay;
+import com.mistersecret312.thaumaturgy.client.renderer.NitorRenderer;
 import com.mistersecret312.thaumaturgy.client.renderer.PedestalRenderer;
 import com.mistersecret312.thaumaturgy.datapack.Aspect;
 import com.mistersecret312.thaumaturgy.datapack.AspectComposition;
@@ -101,6 +102,7 @@ public class ArcaneThaumaturgyMod
         public static void registerRenderers(EntityRenderersEvent.RegisterRenderers event)
         {
             event.registerBlockEntityRenderer(BlockEntityInit.PEDESTAL.get(), PedestalRenderer::new);
+            event.registerBlockEntityRenderer(BlockEntityInit.NITOR.get(), NitorRenderer::new);
         }
 
     }
