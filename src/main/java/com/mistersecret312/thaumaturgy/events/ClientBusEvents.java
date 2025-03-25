@@ -98,12 +98,13 @@ public class ClientBusEvents
                         pose.translate(x, y, 0);
 
                         pose.pushPose();
-                        MutableComponent name = blockState.getBlock().getName();
+                        String name = blockState.getBlock().getName().getString();
+                        float textWidth = minecraft.font.width(name);
                         pose.scale(1.5f, 1.5f, 0f);
-                        minecraft.font.drawInBatch(name, -30, -50, -1, false, pose.last().pose(), event.getGuiGraphics().bufferSource(), Font.DisplayMode.NORMAL, 0, 15728880);
+                        minecraft.font.drawInBatch(name, -textWidth/2, -45, -1, false, pose.last().pose(), event.getGuiGraphics().bufferSource(), Font.DisplayMode.NORMAL, 0, 15728880);
                         pose.popPose();
 
-                        pose.translate((object.get().getValue().getAspects().size()*-11)+(22*i), 15, 0);
+                        pose.translate((object.get().getValue().getAspects().size()*-11)+(22*i)+1, 15, 0);
                         RenderBlitUtil.blit(aspect.getTexture(), pose,0, 0, 0, 0, 18, 18, 18, 18);
                         minecraft.font.drawInBatch(String.valueOf(stack.getAmount()), 15, 12, -1, false, pose.last().pose(), event.getGuiGraphics().bufferSource(), Font.DisplayMode.NORMAL, 0, 15728880);
                         pose.popPose();
