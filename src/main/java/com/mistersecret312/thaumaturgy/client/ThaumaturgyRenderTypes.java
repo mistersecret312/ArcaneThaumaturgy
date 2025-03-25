@@ -21,7 +21,7 @@ public class ThaumaturgyRenderTypes extends RenderType
         return create("nitor", DefaultVertexFormat.POSITION_TEX,
                 VertexFormat.Mode.QUADS, 256, true, true,
                 RenderType.CompositeState.builder()
-                        .setShaderState(RenderStateShard.RENDERTYPE_ITEM_ENTITY_TRANSLUCENT_CULL_SHADER)
+                        .setShaderState(RenderStateShard.POSITION_TEX_SHADER)
                         .setTextureState(new RenderStateShard.TextureStateShard(location, false, false))
                         .createCompositeState(true)
         );
