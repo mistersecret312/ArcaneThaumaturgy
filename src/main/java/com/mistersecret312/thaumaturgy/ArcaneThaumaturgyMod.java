@@ -4,19 +4,19 @@ import com.mistersecret312.thaumaturgy.client.Layers;
 import com.mistersecret312.thaumaturgy.client.gui.WandAspectOverlay;
 import com.mistersecret312.thaumaturgy.client.renderer.NitorRenderer;
 import com.mistersecret312.thaumaturgy.client.renderer.PedestalRenderer;
+import com.mistersecret312.thaumaturgy.client.renderer.ThaumometerInfoRenderer;
 import com.mistersecret312.thaumaturgy.datapack.Aspect;
 import com.mistersecret312.thaumaturgy.datapack.AspectComposition;
 import com.mistersecret312.thaumaturgy.init.*;
 import com.mistersecret312.thaumaturgy.tooltipcomponents.AspectTooltipComponent;
 import com.mojang.logging.LogUtils;
+import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.client.event.EntityRenderersEvent;
-import net.minecraftforge.client.event.RegisterClientTooltipComponentFactoriesEvent;
-import net.minecraftforge.client.event.RegisterGuiOverlaysEvent;
+import net.minecraftforge.client.event.*;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
@@ -103,6 +103,16 @@ public class ArcaneThaumaturgyMod
         {
             event.registerBlockEntityRenderer(BlockEntityInit.PEDESTAL.get(), PedestalRenderer::new);
             event.registerBlockEntityRenderer(BlockEntityInit.NITOR.get(), NitorRenderer::new);
+        }
+
+        @SubscribeEvent
+        public static void registerReloadListeners(RegisterClientReloadListenersEvent event){
+            event.registerReloadListener(ThaumometerInfoRenderer.INSTANCE);
+        }
+
+        @SubscribeEvent
+        public static void onModelBaked(ModelEvent.RegisterAdditional event){
+            event.register(ResourceLocation.fromNamespaceAndPath(ArcaneThaumaturgyMod.MODID, "item/thaumometer_baked"));
         }
 
     }
