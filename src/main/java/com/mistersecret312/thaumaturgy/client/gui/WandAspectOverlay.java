@@ -57,7 +57,7 @@ public class WandAspectOverlay
         RenderBlitUtil.blit(TEXTURE, pose, centerX - 18, centerY - 18, 0, 0, 36, 36);
 
 
-        float angleIncrement = 18f;
+        float angleIncrement = 20f;
         float[] angles = new float[aspects.length];
 
 
@@ -65,11 +65,11 @@ public class WandAspectOverlay
             angles[i] = (i - (aspects.length / 2)) * angleIncrement;
         }
 
-        float[] textureX = { 92, 84, 60, 68, 52, 76 };
+        float[] textureX = { 104, 94, 64, 74, 54, 84 };
         float pivotOffsetY = -3 * (1/scale);
 
         for (int i = 0; i < aspects.length; i++) {
-            float angleDeg = angles[i] + 234;
+            float angleDeg = angles[i] +234;
 
             float barHeight = 48f * (float) percentages[i];
 

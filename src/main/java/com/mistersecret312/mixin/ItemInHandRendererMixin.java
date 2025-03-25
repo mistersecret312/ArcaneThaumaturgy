@@ -1,23 +1,50 @@
 package com.mistersecret312.mixin;
 
+import com.mistersecret312.thaumaturgy.datapack.Aspect;
+import com.mistersecret312.thaumaturgy.datapack.AspectComposition;
 import com.mistersecret312.thaumaturgy.init.ItemInit;
+import com.mistersecret312.thaumaturgy.util.RenderBlitUtil;
+import com.mojang.blaze3d.platform.Window;
+import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.BufferBuilder;
 import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.blaze3d.vertex.Tesselator;
+import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.Font;
+import net.minecraft.client.multiplayer.ClientLevel;
+import net.minecraft.client.multiplayer.ClientPacketListener;
 import net.minecraft.client.player.AbstractClientPlayer;
 import net.minecraft.client.renderer.ItemInHandRenderer;
 import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Registry;
+import net.minecraft.core.RegistryAccess;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.HumanoidArm;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.ClipContext;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.BlockHitResult;
+import org.joml.Matrix4f;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+
+import java.util.Map;
+import java.util.Optional;
+import java.util.stream.Stream;
 
 @Mixin(ItemInHandRenderer.class)
 public abstract class ItemInHandRendererMixin
@@ -28,6 +55,10 @@ public abstract class ItemInHandRendererMixin
 
     @Shadow protected abstract void renderMapHand(PoseStack pPoseStack, MultiBufferSource pBuffer, int pCombinedLight,
                                                   HumanoidArm pSide);
+
+    @Shadow public abstract void renderItem(LivingEntity pEntity, ItemStack pItemStack,
+                                            ItemDisplayContext pDisplayContext, boolean pLeftHand, PoseStack pPoseStack,
+                                            MultiBufferSource pBuffer, int pSeed);
 
     @Inject(method = "renderArmWithItem(Lnet/minecraft/client/player/AbstractClientPlayer;FFLnet/minecraft/world/InteractionHand;FLnet/minecraft/world/item/ItemStack;FLcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;I)V",
     at = @At(value = "INVOKE", target = "Lcom/mojang/blaze3d/vertex/PoseStack;pushPose()V", shift = At.Shift.AFTER), cancellable = true)
@@ -47,11 +78,13 @@ public abstract class ItemInHandRendererMixin
             if(pHand == InteractionHand.MAIN_HAND && this.offHandItem.isEmpty())
             {
                 if (!this.minecraft.player.isInvisible()) {
-                    float f = Mth.sqrt(pSwingProgress);
+                    pPoseStack.pushPose();
+
+                    float f = 0;
                     float f1 = -0.2F * Mth.sin(pSwingProgress * (float)Math.PI);
                     float f2 = -0.4F * Mth.sin(f * (float)Math.PI);
                     pPoseStack.translate(0.0F, -f1 / 2.0F, f2);
-                    float f3 = this.calculateMapTilt(pPitch);
+                    float f3 = 0f;
                     pPoseStack.translate(0.0F, 0.04F + pEquippedProgress * -1.2F + f3 * -0.5F, -0.72F);
                     pPoseStack.mulPose(Axis.XP.rotationDegrees(f3 * -85.0F));
                     if (!this.minecraft.player.isInvisible()) {
@@ -63,19 +96,15 @@ public abstract class ItemInHandRendererMixin
                     }
 
                     float f4 = Mth.sin(f * (float)Math.PI);
-                    pPoseStack.mulPose(Axis.XP.rotationDegrees(f4 * 20.0F));
-                    pPoseStack.scale(2.0F, 2.0F, 2.0F);
+                    pPoseStack.mulPose(Axis.XP.rotationDegrees(f4*20.0F));
+                    pPoseStack.translate(0f, -0.17f, 0f);
+                    renderItem(pPlayer, pPlayer.getItemInHand(pHand), ItemDisplayContext.FIRST_PERSON_RIGHT_HAND, false, pPoseStack, pBuffer, pCombinedLight);
 
+                    pPoseStack.popPose();
                     return true;
                 }
             }
         }
         return false;
-    }
-
-    private float calculateMapTilt(float pPitch) {
-        float f = 1.0F - pPitch / 45.0F + 0.1F;
-        f = Mth.clamp(f, 0.0F, 1.0F);
-        return -Mth.cos(f * (float)Math.PI) * 0.5F + 0.5F;
     }
 }
