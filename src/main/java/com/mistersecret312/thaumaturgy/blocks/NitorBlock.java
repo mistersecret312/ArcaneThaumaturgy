@@ -2,7 +2,10 @@ package com.mistersecret312.thaumaturgy.blocks;
 
 import com.mistersecret312.thaumaturgy.block_entities.NitorBlockEntity;
 import net.minecraft.core.BlockPos;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.RenderShape;
@@ -16,6 +19,8 @@ import org.jetbrains.annotations.Nullable;
 
 public class NitorBlock extends Block implements EntityBlock
 {
+    private static final VoxelShape SHAPE = Block.box(4, 4, 4, 12, 12, 12);
+
     public NitorBlock(Properties pProperties)
     {
         super(pProperties);
@@ -27,10 +32,12 @@ public class NitorBlock extends Block implements EntityBlock
         return RenderShape.MODEL;
     }
 
+
+
     @Override
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext)
     {
-        return Shapes.box(0.25, 0.25, 0.25, 0.75, 0.75, 0.75);
+        return SHAPE;
     }
 
     @Override

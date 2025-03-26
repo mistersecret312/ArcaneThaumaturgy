@@ -49,10 +49,10 @@ public class NitorRenderer implements BlockEntityRenderer<NitorBlockEntity>
 
         poseStack.pushPose();
 
-        poseStack.translate(0.25f, 0.5f, 0.5f);
+        poseStack.translate(0.5f, 0.5f, 0.5f);
 
         poseStack.mulPose(Minecraft.getInstance().getEntityRenderDispatcher().cameraOrientation());
-        poseStack.mulPose(Axis.YP.rotationDegrees(180F));
+        poseStack.mulPose(Axis.YP.rotationDegrees(180));
 
         VertexConsumer consumer = buffer.getBuffer(ThaumaturgyRenderTypes.nitor(sprite.atlasLocation()));
         consumer.vertex(poseStack.last().pose(), -0.5f, -0.5f, 0).uv(sprite.getU1(), sprite.getV1()).endVertex();
