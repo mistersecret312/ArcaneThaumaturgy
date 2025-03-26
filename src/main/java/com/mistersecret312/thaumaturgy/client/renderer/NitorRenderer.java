@@ -49,17 +49,19 @@ public class NitorRenderer implements BlockEntityRenderer<NitorBlockEntity>
 
         poseStack.pushPose();
 
+        poseStack.translate(0.25f, 0.5f, 0.5f);
+
         poseStack.mulPose(Minecraft.getInstance().getEntityRenderDispatcher().cameraOrientation());
         poseStack.mulPose(Axis.YP.rotationDegrees(180F));
 
-
         VertexConsumer consumer = buffer.getBuffer(ThaumaturgyRenderTypes.nitor(sprite.atlasLocation()));
-        consumer.vertex(poseStack.last().pose(), 0, 0, 0).uv(sprite.getU1(), sprite.getV1()).endVertex();
-        consumer.vertex(poseStack.last().pose(), 1, 0, 0).uv(sprite.getU0(), sprite.getV1()).endVertex();
-        consumer.vertex(poseStack.last().pose(), 1, 1, 0).uv(sprite.getU0(), sprite.getV0()).endVertex();
-        consumer.vertex(poseStack.last().pose(), 0, 1, 0).uv(sprite.getU1(), sprite.getV0()).endVertex();
+        consumer.vertex(poseStack.last().pose(), -0.5f, -0.5f, 0).uv(sprite.getU1(), sprite.getV1()).endVertex();
+        consumer.vertex(poseStack.last().pose(), 0.5f, -0.5f, 0).uv(sprite.getU0(), sprite.getV1()).endVertex();
+        consumer.vertex(poseStack.last().pose(), 0.5f, 0.5f, 0).uv(sprite.getU0(), sprite.getV0()).endVertex();
+        consumer.vertex(poseStack.last().pose(), -0.5f, 0.5f, 0).uv(sprite.getU1(), sprite.getV0()).endVertex();
         //Minecraft.getInstance().getItemRenderer().renderStatic();
 
         poseStack.popPose();
+
     }
 }
