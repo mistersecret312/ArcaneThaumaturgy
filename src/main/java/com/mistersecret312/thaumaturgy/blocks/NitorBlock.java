@@ -32,8 +32,6 @@ public class NitorBlock extends Block implements EntityBlock
         return RenderShape.MODEL;
     }
 
-
-
     @Override
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext)
     {

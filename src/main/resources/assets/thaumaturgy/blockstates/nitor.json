@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "builtin/entity"
+      "model": "thaumaturgy:block/nitor"
     }
   }
 }

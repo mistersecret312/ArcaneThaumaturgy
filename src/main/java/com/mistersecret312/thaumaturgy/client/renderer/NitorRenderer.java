@@ -55,10 +55,10 @@ public class NitorRenderer implements BlockEntityRenderer<NitorBlockEntity>
         poseStack.mulPose(Axis.YP.rotationDegrees(180));
 
         VertexConsumer consumer = buffer.getBuffer(ThaumaturgyRenderTypes.nitor(sprite.atlasLocation()));
-        consumer.vertex(poseStack.last().pose(), -0.5f, -0.5f, 0).uv(sprite.getU1(), sprite.getV1()).endVertex();
-        consumer.vertex(poseStack.last().pose(), 0.5f, -0.5f, 0).uv(sprite.getU0(), sprite.getV1()).endVertex();
-        consumer.vertex(poseStack.last().pose(), 0.5f, 0.5f, 0).uv(sprite.getU0(), sprite.getV0()).endVertex();
-        consumer.vertex(poseStack.last().pose(), -0.5f, 0.5f, 0).uv(sprite.getU1(), sprite.getV0()).endVertex();
+        consumer.vertex(poseStack.last().pose(), -0.5f, -0.5f, 0).uv(sprite.getU0(), sprite.getV1()).endVertex();
+        consumer.vertex(poseStack.last().pose(), 0.5f, -0.5f, 0).uv(sprite.getU1(), sprite.getV1()).endVertex();
+        consumer.vertex(poseStack.last().pose(), 0.5f, 0.5f, 0).uv(sprite.getU1(), sprite.getV0()).endVertex();
+        consumer.vertex(poseStack.last().pose(), -0.5f, 0.5f, 0).uv(sprite.getU0(), sprite.getV0()).endVertex();
         //Minecraft.getInstance().getItemRenderer().renderStatic();
 
         poseStack.popPose();
