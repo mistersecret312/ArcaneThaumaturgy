@@ -36,6 +36,7 @@ public class ItemTabInit
                         output.accept(ItemInit.THAUMONOMICON.get());
 
                         output.accept(ItemInit.SCRIBING_TOOLS.get());
+                        output.accept(BlockInit.NITOR.get());
 
                         output.accept(WandItem.createFull(ItemInit.IRON_WAND.get(), 25));
                         output.accept(WandItem.createFull(ItemInit.GOLD_WAND.get(), 50));
