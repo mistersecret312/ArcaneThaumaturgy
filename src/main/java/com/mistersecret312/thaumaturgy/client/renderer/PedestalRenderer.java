@@ -38,7 +38,7 @@ public class PedestalRenderer implements BlockEntityRenderer<PedestalBlockEntity
         poseStack.mulPose(Axis.YP.rotation(time * 0.1f));
         poseStack.scale(1, 1, 1);
 
-        itemRenderer.renderStatic(blockEntity.getStored(), ItemDisplayContext.GROUND, packedLight, OverlayTexture.NO_OVERLAY, poseStack, buffer, level, 0);
+        itemRenderer.renderStatic(blockEntity.getDisplayItem(), ItemDisplayContext.GROUND, packedLight, OverlayTexture.NO_OVERLAY, poseStack, buffer, level, 0);
         poseStack.popPose();
     }
 }

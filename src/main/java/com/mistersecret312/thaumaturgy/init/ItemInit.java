@@ -2,6 +2,7 @@ package com.mistersecret312.thaumaturgy.init;
 
 import com.mistersecret312.thaumaturgy.ArcaneThaumaturgyMod;
 import com.mistersecret312.thaumaturgy.items.RevelationGogglesItem;
+import com.mistersecret312.thaumaturgy.items.ThaumometerItem;
 import com.mistersecret312.thaumaturgy.items.ThaumonomiconItem;
 import com.mistersecret312.thaumaturgy.items.WandItem;
 import net.minecraft.world.item.Item;
@@ -30,7 +31,7 @@ public class ItemInit
 
     public static final RegistryObject<RevelationGogglesItem> REVELATION_GOGGLES = ITEMS.register("revelation_goggles", () -> new RevelationGogglesItem(new Item.Properties().stacksTo(1).rarity(Rarity.RARE)));
     public static final RegistryObject<ThaumonomiconItem> THAUMONOMICON = ITEMS.register("thaumonomicon", () -> new ThaumonomiconItem(new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON)));
-    public static final RegistryObject<Item> THAUMOMETER = ITEMS.register("thaumometer", () -> new Item(new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<ThaumometerItem> THAUMOMETER = ITEMS.register("thaumometer", () -> new ThaumometerItem(new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> SCRIBING_TOOLS = ITEMS.register("scribing_tools", () -> new Item(new Item.Properties().stacksTo(1)));
 
     public static void register(IEventBus bus)

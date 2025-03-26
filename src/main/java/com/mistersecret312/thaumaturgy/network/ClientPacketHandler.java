@@ -15,9 +15,8 @@ public class ClientPacketHandler
     {
         BlockEntity blockEntity = getBlockEntity(packet.pos);
         if(blockEntity instanceof PedestalBlockEntity pedestal)
-        {
-            pedestal.setStored(packet.stack);
-        }
+            pedestal.setDisplayItem(packet.stack);
+
     }
 
     @SuppressWarnings("unchecked")

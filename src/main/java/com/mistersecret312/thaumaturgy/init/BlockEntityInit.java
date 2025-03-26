@@ -2,8 +2,8 @@ package com.mistersecret312.thaumaturgy.init;
 
 import com.mistersecret312.thaumaturgy.ArcaneThaumaturgyMod;
 import com.mistersecret312.thaumaturgy.block_entities.CrucibleBlockEntity;
+import com.mistersecret312.thaumaturgy.block_entities.NitorBlockEntity;
 import com.mistersecret312.thaumaturgy.block_entities.PedestalBlockEntity;
-import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -18,6 +18,8 @@ public class BlockEntityInit
             () -> BlockEntityType.Builder.of(CrucibleBlockEntity::new, BlockInit.CRUCIBLE.get()).build(null));
     public static final RegistryObject<BlockEntityType<PedestalBlockEntity>> PEDESTAL = BLOCK_ENTITIES.register("pedestal",
             () -> BlockEntityType.Builder.of(PedestalBlockEntity::new, BlockInit.ARCANE_STONE_PEDESTAL.get()).build(null));
+    public static final RegistryObject<BlockEntityType<NitorBlockEntity>> NITOR = BLOCK_ENTITIES.register("niter",
+            () -> BlockEntityType.Builder.of(NitorBlockEntity::new, BlockInit.NITOR.get()).build(null));
 
     public static void register(IEventBus bus)
     {

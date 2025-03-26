@@ -1,10 +1,7 @@
 package com.mistersecret312.thaumaturgy.init;
 
 import com.mistersecret312.thaumaturgy.ArcaneThaumaturgyMod;
-import com.mistersecret312.thaumaturgy.blocks.BuddingVisCrystalBlock;
-import com.mistersecret312.thaumaturgy.blocks.CrucibleBlock;
-import com.mistersecret312.thaumaturgy.blocks.PedestalBlock;
-import com.mistersecret312.thaumaturgy.blocks.RunicMatrixBlock;
+import com.mistersecret312.thaumaturgy.blocks.*;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
@@ -25,6 +22,8 @@ public class BlockInit
     public static final RegistryObject<CrucibleBlock> CRUCIBLE = registerBlock("crucible", () -> new CrucibleBlock(BlockBehaviour.Properties.of().strength(3f).requiresCorrectToolForDrops().sound(SoundType.METAL).mapColor(MapColor.COLOR_GRAY)));
 
     public static final RegistryObject<RunicMatrixBlock> RUNIC_MATRIX = registerBlock("runic_matrix", () -> new RunicMatrixBlock(BlockBehaviour.Properties.of().mapColor(MapColor.DEEPSLATE).requiresCorrectToolForDrops().strength(3.0F).sound(SoundType.DEEPSLATE).mapColor(MapColor.COLOR_GRAY).noOcclusion()));
+
+    public static final RegistryObject<NitorBlock> NITOR = registerBlock("nitor", () -> new NitorBlock(BlockBehaviour.Properties.of().air()));
 
     public static final RegistryObject<Block> ARCANE_STONE = registerBlock("arcane_stone", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.DEEPSLATE).requiresCorrectToolForDrops().strength(3.0F, 5f).sound(SoundType.DEEPSLATE).mapColor(MapColor.COLOR_GRAY)));
     public static final RegistryObject<Block> ARCANE_STONE_SLAB = registerBlock("arcane_stone_slab", () -> new SlabBlock(BlockBehaviour.Properties.of().mapColor(MapColor.DEEPSLATE).requiresCorrectToolForDrops().strength(3.0F, 5f).sound(SoundType.DEEPSLATE).mapColor(MapColor.COLOR_GRAY)));
