@@ -48,7 +48,7 @@ public class PedestalBlock extends Block implements EntityBlock
             else
                 takeItem(pedestal, level, player, pos);
 
-            return InteractionResult.CONSUME;
+            return InteractionResult.SUCCESS;
 
         }
 
