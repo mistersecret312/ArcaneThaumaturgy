@@ -31,6 +31,8 @@ public class ItemTabInit
 
                         output.accept(BlockInit.GREATWOOD_LOG.get());
                         output.accept(BlockInit.GREATWOOD_PLANKS.get());
+                        output.accept(BlockInit.GREATWOOD_PLANKS_STAIRS.get());
+                        output.accept(BlockInit.GREATWOOD_PLANKS_SLAB.get());
 
                         output.accept(BlockInit.CRUCIBLE.get());
 
