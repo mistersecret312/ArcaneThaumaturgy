@@ -22,6 +22,7 @@
   "item.thaumaturgy.ordo_vis_crystal": "Ordo Vis Crystal",
   "item.thaumaturgy.perditio_vis_crystal": "Perditio Vis Crystal",
 
+  "_blocks": "Blocks",
   "block.thaumaturgy.arcane_stone": "Arcane Stone",
   "block.thaumaturgy.arcane_stone_slab": "Arcane Stone Slab",
   "block.thaumaturgy.arcane_stone_stairs": "Arcane Stone Stairs",
@@ -32,10 +33,9 @@
   "block.thaumaturgy.arcane_stone_bricks_wall": "Arcane Stone Bricks Wall",
   "block.thaumaturgy.arcane_stone_pedestal": "Arcane Stone Pedestal",
 
-
   "block.thaumaturgy.crucible": "Crucible",
-
   "block.thaumaturgy.runic_matrix": "Runic Matrix",
+  "block.thaumaturgy.nitor": "Nitor",
 
   "block.thaumaturgy.aer_vis_crystal_block": "Aer Vis Crystal Block",
   "block.thaumaturgy.ignis_vis_crystal_block": "Ignis Vis Crystal Block",
@@ -79,6 +79,7 @@
   "block.thaumaturgy.ordo_small_vis_crystal_bud": "Small Ordo Vis Crystal Bud",
   "block.thaumaturgy.perditio_small_vis_crystal_bud": "Small Perditio Vis Crystal Bud",
 
+  "_aspects": "Aspects",
   "aspect.thaumaturgy.perditio": "Perditio",
   "aspect.thaumaturgy.ordo": "Ordo",
   "aspect.thaumaturgy.aqua": "Aqua",
