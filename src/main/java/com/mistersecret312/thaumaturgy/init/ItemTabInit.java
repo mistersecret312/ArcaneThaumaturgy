@@ -29,6 +29,9 @@ public class ItemTabInit
                         output.accept(BlockInit.ARCANE_STONE_BRICKS_SLAB.get());
                         output.accept(BlockInit.ARCANE_STONE_BRICKS_WALL.get());
 
+                        output.accept(BlockInit.GREATWOOD_LOG.get());
+                        output.accept(BlockInit.GREATWOOD_PLANKS.get());
+
                         output.accept(BlockInit.CRUCIBLE.get());
 
                         output.accept(BlockInit.RUNIC_MATRIX.get());

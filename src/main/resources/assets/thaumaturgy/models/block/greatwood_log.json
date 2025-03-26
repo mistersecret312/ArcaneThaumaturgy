@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "thaumaturgy:block/greatwood_log_top",
+    "side": "thaumaturgy:block/greatwood_log"
+  }
+}
