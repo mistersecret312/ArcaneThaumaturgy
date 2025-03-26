@@ -1,0 +1,10 @@
+{
+  "item": "thaumaturgy:aqua_medium_vis_crystal_bud",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:aqua",
+      "amount": 6
+    }
+  ]
+}

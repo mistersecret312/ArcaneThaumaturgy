@@ -1,0 +1,10 @@
+{
+  "item": "thaumaturgy:ignis_vis_crystal_block",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:ignis",
+      "amount": 24
+    }
+  ]
+}

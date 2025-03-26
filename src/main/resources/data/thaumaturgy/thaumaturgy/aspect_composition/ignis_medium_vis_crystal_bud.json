@@ -1,0 +1,10 @@
+{
+  "item": "thaumaturgy:ignis_medium_vis_crystal_bud",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:ignis",
+      "amount": 6
+    }
+  ]
+}

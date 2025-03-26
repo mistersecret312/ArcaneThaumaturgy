@@ -5,7 +5,7 @@
       "alternate_inner_layer_provider": {
         "type": "minecraft:simple_state_provider",
         "state": {
-          "Name": "thaumaturgy:budding_crystallized_terra"
+          "Name": "thaumaturgy:terra_budding_vis_crystal"
         }
       },
       "cannot_replace": "#minecraft:features_cannot_replace",
@@ -18,33 +18,33 @@
       "inner_layer_provider": {
         "type": "minecraft:simple_state_provider",
         "state": {
-          "Name": "thaumaturgy:crystallized_terra_block"
+          "Name": "thaumaturgy:terra_vis_crystal_block"
         }
       },
       "inner_placements": [
         {
-          "Name": "thaumaturgy:small_crystallized_terra_bud",
+          "Name": "thaumaturgy:terra_small_vis_crystal_bud",
           "Properties": {
             "facing": "up",
             "waterlogged": "false"
           }
         },
         {
-          "Name": "thaumaturgy:medium_crystallized_terra_bud",
+          "Name": "thaumaturgy:terra_medium_vis_crystal_bud",
           "Properties": {
             "facing": "up",
             "waterlogged": "false"
           }
         },
         {
-          "Name": "thaumaturgy:large_crystallized_terra_bud",
+          "Name": "thaumaturgy:terra_large_vis_crystal_bud",
           "Properties": {
             "facing": "up",
             "waterlogged": "false"
           }
         },
         {
-          "Name": "thaumaturgy:crystallized_terra_cluster",
+          "Name": "thaumaturgy:terra_vis_crystal_cluster",
           "Properties": {
             "facing": "up",
             "waterlogged": "false"

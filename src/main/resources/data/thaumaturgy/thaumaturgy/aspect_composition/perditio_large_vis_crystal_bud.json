@@ -1,0 +1,10 @@
+{
+  "item": "thaumaturgy:perditio_large_vis_crystal_bud",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:perditio",
+      "amount": 9
+    }
+  ]
+}

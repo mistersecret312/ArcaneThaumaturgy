@@ -1,0 +1,10 @@
+{
+  "item": "thaumaturgy:ordo_vis_crystal",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:ordo",
+      "amount": 6
+    }
+  ]
+}

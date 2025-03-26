@@ -1,0 +1,10 @@
+{
+  "item": "thaumaturgy:aer_small_vis_crystal_bud",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:aer",
+      "amount": 3
+    }
+  ]
+}

@@ -85,5 +85,12 @@
   "aspect.thaumaturgy.aqua": "Aqua",
   "aspect.thaumaturgy.ignis": "Ignis",
   "aspect.thaumaturgy.terra": "Terra",
-  "aspect.thaumaturgy.aer": "Aer"
+  "aspect.thaumaturgy.aer": "Aer",
+
+  "book.thaumaturgy.thaumonomicon.fundamentals.name": "Fundamentals",
+  "book.thaumaturgy.thaumonomicon.fundamentals.primordial_geodes.name": "Primordial Geodes",
+  "book.thaumaturgy.thaumonomicon.fundamentals.primordial_geodes.description": "Remnants of the Past",
+  "book.thaumaturgy.thaumonomicon.fundamentals.primordial_geodes.page.1.title": "Primordial Geodes",
+  "book.thaumaturgy.thaumonomicon.fundamentals.primordial_geodes.page.1.text": "Uncountable millennia into the past, there existed a primordial soup of pure Vis, of all six Prime Aspects. Their combinations formed the world as we know it, the remaining Vis condensed into small areas under the pressure of stone, physically manifesting",
+  "book.thaumaturgy.thaumonomicon.fundamentals.primordial_geodes.page.2.text": "as crystal geodes around an Aura Node. Just as there exists six of Prime Aspects, there can be found six geodes full of Vis Crystals of their respective Aspect."
 }

@@ -5,7 +5,7 @@
       "alternate_inner_layer_provider": {
         "type": "minecraft:simple_state_provider",
         "state": {
-          "Name": "thaumaturgy:budding_crystallized_ordo"
+          "Name": "thaumaturgy:ordo_budding_vis_crystal"
         }
       },
       "cannot_replace": "#minecraft:features_cannot_replace",
@@ -18,33 +18,33 @@
       "inner_layer_provider": {
         "type": "minecraft:simple_state_provider",
         "state": {
-          "Name": "thaumaturgy:crystallized_ordo_block"
+          "Name": "thaumaturgy:ordo_vis_crystal_block"
         }
       },
       "inner_placements": [
         {
-          "Name": "thaumaturgy:small_crystallized_ordo_bud",
+          "Name": "thaumaturgy:ordo_small_vis_crystal_bud",
           "Properties": {
             "facing": "up",
             "waterlogged": "false"
           }
         },
         {
-          "Name": "thaumaturgy:medium_crystallized_ordo_bud",
+          "Name": "thaumaturgy:ordo_medium_vis_crystal_bud",
           "Properties": {
             "facing": "up",
             "waterlogged": "false"
           }
         },
         {
-          "Name": "thaumaturgy:large_crystallized_ordo_bud",
+          "Name": "thaumaturgy:ordo_large_vis_crystal_bud",
           "Properties": {
             "facing": "up",
             "waterlogged": "false"
           }
         },
         {
-          "Name": "thaumaturgy:crystallized_ordo_cluster",
+          "Name": "thaumaturgy:ordo_vis_crystal_cluster",
           "Properties": {
             "facing": "up",
             "waterlogged": "false"

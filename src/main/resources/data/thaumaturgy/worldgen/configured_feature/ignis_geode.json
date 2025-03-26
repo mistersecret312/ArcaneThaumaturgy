@@ -5,7 +5,7 @@
       "alternate_inner_layer_provider": {
         "type": "minecraft:simple_state_provider",
         "state": {
-          "Name": "thaumaturgy:budding_crystallized_ignis"
+          "Name": "thaumaturgy:ignis_budding_vis_crystal"
         }
       },
       "cannot_replace": "#minecraft:features_cannot_replace",
@@ -18,33 +18,33 @@
       "inner_layer_provider": {
         "type": "minecraft:simple_state_provider",
         "state": {
-          "Name": "thaumaturgy:crystallized_ignis_block"
+          "Name": "thaumaturgy:ignis_vis_crystal_block"
         }
       },
       "inner_placements": [
         {
-          "Name": "thaumaturgy:small_crystallized_ignis_bud",
+          "Name": "thaumaturgy:small_medium_vis_crystal_bud",
           "Properties": {
             "facing": "up",
             "waterlogged": "false"
           }
         },
         {
-          "Name": "thaumaturgy:medium_crystallized_ignis_bud",
+          "Name": "thaumaturgy:ignis_medium_vis_crystal_bud",
           "Properties": {
             "facing": "up",
             "waterlogged": "false"
           }
         },
         {
-          "Name": "thaumaturgy:large_crystallized_ignis_bud",
+          "Name": "thaumaturgy:ignis_large_vis_crystal_bud",
           "Properties": {
             "facing": "up",
             "waterlogged": "false"
           }
         },
         {
-          "Name": "thaumaturgy:crystallized_ignis_cluster",
+          "Name": "thaumaturgy:ignis_vis_crystal_cluster",
           "Properties": {
             "facing": "up",
             "waterlogged": "false"

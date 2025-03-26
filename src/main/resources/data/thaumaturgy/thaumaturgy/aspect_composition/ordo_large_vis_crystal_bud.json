@@ -1,0 +1,10 @@
+{
+  "item": "thaumaturgy:ordo_large_vis_crystal_bud",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:ordo",
+      "amount": 9
+    }
+  ]
+}

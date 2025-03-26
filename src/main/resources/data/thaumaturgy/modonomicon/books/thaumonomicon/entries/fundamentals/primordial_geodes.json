@@ -1,0 +1,36 @@
+{
+  "background_u_index": 0,
+  "background_v_index": 0,
+  "category": "thaumaturgy:fundamentals",
+  "description": "book.thaumaturgy.thaumonomicon.fundamentals.primordial_geodes.description",
+  "hide_while_locked": false,
+  "icon": {
+    "item": "thaumaturgy:aer_vis_crystal_cluster"
+  },
+  "name": "book.thaumaturgy.thaumonomicon.fundamentals.primordial_geodes.name",
+  "pages": [
+    {
+      "type": "modonomicon:spotlight",
+      "anchor": "",
+      "condition": {
+        "type": "modonomicon:none"
+      },
+      "item": {
+        "item": "thaumaturgy:aer_vis_crystal_cluster"
+      },
+      "show_title_separator": true,
+      "title": "book.thaumaturgy.thaumonomicon.fundamentals.primordial_geodes.page.1.title",
+      "text": "book.thaumaturgy.thaumonomicon.fundamentals.primordial_geodes.page.1.text"
+    },
+    {
+      "type": "modonomicon:text",
+      "anchor": "",
+      "condition": {
+        "type": "modonomicon:none"
+      },
+      "text": "book.thaumaturgy.thaumonomicon.fundamentals.primordial_geodes.page.2.text"
+    }
+  ],
+  "x": 0,
+  "y": 0
+}

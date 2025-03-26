@@ -1,0 +1,10 @@
+{
+  "item": "thaumaturgy:aer_vis_crystal_block",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:aer",
+      "amount": 24
+    }
+  ]
+}
