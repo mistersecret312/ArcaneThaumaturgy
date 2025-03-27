@@ -43,8 +43,8 @@ public class NitorItem extends BlockItem
         }
         else
         {
-            setColor(stack, 0xFFFFFF);
-            return 0xFFFFFF;
+            setColor(stack, 15834178);
+            return 15834178;
         }
     }
 

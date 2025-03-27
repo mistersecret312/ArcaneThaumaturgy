@@ -1,0 +1,9 @@
+{
+  "wand_use": {
+    "subtitle": "sound.thaumaturgy.wand_use",
+    "sounds":
+    [
+      "thaumaturgy:wand_use"
+    ]
+  }
+}

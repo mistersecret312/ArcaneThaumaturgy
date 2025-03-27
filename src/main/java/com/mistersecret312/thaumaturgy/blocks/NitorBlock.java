@@ -1,7 +1,9 @@
 package com.mistersecret312.thaumaturgy.blocks;
 
 import com.mistersecret312.thaumaturgy.block_entities.NitorBlockEntity;
+import com.mistersecret312.thaumaturgy.init.SoundInit;
 import com.mistersecret312.thaumaturgy.items.NitorItem;
+import com.mistersecret312.thaumaturgy.items.WandItem;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -53,9 +55,11 @@ public class NitorBlock extends Block implements EntityBlock
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand,
                                  BlockHitResult pHit)
     {
-        if (pPlayer.getItemInHand(pHand).getItem() instanceof DyeItem dye)
+        ItemStack stack = pPlayer.getItemInHand(pHand);
+
+        if (pLevel.getBlockEntity(pPos) instanceof NitorBlockEntity nitor)
         {
-            if (pLevel.getBlockEntity(pPos) instanceof NitorBlockEntity nitor)
+            if (stack.getItem() instanceof DyeItem dye)
             {
                 int color = nitor.getColor();
                 float[] colors = dye.getDyeColor().getTextureDiffuseColors();
@@ -96,9 +100,22 @@ public class NitorBlock extends Block implements EntityBlock
                 j2 = (j2 << 8) + l1;
 
                 nitor.setColor(j2);
+
+                if (!pPlayer.isCreative())
+                {
+                    stack.shrink(1);
+                }
+                return InteractionResult.SUCCESS;
+            } else if (stack.getItem() instanceof WandItem && nitor.getColor() != 15834178)
+            {
+                nitor.setColor(15834178);
+
+                pLevel.playSound(pPlayer, pPos, SoundInit.WAND_USE.get(), SoundSource.BLOCKS, 1, 1);
+
+                return InteractionResult.SUCCESS;
             }
         }
-            return super.use(pState, pLevel, pPos, pPlayer, pHand, pHit);
+        return InteractionResult.PASS;
     }
 
     @Override
