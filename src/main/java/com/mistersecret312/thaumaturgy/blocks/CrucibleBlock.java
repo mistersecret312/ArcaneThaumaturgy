@@ -36,13 +36,13 @@ import java.util.function.Consumer;
 
 public class CrucibleBlock extends Block implements EntityBlock
 {
-    public static final IntegerProperty FILLED = IntegerProperty.create("filled", 0, 4);
+    public static final IntegerProperty FILL_LEVEL = IntegerProperty.create("fill_level", 0, 4);
     public static final BooleanProperty IS_BOILING = BooleanProperty.create("is_boiling");
 
     public CrucibleBlock(Properties pProperties)
     {
         super(pProperties);
-        this.defaultBlockState().setValue(FILLED, 0).setValue(IS_BOILING, false);
+        this.defaultBlockState().setValue(FILL_LEVEL, 0).setValue(IS_BOILING, false);
     }
 
     @Override
@@ -59,7 +59,7 @@ public class CrucibleBlock extends Block implements EntityBlock
         if(stack.is(Items.WATER_BUCKET))
         {
             pPlayer.setItemInHand(pHand, Items.BUCKET.getDefaultInstance());
-            pLevel.setBlockAndUpdate(pPos, pState.setValue(FILLED, 0));
+            pLevel.setBlockAndUpdate(pPos, pState.setValue(FILL_LEVEL, 0));
             pLevel.playSound(pPlayer, pPlayer.getX(), pPlayer.getY(), pPlayer.getZ(), SoundEvents.BUCKET_EMPTY, SoundSource.PLAYERS, 1.0F, 1.0F);
             return InteractionResult.sidedSuccess(pLevel.isClientSide());
         }
@@ -69,13 +69,13 @@ public class CrucibleBlock extends Block implements EntityBlock
     @Override
     public @Nullable BlockState getStateForPlacement(BlockPlaceContext pContext)
     {
-        return this.defaultBlockState().setValue(FILLED, 0).setValue(IS_BOILING, false);
+        return this.defaultBlockState().setValue(FILL_LEVEL, 0).setValue(IS_BOILING, false);
     }
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder)
     {
-        pBuilder.add(FILLED);
+        pBuilder.add(FILL_LEVEL);
         pBuilder.add(IS_BOILING);
         super.createBlockStateDefinition(pBuilder);
     }
@@ -89,7 +89,7 @@ public class CrucibleBlock extends Block implements EntityBlock
     @Override
     public BlockState updateShape(BlockState pState, Direction pDirection, BlockState pNeighborState, LevelAccessor pLevel, BlockPos pPos, BlockPos pNeighborPos)
     {
-        return pState.setValue(IS_BOILING, hasHeatSource(pLevel, pPos) && pState.getValue(FILLED) > 0);
+        return pState.setValue(IS_BOILING, hasHeatSource(pLevel, pPos) && pState.getValue(FILL_LEVEL) > 0);
     }
 
     public boolean hasHeatSource(LevelAccessor accessor, BlockPos pos)
