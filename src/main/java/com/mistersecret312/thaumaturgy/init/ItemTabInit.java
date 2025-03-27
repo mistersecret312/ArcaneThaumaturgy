@@ -20,19 +20,6 @@ public class ItemTabInit
                     .displayItems((parameters, output) ->
                     {
                         output.accept(BlockInit.ARCANE_STONE_PEDESTAL.get());
-                        output.accept(BlockInit.ARCANE_STONE.get());
-                        output.accept(BlockInit.ARCANE_STONE_STAIRS.get());
-                        output.accept(BlockInit.ARCANE_STONE_SLAB.get());
-                        output.accept(BlockInit.ARCANE_STONE_WALL.get());
-                        output.accept(BlockInit.ARCANE_STONE_BRICKS.get());
-                        output.accept(BlockInit.ARCANE_STONE_BRICKS_STAIRS.get());
-                        output.accept(BlockInit.ARCANE_STONE_BRICKS_SLAB.get());
-                        output.accept(BlockInit.ARCANE_STONE_BRICKS_WALL.get());
-
-                        output.accept(BlockInit.GREATWOOD_LOG.get());
-                        output.accept(BlockInit.GREATWOOD_PLANKS.get());
-                        output.accept(BlockInit.GREATWOOD_PLANKS_STAIRS.get());
-                        output.accept(BlockInit.GREATWOOD_PLANKS_SLAB.get());
 
                         output.accept(BlockInit.CRUCIBLE.get());
 
@@ -60,6 +47,7 @@ public class ItemTabInit
     public static final RegistryObject<CreativeModeTab> RESOURCE_TAB = TABS.register("resource_tab",
             () -> CreativeModeTab.builder().icon(() -> BlockInit.AER_VIS_CRYSTAL_CLUSTER.get().asItem().getDefaultInstance())
                     .title(Component.translatable("tabs.thaumaturgy.resources_tab"))
+                    .withTabsBefore(MAIN_TAB.getKey())
                     .displayItems((parameters, output) ->
                     {
                         output.accept(ItemInit.AER_VIS_CRYSTAL.get());
@@ -112,6 +100,34 @@ public class ItemTabInit
                     })
                     .build());
 
+    public static final RegistryObject<CreativeModeTab> DECORATIONS_TAB = TABS.register("decorations_tab",
+            () -> CreativeModeTab.builder().icon(() -> BlockInit.ARCANE_STONE_BRICKS.get().asItem().getDefaultInstance())
+                    .title(Component.translatable("tabs.thaumaturgy.decorations_tab"))
+                    .withTabsBefore(RESOURCE_TAB.getKey())
+                    .displayItems((parameters, output) ->
+                    {
+                        output.accept(BlockInit.ARCANE_STONE.get());
+                        output.accept(BlockInit.ARCANE_STONE_STAIRS.get());
+                        output.accept(BlockInit.ARCANE_STONE_SLAB.get());
+                        output.accept(BlockInit.ARCANE_STONE_WALL.get());
+                        output.accept(BlockInit.ARCANE_STONE_PRESSURE_PLATE.get());
+                        output.accept(BlockInit.ARCANE_STONE_BUTTON.get());
+                        output.accept(BlockInit.ARCANE_STONE_BRICKS.get());
+                        output.accept(BlockInit.ARCANE_STONE_BRICKS_STAIRS.get());
+                        output.accept(BlockInit.ARCANE_STONE_BRICKS_SLAB.get());
+                        output.accept(BlockInit.ARCANE_STONE_BRICKS_WALL.get());
+
+                        output.accept(BlockInit.GREATWOOD_LOG.get());
+                        output.accept(BlockInit.GREATWOOD_WOOD.get());
+                        output.accept(BlockInit.STRIPPED_GREATWOOD_LOG.get());
+                        output.accept(BlockInit.STRIPPED_GREATWOOD_WOOD.get());
+                        output.accept(BlockInit.GREATWOOD_PLANKS.get());
+                        output.accept(BlockInit.GREATWOOD_PLANKS_STAIRS.get());
+                        output.accept(BlockInit.GREATWOOD_PLANKS_SLAB.get());
+                        output.accept(BlockInit.GREATWOOD_PLANKS_PRESSURE_PLATE.get());
+                        output.accept(BlockInit.GREATWOOD_PLANKS_BUTTON.get());
+                    })
+                    .build());
 
     public static void register(IEventBus eventBus)
     {

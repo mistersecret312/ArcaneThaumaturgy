@@ -6,6 +6,7 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -33,12 +34,20 @@ public class BlockInit
     public static final RegistryObject<Block> ARCANE_STONE_BRICKS_SLAB = registerBlock("arcane_stone_bricks_slab", () -> new SlabBlock(BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(3.0F, 5f).sound(SoundType.DEEPSLATE).mapColor(MapColor.COLOR_GRAY)));
     public static final RegistryObject<Block> ARCANE_STONE_BRICKS_STAIRS = registerBlock("arcane_stone_bricks_stairs", () -> new StairBlock(ARCANE_STONE_BRICKS.get().defaultBlockState(), BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(3.0F, 5f).sound(SoundType.DEEPSLATE).mapColor(MapColor.COLOR_GRAY)));
     public static final RegistryObject<Block> ARCANE_STONE_BRICKS_WALL = registerBlock("arcane_stone_bricks_wall", () -> new WallBlock(BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(3.0F, 5f).sound(SoundType.DEEPSLATE).mapColor(MapColor.COLOR_GRAY)));
+    public static final RegistryObject<Block> ARCANE_STONE_BUTTON = registerBlock("arcane_stone_button", () -> new ButtonBlock(BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(3.0F, 5f).sound(SoundType.DEEPSLATE).mapColor(MapColor.COLOR_GRAY), BlockSetType.STONE, 30, false));
+    public static final RegistryObject<Block> ARCANE_STONE_PRESSURE_PLATE = registerBlock("arcane_stone_pressure_plate", () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.MOBS, BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(3.0F, 5f).sound(SoundType.DEEPSLATE).mapColor(MapColor.COLOR_GRAY), BlockSetType.STONE));
+
     public static final RegistryObject<PedestalBlock> ARCANE_STONE_PEDESTAL = registerBlock("arcane_stone_pedestal", () -> new PedestalBlock(BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(3.0F, 5f).sound(SoundType.DEEPSLATE).mapColor(MapColor.COLOR_GRAY)));
 
     public static final RegistryObject<Block> GREATWOOD_LOG = registerBlock("greatwood_log", () -> new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(2.0F).sound(SoundType.NETHER_WOOD).ignitedByLava()));
+    public static final RegistryObject<Block> GREATWOOD_WOOD = registerBlock("greatwood_wood", () -> new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(2.0F).sound(SoundType.NETHER_WOOD).ignitedByLava()));
+    public static final RegistryObject<Block> STRIPPED_GREATWOOD_LOG = registerBlock("stripped_greatwood_log", () -> new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(2.0F).sound(SoundType.NETHER_WOOD).ignitedByLava()));
+    public static final RegistryObject<Block> STRIPPED_GREATWOOD_WOOD = registerBlock("stripped_greatwood_wood", () -> new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(2.0F).sound(SoundType.NETHER_WOOD).ignitedByLava()));
     public static final RegistryObject<Block> GREATWOOD_PLANKS = registerBlock("greatwood_planks", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(2.0F).sound(SoundType.NETHER_WOOD).ignitedByLava()));
     public static final RegistryObject<Block> GREATWOOD_PLANKS_SLAB = registerBlock("greatwood_planks_slab", () -> new SlabBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).requiresCorrectToolForDrops().strength(2.0F).sound(SoundType.NETHER_WOOD)));
     public static final RegistryObject<Block> GREATWOOD_PLANKS_STAIRS = registerBlock("greatwood_planks_stairs", () -> new StairBlock(ARCANE_STONE_BRICKS.get().defaultBlockState(), BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(2.0F).sound(SoundType.NETHER_WOOD).mapColor(MapColor.COLOR_BROWN)));
+    public static final RegistryObject<Block> GREATWOOD_PLANKS_BUTTON = registerBlock("greatwood_planks_button", () -> new ButtonBlock(BlockBehaviour.Properties.of().strength(2.0F).sound(SoundType.NETHER_WOOD).mapColor(MapColor.COLOR_BROWN), BlockSetType.DARK_OAK, 30, true));
+    public static final RegistryObject<Block> GREATWOOD_PLANKS_PRESSURE_PLATE = registerBlock("greatwood_planks_pressure_plate", () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, BlockBehaviour.Properties.of().strength(2.0F).sound(SoundType.NETHER_WOOD).mapColor(MapColor.COLOR_BROWN), BlockSetType.DARK_OAK));
 
     public static final RegistryObject<AmethystBlock> AER_VIS_CRYSTAL_BLOCK = registerBlock("aer_vis_crystal_block", () -> new AmethystBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_YELLOW).strength(1.5F).sound(SoundType.AMETHYST).requiresCorrectToolForDrops()));
     public static final RegistryObject<BuddingVisCrystalBlock> AER_BUDDING_VIS_CRYSTAL = registerBlock("aer_budding_vis_crystal", () -> new BuddingVisCrystalBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_YELLOW).randomTicks().strength(1.5F).sound(SoundType.AMETHYST).requiresCorrectToolForDrops().pushReaction(PushReaction.DESTROY), BuddingVisCrystalBlock.CrystalAspect.AER));

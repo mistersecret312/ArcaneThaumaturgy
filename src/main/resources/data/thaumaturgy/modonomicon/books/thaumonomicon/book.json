@@ -19,11 +19,11 @@
   "category_button_x_offset": 0,
   "category_button_y_offset": 0,
   "crafting_texture": "modonomicon:textures/gui/crafting_textures.png",
-  "creative_tab": "thaumaturgy:main",
   "default_title_color": 0,
   "font": "modonomicon:default",
   "frame_texture": "modonomicon:textures/gui/book_frame.png",
-  "generate_book_item": false,
+  "generate_book_item": true,
+  "custom_book_item": "thaumaturgy:thaumonomicon",
   "left_frame_overlay": {
     "frame_height": 70,
     "frame_width": 7,
@@ -33,8 +33,8 @@
     "texture_height": 256,
     "texture_width": 256
   },
-  "model": "modonomicon:modonomicon_green",
-  "name": "book.thaumaturgy.thaumonomicon",
+  "model": "thaumaturgy:thaumonomicon",
+  "name": "item.thaumaturgy.thaumonomicon",
   "read_all_button_y_offset": 0,
   "right_frame_overlay": {
     "frame_height": 70,
@@ -47,7 +47,6 @@
   },
   "search_button_x_offset": 0,
   "search_button_y_offset": 0,
-  "tooltip": "book.modonomicon.demo.tooltip",
   "top_frame_overlay": {
     "frame_height": 7,
     "frame_width": 72,

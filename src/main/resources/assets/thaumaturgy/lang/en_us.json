@@ -1,6 +1,7 @@
 {
   "_creative_tabs": "Creative Tabs",
   "tabs.thaumaturgy.main_tab": "Arcane Thaumaturgy",
+  "tabs.thaumaturgy.decorations_tab": "Thaumic Decorations",
   "tabs.thaumaturgy.resources_tab": "Thaumic Resources",
 
   "item.thaumaturgy.revelation_goggles": "Goggles Of Revelation",
@@ -27,6 +28,8 @@
   "block.thaumaturgy.arcane_stone_slab": "Arcane Stone Slab",
   "block.thaumaturgy.arcane_stone_stairs": "Arcane Stone Stairs",
   "block.thaumaturgy.arcane_stone_wall": "Arcane Stone Wall",
+  "block.thaumaturgy.arcane_stone_button": "Arcane Stone Button",
+  "block.thaumaturgy.arcane_stone_pressure_plate": "Arcane Stone Pressure Plate",
   "block.thaumaturgy.arcane_stone_bricks": "Arcane Stone Bricks",
   "block.thaumaturgy.arcane_stone_bricks_slab": "Arcane Stone Bricks Slab",
   "block.thaumaturgy.arcane_stone_bricks_stairs": "Arcane Stone Bricks Stairs",
@@ -34,9 +37,14 @@
   "block.thaumaturgy.arcane_stone_pedestal": "Arcane Stone Pedestal",
 
   "block.thaumaturgy.greatwood_log": "Greatwood Log",
+  "block.thaumaturgy.greatwood_wood": "Greatwood Wood",
+  "block.thaumaturgy.stripped_greatwood_log": "Stripped Greatwood Log",
+  "block.thaumaturgy.stripped_greatwood_wood": "Stripped Greatwood Wood",
   "block.thaumaturgy.greatwood_planks": "Greatwood Planks",
   "block.thaumaturgy.greatwood_planks_slab": "Greatwood Planks Slab",
   "block.thaumaturgy.greatwood_planks_stairs": "Greatwood Planks Stairs",
+  "block.thaumaturgy.greatwood_planks_button": "Greatwood Planks Button",
+  "block.thaumaturgy.greatwood_planks_pressure_plate": "Greatwood Planks Pressure Plate",
 
   "block.thaumaturgy.crucible": "Crucible",
   "block.thaumaturgy.runic_matrix": "Runic Matrix",

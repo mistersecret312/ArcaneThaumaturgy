@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/button_pressed",
+  "textures": {
+    "texture": "thaumaturgy:block/greatwood_planks"
+  }
+}
