@@ -24,7 +24,7 @@ public class BlockInit
 
     public static final RegistryObject<RunicMatrixBlock> RUNIC_MATRIX = registerBlock("runic_matrix", () -> new RunicMatrixBlock(BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(3.0F).sound(SoundType.DEEPSLATE).mapColor(MapColor.COLOR_GRAY).noOcclusion()));
 
-    public static final RegistryObject<NitorBlock> NITOR = registerBlock("nitor", () -> new NitorBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE).noOcclusion().noCollission().lightLevel((state) -> 10).emissiveRendering((state, getter, pos) -> true).instabreak().sound(SoundTypeInit.NITOR)));
+    public static final RegistryObject<NitorBlock> NITOR = BLOCKS.register("nitor", () -> new NitorBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE).noOcclusion().noCollission().lightLevel((state) -> 10).emissiveRendering((state, getter, pos) -> true).instabreak().sound(SoundTypeInit.NITOR)));
 
     public static final RegistryObject<Block> ARCANE_STONE = registerBlock("arcane_stone", () -> new Block(BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(3.0F, 5f).sound(SoundType.DEEPSLATE).mapColor(MapColor.COLOR_GRAY)));
     public static final RegistryObject<Block> ARCANE_STONE_SLAB = registerBlock("arcane_stone_slab", () -> new SlabBlock(BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(3.0F, 5f).sound(SoundType.DEEPSLATE).mapColor(MapColor.COLOR_GRAY)));

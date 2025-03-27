@@ -20,6 +20,7 @@ import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.client.renderer.texture.TextureAtlas;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.FastColor;
 import net.minecraft.util.Mth;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
@@ -45,8 +46,6 @@ public class NitorRenderer implements BlockEntityRenderer<NitorBlockEntity>
         final TextureAtlasSprite sprite = Minecraft.getInstance().getTextureAtlas(TextureAtlas.LOCATION_BLOCKS)
                 .apply(TEXTURE);
 
-
-
         poseStack.pushPose();
 
         poseStack.translate(0.5f, 0.5f, 0.5f);
@@ -54,11 +53,13 @@ public class NitorRenderer implements BlockEntityRenderer<NitorBlockEntity>
         poseStack.mulPose(Minecraft.getInstance().getEntityRenderDispatcher().cameraOrientation());
         poseStack.mulPose(Axis.YP.rotationDegrees(180));
 
+        int color = blockEntity.getColor();
+
         VertexConsumer consumer = buffer.getBuffer(ThaumaturgyRenderTypes.nitor(sprite.atlasLocation()));
-        consumer.vertex(poseStack.last().pose(), -0.5f, -0.5f, 0).uv(sprite.getU0(), sprite.getV1()).endVertex();
-        consumer.vertex(poseStack.last().pose(), 0.5f, -0.5f, 0).uv(sprite.getU1(), sprite.getV1()).endVertex();
-        consumer.vertex(poseStack.last().pose(), 0.5f, 0.5f, 0).uv(sprite.getU1(), sprite.getV0()).endVertex();
-        consumer.vertex(poseStack.last().pose(), -0.5f, 0.5f, 0).uv(sprite.getU0(), sprite.getV0()).endVertex();
+        consumer.vertex(poseStack.last().pose(), -0.5f, -0.5f, 0).color(FastColor.ABGR32.color(255, color)).uv(sprite.getU0(), sprite.getV1()).endVertex();
+        consumer.vertex(poseStack.last().pose(), 0.5f, -0.5f, 0).color(FastColor.ABGR32.color(255, color)).uv(sprite.getU1(), sprite.getV1()).endVertex();
+        consumer.vertex(poseStack.last().pose(), 0.5f, 0.5f, 0).color(FastColor.ABGR32.color(255, color)).uv(sprite.getU1(), sprite.getV0()).endVertex();
+        consumer.vertex(poseStack.last().pose(), -0.5f, 0.5f, 0).color(FastColor.ABGR32.color(255, color)).uv(sprite.getU0(), sprite.getV0()).endVertex();
         //Minecraft.getInstance().getItemRenderer().renderStatic();
 
         poseStack.popPose();

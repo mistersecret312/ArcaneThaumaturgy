@@ -18,10 +18,10 @@ public class ThaumaturgyRenderTypes extends RenderType
 
     public static RenderType nitor(ResourceLocation location)
     {
-        return create("nitor", DefaultVertexFormat.POSITION_TEX,
+        return create("nitor", DefaultVertexFormat.POSITION_COLOR_TEX,
                 VertexFormat.Mode.QUADS, 256, true, true,
                 RenderType.CompositeState.builder()
-                        .setShaderState(RenderStateShard.POSITION_TEX_SHADER)
+                        .setShaderState(RenderStateShard.POSITION_COLOR_TEX_SHADER)
                         .setTextureState(new RenderStateShard.TextureStateShard(location, false, false))
                         .createCompositeState(true)
         );

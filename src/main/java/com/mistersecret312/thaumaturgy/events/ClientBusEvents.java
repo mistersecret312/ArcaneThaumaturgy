@@ -5,6 +5,7 @@ import com.mistersecret312.thaumaturgy.aspects.AspectStack;
 import com.mistersecret312.thaumaturgy.datapack.Aspect;
 import com.mistersecret312.thaumaturgy.datapack.AspectComposition;
 import com.mistersecret312.thaumaturgy.init.ItemInit;
+import com.mistersecret312.thaumaturgy.items.NitorItem;
 import com.mistersecret312.thaumaturgy.items.RevelationGogglesItem;
 import com.mistersecret312.thaumaturgy.tooltipcomponents.AspectTooltipComponent;
 import com.mistersecret312.thaumaturgy.util.RenderBlitUtil;
@@ -20,12 +21,15 @@ import net.minecraft.core.Registry;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.DyeableArmorItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.ClipContext;
+import net.minecraft.world.level.block.ShulkerBoxBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.client.event.RegisterColorHandlersEvent;
 import net.minecraftforge.client.event.RenderGuiEvent;
 import net.minecraftforge.client.event.RenderTooltipEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -38,6 +42,13 @@ import java.util.stream.Stream;
 @Mod.EventBusSubscriber(modid = ArcaneThaumaturgyMod.MODID, value = Dist.CLIENT)
 public class ClientBusEvents
 {
+
+    @SubscribeEvent
+    public static void itemColors(RegisterColorHandlersEvent.Item event)
+    {
+        event.register((stack, color) -> color != 0 ? -1 : NitorItem.getColor(stack), ItemInit.NITOR.get());
+    }
+
 
     @SubscribeEvent
     public static void aspectTooltip(RenderTooltipEvent.GatherComponents event)

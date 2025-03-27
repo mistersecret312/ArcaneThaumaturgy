@@ -1,10 +1,7 @@
 package com.mistersecret312.thaumaturgy.init;
 
 import com.mistersecret312.thaumaturgy.ArcaneThaumaturgyMod;
-import com.mistersecret312.thaumaturgy.items.RevelationGogglesItem;
-import com.mistersecret312.thaumaturgy.items.ThaumometerItem;
-import com.mistersecret312.thaumaturgy.items.ThaumonomiconItem;
-import com.mistersecret312.thaumaturgy.items.WandItem;
+import com.mistersecret312.thaumaturgy.items.*;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -15,6 +12,8 @@ import net.minecraftforge.registries.RegistryObject;
 public class ItemInit
 {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, ArcaneThaumaturgyMod.MODID);
+
+    public static final RegistryObject<Item> NITOR = ITEMS.register("nitor", () -> new NitorItem(new Item.Properties().stacksTo(1)));
 
     public static final RegistryObject<Item> IRON_KNOB = ITEMS.register("iron_knob", () -> new Item(new Item.Properties().stacksTo(16)));
     public static final RegistryObject<Item> GOLD_KNOB = ITEMS.register("gold_knob", () -> new Item(new Item.Properties().stacksTo(16)));
