@@ -44,13 +44,6 @@ public class ClientBusEvents
 {
 
     @SubscribeEvent
-    public static void itemColors(RegisterColorHandlersEvent.Item event)
-    {
-        event.register((stack, color) -> color != 0 ? -1 : NitorItem.getColor(stack), ItemInit.NITOR.get());
-    }
-
-
-    @SubscribeEvent
     public static void aspectTooltip(RenderTooltipEvent.GatherComponents event)
     {
         ItemStack stack = event.getItemStack();

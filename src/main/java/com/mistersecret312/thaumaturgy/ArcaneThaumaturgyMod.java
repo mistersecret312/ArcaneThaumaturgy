@@ -8,6 +8,7 @@ import com.mistersecret312.thaumaturgy.client.renderer.ThaumometerInfoRenderer;
 import com.mistersecret312.thaumaturgy.datapack.Aspect;
 import com.mistersecret312.thaumaturgy.datapack.AspectComposition;
 import com.mistersecret312.thaumaturgy.init.*;
+import com.mistersecret312.thaumaturgy.items.NitorItem;
 import com.mistersecret312.thaumaturgy.tooltipcomponents.AspectTooltipComponent;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
@@ -106,12 +107,20 @@ public class ArcaneThaumaturgyMod
         }
 
         @SubscribeEvent
-        public static void registerReloadListeners(RegisterClientReloadListenersEvent event){
+        public static void registerReloadListeners(RegisterClientReloadListenersEvent event)
+        {
             event.registerReloadListener(ThaumometerInfoRenderer.INSTANCE);
         }
 
         @SubscribeEvent
-        public static void onModelBaked(ModelEvent.RegisterAdditional event){
+        public static void itemColors(RegisterColorHandlersEvent.Item event)
+        {
+            event.register((stack, color) -> color != 0 ? -1 : NitorItem.getColor(stack), ItemInit.NITOR.get());
+        }
+
+        @SubscribeEvent
+        public static void onModelBaked(ModelEvent.RegisterAdditional event)
+        {
             event.register(ResourceLocation.fromNamespaceAndPath(ArcaneThaumaturgyMod.MODID, "item/thaumometer_baked"));
         }
 

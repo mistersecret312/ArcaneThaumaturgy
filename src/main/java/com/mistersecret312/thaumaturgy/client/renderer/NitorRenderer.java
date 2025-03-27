@@ -43,7 +43,7 @@ public class NitorRenderer implements BlockEntityRenderer<NitorBlockEntity>
                        MultiBufferSource buffer, int packedLight, int pPackedOverlay)
     {
 
-        final TextureAtlasSprite sprite = Minecraft.getInstance().getTextureAtlas(TextureAtlas.LOCATION_BLOCKS)
+        final TextureAtlasSprite spriteA = Minecraft.getInstance().getTextureAtlas(TextureAtlas.LOCATION_BLOCKS)
                 .apply(TEXTURE);
 
         poseStack.pushPose();
@@ -55,12 +55,11 @@ public class NitorRenderer implements BlockEntityRenderer<NitorBlockEntity>
 
         int color = blockEntity.getColor();
 
-        VertexConsumer consumer = buffer.getBuffer(ThaumaturgyRenderTypes.nitor(sprite.atlasLocation()));
-        consumer.vertex(poseStack.last().pose(), -0.5f, -0.5f, 0).color(FastColor.ABGR32.color(255, color)).uv(sprite.getU0(), sprite.getV1()).endVertex();
-        consumer.vertex(poseStack.last().pose(), 0.5f, -0.5f, 0).color(FastColor.ABGR32.color(255, color)).uv(sprite.getU1(), sprite.getV1()).endVertex();
-        consumer.vertex(poseStack.last().pose(), 0.5f, 0.5f, 0).color(FastColor.ABGR32.color(255, color)).uv(sprite.getU1(), sprite.getV0()).endVertex();
-        consumer.vertex(poseStack.last().pose(), -0.5f, 0.5f, 0).color(FastColor.ABGR32.color(255, color)).uv(sprite.getU0(), sprite.getV0()).endVertex();
-        //Minecraft.getInstance().getItemRenderer().renderStatic();
+        VertexConsumer consumerA = buffer.getBuffer(ThaumaturgyRenderTypes.nitor(spriteA.atlasLocation()));
+        consumerA.vertex(poseStack.last().pose(), -0.5f, -0.5f, 0).color(FastColor.ABGR32.color(255, color)).uv(spriteA.getU0(), spriteA.getV1()).endVertex();
+        consumerA.vertex(poseStack.last().pose(), 0.5f, -0.5f, 0).color(FastColor.ABGR32.color(255, color)).uv(spriteA.getU1(), spriteA.getV1()).endVertex();
+        consumerA.vertex(poseStack.last().pose(), 0.5f, 0.5f, 0).color(FastColor.ABGR32.color(255, color)).uv(spriteA.getU1(), spriteA.getV0()).endVertex();
+        consumerA.vertex(poseStack.last().pose(), -0.5f, 0.5f, 0).color(FastColor.ABGR32.color(255, color)).uv(spriteA.getU0(), spriteA.getV0()).endVertex();
 
         poseStack.popPose();
 
