@@ -39,8 +39,8 @@ public class BlockInit
 
     public static final RegistryObject<PedestalBlock> ARCANE_STONE_PEDESTAL = registerBlock("arcane_stone_pedestal", () -> new PedestalBlock(BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(3.0F, 5f).sound(SoundType.DEEPSLATE).mapColor(MapColor.COLOR_GRAY)));
 
-    public static final RegistryObject<Block> GREATWOOD_LOG = registerBlock("greatwood_log", () -> new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(2.0F).sound(SoundType.NETHER_WOOD).ignitedByLava()));
-    public static final RegistryObject<Block> GREATWOOD_WOOD = registerBlock("greatwood_wood", () -> new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(2.0F).sound(SoundType.NETHER_WOOD).ignitedByLava()));
+    public static final RegistryObject<Block> GREATWOOD_LOG = registerBlock("greatwood_log", () -> new GreatRotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(2.0F).sound(SoundType.NETHER_WOOD).ignitedByLava()));
+    public static final RegistryObject<Block> GREATWOOD_WOOD = registerBlock("greatwood_wood", () -> new GreatRotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(2.0F).sound(SoundType.NETHER_WOOD).ignitedByLava()));
     public static final RegistryObject<Block> STRIPPED_GREATWOOD_LOG = registerBlock("stripped_greatwood_log", () -> new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(2.0F).sound(SoundType.NETHER_WOOD).ignitedByLava()));
     public static final RegistryObject<Block> STRIPPED_GREATWOOD_WOOD = registerBlock("stripped_greatwood_wood", () -> new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(2.0F).sound(SoundType.NETHER_WOOD).ignitedByLava()));
     public static final RegistryObject<Block> GREATWOOD_PLANKS = registerBlock("greatwood_planks", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(2.0F).sound(SoundType.NETHER_WOOD).ignitedByLava()));

@@ -1,0 +1,10 @@
+{
+  "item": "thaumaturgy:terra_vis_crystal_cluster",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:primal/terra",
+      "amount": 12
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "item": "thaumaturgy:ordo_medium_vis_crystal_bud",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:primal/ordo",
+      "amount": 6
+    }
+  ]
+}

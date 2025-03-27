@@ -1,0 +1,10 @@
+{
+  "item": "thaumaturgy:ignis_vis_crystal_cluster",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:primal/ignis",
+      "amount": 12
+    }
+  ]
+}

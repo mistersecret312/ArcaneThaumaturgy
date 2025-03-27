@@ -1,0 +1,10 @@
+{
+  "item": "minecraft:dirt",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:primal/terra",
+      "amount": 2
+    }
+  ]
+}

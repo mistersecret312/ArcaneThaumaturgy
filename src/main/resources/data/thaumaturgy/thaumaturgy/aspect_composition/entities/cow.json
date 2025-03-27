@@ -1,0 +1,14 @@
+{
+  "entity": "minecraft:cow",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:combinations/bestia",
+      "amount": 3
+    },
+    {
+      "aspect": "thaumaturgy:primal/terra",
+      "amount": 3
+    }
+  ]
+}

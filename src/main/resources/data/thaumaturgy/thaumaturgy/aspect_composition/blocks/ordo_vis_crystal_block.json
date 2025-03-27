@@ -1,0 +1,10 @@
+{
+  "item": "thaumaturgy:ordo_vis_crystal_block",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:primal/ordo",
+      "amount": 24
+    }
+  ]
+}

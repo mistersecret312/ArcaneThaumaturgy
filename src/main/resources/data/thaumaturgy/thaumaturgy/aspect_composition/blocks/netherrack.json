@@ -1,0 +1,14 @@
+{
+  "item": "minecraft:netherrack",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:primal/ignis",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:primal/terra",
+      "amount": 1
+    }
+  ]
+}

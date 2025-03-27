@@ -1,0 +1,10 @@
+{
+  "item": "thaumaturgy:aqua_vis_crystal_cluster",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:primal/aqua",
+      "amount": 12
+    }
+  ]
+}

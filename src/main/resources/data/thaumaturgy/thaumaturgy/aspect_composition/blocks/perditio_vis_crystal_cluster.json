@@ -1,0 +1,10 @@
+{
+  "item": "thaumaturgy:perditio_vis_crystal_cluster",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:primal/perditio",
+      "amount": 12
+    }
+  ]
+}

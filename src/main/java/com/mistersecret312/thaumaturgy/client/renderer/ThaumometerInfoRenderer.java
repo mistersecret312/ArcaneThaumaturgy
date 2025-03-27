@@ -1,6 +1,7 @@
 package com.mistersecret312.thaumaturgy.client.renderer;
 
 import com.mistersecret312.thaumaturgy.ArcaneThaumaturgyMod;
+import com.mistersecret312.thaumaturgy.aspects.AspectStack;
 import com.mistersecret312.thaumaturgy.datapack.Aspect;
 import com.mistersecret312.thaumaturgy.datapack.AspectComposition;
 import com.mistersecret312.thaumaturgy.util.RenderBlitUtil;
@@ -26,12 +27,19 @@ import net.minecraft.core.Registry;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.entity.projectile.ProjectileUtil;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.EntityHitResult;
+import net.minecraft.world.phys.Vec3;
 import org.joml.Matrix4f;
 
 import java.util.Map;
@@ -58,12 +66,90 @@ public class ThaumometerInfoRenderer extends BlockEntityWithoutLevelRenderer {
         pose.translate(-0.5, -0.7, 0.49);
         pose.scale(0.01F, 0.01F, 0.01F);
 
-
-
         Minecraft minecraft = Minecraft.getInstance();
         LocalPlayer player = minecraft.player;
         Font font = minecraft.font;
 
+        if(player != null)
+        {
+            if(!searchForEntity(player, pose, font, pBuffer, minecraft))
+                searchForBlock(player, pose, font, pBuffer, minecraft);
+        }
+
+
+
+        //Minecraft.getInstance().font.drawInBatch("Hiya, Secret!", 0, 0, -1, false, pose.last().pose(), pBuffer, Font.DisplayMode.POLYGON_OFFSET, 0, 15728880);
+
+        pose.popPose();
+
+
+        //super.renderByItem(pStack, pDisplayContext, pose, pBuffer, pPackedLight, pPackedOverlay);
+    }
+
+    public boolean searchForEntity(LocalPlayer player, PoseStack pose, Font font, MultiBufferSource buffer, Minecraft minecraft)
+    {
+        Vec3 start = player.getEyePosition();
+        Vec3 end = start.add(player.getViewVector(1F).scale(5f));
+        EntityHitResult result = ProjectileUtil.getEntityHitResult(player.level(), player, start, end, new AABB(start, end).inflate(1D), entity -> true, 0F);
+
+        ClientPacketListener packetListener = minecraft.getConnection();
+        RegistryAccess access = packetListener.registryAccess();
+        Registry<AspectComposition> aspectCompositions = access.registryOrThrow(AspectComposition.REGISTRY_KEY);
+
+
+        if(result != null)
+        {
+            Entity entity = result.getEntity();
+            if(entity instanceof ItemEntity itemEntity)
+            {
+                ItemStack stack = itemEntity.getItem();
+
+                pose.pushPose();
+                String name = stack.getItem().getName(stack).getString();
+                float textWidth = font.width(name);
+                font.drawInBatch(name, -textWidth/2, -45, -1, false, pose.last().pose(), buffer, Font.DisplayMode.NORMAL, 0, 15728880);
+                pose.popPose();
+
+                Optional<Map.Entry<ResourceKey<AspectComposition>, AspectComposition>> object = aspectCompositions.entrySet().stream().filter(entry -> {
+                    Item item = entry.getValue().getItem();
+                    if(item != null)
+                    {
+                        return stack.is(item);
+                    }
+                    return false;
+                }).findFirst();
+
+                object.ifPresent(resourceKeyAspectCompositionEntry -> renderAspectComposition(pose, font, buffer, minecraft, resourceKeyAspectCompositionEntry));
+            }
+            else
+            {
+                pose.pushPose();
+                String name = entity.getType().getDescription().getString();
+                float textWidth = font.width(name);
+                font.drawInBatch(name, -textWidth/2, -45, -1, false, pose.last().pose(), buffer, Font.DisplayMode.NORMAL, 0, 15728880);
+                pose.popPose();
+
+                Optional<Map.Entry<ResourceKey<AspectComposition>, AspectComposition>> object = aspectCompositions.entrySet().stream().filter(entry -> {
+                    EntityType<?> type = entry.getValue().getEntity();
+                    if(type != null)
+                    {
+                        return entity.getType().equals(type);
+                    }
+                    return false;
+                }).findFirst();
+
+                object.ifPresent(resourceKeyAspectCompositionEntry -> renderAspectComposition(pose, font, buffer, minecraft, resourceKeyAspectCompositionEntry));
+
+            }
+
+            return true;
+        }
+
+        return false;
+    }
+
+    public void searchForBlock(LocalPlayer player, PoseStack pose, Font font, MultiBufferSource buffer, Minecraft minecraft)
+    {
         ClientLevel level = (ClientLevel) player.level();
         BlockHitResult rayTrace = level.clip(new ClipContext(player.getEyePosition(1F), player.getEyePosition(1F).add(player.getLookAngle().scale(5F)),
                 ClipContext.Block.OUTLINE, ClipContext.Fluid.ANY, null));
@@ -75,56 +161,56 @@ public class ThaumometerInfoRenderer extends BlockEntityWithoutLevelRenderer {
             pose.pushPose();
             String name = blockState.getBlock().getName().getString();
             float textWidth = font.width(name);
-            font.drawInBatch(name, -textWidth/2, -45, -1, false, pose.last().pose(), pBuffer, Font.DisplayMode.NORMAL, 0, 15728880);
+            font.drawInBatch(name, -textWidth/2, -45, -1, false, pose.last().pose(), buffer, Font.DisplayMode.NORMAL, 0, 15728880);
             pose.popPose();
 
             ClientPacketListener packetListener = minecraft.getConnection();
             RegistryAccess access = packetListener.registryAccess();
             Registry<AspectComposition> aspectCompositions = access.registryOrThrow(AspectComposition.REGISTRY_KEY);
-            Registry<Aspect> aspects = access.registryOrThrow(Aspect.REGISTRY_KEY);
 
             Stream<Map.Entry<ResourceKey<AspectComposition>, AspectComposition>> filtered = aspectCompositions.entrySet().stream().filter(key -> {
                 Item item = key.getValue().getItem();
-                return blockState.getBlock().asItem().equals(item);
+                if(item != null)
+                    return blockState.getBlock().asItem().equals(item);
+                return false;
             });
             Optional<Map.Entry<ResourceKey<AspectComposition>, AspectComposition>> object = filtered.findFirst();
-            if(object.isPresent())
+            object.ifPresent(resourceKeyAspectCompositionEntry -> renderAspectComposition(pose, font, buffer, minecraft, resourceKeyAspectCompositionEntry));
+        }
+    }
+
+    public void renderAspectComposition(PoseStack pose, Font font, MultiBufferSource buffer, Minecraft minecraft, Map.Entry<ResourceKey<AspectComposition>, AspectComposition> object)
+    {
+        for (int i = 0; i < object.getValue().getAspects().size(); i++)
+        {
+            AspectStack stack = object.getValue().getAspects().get(i);
+            Aspect aspect = stack.getAspect().get();
+            if (aspect != null)
             {
-                for (int i = 0; i < object.get().getValue().getAspects().size(); i++)
-                {
-                    AspectComposition.AspectStack stack = object.get().getValue().getAspects().get(i);
-                    Aspect aspect = aspects.get(stack.getAspect());
-                    if (aspect != null)
-                    {
-                        pose.pushPose();
+                ResourceLocation texture = aspect.getTexture();
+                if(minecraft.getResourceManager().getResource(texture).isEmpty())
+                    texture = ResourceLocation.fromNamespaceAndPath(ArcaneThaumaturgyMod.MODID, "textures/aspect/error.png");
 
-                        pose.translate((object.get().getValue().getAspects().size()*-11)+(22*i)+1, 5, 0);
 
-                        RenderSystem.setShaderTexture(0, aspect.getTexture());
-                        RenderSystem.setShader(GameRenderer::getPositionTexShader);
-                        RenderSystem.blendFuncSeparate(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE, GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ZERO);
-                        Matrix4f matrix4f = pose.last().pose();
-                        BufferBuilder bufferbuilder = Tesselator.getInstance().getBuilder();
-                        bufferbuilder.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_TEX);
-                        bufferbuilder.vertex(matrix4f, 0, 0, 0).uv(0, 0).endVertex();
-                        bufferbuilder.vertex(matrix4f, 0, 18, 0).uv(0, 1).endVertex();
-                        bufferbuilder.vertex(matrix4f, 18, 18, 0).uv(1, 1).endVertex();
-                        bufferbuilder.vertex(matrix4f, 18, 0, 0).uv(1, 0).endVertex();
-                        BufferUploader.drawWithShader(bufferbuilder.end());
+                pose.pushPose();
+                pose.translate((object.getValue().getAspects().size()*-11)+(22*i)+1, 5, 0);
 
-                        font.drawInBatch(String.valueOf(stack.getAmount()), 15, 12, -1, false, pose.last().pose(),pBuffer, Font.DisplayMode.POLYGON_OFFSET, 0, 15728880);
+                RenderSystem.setShaderTexture(0, texture);
+                RenderSystem.setShader(GameRenderer::getPositionTexShader);
+                RenderSystem.blendFuncSeparate(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE, GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ZERO);
+                Matrix4f matrix4f = pose.last().pose();
+                BufferBuilder bufferbuilder = Tesselator.getInstance().getBuilder();
+                bufferbuilder.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_TEX);
+                bufferbuilder.vertex(matrix4f, 0, 0, 0).uv(0, 0).endVertex();
+                bufferbuilder.vertex(matrix4f, 0, 18, 0).uv(0, 1).endVertex();
+                bufferbuilder.vertex(matrix4f, 18, 18, 0).uv(1, 1).endVertex();
+                bufferbuilder.vertex(matrix4f, 18, 0, 0).uv(1, 0).endVertex();
+                BufferUploader.drawWithShader(bufferbuilder.end());
 
-                        pose.popPose();
-                    }
-                }
+                font.drawInBatch(String.valueOf(stack.getAmount()), 15, 12, -1, false, pose.last().pose(), buffer, Font.DisplayMode.POLYGON_OFFSET, 0, 15728880);
+
+                pose.popPose();
             }
         }
-
-        //Minecraft.getInstance().font.drawInBatch("Hiya, Secret!", 0, 0, -1, false, pose.last().pose(), pBuffer, Font.DisplayMode.POLYGON_OFFSET, 0, 15728880);
-
-        pose.popPose();
-
-
-        //super.renderByItem(pStack, pDisplayContext, pose, pBuffer, pPackedLight, pPackedOverlay);
     }
 }

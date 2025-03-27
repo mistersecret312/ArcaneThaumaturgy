@@ -1,0 +1,18 @@
+{
+  "item": "minecraft:furnace",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:primal/ignis",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:primal/perditio",
+      "amount": 6
+    },
+    {
+      "aspect": "thaumaturgy:primal/terra",
+      "amount": 6
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "item": "thaumaturgy:terra_vis_crystal",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:primal/terra",
+      "amount": 6
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "name": "motus",
+  "rgb":[255, 255, 255],
+  "texture": "thaumaturgy:textures/aspect/motus.png",
+  "combination":
+  {
+    "first_aspect": "thaumaturgy:primal/aer",
+    "second_aspect": "thaumaturgy:primal/ordo"
+  }
+}

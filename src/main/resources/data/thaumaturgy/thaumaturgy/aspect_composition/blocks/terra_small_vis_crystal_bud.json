@@ -1,0 +1,10 @@
+{
+  "item": "thaumaturgy:terra_small_vis_crystal_bud",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:primal/terra",
+      "amount": 3
+    }
+  ]
+}

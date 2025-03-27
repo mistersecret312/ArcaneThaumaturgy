@@ -1,0 +1,14 @@
+{
+  "entity": "minecraft:pig",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:combinations/bestia",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:primal/terra",
+      "amount": 2
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "item": "thaumaturgy:aer_vis_crystal_cluster",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:primal/aer",
+      "amount": 12
+    }
+  ]
+}

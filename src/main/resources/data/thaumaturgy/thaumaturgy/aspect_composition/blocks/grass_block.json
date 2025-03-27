@@ -1,0 +1,14 @@
+{
+  "item": "minecraft:grass_block",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:combinations/herba",
+      "amount": 1
+    },
+    {
+      "aspect": "thaumaturgy:primal/terra",
+      "amount": 1
+    }
+  ]
+}
