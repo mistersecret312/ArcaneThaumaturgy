@@ -20,7 +20,7 @@ public class BlockInit
 {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, ArcaneThaumaturgyMod.MODID);
 
-    public static final RegistryObject<CrucibleBlock> CRUCIBLE = registerBlock("crucible", () -> new CrucibleBlock(BlockBehaviour.Properties.of().strength(3f).requiresCorrectToolForDrops().sound(SoundType.METAL).mapColor(MapColor.COLOR_GRAY)));
+    public static final RegistryObject<CrucibleBlock> CRUCIBLE = registerBlock("crucible", () -> new CrucibleBlock(BlockBehaviour.Properties.of().strength(3f).requiresCorrectToolForDrops().sound(SoundType.COPPER).mapColor(MapColor.COLOR_GRAY)));
 
     public static final RegistryObject<RunicMatrixBlock> RUNIC_MATRIX = registerBlock("runic_matrix", () -> new RunicMatrixBlock(BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(3.0F).sound(SoundType.DEEPSLATE).mapColor(MapColor.COLOR_GRAY).noOcclusion()));
 
