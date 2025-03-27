@@ -8,9 +8,9 @@
 		"6": "thaumaturgy:block/crucible/water_4",
 		"top": "thaumaturgy:block/crucible/top",
 		"bottom": "thaumaturgy:block/crucible/bottom",
-		"particle": "thaumaturgy:block/crucible/side",
 		"side": "thaumaturgy:block/crucible/side",
-		"inside": "thaumaturgy:block/crucible/inner"
+		"inside": "thaumaturgy:block/crucible/inner",
+		"particle": "thaumaturgy:block/crucible/side_active"
 	},
 	"elements": [
 		{

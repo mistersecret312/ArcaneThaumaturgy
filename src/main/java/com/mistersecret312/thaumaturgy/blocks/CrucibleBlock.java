@@ -2,8 +2,10 @@ package com.mistersecret312.thaumaturgy.blocks;
 
 import com.mistersecret312.thaumaturgy.block_entities.CrucibleBlockEntity;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.tags.FluidTags;
 import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -13,14 +15,15 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.AbstractCauldronBlock;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.CauldronBlock;
-import net.minecraft.world.level.block.EntityBlock;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
+import net.minecraft.world.level.block.state.properties.IntegerProperty;
+import net.minecraft.world.level.material.LavaFluid;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.BooleanOp;
 import net.minecraft.world.phys.shapes.CollisionContext;
@@ -33,11 +36,13 @@ import java.util.function.Consumer;
 
 public class CrucibleBlock extends Block implements EntityBlock
 {
-    public static final EnumProperty<FilledCrucible> FILLED = EnumProperty.create("filled", FilledCrucible.class);
+    public static final IntegerProperty FILLED = IntegerProperty.create("filled", 0, 4);
+    public static final BooleanProperty IS_BOILING = BooleanProperty.create("is_boiling");
 
     public CrucibleBlock(Properties pProperties)
     {
         super(pProperties);
+        this.defaultBlockState().setValue(FILLED, 0).setValue(IS_BOILING, false);
     }
 
     @Override
@@ -54,7 +59,7 @@ public class CrucibleBlock extends Block implements EntityBlock
         if(stack.is(Items.WATER_BUCKET))
         {
             pPlayer.setItemInHand(pHand, Items.BUCKET.getDefaultInstance());
-            pLevel.setBlockAndUpdate(pPos, pState.setValue(FILLED, FilledCrucible.FULL_1));
+            pLevel.setBlockAndUpdate(pPos, pState.setValue(FILLED, 0));
             pLevel.playSound(pPlayer, pPlayer.getX(), pPlayer.getY(), pPlayer.getZ(), SoundEvents.BUCKET_EMPTY, SoundSource.PLAYERS, 1.0F, 1.0F);
             return InteractionResult.sidedSuccess(pLevel.isClientSide());
         }
@@ -64,13 +69,14 @@ public class CrucibleBlock extends Block implements EntityBlock
     @Override
     public @Nullable BlockState getStateForPlacement(BlockPlaceContext pContext)
     {
-        return this.defaultBlockState().setValue(FILLED, FilledCrucible.EMPTY);
+        return this.defaultBlockState().setValue(FILLED, 0).setValue(IS_BOILING, false);
     }
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder)
     {
         pBuilder.add(FILLED);
+        pBuilder.add(IS_BOILING);
         super.createBlockStateDefinition(pBuilder);
     }
 
@@ -80,24 +86,17 @@ public class CrucibleBlock extends Block implements EntityBlock
         return new CrucibleBlockEntity(pos, state);
     }
 
-    public enum FilledCrucible implements StringRepresentable
+    @Override
+    public BlockState updateShape(BlockState pState, Direction pDirection, BlockState pNeighborState, LevelAccessor pLevel, BlockPos pPos, BlockPos pNeighborPos)
     {
-        EMPTY("empty"),
-        FULL_1("full_1"),
-        FULL_2("full_2"),
-        FULL_3("full_3"),
-        FULL_4("full_4");
+        return pState.setValue(IS_BOILING, hasHeatSource(pLevel, pPos) && pState.getValue(FILLED) > 0);
+    }
 
-        public String name;
-        FilledCrucible(String name)
-        {
-            this.name = name;
-        }
+    public boolean hasHeatSource(LevelAccessor accessor, BlockPos pos)
+    {
+        BlockState state = accessor.getBlockState(pos.below());
+        Block block = state.getBlock();
 
-        @Override
-        public String getSerializedName()
-        {
-            return name;
-        }
+        return block instanceof FireBlock || (block instanceof CampfireBlock && state.getValue(CampfireBlock.LIT)) || block instanceof SoulFireBlock || block instanceof TorchBlock || state.getFluidState().is(FluidTags.LAVA) || block instanceof NitorBlock;
     }
 }

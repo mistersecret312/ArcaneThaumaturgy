@@ -2,13 +2,15 @@
 	"credit": "Made with Blockbench",
 	"parent": "block/block",
 	"ambientocclusion": false,
+	"render_type": "minecraft:translucent",
 	"textures": {
 		"5": "thaumaturgy:block/crucible/side_inner",
+		"6": "thaumaturgy:block/crucible/water_3",
 		"top": "thaumaturgy:block/crucible/top",
 		"bottom": "thaumaturgy:block/crucible/bottom",
-		"side": "thaumaturgy:block/crucible/side",
+		"side": "thaumaturgy:block/crucible/side_active",
 		"inside": "thaumaturgy:block/crucible/inner",
-		"particle": "thaumaturgy:block/crucible/side"
+		"particle": "thaumaturgy:block/crucible/side_active"
 	},
 	"elements": [
 		{
@@ -145,6 +147,14 @@
 				"east": {"uv": [2, 13, 4, 16], "texture": "#side", "cullface": "east"},
 				"west": {"uv": [12, 13, 14, 16], "texture": "#side"},
 				"down": {"uv": [14, 2, 16, 4], "texture": "#bottom", "cullface": "down"}
+			}
+		},
+		{
+			"from": [2, 15, 2],
+			"to": [14, 15, 14],
+			"rotation": {"angle": 0, "axis": "y", "origin": [12, 13, 2]},
+			"faces": {
+				"up": {"uv": [2, 2, 14, 14], "texture": "#6"}
 			}
 		}
 	]
