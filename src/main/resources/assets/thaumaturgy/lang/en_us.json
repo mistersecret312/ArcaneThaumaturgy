@@ -4,6 +4,7 @@
   "tabs.thaumaturgy.decorations_tab": "Thaumic Decorations",
   "tabs.thaumaturgy.resources_tab": "Thaumic Resources",
 
+  "_items": "Items",
   "item.thaumaturgy.revelation_goggles": "Goggles Of Revelation",
   "item.thaumaturgy.thaumonomicon": "Thaumonomicon",
 
@@ -22,6 +23,9 @@
   "item.thaumaturgy.terra_vis_crystal": "Terra Vis Crystal",
   "item.thaumaturgy.ordo_vis_crystal": "Ordo Vis Crystal",
   "item.thaumaturgy.perditio_vis_crystal": "Perditio Vis Crystal",
+
+  "_tooltips": "Tooltips",
+  "thaumaturgy.nitor.color": "Color:",
 
   "_blocks": "Blocks",
   "block.thaumaturgy.arcane_stone": "Arcane Stone",

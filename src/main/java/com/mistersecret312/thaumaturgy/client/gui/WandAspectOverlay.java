@@ -1,6 +1,9 @@
 package com.mistersecret312.thaumaturgy.client.gui;
 
 import com.mistersecret312.thaumaturgy.ArcaneThaumaturgyMod;
+import com.mistersecret312.thaumaturgy.aspects.Aspects;
+import com.mistersecret312.thaumaturgy.aspects.DefinedAspectStackHandler;
+import com.mistersecret312.thaumaturgy.datapack.Aspect;
 import com.mistersecret312.thaumaturgy.items.WandItem;
 import com.mistersecret312.thaumaturgy.util.RenderBlitUtil;
 import com.mojang.blaze3d.systems.RenderSystem;
@@ -14,7 +17,10 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.MapItem;
 import net.minecraftforge.client.gui.overlay.IGuiOverlay;
+import net.minecraftforge.fluids.FluidStack;
 import org.joml.Quaternionf;
+
+import java.util.List;
 
 public class WandAspectOverlay
 {
@@ -34,12 +40,18 @@ public class WandAspectOverlay
         ItemStack wandStack = main.is(ArcaneThaumaturgyMod.WANDS) ? main : off;
         WandItem wand = (WandItem) wandStack.getItem();
 
-        int cap = wand.getCapacity(wandStack);
-        int[] aspects = wand.getAspects(wandStack);
+        DefinedAspectStackHandler handler = wand.getAspects(wandStack);
+        List<Aspect> basePrimes = List.of(Aspects.Primal.AER, Aspects.Primal.TERRA, Aspects.Primal.IGNIS, Aspects.Primal.AQUA, Aspects.Primal.ORDO, Aspects.Primal.PERDITIO);
+        int cap = handler.getMaxCapacity();
+        int[] aspects = new int[6];
+        for (int i = 0; i < 6; i++)
+        {
+            aspects[i] = handler.getStackInSlot(basePrimes.get(i)).getAmount();
+        }
         if (cap == 0 || aspects.length == 0) return;
 
-        double[] percentages = new double[aspects.length];
-        for (int i = 0; i < aspects.length; i++) {
+        double[] percentages = new double[6];
+        for (int i = 0; i < 6; i++) {
             percentages[i] = (double) aspects[i] / cap;
         }
 
@@ -58,17 +70,17 @@ public class WandAspectOverlay
 
 
         float angleIncrement = 20f;
-        float[] angles = new float[aspects.length];
+        float[] angles = new float[6];
 
 
-        for (int i = 0; i < aspects.length; i++) {
-            angles[i] = (i - (aspects.length / 2)) * angleIncrement;
+        for (int i = 0; i < 6; i++) {
+            angles[i] = (i - (6 / 2)) * angleIncrement;
         }
 
         float[] textureX = { 104, 94, 64, 74, 54, 84 };
         float pivotOffsetY = -3 * (1/scale);
 
-        for (int i = 0; i < aspects.length; i++) {
+        for (int i = 0; i < 6; i++) {
             float angleDeg = angles[i] +234;
 
             float barHeight = 48f * (float) percentages[i];

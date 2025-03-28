@@ -1,6 +1,7 @@
 package com.mistersecret312.thaumaturgy.init;
 
 import com.mistersecret312.thaumaturgy.ArcaneThaumaturgyMod;
+import com.mistersecret312.thaumaturgy.aspects.DefinedAspectStackHandler;
 import com.mistersecret312.thaumaturgy.items.WandItem;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
@@ -32,10 +33,8 @@ public class ItemTabInit
                         output.accept(ItemInit.SCRIBING_TOOLS.get());
                         output.accept(ItemInit.NITOR.get());
 
-                        output.accept(WandItem.createFull(ItemInit.IRON_WAND.get(), 25));
-                        output.accept(WandItem.createFull(ItemInit.GOLD_WAND.get(), 50));
-
-                        output.accept(WandItem.create(ItemInit.GOLD_WAND.get(), new int[]{25, 25, 25, 25, 25, 25}, 50));
+                        output.accept(WandItem.createPrimal(ItemInit.IRON_WAND.get(), 25, true));
+                        output.accept(WandItem.createPrimal(ItemInit.GOLD_WAND.get(), 50, true));
 
                         output.accept(ItemInit.IRON_KNOB.get());
                         output.accept(ItemInit.GOLD_KNOB.get());

@@ -126,7 +126,7 @@ public class NitorBlock extends Block implements EntityBlock
         {
             ItemStack stack = new ItemStack(asItem());
 
-            NitorItem.setColor(stack, nitor.getColor());
+            NitorItem.setColorData(stack, nitor.getColor());
             level.addFreshEntity(new ItemEntity(level, pos.getX(), pos.getY(), pos.getZ(), stack));
         }
 
@@ -140,7 +140,7 @@ public class NitorBlock extends Block implements EntityBlock
         super.setPlacedBy(pLevel, pPos, pState, pPlacer, pStack);
         if(pLevel.getBlockEntity(pPos) instanceof NitorBlockEntity nitor)
         {
-            nitor.setColor(NitorItem.getColor(pStack));
+            nitor.setColor(NitorItem.getColorData(pStack));
         }
     }
 
