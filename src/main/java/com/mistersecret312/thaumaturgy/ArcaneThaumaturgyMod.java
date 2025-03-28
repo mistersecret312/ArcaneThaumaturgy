@@ -1,5 +1,6 @@
 package com.mistersecret312.thaumaturgy;
 
+import com.mistersecret312.thaumaturgy.aspects.Aspects;
 import com.mistersecret312.thaumaturgy.client.Layers;
 import com.mistersecret312.thaumaturgy.client.gui.WandAspectOverlay;
 import com.mistersecret312.thaumaturgy.client.renderer.NitorRenderer;
@@ -12,8 +13,13 @@ import com.mistersecret312.thaumaturgy.items.NitorItem;
 import com.mistersecret312.thaumaturgy.tooltipcomponents.AspectTooltipComponent;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.multiplayer.ClientPacketListener;
+import net.minecraft.core.Registry;
+import net.minecraft.core.RegistryAccess;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.packs.resources.ResourceManager;
+import net.minecraft.server.packs.resources.ResourceManagerReloadListener;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.api.distmarker.Dist;
@@ -81,12 +87,30 @@ public class ArcaneThaumaturgyMod
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event)
     {
+        RegistryAccess access = event.getServer().registryAccess();
+        Registry<Aspect> aspects = access.registryOrThrow(Aspect.REGISTRY_KEY);
 
+        Aspects.createDefinitions(aspects);
     }
 
     @Mod.EventBusSubscriber(modid = MODID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static class ClientModEvents
     {
+        @SubscribeEvent
+        public static void datapackLoaded(RegisterClientReloadListenersEvent event)
+        {
+            event.registerReloadListener((ResourceManagerReloadListener) pResourceManager ->
+            {
+                Minecraft minecraft = Minecraft.getInstance();
+                ClientPacketListener listener = minecraft.getConnection();
+                if(listener != null)
+                {
+                    Registry<Aspect> aspects = listener.registryAccess().registryOrThrow(Aspect.REGISTRY_KEY);
+                    Aspects.createDefinitions(aspects);
+                }
+            });
+        }
+
         @SubscribeEvent
         public static void registerTooltip(RegisterClientTooltipComponentFactoriesEvent event)
         {
@@ -115,7 +139,7 @@ public class ArcaneThaumaturgyMod
         @SubscribeEvent
         public static void itemColors(RegisterColorHandlersEvent.Item event)
         {
-            event.register((stack, color) -> color != 0 ? -1 : NitorItem.getColor(stack), ItemInit.NITOR.get());
+            event.register((stack, color) -> color != 0 ? -1 : NitorItem.getColorData(stack), ItemInit.NITOR.get());
         }
 
         @SubscribeEvent
