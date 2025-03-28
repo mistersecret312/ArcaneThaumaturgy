@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "thaumaturgy:aer_budding_vis_crystal",
+    "thaumaturgy:terra_budding_vis_crystal",
+    "thaumaturgy:aqua_budding_vis_crystal",
+    "thaumaturgy:ignis_budding_vis_crystal",
+    "thaumaturgy:perditio_budding_vis_crystal",
+    "thaumaturgy:ordo_budding_vis_crystal"
+
+  ]
+}
