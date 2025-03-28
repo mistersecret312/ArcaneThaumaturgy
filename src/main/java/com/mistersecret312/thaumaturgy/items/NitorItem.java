@@ -24,7 +24,7 @@ import java.util.Optional;
 public class NitorItem extends BlockItem implements DyeableLeatherItem
 {
     public static final String COLOR = "color";
-    public static final int DEFAULT_COLOR = 16762880;
+    public static final int DEFAULT_COLOR = 15834178;
 
     public NitorItem(Properties pProperties)
     {

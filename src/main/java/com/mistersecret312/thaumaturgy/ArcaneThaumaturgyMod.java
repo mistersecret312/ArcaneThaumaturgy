@@ -57,6 +57,7 @@ public class ArcaneThaumaturgyMod
         BlockEntityInit.register(modEventBus);
         ItemInit.register(modEventBus);
         ItemTabInit.register(modEventBus);
+        SoundInit.SOUNDS.register(modEventBus);
 
         MinecraftForge.EVENT_BUS.register(this);
 

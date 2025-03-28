@@ -58,9 +58,12 @@ public class CrucibleBlock extends Block implements EntityBlock
         ItemStack stack = pPlayer.getItemInHand(pHand);
         if(stack.is(Items.WATER_BUCKET))
         {
-            pPlayer.setItemInHand(pHand, Items.BUCKET.getDefaultInstance());
-            pLevel.setBlockAndUpdate(pPos, pState.setValue(FILL_LEVEL, 0));
+            pLevel.setBlockAndUpdate(pPos, pState.setValue(FILL_LEVEL, 1));
             pLevel.playSound(pPlayer, pPlayer.getX(), pPlayer.getY(), pPlayer.getZ(), SoundEvents.BUCKET_EMPTY, SoundSource.PLAYERS, 1.0F, 1.0F);
+            if (!pPlayer.isCreative())
+            {
+                pPlayer.setItemInHand(pHand, Items.BUCKET.getDefaultInstance());
+            }
             return InteractionResult.sidedSuccess(pLevel.isClientSide());
         }
         return super.use(pState, pLevel, pPos, pPlayer, pHand, pHit);

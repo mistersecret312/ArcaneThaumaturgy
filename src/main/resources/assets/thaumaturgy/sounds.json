@@ -1,0 +1,24 @@
+{
+  "wand_use": {
+    "subtitle": "sound.thaumaturgy.wand_use",
+    "sounds":
+    [
+      "thaumaturgy:wand_use"
+    ]
+  },
+  "essentia_jar_open": {
+    "subtitle": "sound.thaumaturgy.essentia_jar_open",
+    "sounds":
+    [
+      "thaumaturgy:essentia_jar_open_1",
+      "thaumaturgy:essentia_jar_open_2"
+    ]
+  },
+  "essentia_jar_close": {
+    "subtitle": "sound.thaumaturgy.essentia_jar_close",
+    "sounds":
+    [
+      "thaumaturgy:essentia_jar_close"
+    ]
+  }
+}

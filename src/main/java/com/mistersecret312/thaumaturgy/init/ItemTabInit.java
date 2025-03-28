@@ -28,6 +28,8 @@ public class ItemTabInit
 
                         output.accept(ItemInit.THAUMONOMICON.get());
 
+                        output.accept(BlockInit.ESSENTIA_JAR.get());
+
                         output.accept(ItemInit.SCRIBING_TOOLS.get());
                         output.accept(ItemInit.NITOR.get());
 
