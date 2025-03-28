@@ -1,6 +1,7 @@
 package com.mistersecret312.thaumaturgy.blocks;
 
 import com.mistersecret312.thaumaturgy.block_entities.NitorBlockEntity;
+import com.mistersecret312.thaumaturgy.init.SoundInit;
 import com.mistersecret312.thaumaturgy.items.NitorItem;
 import com.mistersecret312.thaumaturgy.items.WandItem;
 import net.minecraft.core.BlockPos;
