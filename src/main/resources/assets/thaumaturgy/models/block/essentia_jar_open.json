@@ -1,0 +1,25 @@
+{
+	"credit": "Made with Blockbench",
+	"parent": "block/block",
+	"render_type": "minecraft:translucent",
+	"texture_size": [40, 32],
+	"textures": {
+		"0": "thaumaturgy:block/essentia_jar",
+		"particle": "thaumaturgy:block/essentia_jar"
+	},
+	"elements": [
+		{
+			"from": [3, 0, 3],
+			"to": [13, 13, 13],
+			"rotation": {"angle": 0, "axis": "y", "origin": [3, 0, 3]},
+			"faces": {
+				"north": {"uv": [4, 5, 8, 11.5], "texture": "#0"},
+				"east": {"uv": [0, 5, 4, 11.5], "texture": "#0"},
+				"south": {"uv": [12, 5, 16, 11.5], "texture": "#0"},
+				"west": {"uv": [8, 5, 12, 11.5], "texture": "#0"},
+				"up": {"uv": [8, 5, 4, 0], "texture": "#0"},
+				"down": {"uv": [12, 0, 8, 5], "texture": "#0"}
+			}
+		}
+	]
+}
