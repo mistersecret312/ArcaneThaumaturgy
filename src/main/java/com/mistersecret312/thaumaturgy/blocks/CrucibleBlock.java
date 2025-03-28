@@ -4,11 +4,14 @@ import com.mistersecret312.thaumaturgy.block_entities.CrucibleBlockEntity;
 import com.mistersecret312.thaumaturgy.init.BlockEntityInit;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.FluidTags;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -18,6 +21,7 @@ import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
@@ -25,6 +29,9 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.level.gameevent.GameEvent;
+import net.minecraft.world.level.material.Fluid;
+import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.BooleanOp;
 import net.minecraft.world.phys.shapes.CollisionContext;
@@ -89,6 +96,40 @@ public class CrucibleBlock extends BaseEntityBlock
             }
         }
         return InteractionResult.PASS;
+    }
+
+    @Override
+    public void tick(BlockState pState, ServerLevel pLevel, BlockPos pPos, RandomSource pRandom)
+    {
+        if (pLevel.getBlockEntity(pPos) instanceof CrucibleBlockEntity crucible)
+        {
+            BlockPos pos = PointedDripstoneBlock.findStalactiteTipAboveCauldron(pLevel, pPos);
+            if (pos != null)
+            {
+                Fluid fluid = PointedDripstoneBlock.getCauldronFillFluidType(pLevel, pos);
+                if (fluid != Fluids.EMPTY)
+                {
+                    receiveStalactiteDrip(pState, pLevel, pPos, fluid, crucible);
+                }
+            }
+        }
+    }
+
+    protected void receiveStalactiteDrip(BlockState pState, Level pLevel, BlockPos pPos, Fluid pFluid, CrucibleBlockEntity crucible) {
+        if (pFluid == Fluids.WATER) {
+            int waterLevel = crucible.getWaterLevel();
+            if (waterLevel < 4) {
+                crucible.setWaterLevel(crucible.getWaterLevel() + 1);
+            }
+        }
+    }
+
+    @Override
+    public void handlePrecipitation(BlockState pState, Level pLevel, BlockPos pPos, Biome.Precipitation pPrecipitation) {
+        if (pPrecipitation == Biome.Precipitation.RAIN) {
+            pLevel.setBlockAndUpdate(pPos, Blocks.WATER_CAULDRON.defaultBlockState());
+            pLevel.gameEvent(null, GameEvent.BLOCK_CHANGE, pPos);
+        }
     }
 
     @Override
