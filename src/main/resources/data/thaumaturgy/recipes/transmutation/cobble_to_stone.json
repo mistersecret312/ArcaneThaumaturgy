@@ -1,0 +1,19 @@
+{
+  "type": "thaumaturgy:transmutation",
+  "aspects":
+  [
+    {
+      "aspect_name": "terra",
+      "amount": 2
+    }
+  ],
+  "catalyst":
+  {
+    "item": "minecraft:cobblestone"
+  },
+  "result":
+  {
+    "item": "minecraft:stone",
+    "amount": 1
+  }
+}

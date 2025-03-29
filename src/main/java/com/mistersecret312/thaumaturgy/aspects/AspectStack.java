@@ -19,7 +19,7 @@ public class AspectStack
     public static final AspectStack EMPTY = new AspectStack();
 
     public static final Codec<AspectStack> CODEC = RecordCodecBuilder.create(instance -> instance.group(
-            RegistryFileCodec.create(Aspect.REGISTRY_KEY, Aspect.CODEC, false).fieldOf("aspect").forGetter(AspectStack::getAspect),
+            RegistryFileCodec.create(Aspect.REGISTRY_KEY, Aspect.CODEC, true).fieldOf("aspect").forGetter(AspectStack::getAspect),
             Codec.INT.fieldOf("amount").forGetter(AspectStack::getAmount)
     ).apply(instance, AspectStack::new));
 
@@ -65,7 +65,7 @@ public class AspectStack
 
     public boolean canStackWith(AspectStack otherStack)
     {
-        return !this.isEmpty() && this.is(otherStack);
+        return this.isEmpty() || this.is(otherStack);
     }
 
     public boolean is(AspectStack other)

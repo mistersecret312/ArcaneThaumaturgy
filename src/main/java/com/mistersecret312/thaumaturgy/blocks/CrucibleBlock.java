@@ -12,6 +12,7 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -57,6 +58,19 @@ public class CrucibleBlock extends BaseEntityBlock
 
     public RenderShape getRenderShape(BlockState state) {
         return RenderShape.MODEL;
+    }
+
+    @Override
+    public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity)
+    {
+        if(!level.isClientSide() && level.getBlockEntity(pos) instanceof CrucibleBlockEntity crucible)
+        {
+            if(state.getValue(IS_BOILING) && crucible.getWaterLevel() > 0 && entity instanceof ItemEntity itemEntity)
+            {
+                crucible.itemThrown(itemEntity);
+            }
+        }
+        super.entityInside(state, level, pos, entity);
     }
 
     @Override

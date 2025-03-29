@@ -1,8 +1,10 @@
 package com.mistersecret312.thaumaturgy;
 
+import com.mistersecret312.thaumaturgy.aspects.AspectStack;
 import com.mistersecret312.thaumaturgy.aspects.Aspects;
 import com.mistersecret312.thaumaturgy.client.Layers;
 import com.mistersecret312.thaumaturgy.client.gui.WandAspectOverlay;
+import com.mistersecret312.thaumaturgy.client.renderer.HoveringItemRenderer;
 import com.mistersecret312.thaumaturgy.client.renderer.NitorRenderer;
 import com.mistersecret312.thaumaturgy.client.renderer.PedestalRenderer;
 import com.mistersecret312.thaumaturgy.client.renderer.ThaumometerInfoRenderer;
@@ -10,13 +12,17 @@ import com.mistersecret312.thaumaturgy.datapack.Aspect;
 import com.mistersecret312.thaumaturgy.datapack.AspectComposition;
 import com.mistersecret312.thaumaturgy.init.*;
 import com.mistersecret312.thaumaturgy.items.NitorItem;
+import com.mistersecret312.thaumaturgy.recipes.TransmutationRecipe;
 import com.mistersecret312.thaumaturgy.tooltipcomponents.AspectTooltipComponent;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientPacketListener;
+import net.minecraft.client.renderer.entity.EntityRenderers;
+import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.resources.ResourceManager;
 import net.minecraft.server.packs.resources.ResourceManagerReloadListener;
@@ -30,11 +36,13 @@ import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DataPackRegistryEvent;
 import org.slf4j.Logger;
 
+import java.util.List;
 import java.util.function.Function;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -57,7 +65,9 @@ public class ArcaneThaumaturgyMod
         BlockEntityInit.register(modEventBus);
         ItemInit.register(modEventBus);
         ItemTabInit.register(modEventBus);
-        SoundInit.SOUNDS.register(modEventBus);
+        SoundInit.register(modEventBus);
+        EntityTypeInit.register(modEventBus);
+        RecipeTypeInit.register(modEventBus);
 
         MinecraftForge.EVENT_BUS.register(this);
 
@@ -92,11 +102,32 @@ public class ArcaneThaumaturgyMod
         Registry<Aspect> aspects = access.registryOrThrow(Aspect.REGISTRY_KEY);
 
         Aspects.createDefinitions(aspects);
+
+        List<TransmutationRecipe> recipes = event.getServer().getRecipeManager().getAllRecipesFor(TransmutationRecipe.Type.INSTANCE);
+
+        for(TransmutationRecipe recipe : recipes)
+        {
+            recipe.aspects.forEach(fakeAspect -> {
+                Aspect aspect = Aspects.allAspects.get(fakeAspect.getName());
+
+                recipe.aspectStacks.add(new AspectStack(Holder.direct(aspect), fakeAspect.getAmount()));
+            });
+        }
+
     }
 
     @Mod.EventBusSubscriber(modid = MODID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static class ClientModEvents
     {
+        @SubscribeEvent
+        public static void clientSetup(FMLClientSetupEvent event)
+        {
+            event.enqueueWork(() ->
+            {
+                EntityRenderers.register(EntityTypeInit.HOVERING_ITEM.get(), HoveringItemRenderer::new);
+            });
+        }
+
         @SubscribeEvent
         public static void datapackLoaded(RegisterClientReloadListenersEvent event)
         {

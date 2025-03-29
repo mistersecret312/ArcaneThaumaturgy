@@ -8,17 +8,18 @@ import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.Tag;
 import net.minecraftforge.common.util.INBTSerializable;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class UndefinedAspectStackHandler implements INBTSerializable<CompoundTag>
 {
-    protected NonNullList<AspectStack> stacks;
+    protected HashMap<Aspect, AspectStack> stacks;
     protected boolean totalCapacity;
     protected int maxCapacity;
 
     public UndefinedAspectStackHandler(int size, boolean hasTotalCapacity, int capacity)
     {
-        this.stacks = NonNullList.withSize(size, AspectStack.EMPTY);
+        this.stacks = new HashMap<>(size);
 
         this.totalCapacity = hasTotalCapacity;
         this.maxCapacity = capacity;
@@ -26,7 +27,7 @@ public class UndefinedAspectStackHandler implements INBTSerializable<CompoundTag
 
     public UndefinedAspectStackHandler(int size, int capacity)
     {
-        this.stacks = NonNullList.withSize(size, AspectStack.EMPTY);
+        this.stacks = new HashMap<>(size);
 
         this.totalCapacity = false;
         this.maxCapacity = capacity;
@@ -34,34 +35,35 @@ public class UndefinedAspectStackHandler implements INBTSerializable<CompoundTag
 
     public UndefinedAspectStackHandler(NonNullList<AspectStack> stacks, boolean hasTotalCapacity, int capacity)
     {
-        this.stacks = stacks;
+        this.stacks = new HashMap<>();
+        stacks.forEach(stack -> this.stacks.put(stack.getAspect().get(), stack));
 
         this.totalCapacity = hasTotalCapacity;
         this.maxCapacity = capacity;
     }
 
-    public AspectStack getStackInSlot(int slot)
+    public AspectStack getStackInSlot(Aspect slot)
     {
-        return stacks.get(slot);
+        return stacks.getOrDefault(slot, AspectStack.EMPTY);
     }
 
-    public void setStackInSlot(int slot, AspectStack stack)
+    public void setStackInSlot(AspectStack stack)
     {
-        stacks.set(slot, stack);
+        stacks.put(stack.getAspect().get(), stack);
     }
 
-    public AspectStack insertAspect(int slot, AspectStack stack, boolean simulate)
+    public AspectStack insertAspect(AspectStack stack, boolean simulate)
     {
-        validateSlotIndex(slot);
 
-        if(!isValidSlot(stack, slot))
+        if(!isValidSlot(stack.getAspect().get()))
             return AspectStack.EMPTY;
 
-        AspectStack presentStack = stacks.get(slot);
+        AspectStack presentStack = this.getStackInSlot(stack.getAspect().get());
 
-        int freeSpace = maxCapacity - getStored(slot);
+        int freeSpace = maxCapacity - getStored(stack.getAspect().get());
         int amountToPut = stack.getAmount();
-        if (!presentStack.canStackWith(stack)) return stack;
+        if (!presentStack.canStackWith(stack))
+            return stack;
         if (freeSpace == 0) return stack;
 
         boolean reachedLimit = amountToPut > freeSpace;
@@ -72,20 +74,19 @@ public class UndefinedAspectStackHandler implements INBTSerializable<CompoundTag
         }
         if (!simulate)
         {
-            if (presentStack.isEmpty()) stacks.set(slot, stack.copyWithSize(amountToPut));
+            if (presentStack.isEmpty())
+                stacks.put(stack.getAspect().get(), stack.copyWithSize(amountToPut));
             else presentStack.grow(amountToPut);
         }
 
         return reachedLimit ? stack.copyWithSize(amountToPut) : AspectStack.EMPTY;
     }
-    public AspectStack extractAspect(int slot, int amount, boolean simulate)
+    public AspectStack extractAspect(Aspect aspect, int amount, boolean simulate)
     {
         if (amount == 0)
             return AspectStack.EMPTY;
-        validateSlotIndex(slot);
 
-
-        AspectStack existing = stacks.get(slot);
+        AspectStack existing = stacks.get(aspect);
         if (existing.isEmpty())
             return AspectStack.EMPTY;
 
@@ -94,7 +95,7 @@ public class UndefinedAspectStackHandler implements INBTSerializable<CompoundTag
         {
             if (!simulate)
             {
-                stacks.set(slot, existing.copyWithSize(existing.getAmount() - toTake));
+                stacks.put(aspect, existing.copyWithSize(existing.getAmount() - toTake));
             }
 
             return existing.copyWithSize(toTake);
@@ -102,48 +103,51 @@ public class UndefinedAspectStackHandler implements INBTSerializable<CompoundTag
         {
             if (!simulate)
             {
-                stacks.set(slot, AspectStack.EMPTY);
+                stacks.remove(aspect);
                 return existing;
             } else return existing.copy();
         }
     }
 
-    public boolean isValidSlot(AspectStack stack, int slot)
+    public boolean isValidSlot(Aspect aspect)
     {
-        return stacks.get(slot).canStackWith(stack) && !isFull(slot);
+        return !isFull(aspect);
     }
 
-    public boolean isFull(int slot)
+    public boolean isFull(Aspect aspect)
     {
         if(totalCapacity)
         {
-            int stored = getStored(slot);
+            int stored = getStored(aspect);
 
             return stored >= maxCapacity;
         }
         else
         {
-            return getStored(slot) >= maxCapacity;
+            return getStored(aspect) >= maxCapacity;
         }
     }
 
-    public int getStored(int slot)
+    public boolean isEmpty()
+    {
+        for(Map.Entry<Aspect, AspectStack> entry : this.stacks.entrySet())
+        {
+            return entry.getValue().isEmpty();
+        }
+        return true;
+    }
+
+    public int getStored(Aspect aspect)
     {
         if(totalCapacity)
         {
             int stored = 0;
-            for(AspectStack stack : stacks)
-                stored += stack.getAmount();
+            for(Map.Entry<Aspect, AspectStack> stack : stacks.entrySet())
+                stored += stack.getValue().getAmount();
 
             return stored;
         }
-        else return stacks.get(slot).getAmount();
-    }
-
-    protected void validateSlotIndex(int slot)
-    {
-        if(slot < 0 || slot >= stacks.size())
-            throw new RuntimeException("Slot " + slot + " not in valid range - [0," + stacks.size() + ")");
+        else return this.getStackInSlot(aspect).getAmount();
     }
 
     public int getSize()
@@ -162,7 +166,7 @@ public class UndefinedAspectStackHandler implements INBTSerializable<CompoundTag
         CompoundTag tag = new CompoundTag();
 
         ListTag list = new ListTag();
-        stacks.forEach(aspectStack -> list.add(aspectStack.serializeNBT()));
+        stacks.forEach((aspect, stack) -> list.add(stack.serializeNBT()));
         tag.put("Aspects", list);
 
         tag.putBoolean("total_capacity", totalCapacity);
@@ -180,7 +184,7 @@ public class UndefinedAspectStackHandler implements INBTSerializable<CompoundTag
             CompoundTag aspectTag = aspectList.getCompound(i);
             AspectStack stack = AspectStack.deserializeNBT(aspectTag);
 
-            stacks.set(i, stack);
+            stacks.put(stack.getAspect().get(), stack);
         }
 
         this.totalCapacity = nbt.getBoolean("total_capacity");

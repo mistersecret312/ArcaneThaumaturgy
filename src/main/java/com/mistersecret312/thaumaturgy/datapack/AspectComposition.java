@@ -22,7 +22,8 @@ public class AspectComposition
     public static final Codec<ResourceKey<AspectComposition>> RESOURCE_KEY_CODEC = ResourceKey.codec(REGISTRY_KEY);
 
     public static final Codec<AspectComposition> CODEC = RecordCodecBuilder.create(instance -> instance.group(
-            Codec.mapEither(BuiltInRegistries.ENTITY_TYPE.byNameCodec().fieldOf("entity"), BuiltInRegistries.ITEM.byNameCodec().fieldOf("item")).forGetter(AspectComposition::getObject),
+            Codec.mapEither(BuiltInRegistries.ENTITY_TYPE.byNameCodec().fieldOf("entity"),
+                    BuiltInRegistries.ITEM.byNameCodec().fieldOf("item")).forGetter(AspectComposition::getObject),
             Codec.BOOL.optionalFieldOf("inherit_crafting_aspects", false).forGetter(AspectComposition::isInheriting),
             AspectStack.CODEC.listOf().fieldOf("aspects").forGetter(AspectComposition::getAspects)
     ).apply(instance, AspectComposition::new));
