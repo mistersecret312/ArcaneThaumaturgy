@@ -39,6 +39,7 @@ public class HoveringItemRenderer extends ItemEntityRenderer
         Random random = new Random();
         {
             poseStack.pushPose();
+            poseStack.translate(0f, -0.5f, 0f);
             VertexConsumer vertexBuilder = pBuffer.getBuffer(RenderType.lightning());
 
             random = new Random(432L);
@@ -57,7 +58,6 @@ public class HoveringItemRenderer extends ItemEntityRenderer
 
             boolean shouldRotateOtherWay = pEntity.getOnPos().asLong() % 3 == 0;
 
-            RenderSystem.disableBlend();
             poseStack.mulPose(Axis.YP.rotationDegrees(pEntity.getAge() * (shouldRotateOtherWay ? -0.5f : 0.5f)));
             poseStack.scale(0.075F * sine, 0.075F * sine, 0.075F * sine);
             for (int x = 0; (float) x < (f5 + f5 * f5) / 2.0F * 60.0F; ++x)
@@ -89,6 +89,7 @@ public class HoveringItemRenderer extends ItemEntityRenderer
         }
 
         poseStack.pushPose();
+        poseStack.translate(0f, -0.5f, 0f);
         ItemStack itemstack = pEntity.getItem();
         int i = itemstack.isEmpty() ? 187 : Item.getId(itemstack.getItem()) + itemstack.getDamageValue();
         random.setSeed((long) i);
