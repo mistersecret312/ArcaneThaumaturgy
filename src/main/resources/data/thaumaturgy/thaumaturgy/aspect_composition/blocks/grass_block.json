@@ -4,11 +4,11 @@
   [
     {
       "aspect": "thaumaturgy:combinations/herba",
-      "amount": 1
+      "amount": 2
     },
     {
       "aspect": "thaumaturgy:primal/terra",
-      "amount": 1
+      "amount": 2
     }
   ]
 }

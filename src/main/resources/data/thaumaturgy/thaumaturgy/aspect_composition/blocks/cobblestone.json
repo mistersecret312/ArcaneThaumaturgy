@@ -4,11 +4,11 @@
   [
     {
       "aspect": "thaumaturgy:primal/terra",
-      "amount": 1
+      "amount": 4
     },
     {
       "aspect": "thaumaturgy:primal/perditio",
-      "amount": 1
+      "amount": 2
     }
   ]
 }
