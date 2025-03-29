@@ -35,6 +35,7 @@ public class HoveringItemRenderer extends ItemEntityRenderer
     public void render(ItemEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack poseStack,
                        MultiBufferSource pBuffer, int pPackedLight)
     {
+        RenderSystem.depthMask(false);
         Random random = new Random();
         {
             poseStack.pushPose();
@@ -139,7 +140,7 @@ public class HoveringItemRenderer extends ItemEntityRenderer
         }
 
         poseStack.popPose();
-        //super.render(pEntity, pEntityYaw, pPartialTicks, poseStack, pBuffer, pPackedLight);
+        RenderSystem.depthMask(true);
     }
 
     private static void vertex01(VertexConsumer iVertexBuilder, Matrix4f matrix4f, int p_229061_2_) {
