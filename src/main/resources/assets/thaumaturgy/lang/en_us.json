@@ -49,10 +49,12 @@
   "block.thaumaturgy.greatwood_planks_stairs": "Greatwood Planks Stairs",
   "block.thaumaturgy.greatwood_planks_button": "Greatwood Planks Button",
   "block.thaumaturgy.greatwood_planks_pressure_plate": "Greatwood Planks Pressure Plate",
+  "block.thaumaturgy.greatwood_table": "Greatwood Table",
 
   "block.thaumaturgy.crucible": "Crucible",
   "block.thaumaturgy.runic_matrix": "Runic Matrix",
   "block.thaumaturgy.nitor": "Nitor",
+  "block.thaumaturgy.essentia_jar": "Essentia Jar",
 
   "block.thaumaturgy.aer_vis_crystal_block": "Aer Vis Crystal Block",
   "block.thaumaturgy.ignis_vis_crystal_block": "Ignis Vis Crystal Block",
