@@ -18,27 +18,4 @@ public class HoveringItemEntity extends ItemEntity
     {
         this(EntityTypeInit.HOVERING_ITEM.get(), level);
     }
-
-    @Override
-    public void tick()
-    {
-        super.tick();
-        if(level().isClientSide())
-            return;
-
-        float targetY = (int) this.getY();
-        if(level().getBlockState(this.blockPosition().below()).isAir())
-            targetY -= 1f;
-        else targetY += 1.1f;
-
-
-        // Update entity position
-        this.setPos(this.getX(), targetY, this.getZ());
-    }
-
-    @Override
-    public boolean isNoGravity()
-    {
-        return true;
-    }
 }

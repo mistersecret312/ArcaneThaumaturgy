@@ -68,8 +68,10 @@ public class CrucibleBlockEntity extends BlockEntity
                 }
 
                 HoveringItemEntity result = new HoveringItemEntity(level);
+                result.setNoGravity(true);
                 result.setItem(recipe.get().getResult());
-                result.setPos(this.getBlockPos().getCenter().x, this.getBlockPos().getY()+1.2, this.getBlockPos().getCenter().z);
+                result.setPos(this.getBlockPos().getCenter().x, this.getBlockPos().getY()+2, this.getBlockPos().getCenter().z);
+                result.setDeltaMovement(0, 0, 0);
                 level.addFreshEntity(result);
             }
             if(recipe.isEmpty())
