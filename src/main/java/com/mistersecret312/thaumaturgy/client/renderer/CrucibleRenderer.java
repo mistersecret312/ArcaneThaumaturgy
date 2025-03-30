@@ -37,10 +37,10 @@ public class CrucibleRenderer implements BlockEntityRenderer<CrucibleBlockEntity
         poseStack.pushPose();
 
         //Y range to be visible correctly [0.26f, 0.99f]
-        //Cauldron full bucket - 0.95f;
-        //Cauldron 2/3 bottles - 0.75f;
-        //Cauldron 1/3 bottles - 0.55f
-        poseStack.translate(0.5f, 0.95f, 0.5f);
+        //Crucible max, no overflow - 0.825f;
+        //Crucible level 3 -
+
+        poseStack.translate(0.5f, 0.825f, 0.5f);
 
         //poseStack.mulPose(Minecraft.getInstance().getEntityRenderDispatcher().cameraOrientation());
         poseStack.mulPose(Axis.XN.rotationDegrees(90));
