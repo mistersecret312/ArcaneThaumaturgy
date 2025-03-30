@@ -25,8 +25,6 @@ import net.minecraftforge.client.model.data.ModelData;
 
 public class CrucibleRenderer implements BlockEntityRenderer<CrucibleBlockEntity>
 {
-    public static final ResourceLocation TEXTURE = new ResourceLocation(ArcaneThaumaturgyMod.MODID, "block/crucible/water_2");
-
     public CrucibleRenderer(BlockEntityRendererProvider.Context context)
     {
 
@@ -36,10 +34,6 @@ public class CrucibleRenderer implements BlockEntityRenderer<CrucibleBlockEntity
     public void render(CrucibleBlockEntity crucible, float partialTick, PoseStack poseStack,
                        MultiBufferSource buffer, int packedLight, int pPackedOverlay)
     {
-
-        final TextureAtlasSprite spriteA = Minecraft.getInstance().getTextureAtlas(TextureAtlas.LOCATION_BLOCKS)
-                .apply(TEXTURE);
-
         //Y range to be visible correctly [0.26f, 0.99f]
         //Crucible max, no overflow - 0.825f;
         //Crucible level 3 -
@@ -55,8 +49,9 @@ public class CrucibleRenderer implements BlockEntityRenderer<CrucibleBlockEntity
             float aspectLimit = waterLevel * aspectLimitStep;
             float aspectAmount = crucible.handler.getTotalStored();
             int overflowStep = Math.round(aspectAmount / (aspectLimit / 4));
-            System.out.println("Total stored: " + aspectAmount);
-            System.out.println("Overflow step: " + overflowStep);
+
+            final TextureAtlasSprite spriteA = Minecraft.getInstance().getTextureAtlas(TextureAtlas.LOCATION_BLOCKS)
+                    .apply(new ResourceLocation(ArcaneThaumaturgyMod.MODID, "block/crucible/water_" + (overflowStep + 1)));
 
             float waterHeight = (4 + 1 + 2 * waterLevel + overflowStep) * 0.0625f;
 

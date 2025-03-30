@@ -95,7 +95,8 @@ public class CrucibleBlock extends BaseEntityBlock
                     pLevel.playSound(pPlayer, pPlayer.getX(), pPlayer.getY(), pPlayer.getZ(), SoundEvents.BUCKET_EMPTY, SoundSource.PLAYERS, 1.0F, 1.0F);
                     return InteractionResult.SUCCESS;
                 }
-            } else if (waterLevel < 4)
+            }
+            if (waterLevel < 4)
             {
                 if (stack.is(Items.POTION) && PotionUtils.getPotion(stack) == Potions.WATER)
                 {
