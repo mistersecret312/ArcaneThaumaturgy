@@ -26,4 +26,16 @@ public class ThaumaturgyRenderTypes extends RenderType
                         .createCompositeState(true)
         );
     }
+
+    public static RenderType crucibleWater(ResourceLocation location)
+    {
+        return create("crucible_water", DefaultVertexFormat.POSITION_TEX,
+                VertexFormat.Mode.QUADS, 256, true, true,
+                RenderType.CompositeState.builder()
+                        .setShaderState(RenderStateShard.POSITION_TEX_SHADER)
+                        .setTextureState(new RenderStateShard.TextureStateShard(location, false, false))
+                        .setTransparencyState(TRANSLUCENT_TRANSPARENCY)
+                        .createCompositeState(true)
+        );
+    }
 }
