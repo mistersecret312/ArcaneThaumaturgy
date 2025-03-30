@@ -41,7 +41,7 @@ public class CrucibleRenderer implements BlockEntityRenderer<CrucibleBlockEntity
         //Level step - 0.0625
         //Level 1 - 0.4375
 
-        int waterLevel = crucible.getWaterLevel();
+/*        int waterLevel = crucible.getWaterLevel();
         if (waterLevel > 0) {
             poseStack.pushPose();
 
@@ -66,7 +66,7 @@ public class CrucibleRenderer implements BlockEntityRenderer<CrucibleBlockEntity
             consumerA.vertex(poseStack.last().pose(), -0.5f, 0.5f, 0).uv(spriteA.getU0(), spriteA.getV0()).endVertex();
 
             poseStack.popPose();
-        }
+        }*/
     }
 
     @Override

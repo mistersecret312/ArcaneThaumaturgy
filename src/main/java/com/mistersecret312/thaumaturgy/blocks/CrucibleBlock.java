@@ -2,6 +2,7 @@ package com.mistersecret312.thaumaturgy.blocks;
 
 import com.mistersecret312.thaumaturgy.block_entities.CrucibleBlockEntity;
 import com.mistersecret312.thaumaturgy.init.BlockEntityInit;
+import com.mistersecret312.thaumaturgy.init.SoundInit;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
@@ -30,6 +31,7 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.Fluids;
@@ -42,12 +44,13 @@ import org.jetbrains.annotations.Nullable;
 
 public class CrucibleBlock extends BaseEntityBlock
 {
+    public static final IntegerProperty LEVEL = IntegerProperty.create("level", 0, 6);
     public static final BooleanProperty IS_BOILING = BooleanProperty.create("is_boiling");
 
     public CrucibleBlock(Properties pProperties)
     {
         super(pProperties);
-        this.defaultBlockState().setValue(IS_BOILING, false);
+        this.defaultBlockState().setValue(IS_BOILING, false).setValue(LEVEL, 0);
     }
 
     @Override
@@ -65,9 +68,11 @@ public class CrucibleBlock extends BaseEntityBlock
     {
         if(!level.isClientSide() && level.getBlockEntity(pos) instanceof CrucibleBlockEntity crucible)
         {
-            if(state.getValue(IS_BOILING) && crucible.getWaterLevel() > 0 && entity instanceof ItemEntity itemEntity)
+            if(isBoiling(level, pos) && entity instanceof ItemEntity itemEntity)
             {
                 crucible.itemThrown(itemEntity);
+
+                level.playSound(null, pos, SoundInit.CRUCIBLE_BUBBLE.get(), SoundSource.BLOCKS, 1, 1);
             }
         }
         super.entityInside(state, level, pos, entity);
@@ -80,14 +85,13 @@ public class CrucibleBlock extends BaseEntityBlock
         if (pLevel.getBlockEntity(pPos) instanceof CrucibleBlockEntity crucible)
         {
             ItemStack stack = pPlayer.getItemInHand(pHand);
-            int waterLevel = crucible.getWaterLevel();
-            int itemsLeft = crucible.getItemsCrafted();
+            int waterLevel = pState.getValue(LEVEL);
 
             if (waterLevel < 1)
             {
                 if (stack.is(Items.WATER_BUCKET))
                 {
-                    crucible.setWaterLevel(4);
+                    pLevel.setBlockAndUpdate(pPos, pState.setValue(LEVEL, 4));
                     if (!pPlayer.isCreative())
                     {
                         pPlayer.setItemInHand(pHand, Items.BUCKET.getDefaultInstance());
@@ -96,11 +100,11 @@ public class CrucibleBlock extends BaseEntityBlock
                     return InteractionResult.SUCCESS;
                 }
             }
-            if (waterLevel < 4)
+            if (waterLevel < 3)
             {
                 if (stack.is(Items.POTION) && PotionUtils.getPotion(stack) == Potions.WATER)
                 {
-                    crucible.setWaterLevel(waterLevel + 1);
+                    pLevel.setBlockAndUpdate(pPos, pState.setValue(LEVEL, waterLevel + 1));
                     if (!pPlayer.isCreative())
                     {
                         pPlayer.setItemInHand(pHand, Items.GLASS_BOTTLE.getDefaultInstance());
@@ -132,17 +136,17 @@ public class CrucibleBlock extends BaseEntityBlock
 
     protected void receiveStalactiteDrip(BlockState pState, Level pLevel, BlockPos pPos, Fluid pFluid, CrucibleBlockEntity crucible) {
         if (pFluid == Fluids.WATER) {
-            int waterLevel = crucible.getWaterLevel();
-            if (waterLevel < 4) {
-                crucible.setWaterLevel(crucible.getWaterLevel() + 1);
+            int waterLevel = pState.getValue(LEVEL);
+            if (waterLevel < 3) {
+                pLevel.setBlockAndUpdate(pPos, pState.setValue(LEVEL, waterLevel + 1));
             }
         }
     }
 
     @Override
     public void handlePrecipitation(BlockState pState, Level pLevel, BlockPos pPos, Biome.Precipitation pPrecipitation) {
-        if (pPrecipitation == Biome.Precipitation.RAIN) {
-            pLevel.setBlockAndUpdate(pPos, Blocks.WATER_CAULDRON.defaultBlockState());
+        if (pPrecipitation == Biome.Precipitation.RAIN && !isBoiling(pLevel, pPos)) {
+            pLevel.setBlockAndUpdate(pPos, pState.setValue(LEVEL, pState.getValue(LEVEL) + 1));
             pLevel.gameEvent(null, GameEvent.BLOCK_CHANGE, pPos);
         }
     }
@@ -150,20 +154,25 @@ public class CrucibleBlock extends BaseEntityBlock
     @Override
     public @Nullable BlockState getStateForPlacement(BlockPlaceContext pContext)
     {
-        return this.defaultBlockState().setValue(IS_BOILING, false);
+        return this.defaultBlockState().setValue(IS_BOILING, isBoiling(pContext.getLevel(), pContext.getClickedPos()));
     }
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder)
     {
         pBuilder.add(IS_BOILING);
+        pBuilder.add(LEVEL);
         super.createBlockStateDefinition(pBuilder);
     }
 
     @Override
     public BlockState updateShape(BlockState pState, Direction pDirection, BlockState pNeighborState, LevelAccessor pLevel, BlockPos pPos, BlockPos pNeighborPos)
     {
-        return pState.setValue(IS_BOILING, hasHeatSource(pLevel, pPos));
+        return pState.setValue(IS_BOILING, isBoiling(pLevel, pPos));
+    }
+
+    public boolean isBoiling(LevelAccessor accessor, BlockPos pos) {
+        return accessor.getBlockState(pos).getValue(LEVEL) == 3 && hasHeatSource(accessor, pos);
     }
 
     public boolean hasHeatSource(LevelAccessor accessor, BlockPos pos)

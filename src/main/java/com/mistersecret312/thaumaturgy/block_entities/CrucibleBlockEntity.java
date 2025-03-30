@@ -26,100 +26,67 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Map;
 import java.util.Optional;
 
+import static com.mistersecret312.thaumaturgy.blocks.CrucibleBlock.IS_BOILING;
+import static com.mistersecret312.thaumaturgy.blocks.CrucibleBlock.LEVEL;
+
 public class CrucibleBlockEntity extends BlockEntity
 {
-    private int waterLevel;
-    private int itemsCrafted;
-
-
     public UndefinedAspectStackHandler handler;
     public CrucibleBlockEntity(BlockPos pPos, BlockState pBlockState)
     {
         super(BlockEntityInit.CRUCIBLE.get(), pPos, pBlockState);
-        waterLevel = 0; //Cap 4
-        itemsCrafted = 0; //Cap 4, 4 items can be crafted per 1 water level
-        handler = new UndefinedAspectStackHandler(16, true, 256);
+        handler = new UndefinedAspectStackHandler(16, true, 512);
     }
 
     public static void tick(Level level, BlockPos pos, BlockState state, CrucibleBlockEntity crucible)
     {
         if (!level.isClientSide)
         {
-
+            if (state.getValue(LEVEL) >= 3) {
+                if (state.getValue(LEVEL) != 512 / crucible.handler.getTotalStored()) {
+                    level.setBlockAndUpdate(pos, state.setValue(LEVEL, crucible.handler.getTotalStored()));
+                }
+            }
         }
     }
 
     public void itemThrown(ItemEntity itemEntity)
     {
         Optional<TransmutationRecipe> recipe = level.getRecipeManager().getRecipeFor(TransmutationRecipe.Type.INSTANCE, new CrucibleContainer(handler, itemEntity.getItem()), level);
-        if(this.getWaterLevel() > 0 && this.getBlockState().getValue(CrucibleBlock.IS_BOILING))
+        if(recipe.isPresent())
         {
-            if(recipe.isPresent())
-            {
-                TransmutationRecipe realRecipe = recipe.get();
-                itemEntity.getItem().shrink(1);
-                realRecipe.aspectStacks.forEach(aspect ->
-                        handler.extractAspect(aspect.getAspect().get(), aspect.getAmount(), false));
-                this.setItemsCrafted(this.getItemsCrafted()+1);
-                if(this.getItemsCrafted() >= 4)
-                {
-                    this.setWaterLevel(this.getWaterLevel()-1);
-                    this.setItemsCrafted(0);
-                }
+            TransmutationRecipe realRecipe = recipe.get();
+            itemEntity.getItem().shrink(1);
+            realRecipe.aspectStacks.forEach(aspect ->
+                    handler.extractAspect(aspect.getAspect().get(), aspect.getAmount(), false));
 
-                HoveringItemEntity result = new HoveringItemEntity(level);
-                result.setNoGravity(true);
-                result.setItem(recipe.get().getResult());
-                result.setPos(this.getBlockPos().getCenter().x, this.getBlockPos().getY()+2, this.getBlockPos().getCenter().z);
-                result.setDeltaMovement(0, 0, 0);
-                level.addFreshEntity(result);
-            }
-            if(recipe.isEmpty())
-            {
-                Optional<Map.Entry<ResourceKey<AspectComposition>, AspectComposition>> composition = level.getServer().registryAccess().registryOrThrow(AspectComposition.REGISTRY_KEY).entrySet().stream()
-                        .filter(filter -> itemEntity.getItem().is(filter.getValue().getItem())).findFirst();
-
-                composition.ifPresent(comp -> {
-                    comp.getValue().getAspects().forEach(aspect ->
-                    {
-                        handler.insertAspect(aspect, false);
-                    });
-                    itemEntity.getItem().shrink(1);
-                });
-
-            }
-            markUpdated();
+            HoveringItemEntity result = new HoveringItemEntity(level);
+            result.setNoGravity(true);
+            result.setItem(recipe.get().getResult());
+            result.setPos(this.getBlockPos().getCenter().x, this.getBlockPos().getY()+2, this.getBlockPos().getCenter().z);
+            result.setDeltaMovement(0, 0, 0);
+            level.addFreshEntity(result);
         }
-    }
+        if(recipe.isEmpty())
+        {
+            Optional<Map.Entry<ResourceKey<AspectComposition>, AspectComposition>> composition = level.getServer().registryAccess().registryOrThrow(AspectComposition.REGISTRY_KEY).entrySet().stream()
+                    .filter(filter -> itemEntity.getItem().is(filter.getValue().getItem())).findFirst();
 
-    public int getWaterLevel()
-    {
-        return waterLevel;
-    }
-
-
-    public void setWaterLevel(int newLevel)
-    {
-        waterLevel = newLevel;
-    }
-
-    public int getItemsCrafted()
-    {
-        return itemsCrafted;
-    }
-
-    public void setItemsCrafted(int newItems)
-    {
-        itemsCrafted = newItems;
+            composition.ifPresent(comp -> {
+                comp.getValue().getAspects().forEach(aspect ->
+                {
+                    handler.insertAspect(aspect, false);
+                });
+                itemEntity.getItem().shrink(1);
+            });
+        }
+        markUpdated();
     }
 
     @Override
     public void load(CompoundTag compound)
     {
         super.load(compound);
-        waterLevel = compound.getInt("water_level");
-        itemsCrafted = compound.getInt("items_crafted");
-
         handler.deserializeNBT(((CompoundTag) compound.get("essentia")));
     }
 
@@ -127,9 +94,6 @@ public class CrucibleBlockEntity extends BlockEntity
     protected void saveAdditional(CompoundTag compound)
     {
         super.saveAdditional(compound);
-        compound.putInt("water_level", waterLevel);
-        compound.putInt("items_crafted", itemsCrafted);
-
         compound.put("essentia", handler.serializeNBT());
     }
 

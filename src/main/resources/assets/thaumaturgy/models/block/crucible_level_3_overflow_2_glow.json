@@ -5,12 +5,12 @@
 	"render_type": "minecraft:translucent",
 	"textures": {
 		"5": "thaumaturgy:block/crucible/side_inner",
-		"6": "thaumaturgy:block/crucible/water_1",
-		"7": "thaumaturgy:block/crucible/side",
+		"6": "thaumaturgy:block/crucible/water_3",
+		"7": "thaumaturgy:block/crucible/side_glow",
+		"particle": "thaumaturgy:block/crucible/side_glow",
 		"top": "thaumaturgy:block/crucible/top",
 		"bottom": "thaumaturgy:block/crucible/bottom",
-		"inside": "thaumaturgy:block/crucible/inner",
-		"particle": "thaumaturgy:block/crucible/side"
+		"inside": "thaumaturgy:block/crucible/inner"
 	},
 	"elements": [
 		{
@@ -150,9 +150,9 @@
 			}
 		},
 		{
-			"from": [2, 13, 2],
-			"to": [14, 13, 14],
-			"rotation": {"angle": 0, "axis": "y", "origin": [12, 11, 2]},
+			"from": [2, 15, 2],
+			"to": [14, 15, 14],
+			"rotation": {"angle": 0, "axis": "y", "origin": [12, 13, 2]},
 			"faces": {
 				"up": {"uv": [2, 2, 14, 14], "texture": "#6"}
 			}

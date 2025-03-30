@@ -1,10 +1,37 @@
 {
   "variants": {
-    "is_boiling=false": {
+    "level=0": {
       "model": "thaumaturgy:block/crucible"
     },
-    "is_boiling=true": {
-      "model": "thaumaturgy:block/crucible_glow"
+    "level=1": {
+      "model": "thaumaturgy:block/crucible_level_1"
+    },
+    "level=2": {
+      "model": "thaumaturgy:block/crucible_level_2"
+    },
+    "level=3,is_boiling=false": {
+      "model": "thaumaturgy:block/crucible_level_3"
+    },
+    "level=3,is_boiling=true": {
+      "model": "thaumaturgy:block/crucible_level_3_glow"
+    },
+    "level=4,is_boiling=false": {
+      "model": "thaumaturgy:block/crucible_level_3_overflow_1"
+    },
+    "level=4,is_boiling=true": {
+      "model": "thaumaturgy:block/crucible_level_3_overflow_1_glow"
+    },
+    "level=5,is_boiling=false": {
+      "model": "thaumaturgy:block/crucible_level_3_overflow_2"
+    },
+    "level=5,is_boiling=true": {
+      "model": "thaumaturgy:block/crucible_level_3_overflow_2_glow"
+    },
+    "level=6,is_boiling=false": {
+      "model": "thaumaturgy:block/crucible_level_3_overflow_3"
+    },
+    "level=6,is_boiling=true": {
+      "model": "thaumaturgy:block/crucible_level_3_overflow_3_glow"
     }
   }
 }

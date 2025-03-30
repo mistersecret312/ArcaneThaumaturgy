@@ -20,5 +20,12 @@
     [
       "thaumaturgy:essentia_jar_close"
     ]
+  },
+  "crucible_bubble": {
+    "subtitle": "sound.thaumaturgy.crucible_bubble",
+    "sounds":
+    [
+      "thaumaturgy:crucible_bubble"
+    ]
   }
 }

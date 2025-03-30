@@ -15,6 +15,7 @@ public class SoundInit
     public static RegistryObject<SoundEvent> WAND_USE = registerSoundEvent("wand_use");
     public static RegistryObject<SoundEvent> ESSENTIA_JAR_OPEN = registerSoundEvent("essentia_jar_open");
     public static RegistryObject<SoundEvent> ESSENTIA_JAR_CLOSE = registerSoundEvent("essentia_jar_close");
+    public static RegistryObject<SoundEvent> CRUCIBLE_BUBBLE = registerSoundEvent("crucible_bubble");
 
     private static RegistryObject<SoundEvent> registerSoundEvent(String sound)
     {

@@ -6,11 +6,11 @@
 	"textures": {
 		"5": "thaumaturgy:block/crucible/side_inner",
 		"6": "thaumaturgy:block/crucible/water_1",
-		"7": "thaumaturgy:block/crucible/side_active",
+		"7": "thaumaturgy:block/crucible/side",
+		"particle": "thaumaturgy:block/crucible/side",
 		"top": "thaumaturgy:block/crucible/top",
 		"bottom": "thaumaturgy:block/crucible/bottom",
-		"inside": "thaumaturgy:block/crucible/inner",
-		"particle": "thaumaturgy:block/crucible/side_active"
+		"inside": "thaumaturgy:block/crucible/inner"
 	},
 	"elements": [
 		{
@@ -150,9 +150,9 @@
 			}
 		},
 		{
-			"from": [2, 13, 2],
-			"to": [14, 13, 14],
-			"rotation": {"angle": 0, "axis": "y", "origin": [12, 11, 2]},
+			"from": [2, 7, 2],
+			"to": [14, 7, 14],
+			"rotation": {"angle": 0, "axis": "y", "origin": [12, 5, 2]},
 			"faces": {
 				"up": {"uv": [2, 2, 14, 14], "texture": "#6"}
 			}
