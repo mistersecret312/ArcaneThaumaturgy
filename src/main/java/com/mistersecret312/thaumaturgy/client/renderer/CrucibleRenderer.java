@@ -47,16 +47,7 @@ public class CrucibleRenderer implements BlockEntityRenderer<CrucibleBlockEntity
 
         poseStack.translate(0.5f, 0.825f, 0.5f);
 
-        poseStack.pushPose();
-        poseStack.translate(-0.5f, 1.5f, -0.5f);
-        poseStack.rotateAround(Axis.YP.rotationDegrees((float) blockEntity.getLevel().getDayTime()), 0.5f, 0.5f, 0.5f);
-        poseStack.rotateAround(Axis.XP.rotationDegrees((float) 45), 0.5f, 0.5f, 0.5f);
-        //poseStack.mulPose(Axis.ZP.rotationDegrees((float) blockEntity.getLevel().getDayTime() /2));
-        Minecraft.getInstance().getBlockRenderer().renderSingleBlock(BlockInit.RUNIC_MATRIX.get().defaultBlockState().setValue(RunicMatrixBlock.ACTIVE, true), poseStack, buffer, packedLight, pPackedOverlay);
-        poseStack.popPose();
-        //poseStack.mulPose(Minecraft.getInstance().getEntityRenderDispatcher().cameraOrientation());
         poseStack.mulPose(Axis.XN.rotationDegrees(90));
-
 
         VertexConsumer consumerA = buffer.getBuffer(ThaumaturgyRenderTypes.crucibleWater(spriteA.atlasLocation()));
         consumerA.vertex(poseStack.last().pose(), -0.5f, -0.5f, 0).uv(spriteA.getU0(), spriteA.getV1()).endVertex();
