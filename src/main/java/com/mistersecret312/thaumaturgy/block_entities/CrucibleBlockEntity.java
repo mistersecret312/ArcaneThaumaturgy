@@ -88,6 +88,7 @@ public class CrucibleBlockEntity extends BlockEntity
                 });
 
             }
+            markUpdated();
         }
     }
 

@@ -1,6 +1,7 @@
 package com.mistersecret312.thaumaturgy.client.renderer;
 
 import com.mistersecret312.thaumaturgy.ArcaneThaumaturgyMod;
+import com.mistersecret312.thaumaturgy.aspects.Aspects;
 import com.mistersecret312.thaumaturgy.block_entities.CrucibleBlockEntity;
 import com.mistersecret312.thaumaturgy.block_entities.NitorBlockEntity;
 import com.mistersecret312.thaumaturgy.blocks.RunicMatrixBlock;
@@ -32,31 +33,45 @@ public class CrucibleRenderer implements BlockEntityRenderer<CrucibleBlockEntity
     }
 
     @Override
-    public void render(CrucibleBlockEntity blockEntity, float partialTick, PoseStack poseStack,
+    public void render(CrucibleBlockEntity crucible, float partialTick, PoseStack poseStack,
                        MultiBufferSource buffer, int packedLight, int pPackedOverlay)
     {
 
         final TextureAtlasSprite spriteA = Minecraft.getInstance().getTextureAtlas(TextureAtlas.LOCATION_BLOCKS)
                 .apply(TEXTURE);
 
-        poseStack.pushPose();
-
         //Y range to be visible correctly [0.26f, 0.99f]
         //Crucible max, no overflow - 0.825f;
         //Crucible level 3 -
 
-        poseStack.translate(0.5f, 0.825f, 0.5f);
+        //Level step - 0.0625
+        //Level 1 - 0.4375
 
-        poseStack.mulPose(Axis.XN.rotationDegrees(90));
+        int waterLevel = crucible.getWaterLevel();
+        if (waterLevel > 0) {
+            poseStack.pushPose();
 
-        VertexConsumer consumerA = buffer.getBuffer(ThaumaturgyRenderTypes.crucibleWater(spriteA.atlasLocation()));
-        consumerA.vertex(poseStack.last().pose(), -0.5f, -0.5f, 0).uv(spriteA.getU0(), spriteA.getV1()).endVertex();
-        consumerA.vertex(poseStack.last().pose(), 0.5f, -0.5f, 0).uv(spriteA.getU1(), spriteA.getV1()).endVertex();
-        consumerA.vertex(poseStack.last().pose(), 0.5f, 0.5f, 0).uv(spriteA.getU1(), spriteA.getV0()).endVertex();
-        consumerA.vertex(poseStack.last().pose(), -0.5f, 0.5f, 0).uv(spriteA.getU0(), spriteA.getV0()).endVertex();
+            int aspectLimitStep = 64;
+            float aspectLimit = waterLevel * aspectLimitStep;
+            float aspectAmount = crucible.handler.getTotalStored();
+            int overflowStep = Math.round(aspectAmount / (aspectLimit / 4));
+            System.out.println("Total stored: " + aspectAmount);
+            System.out.println("Overflow step: " + overflowStep);
 
-        poseStack.popPose();
+            float waterHeight = (4 + 1 + 2 * waterLevel + overflowStep) * 0.0625f;
 
+            poseStack.translate(0.5f, waterHeight, 0.5f);
+
+            poseStack.mulPose(Axis.XN.rotationDegrees(90));
+
+            VertexConsumer consumerA = buffer.getBuffer(ThaumaturgyRenderTypes.crucibleWater(spriteA.atlasLocation()));
+            consumerA.vertex(poseStack.last().pose(), -0.5f, -0.5f, 0).uv(spriteA.getU0(), spriteA.getV1()).endVertex();
+            consumerA.vertex(poseStack.last().pose(), 0.5f, -0.5f, 0).uv(spriteA.getU1(), spriteA.getV1()).endVertex();
+            consumerA.vertex(poseStack.last().pose(), 0.5f, 0.5f, 0).uv(spriteA.getU1(), spriteA.getV0()).endVertex();
+            consumerA.vertex(poseStack.last().pose(), -0.5f, 0.5f, 0).uv(spriteA.getU0(), spriteA.getV0()).endVertex();
+
+            poseStack.popPose();
+        }
     }
 
     @Override
