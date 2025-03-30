@@ -150,6 +150,15 @@ public class UndefinedAspectStackHandler implements INBTSerializable<CompoundTag
         else return this.getStackInSlot(aspect).getAmount();
     }
 
+    public int getTotalStored()
+    {
+        int stored = 0;
+        for (Map.Entry<Aspect, AspectStack> stack : stacks.entrySet())
+            stored += stack.getValue().getAmount();
+
+        return stored;
+    }
+
     public int getSize()
     {
         return stacks.size();

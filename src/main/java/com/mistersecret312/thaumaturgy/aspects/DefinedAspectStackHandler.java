@@ -135,12 +135,22 @@ public class DefinedAspectStackHandler implements INBTSerializable<CompoundTag>
         }
     }
 
+    public int getTotalStored()
+    {
+
+        int stored = 0;
+        for (Map.Entry<Aspect, AspectStack> entry : definedStacks.entrySet())
+            stored += entry.getValue().getAmount();
+
+        return stored;
+    }
+
     public int getStored(Aspect aspect)
     {
         if(totalCapacity)
         {
             int stored = 0;
-            for(Map.Entry<Aspect, AspectStack> entry : definedStacks.entrySet())
+            for (Map.Entry<Aspect, AspectStack> entry : definedStacks.entrySet())
                 stored += entry.getValue().getAmount();
 
             return stored;
