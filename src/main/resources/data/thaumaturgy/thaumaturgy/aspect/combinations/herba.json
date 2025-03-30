@@ -1,7 +1,7 @@
 {
   "name": "herba",
   "rgb":[255, 255, 255],
-  "texture": "thaumaturgy:textures/aspect/herba",
+  "texture": "thaumaturgy:textures/aspect/herba.png",
   "combination":
   {
     "first_aspect": "thaumaturgy:primal/terra",

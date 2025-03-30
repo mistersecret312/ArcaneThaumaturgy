@@ -1,7 +1,7 @@
 {
   "name": "potentia",
   "rgb":[255, 255, 255],
-  "texture": "thaumaturgy:textures/aspect/potentia",
+  "texture": "thaumaturgy:textures/aspect/potentia.png",
   "combination":
   {
     "first_aspect": "thaumaturgy:ordo",

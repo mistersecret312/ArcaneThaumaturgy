@@ -22,6 +22,8 @@ public class ItemTabInit
                     {
                         output.accept(BlockInit.ARCANE_STONE_PEDESTAL.get());
 
+                        output.accept(BlockInit.GREATWOOD_TABLE.get());
+
                         output.accept(BlockInit.CRUCIBLE.get());
 
                         output.accept(BlockInit.RUNIC_MATRIX.get());
