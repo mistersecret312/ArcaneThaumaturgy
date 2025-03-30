@@ -2,6 +2,7 @@ package com.mistersecret312.thaumaturgy.blocks;
 
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
@@ -10,6 +11,14 @@ import org.jetbrains.annotations.Nullable;
 public class RunicMatrixBlock extends Block
 {
     public static final BooleanProperty ACTIVE = BooleanProperty.create("active");
+
+    @Override
+    public RenderShape getRenderShape(BlockState state)
+    {
+        if(state.getValue(ACTIVE))
+            return RenderShape.MODEL;
+        return RenderShape.MODEL;
+    }
 
     public RunicMatrixBlock(Properties pProperties)
     {

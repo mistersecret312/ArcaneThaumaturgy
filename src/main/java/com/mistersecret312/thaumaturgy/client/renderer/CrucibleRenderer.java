@@ -3,7 +3,10 @@ package com.mistersecret312.thaumaturgy.client.renderer;
 import com.mistersecret312.thaumaturgy.ArcaneThaumaturgyMod;
 import com.mistersecret312.thaumaturgy.block_entities.CrucibleBlockEntity;
 import com.mistersecret312.thaumaturgy.block_entities.NitorBlockEntity;
+import com.mistersecret312.thaumaturgy.blocks.RunicMatrixBlock;
 import com.mistersecret312.thaumaturgy.client.ThaumaturgyRenderTypes;
+import com.mistersecret312.thaumaturgy.init.BlockInit;
+import com.mojang.blaze3d.platform.Lighting;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
@@ -16,6 +19,8 @@ import net.minecraft.client.renderer.texture.TextureAtlas;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.FastColor;
+import net.minecraft.world.phys.Vec3;
+import net.minecraftforge.client.model.data.ModelData;
 
 public class CrucibleRenderer implements BlockEntityRenderer<CrucibleBlockEntity>
 {
@@ -42,6 +47,13 @@ public class CrucibleRenderer implements BlockEntityRenderer<CrucibleBlockEntity
 
         poseStack.translate(0.5f, 0.825f, 0.5f);
 
+        poseStack.pushPose();
+        poseStack.translate(-0.5f, 1.5f, -0.5f);
+        poseStack.rotateAround(Axis.YP.rotationDegrees((float) blockEntity.getLevel().getDayTime()), 0.5f, 0.5f, 0.5f);
+        poseStack.rotateAround(Axis.XP.rotationDegrees((float) 45), 0.5f, 0.5f, 0.5f);
+        //poseStack.mulPose(Axis.ZP.rotationDegrees((float) blockEntity.getLevel().getDayTime() /2));
+        Minecraft.getInstance().getBlockRenderer().renderSingleBlock(BlockInit.RUNIC_MATRIX.get().defaultBlockState().setValue(RunicMatrixBlock.ACTIVE, true), poseStack, buffer, packedLight, pPackedOverlay);
+        poseStack.popPose();
         //poseStack.mulPose(Minecraft.getInstance().getEntityRenderDispatcher().cameraOrientation());
         poseStack.mulPose(Axis.XN.rotationDegrees(90));
 
@@ -54,5 +66,11 @@ public class CrucibleRenderer implements BlockEntityRenderer<CrucibleBlockEntity
 
         poseStack.popPose();
 
+    }
+
+    @Override
+    public boolean shouldRenderOffScreen(CrucibleBlockEntity pBlockEntity)
+    {
+        return true;
     }
 }
