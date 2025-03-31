@@ -43,9 +43,10 @@ public class CrucibleBlockEntity extends BlockEntity
     {
         if (!level.isClientSide)
         {
-            if (state.getValue(LEVEL) >= 3) {
-                if (state.getValue(LEVEL) != 512 / crucible.handler.getTotalStored()) {
-                    level.setBlockAndUpdate(pos, state.setValue(LEVEL, crucible.handler.getTotalStored()));
+            if (state.getValue(LEVEL) >= 3 && state.getValue(IS_BOILING)) {
+                int aspects = crucible.handler.getTotalStored();
+                if (aspects != 0 && state.getValue(LEVEL) != 512 / aspects) {
+                    level.setBlockAndUpdate(pos, state.setValue(LEVEL, 3 + 512 / aspects));
                 }
             }
         }
