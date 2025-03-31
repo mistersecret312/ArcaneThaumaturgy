@@ -1,5 +1,6 @@
 package com.mistersecret312.thaumaturgy.block_entities;
 
+import com.mistersecret312.thaumaturgy.aspects.AspectStack;
 import com.mistersecret312.thaumaturgy.aspects.UndefinedAspectStackHandler;
 import com.mistersecret312.thaumaturgy.blocks.CrucibleBlock;
 import com.mistersecret312.thaumaturgy.containers.CrucibleContainer;
@@ -75,9 +76,11 @@ public class CrucibleBlockEntity extends BlockEntity
             composition.ifPresent(comp -> {
                 comp.getValue().getAspects().forEach(aspect ->
                 {
+                    AspectStack aspectCopy = aspect.copy();
+                    aspectCopy.setAmount(aspectCopy.getAmount()*itemEntity.getItem().getCount());
                     handler.insertAspect(aspect, false);
                 });
-                itemEntity.getItem().shrink(1);
+                itemEntity.discard();
             });
         }
         markUpdated();
