@@ -6,12 +6,14 @@ import com.mistersecret312.thaumaturgy.containers.CrucibleContainer;
 import com.mistersecret312.thaumaturgy.datapack.AspectComposition;
 import com.mistersecret312.thaumaturgy.entities.HoveringItemEntity;
 import com.mistersecret312.thaumaturgy.init.BlockEntityInit;
+import com.mistersecret312.thaumaturgy.init.SoundInit;
 import com.mistersecret312.thaumaturgy.recipes.TransmutationRecipe;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.Connection;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -67,6 +69,8 @@ public class CrucibleBlockEntity extends BlockEntity
             result.setPos(this.getBlockPos().getCenter().x, this.getBlockPos().getY()+2, this.getBlockPos().getCenter().z);
             result.setDeltaMovement(0, 0, 0);
             level.addFreshEntity(result);
+            level.playSound(null, this.getBlockPos(), SoundInit.CRUCIBLE_BUBBLE.get(), SoundSource.BLOCKS, 1, 1);
+            markUpdated();
         }
         if(recipe.isEmpty())
         {
@@ -81,9 +85,10 @@ public class CrucibleBlockEntity extends BlockEntity
                     handler.insertAspect(aspectCopy, false);
                 });
                 itemEntity.discard();
+                level.playSound(null, this.getBlockPos(), SoundInit.CRUCIBLE_BUBBLE.get(), SoundSource.BLOCKS, 1, 1);
+                markUpdated();
             });
         }
-        markUpdated();
     }
 
     @Override

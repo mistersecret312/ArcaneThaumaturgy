@@ -15,6 +15,7 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -70,11 +71,15 @@ public class CrucibleBlock extends BaseEntityBlock
     {
         if(!level.isClientSide() && level.getBlockEntity(pos) instanceof CrucibleBlockEntity crucible)
         {
-            if(isBoiling(level, pos) && entity instanceof ItemEntity itemEntity)
+            if(isBoiling(level, pos))
             {
-                crucible.itemThrown(itemEntity);
-
-                level.playSound(null, pos, SoundInit.CRUCIBLE_BUBBLE.get(), SoundSource.BLOCKS, 1, 1);
+                if (entity instanceof ItemEntity itemEntity)
+                {
+                    crucible.itemThrown(itemEntity);
+                } else if (entity instanceof LivingEntity livingEntity)
+                {
+                    livingEntity.hurt(level.damageSources().hotFloor(), 1);
+                }
             }
         }
         super.entityInside(state, level, pos, entity);
