@@ -170,7 +170,7 @@ public class CrucibleBlock extends BaseEntityBlock
     @Override
     public @Nullable BlockState getStateForPlacement(BlockPlaceContext pContext)
     {
-        return this.defaultBlockState().setValue(IS_BOILING, hasHeatSource(pContext.getLevel(), pContext.getClickedPos())).setValue(LEVEL, 0);
+        return this.defaultBlockState().setValue(IS_BOILING, false).setValue(LEVEL, 0);
     }
 
     @Override

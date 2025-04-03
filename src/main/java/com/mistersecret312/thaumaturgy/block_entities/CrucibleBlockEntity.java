@@ -9,11 +9,13 @@ import com.mistersecret312.thaumaturgy.init.BlockEntityInit;
 import com.mistersecret312.thaumaturgy.init.SoundInit;
 import com.mistersecret312.thaumaturgy.recipes.TransmutationRecipe;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.Connection;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -43,13 +45,35 @@ public class CrucibleBlockEntity extends BlockEntity
     {
         if (!level.isClientSide)
         {
-            if (state.getValue(LEVEL) >= 3 && state.getValue(IS_BOILING)) {
+            if (state.getValue(LEVEL) >= 3 && state.getValue(IS_BOILING))
+            {
                 int aspects = crucible.handler.getTotalStored();
-                int value = Math.min(aspects/170, 3);
+                int value = Math.min(aspects / 170, 3);
 
                 //state.setValue(LEVEL, value+3);
-                level.setBlockAndUpdate(pos, state.setValue(LEVEL, value+3));
+                level.setBlockAndUpdate(pos, state.setValue(LEVEL, value + 3));
             }
+        }
+        if (state.getValue(IS_BOILING))
+        {
+            particleTick(level, pos, state);
+        }
+    }
+
+    public static void particleTick(Level level, BlockPos pos, BlockState state)
+    {
+        RandomSource random = level.getRandom();
+        double pixelHeight = 0.0625;
+        double waterHeight = 13 + state.getValue(LEVEL) - 3;
+        double y = pos.getY() + waterHeight * pixelHeight;
+
+        if (random.nextDouble() > 1 - 0.15 * state.getValue(LEVEL))
+        {
+            double x = pos.getX() + 0.5D + (random.nextDouble() * 0.6D - 0.3D);
+            double z = pos.getZ() + 0.5D + (random.nextDouble() * 0.6D - 0.3D);
+
+            level.addAlwaysVisibleParticle(ParticleTypes.BUBBLE, x, y, z, 0, 0.02 * state.getValue(LEVEL), 0);
+            level.addAlwaysVisibleParticle(ParticleTypes.BUBBLE_POP, x, y, z, 0, 0.02 * state.getValue(LEVEL), 0);
         }
     }
 
