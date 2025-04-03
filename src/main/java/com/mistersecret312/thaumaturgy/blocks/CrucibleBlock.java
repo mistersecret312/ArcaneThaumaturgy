@@ -3,6 +3,8 @@ package com.mistersecret312.thaumaturgy.blocks;
 import com.mistersecret312.thaumaturgy.block_entities.CrucibleBlockEntity;
 import com.mistersecret312.thaumaturgy.init.BlockEntityInit;
 import com.mistersecret312.thaumaturgy.init.SoundInit;
+import com.mistersecret312.thaumaturgy.init.SoundTypeInit;
+import com.mistersecret312.thaumaturgy.items.WandItem;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
@@ -91,7 +93,7 @@ public class CrucibleBlock extends BaseEntityBlock
             {
                 if (stack.is(Items.WATER_BUCKET))
                 {
-                    pLevel.setBlockAndUpdate(pPos, pState.setValue(LEVEL, 4));
+                    pLevel.setBlockAndUpdate(pPos, pState.setValue(LEVEL, 3));
                     if (!pPlayer.isCreative())
                     {
                         pPlayer.setItemInHand(pHand, Items.BUCKET.getDefaultInstance());
@@ -113,6 +115,15 @@ public class CrucibleBlock extends BaseEntityBlock
                     return InteractionResult.SUCCESS;
                 }
             }
+            if(waterLevel > 0)
+                if(stack.getItem() instanceof WandItem)
+                {
+                    pLevel.setBlockAndUpdate(pPos, this.defaultBlockState());
+                    crucible.handler.clear();
+
+                    pLevel.playSound(null, pPos, SoundEvents.LAVA_EXTINGUISH, SoundSource.BLOCKS, 1f, 1f);
+                    return InteractionResult.SUCCESS;
+                }
         }
         return InteractionResult.PASS;
     }

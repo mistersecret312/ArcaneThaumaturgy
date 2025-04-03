@@ -128,6 +128,11 @@ public class UndefinedAspectStackHandler implements INBTSerializable<CompoundTag
         }
     }
 
+    public void clear()
+    {
+        this.stacks = new HashMap<>(512);
+    }
+
     public boolean isEmpty()
     {
         for(Map.Entry<Aspect, AspectStack> entry : this.stacks.entrySet())

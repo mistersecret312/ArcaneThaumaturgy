@@ -2,7 +2,6 @@ package com.mistersecret312.thaumaturgy.block_entities;
 
 import com.mistersecret312.thaumaturgy.aspects.AspectStack;
 import com.mistersecret312.thaumaturgy.aspects.UndefinedAspectStackHandler;
-import com.mistersecret312.thaumaturgy.blocks.CrucibleBlock;
 import com.mistersecret312.thaumaturgy.containers.CrucibleContainer;
 import com.mistersecret312.thaumaturgy.datapack.AspectComposition;
 import com.mistersecret312.thaumaturgy.entities.HoveringItemEntity;
@@ -11,32 +10,31 @@ import com.mistersecret312.thaumaturgy.recipes.TransmutationRecipe;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.Connection;
-import net.minecraft.network.protocol.Packet;
-import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
-import net.minecraft.network.protocol.game.ClientboundBlockUpdatePacket;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.entity.item.ItemEntity;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.Map;
 import java.util.Optional;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import static com.mistersecret312.thaumaturgy.blocks.CrucibleBlock.IS_BOILING;
 import static com.mistersecret312.thaumaturgy.blocks.CrucibleBlock.LEVEL;
 
 public class CrucibleBlockEntity extends BlockEntity
 {
+    public static final int MAX_CAPACITY = 512;
+
     public UndefinedAspectStackHandler handler;
     public CrucibleBlockEntity(BlockPos pPos, BlockState pBlockState)
     {
         super(BlockEntityInit.CRUCIBLE.get(), pPos, pBlockState);
-        handler = new UndefinedAspectStackHandler(16, true, 512);
+        handler = new UndefinedAspectStackHandler(16, true, MAX_CAPACITY);
     }
 
     public static void tick(Level level, BlockPos pos, BlockState state, CrucibleBlockEntity crucible)
@@ -45,9 +43,10 @@ public class CrucibleBlockEntity extends BlockEntity
         {
             if (state.getValue(LEVEL) >= 3 && state.getValue(IS_BOILING)) {
                 int aspects = crucible.handler.getTotalStored();
-                if (aspects != 0 && state.getValue(LEVEL) != 512 / aspects) {
-                    level.setBlockAndUpdate(pos, state.setValue(LEVEL, 3 + 512 / aspects));
-                }
+                int value = Math.min(aspects/170, 3);
+
+                //state.setValue(LEVEL, value+3);
+                level.setBlockAndUpdate(pos, state.setValue(LEVEL, value+3));
             }
         }
     }
@@ -79,7 +78,7 @@ public class CrucibleBlockEntity extends BlockEntity
                 {
                     AspectStack aspectCopy = aspect.copy();
                     aspectCopy.setAmount(aspectCopy.getAmount()*itemEntity.getItem().getCount());
-                    handler.insertAspect(aspect, false);
+                    handler.insertAspect(aspectCopy, false);
                 });
                 itemEntity.discard();
             });
