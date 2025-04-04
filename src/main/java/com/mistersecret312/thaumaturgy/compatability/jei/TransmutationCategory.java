@@ -77,7 +77,7 @@ public class TransmutationCategory implements IRecipeCategory<TransmutationRecip
         builder.addSlot(RecipeIngredientRole.OUTPUT, 47, 7).addItemStack(recipe.getResult());
 
         int aspectsTotal = recipe.aspects.size();
-        int aspectRows = aspectsTotal / 3;
+        int aspectRows = aspectsTotal > 3 ? aspectsTotal/3 : 1;
 
         for (int i = 0; i < aspectRows; i++)
         {

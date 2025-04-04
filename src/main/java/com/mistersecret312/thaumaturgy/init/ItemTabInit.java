@@ -2,6 +2,7 @@ package com.mistersecret312.thaumaturgy.init;
 
 import com.mistersecret312.thaumaturgy.ArcaneThaumaturgyMod;
 import com.mistersecret312.thaumaturgy.aspects.DefinedAspectStackHandler;
+import com.mistersecret312.thaumaturgy.items.AspectItem;
 import com.mistersecret312.thaumaturgy.items.WandItem;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
@@ -129,6 +130,18 @@ public class ItemTabInit
                         output.accept(BlockInit.GREATWOOD_PLANKS_SLAB.get());
                         output.accept(BlockInit.GREATWOOD_PLANKS_PRESSURE_PLATE.get());
                         output.accept(BlockInit.GREATWOOD_PLANKS_BUTTON.get());
+                    })
+                    .build());
+
+    public static final RegistryObject<CreativeModeTab> ASPECT_TAG = TABS.register("aspect_tab",
+            () -> CreativeModeTab.builder().icon(() -> AspectItem.create(AspectInit.ORDO.get()))
+                    .title(Component.translatable("tabs.thaumaturgy.aspects_tab"))
+                    .withTabsBefore(DECORATIONS_TAB.getKey())
+                    .displayItems((parameters, output) -> {
+                        AspectInit.ASPECTS.getEntries().forEach(aspect ->
+                        {
+                            output.accept(AspectItem.create(aspect.get()));
+                        });
                     })
                     .build());
 

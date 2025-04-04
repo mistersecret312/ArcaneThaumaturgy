@@ -160,7 +160,9 @@ public class ThaumometerInfoRenderer extends BlockEntityWithoutLevelRenderer {
             pose.pushPose();
             String name = blockState.getBlock().getName().getString();
             float textWidth = font.width(name);
-            font.drawInBatch(name, -textWidth/2, -45, -1, false, pose.last().pose(), buffer, Font.DisplayMode.NORMAL, 0, 15728880);
+            float scale = textWidth > 80 ? 80/textWidth : 1f;
+            pose.scale(scale, scale, scale);
+            font.drawInBatch(name, -textWidth/2, -45-(textWidth > 80 ? (textWidth-80)*scale : 0), -1, false, pose.last().pose(), buffer, Font.DisplayMode.NORMAL, 0, 15728880);
             pose.popPose();
 
             ClientPacketListener packetListener = minecraft.getConnection();

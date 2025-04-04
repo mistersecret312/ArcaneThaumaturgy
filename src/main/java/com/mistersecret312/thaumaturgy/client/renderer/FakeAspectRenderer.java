@@ -1,5 +1,6 @@
 package com.mistersecret312.thaumaturgy.client.renderer;
 
+import com.mistersecret312.thaumaturgy.ArcaneThaumaturgyMod;
 import com.mistersecret312.thaumaturgy.items.AspectItem;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
@@ -27,6 +28,9 @@ public class FakeAspectRenderer extends BlockEntityWithoutLevelRenderer
         if(stack.getItem() instanceof AspectItem aspectItem)
         {
             ResourceLocation texture = aspectItem.getTexture(stack);
+            if(Minecraft.getInstance().getResourceManager().getResource(texture).isEmpty())
+                texture = ResourceLocation.fromNamespaceAndPath(ArcaneThaumaturgyMod.MODID, "textures/aspect/error.png");
+
 
             RenderSystem.setShaderTexture(0, texture);
             VertexConsumer vertexConsumer = buffer.getBuffer(RenderType.entityCutout(texture));
@@ -34,10 +38,9 @@ public class FakeAspectRenderer extends BlockEntityWithoutLevelRenderer
             poseStack.pushPose();
             light = 15728880;
 
-            // Basic textured quad (flat 2D sprite)
             Matrix4f matrix = poseStack.last().pose();
 
-            float size = 1f; // You can scale this
+            float size = 1f;
             float z = 0.0f;
 
             vertexConsumer.vertex(matrix, 0, 0, z).color(255, 255, 255, 255).uv(0, 1).overlayCoords(overlay).uv2(light).normal(0, 1, 0).endVertex();
