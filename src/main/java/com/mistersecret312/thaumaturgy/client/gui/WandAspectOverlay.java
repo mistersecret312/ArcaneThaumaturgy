@@ -1,24 +1,20 @@
 package com.mistersecret312.thaumaturgy.client.gui;
 
 import com.mistersecret312.thaumaturgy.ArcaneThaumaturgyMod;
-import com.mistersecret312.thaumaturgy.aspects.Aspects;
 import com.mistersecret312.thaumaturgy.aspects.DefinedAspectStackHandler;
-import com.mistersecret312.thaumaturgy.datapack.Aspect;
+import com.mistersecret312.thaumaturgy.aspects.Aspect;
+import com.mistersecret312.thaumaturgy.init.AspectInit;
 import com.mistersecret312.thaumaturgy.items.WandItem;
 import com.mistersecret312.thaumaturgy.util.RenderBlitUtil;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.multiplayer.ClientPacketListener;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.MapItem;
 import net.minecraftforge.client.gui.overlay.IGuiOverlay;
-import net.minecraftforge.fluids.FluidStack;
-import org.joml.Quaternionf;
 
 import java.util.List;
 
@@ -41,12 +37,12 @@ public class WandAspectOverlay
         WandItem wand = (WandItem) wandStack.getItem();
 
         DefinedAspectStackHandler handler = wand.getAspects(wandStack);
-        List<Aspect> basePrimes = List.of(Aspects.Primal.AER, Aspects.Primal.TERRA, Aspects.Primal.IGNIS, Aspects.Primal.AQUA, Aspects.Primal.ORDO, Aspects.Primal.PERDITIO);
         int cap = handler.getMaxCapacity();
         int[] aspects = new int[6];
+        List<Aspect> basePrimals = List.of(AspectInit.AER.get(), AspectInit.TERRA.get(), AspectInit.IGNIS.get(), AspectInit.AQUA.get(), AspectInit.ORDO.get(), AspectInit.PERDITIO.get());
         for (int i = 0; i < 6; i++)
         {
-            aspects[i] = handler.getStackInSlot(basePrimes.get(i)).getAmount();
+            aspects[i] = handler.getStackInSlot(basePrimals.get(i)).getAmount();
         }
         if (cap == 0 || aspects.length == 0) return;
 

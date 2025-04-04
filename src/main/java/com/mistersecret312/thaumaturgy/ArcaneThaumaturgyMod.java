@@ -1,11 +1,10 @@
 package com.mistersecret312.thaumaturgy;
 
 import com.mistersecret312.thaumaturgy.aspects.AspectStack;
-import com.mistersecret312.thaumaturgy.aspects.Aspects;
 import com.mistersecret312.thaumaturgy.client.Layers;
 import com.mistersecret312.thaumaturgy.client.gui.WandAspectOverlay;
 import com.mistersecret312.thaumaturgy.client.renderer.*;
-import com.mistersecret312.thaumaturgy.datapack.Aspect;
+import com.mistersecret312.thaumaturgy.aspects.Aspect;
 import com.mistersecret312.thaumaturgy.datapack.AspectComposition;
 import com.mistersecret312.thaumaturgy.init.*;
 import com.mistersecret312.thaumaturgy.items.NitorItem;
@@ -19,9 +18,7 @@ import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.server.packs.resources.ResourceManager;
 import net.minecraft.server.packs.resources.ResourceManagerReloadListener;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
@@ -37,6 +34,8 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DataPackRegistryEvent;
+import net.minecraftforge.registries.NewRegistryEvent;
+import net.minecraftforge.registries.RegistryBuilder;
 import org.slf4j.Logger;
 
 import java.util.List;
@@ -65,11 +64,11 @@ public class ArcaneThaumaturgyMod
         SoundInit.register(modEventBus);
         EntityTypeInit.register(modEventBus);
         RecipeTypeInit.register(modEventBus);
+        AspectInit.register(modEventBus);
 
         MinecraftForge.EVENT_BUS.register(this);
 
         modEventBus.addListener((DataPackRegistryEvent.NewRegistry event) -> {
-            event.dataPackRegistry(Aspect.REGISTRY_KEY, Aspect.CODEC, Aspect.CODEC);
             event.dataPackRegistry(AspectComposition.REGISTRY_KEY, AspectComposition.CODEC, AspectComposition.CODEC);
         });
 
@@ -95,22 +94,6 @@ public class ArcaneThaumaturgyMod
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event)
     {
-        RegistryAccess access = event.getServer().registryAccess();
-        Registry<Aspect> aspects = access.registryOrThrow(Aspect.REGISTRY_KEY);
-
-        Aspects.createDefinitions(aspects);
-
-        List<TransmutationRecipe> recipes = event.getServer().getRecipeManager().getAllRecipesFor(TransmutationRecipe.Type.INSTANCE);
-
-        for(TransmutationRecipe recipe : recipes)
-        {
-            recipe.aspects.forEach(fakeAspect -> {
-                Aspect aspect = Aspects.allAspects.get(fakeAspect.getName());
-
-                recipe.aspectStacks.add(new AspectStack(Holder.direct(aspect), fakeAspect.getAmount()));
-            });
-        }
-
     }
 
     @Mod.EventBusSubscriber(modid = MODID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
@@ -122,21 +105,6 @@ public class ArcaneThaumaturgyMod
             event.enqueueWork(() ->
             {
                 EntityRenderers.register(EntityTypeInit.HOVERING_ITEM.get(), HoveringItemRenderer::new);
-            });
-        }
-
-        @SubscribeEvent
-        public static void datapackLoaded(RegisterClientReloadListenersEvent event)
-        {
-            event.registerReloadListener((ResourceManagerReloadListener) pResourceManager ->
-            {
-                Minecraft minecraft = Minecraft.getInstance();
-                ClientPacketListener listener = minecraft.getConnection();
-                if(listener != null)
-                {
-                    Registry<Aspect> aspects = listener.registryAccess().registryOrThrow(Aspect.REGISTRY_KEY);
-                    Aspects.createDefinitions(aspects);
-                }
             });
         }
 

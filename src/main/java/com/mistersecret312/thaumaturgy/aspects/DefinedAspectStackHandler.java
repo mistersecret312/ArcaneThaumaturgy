@@ -1,8 +1,5 @@
 package com.mistersecret312.thaumaturgy.aspects;
 
-import com.mistersecret312.thaumaturgy.datapack.Aspect;
-import net.minecraft.core.Holder;
-import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.Tag;
@@ -109,9 +106,9 @@ public class DefinedAspectStackHandler implements INBTSerializable<CompoundTag>
 
     public boolean canInsert(AspectStack stack)
     {
-        if(definedStacks.containsKey(stack.getAspect().get()))
+        if(definedStacks.containsKey(stack.getAspect()))
         {
-            return !isFull(stack.getAspect().get());
+            return !isFull(stack.getAspect());
         }
         else return false;
     }
@@ -188,7 +185,7 @@ public class DefinedAspectStackHandler implements INBTSerializable<CompoundTag>
     {
         nbt.getList("Aspects", Tag.TAG_COMPOUND).forEach(tag -> {
             AspectStack stack = AspectStack.deserializeNBT(((CompoundTag) tag));
-            definedStacks.put(stack.getAspect().get(), stack);
+            definedStacks.put(stack.getAspect(), stack);
         });
 
         this.totalCapacity = nbt.getBoolean("total_capacity");

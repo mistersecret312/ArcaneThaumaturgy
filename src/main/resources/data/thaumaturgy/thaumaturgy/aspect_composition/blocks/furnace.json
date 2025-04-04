@@ -3,15 +3,15 @@
   "aspects":
   [
     {
-      "aspect": "thaumaturgy:primal/ignis",
+      "aspect": "thaumaturgy:ignis",
       "amount": 2
     },
     {
-      "aspect": "thaumaturgy:primal/perditio",
+      "aspect": "thaumaturgy:perditio",
       "amount": 6
     },
     {
-      "aspect": "thaumaturgy:primal/terra",
+      "aspect": "thaumaturgy:terra",
       "amount": 6
     }
   ]

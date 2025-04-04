@@ -1,6 +1,5 @@
 package com.mistersecret312.thaumaturgy.items;
 
-import com.mistersecret312.thaumaturgy.aspects.Aspects;
 import com.mistersecret312.thaumaturgy.block_entities.NitorBlockEntity;
 import com.mistersecret312.thaumaturgy.init.BlockInit;
 import net.minecraft.ChatFormatting;
@@ -9,17 +8,11 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.context.BlockPlaceContext;
-import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.LayeredCauldronBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
-import java.util.Optional;
 
 public class NitorItem extends BlockItem implements DyeableLeatherItem
 {
