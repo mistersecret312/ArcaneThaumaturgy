@@ -18,7 +18,7 @@ public class Aspect
     private List<Integer> color;
     private ResourceLocation texture;
     @Nullable
-    private DerivedAspect.DerivationData derivationData = null;
+    private DerivationData derivationData = null;
     public Aspect(List<Integer> color, ResourceLocation texture)
     {
         this.color = color;
@@ -35,10 +35,21 @@ public class Aspect
         return texture;
     }
 
+    @Nullable
+    public DerivationData getDerivationData()
+    {
+        return derivationData;
+    }
+
     public Aspect withDerivation(Aspect aspectA, Aspect aspectB)
     {
         derivationData = new DerivationData(aspectA, aspectB);
         return this;
+    }
+
+    public boolean isPrimal()
+    {
+        return derivationData == null;
     }
 
     public static class DerivationData

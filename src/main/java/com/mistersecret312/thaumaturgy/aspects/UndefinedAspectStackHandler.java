@@ -7,7 +7,9 @@ import net.minecraft.nbt.Tag;
 import net.minecraftforge.common.util.INBTSerializable;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 public class UndefinedAspectStackHandler implements INBTSerializable<CompoundTag>
 {
@@ -43,6 +45,13 @@ public class UndefinedAspectStackHandler implements INBTSerializable<CompoundTag
     public AspectStack getStackInSlot(Aspect slot)
     {
         return stacks.getOrDefault(slot, AspectStack.EMPTY);
+    }
+
+    public Aspect getRandomAspect()
+    {
+        Random random = new Random();
+        List<Map.Entry<Aspect, AspectStack>> list = this.stacks.entrySet().stream().toList();
+        return list.get(random.nextInt(list.size())).getKey();
     }
 
     public void setStackInSlot(AspectStack stack)
