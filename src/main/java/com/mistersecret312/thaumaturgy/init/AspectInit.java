@@ -40,8 +40,8 @@ public class AspectInit
         ASPECTS.register(eventBus);
     }
 
-    public static Aspect getAspect(ResourceLocation galaxyType)
+    public static Aspect getAspect(ResourceLocation aspectType)
     {
-        return RegistryObject.create(galaxyType, ASPECT.get()).get();
+        return RegistryObject.create(aspectType, ASPECT.get()).get();
     }
 }

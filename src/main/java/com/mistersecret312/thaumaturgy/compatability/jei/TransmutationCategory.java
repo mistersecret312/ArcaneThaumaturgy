@@ -1,12 +1,11 @@
 package com.mistersecret312.thaumaturgy.compatability.jei;
 
 import com.mistersecret312.thaumaturgy.ArcaneThaumaturgyMod;
-import com.mistersecret312.thaumaturgy.aspects.Aspect;
 import com.mistersecret312.thaumaturgy.aspects.AspectStack;
 import com.mistersecret312.thaumaturgy.init.BlockInit;
+import com.mistersecret312.thaumaturgy.init.ItemInit;
+import com.mistersecret312.thaumaturgy.items.AspectItem;
 import com.mistersecret312.thaumaturgy.recipes.TransmutationRecipe;
-import com.mistersecret312.thaumaturgy.util.RenderBlitUtil;
-import com.mojang.blaze3d.vertex.PoseStack;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.drawable.IDrawable;
@@ -16,8 +15,6 @@ import mezz.jei.api.recipe.IFocusGroup;
 import mezz.jei.api.recipe.RecipeIngredientRole;
 import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.recipe.category.IRecipeCategory;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -69,28 +66,7 @@ public class TransmutationCategory implements IRecipeCategory<TransmutationRecip
     public void draw(TransmutationRecipe recipe, IRecipeSlotsView recipeSlotsView, GuiGraphics guiGraphics,
                      double mouseX, double mouseY)
     {
-        final PoseStack pose = guiGraphics.pose();
-        IRecipeCategory.super.draw(recipe, recipeSlotsView, guiGraphics, mouseX, mouseY);
-        for (int i = 0; i < recipe.aspects.size(); i++)
-        {
-            AspectStack stack = recipe.aspects.get(i);
-            Aspect aspect = stack.getAspect();
-            if(aspect != null)
-            {
-                ResourceLocation texture = aspect.getTexture();
-                if(Minecraft.getInstance().getResourceManager().getResource(texture).isEmpty())
-                    texture = ResourceLocation.fromNamespaceAndPath(ArcaneThaumaturgyMod.MODID, "textures/aspect/error.png");
 
-                int x = 35;
-                int y = 45;
-
-                pose.pushPose();
-                RenderBlitUtil.blit(texture, pose, (float) (x+(22*i)), (float) y, 0, 0, 18, 18, 18, 18);
-                pose.scale(0.5f, 0.5f, 0.5f);
-                Minecraft.getInstance().font.drawInBatch(String.valueOf(stack.getAmount()), (float) (2*(x+(22*i)+15)), (float) (2*(y+14)), -1, true, pose.last().pose(), guiGraphics.bufferSource(), Font.DisplayMode.NORMAL, 0, 15728880);
-                pose.popPose();
-            }
-        }
     }
 
     @Override
@@ -99,5 +75,15 @@ public class TransmutationCategory implements IRecipeCategory<TransmutationRecip
     {
         builder.addSlot(RecipeIngredientRole.INPUT, 4, 29).addIngredients(recipe.getCatalyst());
         builder.addSlot(RecipeIngredientRole.OUTPUT, 47, 7).addItemStack(recipe.getResult());
+
+        for (int i = 0; i < recipe.aspects.size(); i++)
+        {
+            AspectStack aspectStack = recipe.aspects.get(i);
+            AspectItem item = (AspectItem) ItemInit.ASPECT.get();
+            ItemStack stack = new ItemStack(item);
+            item.setAspect(stack, aspectStack);
+
+            builder.addSlot(RecipeIngredientRole.RENDER_ONLY, 41+(18*i), 70).addItemStack(stack);
+        }
     }
 }
