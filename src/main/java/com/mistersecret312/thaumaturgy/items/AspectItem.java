@@ -41,7 +41,11 @@ public class AspectItem extends Item
                                 TooltipFlag pIsAdvanced)
     {
         super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
-        pTooltipComponents.add(Component.translatable("aspect."+getAspect(pStack).toLanguageKey()+".description"));
+        List<Integer> rgb = AspectInit.getAspect(getAspect(pStack)).getColor();
+        int color = (rgb.get(0) << 16) | (rgb.get(1) << 8) | rgb.get(2);
+
+
+        pTooltipComponents.add(Component.translatable("aspect."+getAspect(pStack).toLanguageKey()+".description").withStyle(style -> style.withColor(color)));
     }
 
     @Override
