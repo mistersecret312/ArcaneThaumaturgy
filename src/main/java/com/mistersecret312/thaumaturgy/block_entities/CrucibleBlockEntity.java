@@ -47,6 +47,19 @@ public class CrucibleBlockEntity extends BlockEntity
         {
             if (state.getValue(LEVEL) >= 3 && state.getValue(IS_BOILING))
             {
+                if(level.getGameTime() % 200 == 0)
+                {
+                    AspectStack stack = crucible.handler.extractAspect(crucible.handler.getRandomAspect(), 1, false);
+                    if(!stack.getAspect().isPrimal() && stack.getAspect().getDerivationData() != null)
+                    {
+                        if(level.random.nextBoolean())
+                        {
+                            crucible.handler.insertAspect(new AspectStack(stack.getAspect().getDerivationData().aspectA), false);
+                        }
+                        else crucible.handler.insertAspect(new AspectStack(stack.getAspect().getDerivationData().aspectB), false);
+                    }
+                }
+
                 int aspects = crucible.handler.getTotalStored();
                 int value = Math.min(aspects / 170, 3);
 
@@ -71,6 +84,7 @@ public class CrucibleBlockEntity extends BlockEntity
         {
             double x = pos.getX() + 0.5D + (random.nextDouble() * 0.6D - 0.3D);
             double z = pos.getZ() + 0.5D + (random.nextDouble() * 0.6D - 0.3D);
+
 
             level.addAlwaysVisibleParticle(ParticleTypes.BUBBLE, x, y, z, 0, 0.02 * state.getValue(LEVEL), 0);
             level.addAlwaysVisibleParticle(ParticleTypes.BUBBLE_POP, x, y, z, 0, 0.02 * state.getValue(LEVEL), 0);
