@@ -1,14 +1,13 @@
 package com.mistersecret312.thaumaturgy.recipes;
 
-import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonSyntaxException;
 import com.mistersecret312.thaumaturgy.ArcaneThaumaturgyMod;
+import com.mistersecret312.thaumaturgy.aspects.Aspect;
 import com.mistersecret312.thaumaturgy.aspects.AspectStack;
-import com.mistersecret312.thaumaturgy.aspects.Aspects;
 import com.mistersecret312.thaumaturgy.containers.CrucibleContainer;
-import com.mistersecret312.thaumaturgy.datapack.Aspect;
+import com.mistersecret312.thaumaturgy.init.AspectInit;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.DataResult;
 import com.mojang.serialization.DynamicOps;
@@ -16,15 +15,11 @@ import com.mojang.serialization.JsonOps;
 import com.mojang.serialization.codecs.PrimitiveCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.Holder;
-import net.minecraft.core.Registry;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.resources.RegistryOps;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.GsonHelper;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
@@ -72,35 +67,32 @@ public class TransmutationRecipe implements Recipe<CrucibleContainer>
     }
 
     public static final Codec<TransmutationRecipe> CODEC = RecordCodecBuilder.create(instance -> instance.group(
-            UnresolvedAspectStack.CODEC.listOf().fieldOf("aspects").forGetter(TransmutationRecipe::getAspects),
+            AspectStack.CODEC.listOf().fieldOf("aspects").forGetter(TransmutationRecipe::getAspects),
             INGREDIENT_CODEC.fieldOf("catalyst").forGetter(TransmutationRecipe::getCatalyst),
             STACK_CODEC.fieldOf("result").forGetter(TransmutationRecipe::getResult)
     ).apply(instance, TransmutationRecipe::new));
 
     public ResourceLocation recipeID;
-    public List<UnresolvedAspectStack> aspects;
-    public List<AspectStack> aspectStacks;
+    public List<AspectStack> aspects;
     public Ingredient catalyst;
     public ItemStack result;
 
-    public TransmutationRecipe(List<UnresolvedAspectStack> aspects, Ingredient catalyst, ItemStack result)
+    public TransmutationRecipe(List<AspectStack> aspects, Ingredient catalyst, ItemStack result)
     {
         this.aspects = aspects;
-        this.aspectStacks = new ArrayList<>();
         this.catalyst = catalyst;
         this.result = result;
     }
 
-    public TransmutationRecipe(ResourceLocation recipeID, List<UnresolvedAspectStack> aspects, Ingredient catalyst, ItemStack result)
+    public TransmutationRecipe(ResourceLocation recipeID, List<AspectStack> aspects, Ingredient catalyst, ItemStack result)
     {
         this.recipeID = recipeID;
         this.aspects = aspects;
-        this.aspectStacks = new ArrayList<>();
         this.catalyst = catalyst;
         this.result = result;
     }
 
-    public List<UnresolvedAspectStack> getAspects()
+    public List<AspectStack> getAspects()
     {
         return aspects;
     }
@@ -121,10 +113,10 @@ public class TransmutationRecipe implements Recipe<CrucibleContainer>
         boolean catalystTest = this.catalyst.test(container.catalyst);
         List<Boolean> aspectTest = new ArrayList<>();
 
-        for (int i = 0; i < aspectStacks.size(); i++)
+        for (int i = 0; i < aspects.size(); i++)
         {
-            AspectStack recipeStack = aspectStacks.get(i);
-            AspectStack containerStack = container.handler.getStackInSlot(recipeStack.getAspect().get());
+            AspectStack recipeStack = aspects.get(i);
+            AspectStack containerStack = container.handler.getStackInSlot(recipeStack.getAspect());
 
             aspectTest.add(containerStack != null && !containerStack.isEmpty() && containerStack.getAmount() >= recipeStack.getAmount());
         }
@@ -199,11 +191,11 @@ public class TransmutationRecipe implements Recipe<CrucibleContainer>
         @Override
         public @Nullable TransmutationRecipe fromNetwork(ResourceLocation recipeID, FriendlyByteBuf buffer)
         {
-            List<UnresolvedAspectStack> stacks = buffer.readCollection(i -> new ArrayList<>(), readBuffer -> {
-                String name = buffer.readUtf();
+            List<AspectStack> stacks = buffer.readCollection(i -> new ArrayList<>(), readBuffer -> {
+                Aspect aspect = readBuffer.readRegistryId();
                 int amount = readBuffer.readInt();
 
-                UnresolvedAspectStack stack = new UnresolvedAspectStack(name, amount);
+                AspectStack stack = new AspectStack(aspect, amount);
                 return stack;
             });
             Ingredient catalyst = Ingredient.fromNetwork(buffer);
@@ -215,7 +207,7 @@ public class TransmutationRecipe implements Recipe<CrucibleContainer>
         public void toNetwork(FriendlyByteBuf buffer, TransmutationRecipe recipe)
         {
             buffer.writeCollection(recipe.aspects, (writeBuffer, aspectStack) -> {
-                writeBuffer.writeUtf(aspectStack.getName());
+                writeBuffer.writeRegistryId(AspectInit.ASPECT.get(), aspectStack.getAspect());
                 writeBuffer.writeInt(aspectStack.getAmount());
             });
             recipe.catalyst.toNetwork(buffer);

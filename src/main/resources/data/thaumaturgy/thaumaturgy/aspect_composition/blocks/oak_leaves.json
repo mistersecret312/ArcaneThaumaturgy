@@ -3,7 +3,7 @@
   "aspects":
   [
     {
-      "aspect": "thaumaturgy:combinations/herba",
+      "aspect": "thaumaturgy:herba",
       "amount": 5
     }
   ]

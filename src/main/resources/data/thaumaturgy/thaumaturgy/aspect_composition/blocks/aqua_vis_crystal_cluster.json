@@ -3,7 +3,7 @@
   "aspects":
   [
     {
-      "aspect": "thaumaturgy:primal/aqua",
+      "aspect": "thaumaturgy:aqua",
       "amount": 12
     }
   ]

@@ -1,6 +1,6 @@
 package com.mistersecret312.thaumaturgy.aspects;
 
-import com.mistersecret312.thaumaturgy.datapack.Aspect;
+import com.mistersecret312.thaumaturgy.init.AspectInit;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.Holder;
@@ -8,31 +8,28 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.resources.RegistryFileCodec;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.common.util.INBTSerializable;
-import org.checkerframework.checker.units.qual.A;
-
-import javax.annotation.Nullable;
 
 public class AspectStack
 {
     public static final AspectStack EMPTY = new AspectStack();
 
     public static final Codec<AspectStack> CODEC = RecordCodecBuilder.create(instance -> instance.group(
-            RegistryFileCodec.create(Aspect.REGISTRY_KEY, Aspect.CODEC, true).fieldOf("aspect").forGetter(AspectStack::getAspect),
+            AspectInit.CODEC.fieldOf("aspect").forGetter(AspectStack::getAspect),
             Codec.INT.fieldOf("amount").forGetter(AspectStack::getAmount)
     ).apply(instance, AspectStack::new));
 
-    private Holder<Aspect> aspect;
+    private Aspect aspect;
     private int amount;
 
-    public AspectStack(Holder<Aspect> aspect, int amount)
+    public AspectStack(Aspect aspect, int amount)
     {
         this.aspect = aspect;
         this.amount = amount;
     }
 
-    public AspectStack(Holder<Aspect> aspect)
+    public AspectStack(Aspect aspect)
     {
         this(aspect, 1);
     }
@@ -44,7 +41,7 @@ public class AspectStack
 
     public MutableComponent getTranslatable()
     {
-        return Component.translatable("aspect.thaumaturgy."+this.getAspect().get().getName());
+        return Component.translatable("aspect."+AspectInit.ASPECT.get().getKey(this.getAspect()).toLanguageKey());
     }
 
     public AspectStack copy()
@@ -88,7 +85,7 @@ public class AspectStack
         return this == EMPTY || this.amount <= 0;
     }
 
-    public Holder<Aspect> getAspect()
+    public Aspect getAspect()
     {
         return aspect;
     }
@@ -107,7 +104,7 @@ public class AspectStack
     {
         CompoundTag tag = new CompoundTag();
 
-        tag.putString("aspect", this.getAspect().get().getName());
+        tag.putString("aspect", AspectInit.ASPECT.get().getKey(this.getAspect()).toString());
         tag.putInt("amount", this.getAmount());
 
         return tag;
@@ -115,9 +112,9 @@ public class AspectStack
 
     public static AspectStack deserializeNBT(CompoundTag tag)
     {
-        Aspect aspect = Aspects.allAspects.get(tag.getString("aspect"));
+        Aspect aspect = AspectInit.getAspect(ResourceLocation.parse(tag.getString("aspect")));
         int amount = tag.getInt("amount");
 
-        return new AspectStack(Holder.direct(aspect), amount);
+        return new AspectStack(aspect, amount);
     }
 }

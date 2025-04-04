@@ -2,7 +2,7 @@ package com.mistersecret312.thaumaturgy.tooltipcomponents;
 
 import com.mistersecret312.thaumaturgy.ArcaneThaumaturgyMod;
 import com.mistersecret312.thaumaturgy.aspects.AspectStack;
-import com.mistersecret312.thaumaturgy.datapack.Aspect;
+import com.mistersecret312.thaumaturgy.aspects.Aspect;
 import com.mistersecret312.thaumaturgy.datapack.AspectComposition;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
@@ -28,11 +28,10 @@ public class AspectTooltipComponent implements ClientTooltipComponent, TooltipCo
         final PoseStack pose = pGuiGraphics.pose();
 
         Minecraft minecraft = Minecraft.getInstance();
-        Registry<Aspect> registry = minecraft.getConnection().registryAccess().registryOrThrow(Aspect.REGISTRY_KEY);
         for (int i = 0; i < aspectComposition.getAspects().size(); i++)
         {
             AspectStack stack = aspectComposition.getAspects().get(i);
-            Aspect aspect = stack.getAspect().get();
+            Aspect aspect = stack.getAspect();
             if(aspect != null)
             {
                 ResourceLocation texture = aspect.getTexture();

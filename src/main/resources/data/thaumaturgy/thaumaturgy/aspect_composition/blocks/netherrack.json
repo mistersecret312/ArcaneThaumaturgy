@@ -3,11 +3,11 @@
   "aspects":
   [
     {
-      "aspect": "thaumaturgy:primal/ignis",
+      "aspect": "thaumaturgy:ignis",
       "amount": 2
     },
     {
-      "aspect": "thaumaturgy:primal/terra",
+      "aspect": "thaumaturgy:terra",
       "amount": 1
     }
   ]

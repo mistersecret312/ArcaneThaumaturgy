@@ -1,24 +1,19 @@
 package com.mistersecret312.thaumaturgy.items;
 
 import com.mistersecret312.thaumaturgy.aspects.AspectStack;
-import com.mistersecret312.thaumaturgy.aspects.Aspects;
 import com.mistersecret312.thaumaturgy.aspects.DefinedAspectStackHandler;
-import com.mistersecret312.thaumaturgy.datapack.Aspect;
-import net.minecraft.ChatFormatting;
+import com.mistersecret312.thaumaturgy.aspects.Aspect;
+import com.mistersecret312.thaumaturgy.init.AspectInit;
 import net.minecraft.core.Holder;
-import net.minecraft.nbt.*;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextColor;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
 
-import javax.swing.text.Style;
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.IntStream;
 
 public class WandItem extends Item
 {
@@ -42,10 +37,10 @@ public class WandItem extends Item
     public static ItemStack createPrimal(Item item, int capacity, boolean full)
     {
         ItemStack stack = new ItemStack(item);
-        List<Aspect> basePrimes = List.of(Aspects.Primal.AER, Aspects.Primal.TERRA, Aspects.Primal.IGNIS, Aspects.Primal.AQUA, Aspects.Primal.ORDO, Aspects.Primal.PERDITIO);
-        DefinedAspectStackHandler handler = new DefinedAspectStackHandler(basePrimes, capacity);
+        List<Aspect> basePrimals = List.of(AspectInit.AER.get(), AspectInit.TERRA.get(), AspectInit.IGNIS.get(), AspectInit.AQUA.get(), AspectInit.ORDO.get(), AspectInit.PERDITIO.get());
+        DefinedAspectStackHandler handler = new DefinedAspectStackHandler(basePrimals, capacity);
         if(full)
-            basePrimes.forEach(primal -> handler.setStackInSlot(primal, new AspectStack(Holder.direct(primal), capacity)));
+            basePrimals.forEach(primal -> handler.setStackInSlot(primal, new AspectStack(primal, capacity)));
 
         if(item instanceof WandItem wand)
         {
@@ -62,10 +57,9 @@ public class WandItem extends Item
         super.appendHoverText(stack, pLevel, pTooltipComponents, pIsAdvanced);
 
         DefinedAspectStackHandler aspects = this.getAspects(stack);
+        List<Aspect> basePrimals = List.of(AspectInit.AER.get(), AspectInit.TERRA.get(), AspectInit.IGNIS.get(), AspectInit.AQUA.get(), AspectInit.ORDO.get(), AspectInit.PERDITIO.get());
 
-        List<Aspect> basePrimes = List.of(Aspects.Primal.AER, Aspects.Primal.TERRA, Aspects.Primal.IGNIS, Aspects.Primal.AQUA, Aspects.Primal.ORDO, Aspects.Primal.PERDITIO);
-
-        basePrimes.forEach(primal ->
+        basePrimals.forEach(primal ->
         {
             AspectStack aspectStack = aspects.getStackInSlot(primal);
             if (!aspectStack.isEmpty())
@@ -81,8 +75,9 @@ public class WandItem extends Item
 
     public DefinedAspectStackHandler getAspects(ItemStack stack)
     {
-        List<Aspect> basePrimes = List.of(Aspects.Primal.AER, Aspects.Primal.TERRA, Aspects.Primal.IGNIS, Aspects.Primal.AQUA, Aspects.Primal.ORDO, Aspects.Primal.PERDITIO);
-        DefinedAspectStackHandler handler = new DefinedAspectStackHandler(basePrimes, 25);
+        List<Aspect> basePrimals = List.of(AspectInit.AER.get(), AspectInit.TERRA.get(), AspectInit.IGNIS.get(), AspectInit.AQUA.get(), AspectInit.ORDO.get(), AspectInit.PERDITIO.get());
+
+        DefinedAspectStackHandler handler = new DefinedAspectStackHandler(basePrimals, 25);
 
         if(stack.getTag() != null && stack.getTag().contains(VIS_STORAGE))
             handler.deserializeNBT(stack.getTag().getCompound(VIS_STORAGE));
