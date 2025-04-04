@@ -76,14 +76,25 @@ public class TransmutationCategory implements IRecipeCategory<TransmutationRecip
         builder.addSlot(RecipeIngredientRole.INPUT, 4, 29).addIngredients(recipe.getCatalyst());
         builder.addSlot(RecipeIngredientRole.OUTPUT, 47, 7).addItemStack(recipe.getResult());
 
-        for (int i = 0; i < recipe.aspects.size(); i++)
-        {
-            AspectStack aspectStack = recipe.aspects.get(i);
-            AspectItem item = (AspectItem) ItemInit.ASPECT.get();
-            ItemStack stack = new ItemStack(item);
-            item.setAspect(stack, aspectStack);
+        int aspectsTotal = recipe.aspects.size();
+        int aspectRows = aspectsTotal / 3;
 
-            builder.addSlot(RecipeIngredientRole.RENDER_ONLY, 41+(18*i), 70).addItemStack(stack);
+        for (int i = 0; i < aspectRows; i++)
+        {
+            for (int ii = 0; ii < aspectsTotal; ii++) {
+                AspectStack aspectStack = recipe.aspects.get(ii);
+                AspectItem item = (AspectItem) ItemInit.ASPECT.get();
+                ItemStack stack = new ItemStack(item);
+                item.setAspect(stack, aspectStack);
+
+                if (aspectsTotal - ii >= 3) {
+                    builder.addSlot(RecipeIngredientRole.RENDER_ONLY, 47 + (8 * ii), 70 + (8 * i)).addItemStack(stack);
+                } else if (aspectsTotal - ii == 2) {
+                    builder.addSlot(RecipeIngredientRole.RENDER_ONLY, 39 + (8 * ii), 70 + (8 * i)).addItemStack(stack);
+                } else {
+                    builder.addSlot(RecipeIngredientRole.RENDER_ONLY, 33 + (8 * ii), 70+ + (8 * i)).addItemStack(stack);
+                }
+            }
         }
     }
 }
