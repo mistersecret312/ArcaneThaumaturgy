@@ -37,7 +37,7 @@ public class TransmutationCategory implements IRecipeCategory<TransmutationRecip
 
     public TransmutationCategory(IGuiHelper helper)
     {
-        this.background = helper.createDrawable(TEXTURE, 0, 0, 85, 105);
+        this.background = helper.createDrawable(TEXTURE, 0, 0, 110, 105);
         this.icon = helper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(BlockInit.CRUCIBLE.get()));
     }
 
@@ -97,7 +97,7 @@ public class TransmutationCategory implements IRecipeCategory<TransmutationRecip
     public void setRecipe(IRecipeLayoutBuilder builder, TransmutationRecipe recipe,
                           IFocusGroup group)
     {
-        builder.addSlot(RecipeIngredientRole.INPUT, 9, 33).addIngredients(recipe.getCatalyst());
+        builder.addSlot(RecipeIngredientRole.INPUT, 4, 29).addIngredients(recipe.getCatalyst());
         builder.addSlot(RecipeIngredientRole.OUTPUT, 53, 19).addItemStack(recipe.getResult());
     }
 }
