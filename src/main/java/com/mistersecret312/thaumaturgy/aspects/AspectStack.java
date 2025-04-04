@@ -11,6 +11,8 @@ import net.minecraft.resources.RegistryFileCodec;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 
+import java.util.List;
+
 public class AspectStack
 {
     public static final AspectStack EMPTY = new AspectStack();
@@ -41,7 +43,10 @@ public class AspectStack
 
     public MutableComponent getTranslatable()
     {
-        return Component.translatable("aspect."+AspectInit.ASPECT.get().getKey(this.getAspect()).toLanguageKey());
+        List<Integer> rgb = this.getAspect().getColor();
+        int color = (rgb.get(0) << 16) | (rgb.get(1) << 8) | rgb.get(2);
+
+        return Component.translatable("aspect."+AspectInit.ASPECT.get().getKey(this.getAspect()).toLanguageKey()).withStyle(style -> style.withColor(color));
     }
 
     public AspectStack copy()
