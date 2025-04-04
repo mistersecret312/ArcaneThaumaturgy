@@ -1,7 +1,5 @@
 package com.mistersecret312.thaumaturgy.aspects;
 
-import com.mistersecret312.thaumaturgy.datapack.Aspect;
-import net.minecraft.core.Holder;
 import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
@@ -36,7 +34,7 @@ public class UndefinedAspectStackHandler implements INBTSerializable<CompoundTag
     public UndefinedAspectStackHandler(NonNullList<AspectStack> stacks, boolean hasTotalCapacity, int capacity)
     {
         this.stacks = new HashMap<>();
-        stacks.forEach(stack -> this.stacks.put(stack.getAspect().get(), stack));
+        stacks.forEach(stack -> this.stacks.put(stack.getAspect(), stack));
 
         this.totalCapacity = hasTotalCapacity;
         this.maxCapacity = capacity;
@@ -49,18 +47,18 @@ public class UndefinedAspectStackHandler implements INBTSerializable<CompoundTag
 
     public void setStackInSlot(AspectStack stack)
     {
-        stacks.put(stack.getAspect().get(), stack);
+        stacks.put(stack.getAspect(), stack);
     }
 
     public AspectStack insertAspect(AspectStack stack, boolean simulate)
     {
 
-        if(!isValidSlot(stack.getAspect().get()))
+        if(!isValidSlot(stack.getAspect()))
             return AspectStack.EMPTY;
 
-        AspectStack presentStack = this.getStackInSlot(stack.getAspect().get());
+        AspectStack presentStack = this.getStackInSlot(stack.getAspect());
 
-        int freeSpace = maxCapacity - getStored(stack.getAspect().get());
+        int freeSpace = maxCapacity - getStored(stack.getAspect());
         int amountToPut = stack.getAmount();
         if (!presentStack.canStackWith(stack))
             return stack;
@@ -75,7 +73,7 @@ public class UndefinedAspectStackHandler implements INBTSerializable<CompoundTag
         if (!simulate)
         {
             if (presentStack.isEmpty())
-                stacks.put(stack.getAspect().get(), stack.copyWithSize(amountToPut));
+                stacks.put(stack.getAspect(), stack.copyWithSize(amountToPut));
             else presentStack.grow(amountToPut);
         }
 
@@ -198,7 +196,7 @@ public class UndefinedAspectStackHandler implements INBTSerializable<CompoundTag
             CompoundTag aspectTag = aspectList.getCompound(i);
             AspectStack stack = AspectStack.deserializeNBT(aspectTag);
 
-            stacks.put(stack.getAspect().get(), stack);
+            stacks.put(stack.getAspect(), stack);
         }
 
         this.totalCapacity = nbt.getBoolean("total_capacity");

@@ -3,11 +3,11 @@
   "aspects":
   [
     {
-      "aspect": "thaumaturgy:combinations/bestia",
+      "aspect": "thaumaturgy:bestia",
       "amount": 3
     },
     {
-      "aspect": "thaumaturgy:primal/terra",
+      "aspect": "thaumaturgy:terra",
       "amount": 3
     }
   ]

@@ -84,8 +84,8 @@ public class CrucibleBlockEntity extends BlockEntity
         {
             TransmutationRecipe realRecipe = recipe.get();
             itemEntity.getItem().shrink(1);
-            realRecipe.aspectStacks.forEach(aspect ->
-                    handler.extractAspect(aspect.getAspect().get(), aspect.getAmount(), false));
+            realRecipe.aspects.forEach(aspect ->
+                    handler.extractAspect(aspect.getAspect(), aspect.getAmount(), false));
 
             HoveringItemEntity result = new HoveringItemEntity(level);
             result.setNoGravity(true);

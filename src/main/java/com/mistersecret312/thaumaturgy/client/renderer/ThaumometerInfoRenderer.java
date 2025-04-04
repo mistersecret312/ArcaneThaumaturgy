@@ -2,9 +2,9 @@ package com.mistersecret312.thaumaturgy.client.renderer;
 
 import com.mistersecret312.thaumaturgy.ArcaneThaumaturgyMod;
 import com.mistersecret312.thaumaturgy.aspects.AspectStack;
-import com.mistersecret312.thaumaturgy.datapack.Aspect;
+import com.mistersecret312.thaumaturgy.aspects.Aspect;
 import com.mistersecret312.thaumaturgy.datapack.AspectComposition;
-import com.mistersecret312.thaumaturgy.util.RenderBlitUtil;
+import com.mistersecret312.thaumaturgy.init.AspectInit;
 import com.mojang.blaze3d.platform.GlStateManager;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.*;
@@ -19,7 +19,6 @@ import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.block.model.BakedQuad;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderDispatcher;
 import net.minecraft.client.resources.model.BakedModel;
 import net.minecraft.core.BlockPos;
@@ -184,7 +183,7 @@ public class ThaumometerInfoRenderer extends BlockEntityWithoutLevelRenderer {
         for (int i = 0; i < object.getValue().getAspects().size(); i++)
         {
             AspectStack stack = object.getValue().getAspects().get(i);
-            Aspect aspect = stack.getAspect().get();
+            Aspect aspect = stack.getAspect();
             if (aspect != null)
             {
                 ResourceLocation texture = aspect.getTexture();
