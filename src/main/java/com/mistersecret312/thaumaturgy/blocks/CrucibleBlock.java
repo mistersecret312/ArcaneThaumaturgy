@@ -98,7 +98,7 @@ public class CrucibleBlock extends BaseEntityBlock
             {
                 if (stack.is(Items.WATER_BUCKET))
                 {
-                    pLevel.setBlockAndUpdate(pPos, pState.setValue(LEVEL, 3));
+                    pLevel.setBlockAndUpdate(pPos, pState.setValue(LEVEL, 3).setValue(IS_BOILING, hasHeatSource(pLevel, pPos)));
                     if (!pPlayer.isCreative())
                     {
                         pPlayer.setItemInHand(pHand, Items.BUCKET.getDefaultInstance());

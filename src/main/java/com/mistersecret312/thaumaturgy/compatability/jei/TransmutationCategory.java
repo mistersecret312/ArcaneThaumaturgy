@@ -47,7 +47,7 @@ public class TransmutationCategory implements IRecipeCategory<TransmutationRecip
     @Override
     public Component getTitle()
     {
-        return Component.translatable("block.thaumaturgy.crucible");
+        return Component.translatable("jei.thaumaturgy.transmutation");
     }
 
     @Override
@@ -77,7 +77,15 @@ public class TransmutationCategory implements IRecipeCategory<TransmutationRecip
         builder.addSlot(RecipeIngredientRole.OUTPUT, 47, 7).addItemStack(recipe.getResult());
 
         int aspectsTotal = recipe.aspects.size();
-        int aspectRows = aspectsTotal > 3 ? aspectsTotal/3 : 1;
+        int aspectRows = 0;
+
+        for (int i = 0; i < aspectsTotal; i++)
+        {
+            if (i % 3 == 0)
+            {
+                aspectRows++;
+            }
+        }
 
         for (int i = 0; i < aspectRows; i++)
         {
@@ -88,11 +96,11 @@ public class TransmutationCategory implements IRecipeCategory<TransmutationRecip
                 item.setAspect(stack, aspectStack);
 
                 if (aspectsTotal - ii >= 3) {
-                    builder.addSlot(RecipeIngredientRole.RENDER_ONLY, 47 + (8 * ii), 70 + (8 * i)).addItemStack(stack);
+                    builder.addSlot(RecipeIngredientRole.RENDER_ONLY, 33 + (8 * ii), 68 + (8 * i)).addItemStack(stack);
                 } else if (aspectsTotal - ii == 2) {
-                    builder.addSlot(RecipeIngredientRole.RENDER_ONLY, 39 + (8 * ii), 70 + (8 * i)).addItemStack(stack);
+                    builder.addSlot(RecipeIngredientRole.RENDER_ONLY, 39 + (8 * ii), 68 + (8 * i)).addItemStack(stack);
                 } else {
-                    builder.addSlot(RecipeIngredientRole.RENDER_ONLY, 33 + (8 * ii), 70+ + (8 * i)).addItemStack(stack);
+                    builder.addSlot(RecipeIngredientRole.RENDER_ONLY, 47 + (8 * ii), 68 + (8 * i)).addItemStack(stack);
                 }
             }
         }

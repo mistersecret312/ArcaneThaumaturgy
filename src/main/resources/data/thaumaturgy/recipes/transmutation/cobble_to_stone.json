@@ -5,6 +5,18 @@
     {
       "aspect": "thaumaturgy:terra",
       "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:ordo",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:perditio",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:herba",
+      "amount": 2
     }
   ],
   "catalyst":
