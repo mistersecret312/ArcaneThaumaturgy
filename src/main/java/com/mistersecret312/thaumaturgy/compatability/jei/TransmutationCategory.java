@@ -98,6 +98,6 @@ public class TransmutationCategory implements IRecipeCategory<TransmutationRecip
                           IFocusGroup group)
     {
         builder.addSlot(RecipeIngredientRole.INPUT, 4, 29).addIngredients(recipe.getCatalyst());
-        builder.addSlot(RecipeIngredientRole.OUTPUT, 53, 19).addItemStack(recipe.getResult());
+        builder.addSlot(RecipeIngredientRole.OUTPUT, 47, 7).addItemStack(recipe.getResult());
     }
 }
