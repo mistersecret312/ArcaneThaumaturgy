@@ -59,6 +59,8 @@ public class ThaumometerInfoRenderer extends BlockEntityWithoutLevelRenderer {
         final BakedModel model = Minecraft.getInstance().getModelManager().getModel(ResourceLocation.fromNamespaceAndPath(ArcaneThaumaturgyMod.MODID, "item/thaumometer_baked"));
         Minecraft.getInstance().getItemRenderer().renderModelLists(model, pStack, pPackedLight, pPackedOverlay, pose, pBuffer.getBuffer(RenderType.translucent()));
 
+        if(!pDisplayContext.firstPerson())
+            return;
 
         pose.pushPose();
         pose.mulPose(Axis.ZP.rotationDegrees(180));
