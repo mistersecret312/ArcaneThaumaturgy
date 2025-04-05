@@ -48,33 +48,38 @@ public class PedestalBlock extends Block implements EntityBlock
                 putItem(pedestal, level, player, pos, stack);
             else
                 takeItem(pedestal, level, player, pos);
-
-            return InteractionResult.SUCCESS;
-
         }
 
         return InteractionResult.PASS;
     }
 
-    public void takeItem(PedestalBlockEntity pedestal, Level level, Player player, BlockPos pos)
+    public InteractionResult takeItem(PedestalBlockEntity pedestal, Level level, Player player, BlockPos pos)
     {
         ItemStack stack = pedestal.getDisplayItem().copy();
-        player.addItem(stack);
-        pedestal.setDisplayItem(ItemStack.EMPTY);
+        if (stack != ItemStack.EMPTY) {
+            player.addItem(stack);
+            pedestal.setDisplayItem(ItemStack.EMPTY);
 
-        level.playSound(null, pos, SoundEvents.ITEM_FRAME_REMOVE_ITEM, SoundSource.BLOCKS, 1, 1);
+            level.playSound(null, pos, SoundEvents.ITEM_FRAME_REMOVE_ITEM, SoundSource.BLOCKS, 1, 1);
+
+            return InteractionResult.SUCCESS;
+        }
+        return InteractionResult.PASS;
     }
 
-    public void putItem(PedestalBlockEntity pedestal, Level level, Player player, BlockPos pos, ItemStack heldItem)
+    public InteractionResult putItem(PedestalBlockEntity pedestal, Level level, Player player, BlockPos pos, ItemStack heldItem)
     {
         ItemStack stack = heldItem.copy();
-        stack.setCount(1);
+        if (stack != ItemStack.EMPTY) {
+            stack.setCount(1);
+            pedestal.setDisplayItem(stack);
+            if (!player.isCreative())
+                heldItem.shrink(1);
 
-        pedestal.setDisplayItem(stack);
-        if(!player.isCreative())
-            heldItem.shrink(1);
-
-        level.playSound(null, pos, SoundEvents.ITEM_FRAME_ADD_ITEM, SoundSource.BLOCKS, 1, 1);
+            level.playSound(null, pos, SoundEvents.ITEM_FRAME_ADD_ITEM, SoundSource.BLOCKS, 1, 1);
+            return InteractionResult.SUCCESS;
+        }
+        return InteractionResult.PASS;
     }
 
     @Override

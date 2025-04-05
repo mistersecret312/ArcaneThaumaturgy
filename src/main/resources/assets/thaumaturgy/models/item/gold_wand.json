@@ -1,8 +1,23 @@
 {
-	"credit": "Made with Blockbench",
-        "parent": "thaumaturgy:item/wand",
-	"texture_size": [32, 32],
-	"textures": {
-		"0": "thaumaturgy:item/wands/gold_wand"
+	"loader": "forge:separate_transforms",
+	"gui_light": "front",
+	"base":
+	{
+		"parent": "thaumaturgy:item/gold_wand_model"
+	},
+	"perspectives":
+	{
+		"gui":
+		{
+			"parent": "thaumaturgy:item/gold_wand_item"
+		},
+		"fixed":
+		{
+			"parent": "thaumaturgy:item/gold_wand_item"
+		},
+		"ground":
+		{
+			"parent": "thaumaturgy:item/gold_wand_item"
+		}
 	}
 }

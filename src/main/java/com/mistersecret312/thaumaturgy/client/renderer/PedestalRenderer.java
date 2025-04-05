@@ -32,10 +32,10 @@ public class PedestalRenderer implements BlockEntityRenderer<PedestalBlockEntity
 
         poseStack.pushPose();
         float time = (level.getGameTime() + partialTick) * 0.8f;
-        float yOffset = Mth.sin(time * 0.05f) * 0.1f + 0.25f;
+        float yOffset = Mth.sin(time * 0.075f) * 0.1f + 0.25f;
 
         poseStack.translate(0.5, 1 + yOffset, 0.5);
-        poseStack.mulPose(Axis.YP.rotation(time * 0.1f));
+        poseStack.mulPose(Axis.YP.rotation(time * 0.075f));
         poseStack.scale(1, 1, 1);
 
         itemRenderer.renderStatic(blockEntity.getDisplayItem(), ItemDisplayContext.GROUND, packedLight, OverlayTexture.NO_OVERLAY, poseStack, buffer, level, 0);
