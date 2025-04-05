@@ -64,7 +64,7 @@ public class CrucibleRenderer implements BlockEntityRenderer<CrucibleBlockEntity
                 poseStack.mulPose(Minecraft.getInstance().getEntityRenderDispatcher().cameraOrientation());
                 poseStack.mulPose(Axis.YP.rotationDegrees(180));
 
-                poseStack.translate(-1+(1*i), 0, 0);
+                poseStack.translate(-1.1+(1.1*i), 0, 0);
 
                 VertexConsumer consumerA = buffer.getBuffer(ThaumaturgyRenderTypes.aspect(texture));
                 consumerA.vertex(poseStack.last().pose(), -0.5f, -0.5f, 0).uv(0, 1).endVertex();
@@ -75,7 +75,9 @@ public class CrucibleRenderer implements BlockEntityRenderer<CrucibleBlockEntity
                 poseStack.mulPose(Axis.YN.rotationDegrees(180));
                 poseStack.mulPose(Axis.ZP.rotationDegrees(180));
                 poseStack.scale(0.05f, 0.05f, 0.05f);
-                poseStack.translate(3f, -3f, 0f);
+                poseStack.translate(3f, -2f, 0f);
+                int size = Minecraft.getInstance().font.width(String.valueOf(stack.getAmount()));
+                poseStack.translate(-2.5*(size > 10 ? (double) size /10 : 0), 0, 0);
                 Minecraft.getInstance().font.drawInBatch(String.valueOf(stack.getAmount()), (float) 1, 10, -1, false, poseStack.last().pose(), buffer, Font.DisplayMode.NORMAL, 0, 15728880);
 
                 poseStack.popPose();
