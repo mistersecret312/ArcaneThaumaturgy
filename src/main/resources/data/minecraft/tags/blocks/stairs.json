@@ -2,6 +2,7 @@
   "replace": false,
   "values": [
     "thaumaturgy:arcane_stone_stairs",
-    "thaumaturgy:arcane_stone_bricks_stairs"
+    "thaumaturgy:arcane_stone_bricks_stairs",
+    "thaumaturgy:greatwood_stairs"
   ]
 }

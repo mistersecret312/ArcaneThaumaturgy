@@ -7,6 +7,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
+import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -45,10 +46,16 @@ public class BlockInit
     public static final RegistryObject<Block> STRIPPED_GREATWOOD_LOG = registerBlock("stripped_greatwood_log", () -> new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(2.0F).sound(SoundType.NETHER_WOOD).ignitedByLava()));
     public static final RegistryObject<Block> STRIPPED_GREATWOOD_WOOD = registerBlock("stripped_greatwood_wood", () -> new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(2.0F).sound(SoundType.NETHER_WOOD).ignitedByLava()));
     public static final RegistryObject<Block> GREATWOOD_PLANKS = registerBlock("greatwood_planks", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(2.0F).sound(SoundType.NETHER_WOOD).ignitedByLava()));
-    public static final RegistryObject<Block> GREATWOOD_PLANKS_SLAB = registerBlock("greatwood_planks_slab", () -> new SlabBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).requiresCorrectToolForDrops().strength(2.0F).sound(SoundType.NETHER_WOOD)));
-    public static final RegistryObject<Block> GREATWOOD_PLANKS_STAIRS = registerBlock("greatwood_planks_stairs", () -> new StairBlock(ARCANE_STONE_BRICKS.get().defaultBlockState(), BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(2.0F).sound(SoundType.NETHER_WOOD).mapColor(MapColor.COLOR_BROWN)));
-    public static final RegistryObject<Block> GREATWOOD_PLANKS_BUTTON = registerBlock("greatwood_planks_button", () -> new ButtonBlock(BlockBehaviour.Properties.of().strength(2.0F).sound(SoundType.NETHER_WOOD).mapColor(MapColor.COLOR_BROWN), BlockSetType.DARK_OAK, 30, true));
-    public static final RegistryObject<Block> GREATWOOD_PLANKS_PRESSURE_PLATE = registerBlock("greatwood_planks_pressure_plate", () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, BlockBehaviour.Properties.of().strength(2.0F).sound(SoundType.NETHER_WOOD).mapColor(MapColor.COLOR_BROWN), BlockSetType.DARK_OAK));
+    public static final RegistryObject<Block> GREATWOOD_SLAB = registerBlock("greatwood_slab", () -> new SlabBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).requiresCorrectToolForDrops().strength(2.0F).sound(SoundType.NETHER_WOOD)));
+    public static final RegistryObject<Block> GREATWOOD_STAIRS = registerBlock("greatwood_stairs", () -> new StairBlock(ARCANE_STONE_BRICKS.get().defaultBlockState(), BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(2.0F).sound(SoundType.NETHER_WOOD).mapColor(MapColor.COLOR_BROWN)));
+
+    public static final RegistryObject<Block> GREATWOOD_FENCE = registerBlock("greatwood_fence", () -> new FenceBlock(BlockBehaviour.Properties.of().strength(2.0F).sound(SoundType.NETHER_WOOD).mapColor(MapColor.COLOR_BROWN).noOcclusion()));
+    public static final RegistryObject<Block> GREATWOOD_FENCE_GATE = registerBlock("greatwood_fence_gate", () -> new FenceGateBlock(BlockBehaviour.Properties.of().strength(2.0F).sound(SoundType.NETHER_WOOD).mapColor(MapColor.COLOR_BROWN).noOcclusion(), WoodType.DARK_OAK));
+
+    public static final RegistryObject<Block> GREATWOOD_DOOR = registerBlock("greatwood_door", () -> new DoorBlock(BlockBehaviour.Properties.of().strength(2.0F).sound(SoundType.NETHER_WOOD).mapColor(MapColor.COLOR_BROWN).noOcclusion(), BlockSetType.DARK_OAK));
+    public static final RegistryObject<Block> GREATWOOD_TRAPDOOR = registerBlock("greatwood_trapdoor", () -> new TrapDoorBlock(BlockBehaviour.Properties.of().strength(2.0F).sound(SoundType.NETHER_WOOD).mapColor(MapColor.COLOR_BROWN).noOcclusion(), BlockSetType.DARK_OAK));
+    public static final RegistryObject<Block> GREATWOOD_BUTTON = registerBlock("greatwood_button", () -> new ButtonBlock(BlockBehaviour.Properties.of().strength(2.0F).sound(SoundType.NETHER_WOOD).mapColor(MapColor.COLOR_BROWN).noOcclusion(), BlockSetType.DARK_OAK, 30, true));
+    public static final RegistryObject<Block> GREATWOOD_PRESSURE_PLATE = registerBlock("greatwood_pressure_plate", () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, BlockBehaviour.Properties.of().strength(2.0F).sound(SoundType.NETHER_WOOD).mapColor(MapColor.COLOR_BROWN).noOcclusion(), BlockSetType.DARK_OAK));
 
     public static final RegistryObject<Block> GREATWOOD_TABLE = registerBlock("greatwood_table", () -> new GreatwoodTableBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(2.0F).sound(SoundType.NETHER_WOOD).ignitedByLava()));
 

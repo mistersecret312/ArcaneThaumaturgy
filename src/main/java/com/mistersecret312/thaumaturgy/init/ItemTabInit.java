@@ -126,10 +126,14 @@ public class ItemTabInit
                         output.accept(BlockInit.STRIPPED_GREATWOOD_LOG.get());
                         output.accept(BlockInit.STRIPPED_GREATWOOD_WOOD.get());
                         output.accept(BlockInit.GREATWOOD_PLANKS.get());
-                        output.accept(BlockInit.GREATWOOD_PLANKS_STAIRS.get());
-                        output.accept(BlockInit.GREATWOOD_PLANKS_SLAB.get());
-                        output.accept(BlockInit.GREATWOOD_PLANKS_PRESSURE_PLATE.get());
-                        output.accept(BlockInit.GREATWOOD_PLANKS_BUTTON.get());
+                        output.accept(BlockInit.GREATWOOD_STAIRS.get());
+                        output.accept(BlockInit.GREATWOOD_SLAB.get());
+                        output.accept(BlockInit.GREATWOOD_FENCE.get());
+                        output.accept(BlockInit.GREATWOOD_FENCE_GATE.get());
+                        output.accept(BlockInit.GREATWOOD_DOOR.get());
+                        output.accept(BlockInit.GREATWOOD_TRAPDOOR.get());
+                        output.accept(BlockInit.GREATWOOD_PRESSURE_PLATE.get());
+                        output.accept(BlockInit.GREATWOOD_BUTTON.get());
                     })
                     .build());
 

@@ -1,13 +1,13 @@
 {
   "variants": {
     "type=bottom": {
-      "model": "thaumaturgy:block/greatwood_planks_slab"
+      "model": "thaumaturgy:block/greatwood_slab"
     },
     "type=double": {
       "model": "thaumaturgy:block/greatwood_planks"
     },
     "type=top": {
-      "model": "thaumaturgy:block/greatwood_planks_slab_top"
+      "model": "thaumaturgy:block/greatwood_slab_top"
     }
   }
 }
