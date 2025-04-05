@@ -90,23 +90,8 @@ public class CrucibleBlockEntity extends BlockEntity
             double x = pos.getX() + 0.5D + (random.nextDouble() * 0.6D - 0.3D);
             double z = pos.getZ() + 0.5D + (random.nextDouble() * 0.6D - 0.3D);
 
-            int r = 255;
-            int g = 255;
-            int b = 255;
-
-            Aspect aspect = crucible.handler.getRandomAspect();
-            if(aspect != null)
-            {
-                r = aspect.getColor().get(0);
-                g = aspect.getColor().get(1);
-                b = aspect.getColor().get(2);
-            }
-
-            Minecraft.getInstance().particleEngine.createParticle(ParticleTypes.BUBBLE, x, y, z, 0, 0.02 * state.getValue(LEVEL), 0).setColor(r, g, b);
-            Minecraft.getInstance().particleEngine.createParticle(ParticleTypes.BUBBLE_POP, x, y, z, 0, 0.02 * state.getValue(LEVEL), 0).setColor(r, g, b);
-
-            //level.addAlwaysVisibleParticle(ParticleTypes.BUBBLE, x, y, z, 0, 0.02 * state.getValue(LEVEL), 0);
-            //level.addAlwaysVisibleParticle(ParticleTypes.BUBBLE_POP, x, y, z, 0, 0.02 * state.getValue(LEVEL), 0);
+            level.addAlwaysVisibleParticle(ParticleTypes.BUBBLE, x, y, z, 0, 0.02 * state.getValue(LEVEL), 0);
+            level.addAlwaysVisibleParticle(ParticleTypes.BUBBLE_POP, x, y, z, 0, 0.02 * state.getValue(LEVEL), 0);
         }
     }
 
