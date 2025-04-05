@@ -1,0 +1,10 @@
+{
+  "item": "minecraft:glass",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:vitreus",
+      "amount": 3
+    }
+  ]
+}

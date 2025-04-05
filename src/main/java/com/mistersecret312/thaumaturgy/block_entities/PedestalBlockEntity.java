@@ -2,6 +2,7 @@ package com.mistersecret312.thaumaturgy.block_entities;
 
 import com.mistersecret312.thaumaturgy.init.BlockEntityInit;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
@@ -31,6 +32,13 @@ public class PedestalBlockEntity extends BlockEntity
                 markUpdated();
             }
         };
+    }
+
+    public NonNullList<ItemStack> getDroppableInventory() {
+        NonNullList<ItemStack> drops = NonNullList.create();
+        drops.add(getDisplayItem());
+        setDisplayItem(ItemStack.EMPTY);
+        return drops;
     }
 
     public void markUpdated()

@@ -4,7 +4,11 @@
   [
     {
       "aspect": "thaumaturgy:terra",
-      "amount": 9
+      "amount": 6
+    },
+    {
+      "aspect": "thaumaturgy:vitreus",
+      "amount": 4
     }
   ]
 }

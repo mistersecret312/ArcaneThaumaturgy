@@ -7,6 +7,7 @@ import com.mistersecret312.thaumaturgy.network.packets.UpdatePedestalClientbound
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.Containers;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.item.ItemEntity;
@@ -79,12 +80,12 @@ public class PedestalBlock extends Block implements EntityBlock
     @Override
     public void onRemove(BlockState pState, Level pLevel, BlockPos pPos, BlockState pNewState, boolean pMovedByPiston)
     {
-        super.onRemove(pState, pLevel, pPos, pNewState, pMovedByPiston);
         if(pLevel.getBlockEntity(pPos) instanceof PedestalBlockEntity pedestal)
         {
-            ItemEntity item = new ItemEntity(pLevel, pPos.getX(), pPos.getY(), pPos.getZ(), pedestal.getDisplayItem().copy());
-            pLevel.addFreshEntity(item);
+            Containers.dropContents(pLevel, pPos.above(), pedestal.getDroppableInventory());
+            pLevel.updateNeighbourForOutputSignal(pPos, this);
         }
+        super.onRemove(pState, pLevel, pPos, pNewState, pMovedByPiston);
     }
 
     @Override

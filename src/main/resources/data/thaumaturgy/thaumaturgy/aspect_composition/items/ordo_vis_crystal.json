@@ -4,7 +4,11 @@
   [
     {
       "aspect": "thaumaturgy:ordo",
-      "amount": 6
+      "amount": 4
+    },
+    {
+      "aspect": "thaumaturgy:vitreus",
+      "amount": 2
     }
   ]
 }

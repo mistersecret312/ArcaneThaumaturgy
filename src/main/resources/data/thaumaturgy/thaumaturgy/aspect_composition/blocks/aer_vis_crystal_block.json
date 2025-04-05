@@ -4,7 +4,11 @@
   [
     {
       "aspect": "thaumaturgy:aer",
-      "amount": 24
+      "amount": 12
+    },
+    {
+      "aspect": "thaumaturgy:vitreus",
+      "amount": 8
     }
   ]
 }
