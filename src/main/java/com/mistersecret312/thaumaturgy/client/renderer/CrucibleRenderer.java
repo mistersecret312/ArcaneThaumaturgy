@@ -46,7 +46,7 @@ public class CrucibleRenderer implements BlockEntityRenderer<CrucibleBlockEntity
 
         if(blockState.is(BlockInit.CRUCIBLE.get()))
         {
-            poseStack.translate(-0.01*crucible.handler.getSize(), 0 ,0);
+            poseStack.translate(0.2*crucible.handler.getSize()-((crucible.handler.getSize()-1)*0.3), 0 ,0);
             for (int i = 0; i < crucible.handler.getSize(); i++)
             {
                 AspectStack stack = crucible.handler.getStackInSlot(i);
@@ -64,7 +64,7 @@ public class CrucibleRenderer implements BlockEntityRenderer<CrucibleBlockEntity
                 poseStack.mulPose(Minecraft.getInstance().getEntityRenderDispatcher().cameraOrientation());
                 poseStack.mulPose(Axis.YP.rotationDegrees(180));
 
-                poseStack.translate(-1+(1*i), 0, 0);;
+                poseStack.translate(-1+(1*i), 0, 0);
 
                 VertexConsumer consumerA = buffer.getBuffer(ThaumaturgyRenderTypes.aspect(texture));
                 consumerA.vertex(poseStack.last().pose(), -0.5f, -0.5f, 0).uv(0, 1).endVertex();
