@@ -47,11 +47,16 @@ public class UndefinedAspectStackHandler implements INBTSerializable<CompoundTag
         return stacks.getOrDefault(slot, AspectStack.EMPTY);
     }
 
+    public AspectStack getStackInSlot(int slot)
+    {
+        return this.stacks.entrySet().stream().toList().get(slot).getValue();
+    }
+
     public Aspect getRandomAspect()
     {
         Random random = new Random();
         List<Map.Entry<Aspect, AspectStack>> list = this.stacks.entrySet().stream().toList();
-        if(list.size() > 0)
+        if(!list.isEmpty())
             return list.get(random.nextInt(list.size())).getKey();
         else return null;
     }

@@ -27,9 +27,9 @@ public class ThaumaturgyRenderTypes extends RenderType
         );
     }
 
-    public static RenderType crucibleWater(ResourceLocation location)
+    public static RenderType aspect(ResourceLocation location)
     {
-        return create("crucible_water", DefaultVertexFormat.POSITION_TEX,
+        return create("aspect", DefaultVertexFormat.POSITION_TEX,
                 VertexFormat.Mode.QUADS, 256, true, true,
                 RenderType.CompositeState.builder()
                         .setShaderState(RenderStateShard.POSITION_TEX_SHADER)

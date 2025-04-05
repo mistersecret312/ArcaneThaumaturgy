@@ -48,6 +48,7 @@ public class FakeAspectRenderer extends BlockEntityWithoutLevelRenderer
             vertexConsumer.vertex(matrix, size, size, z).color(255, 255, 255, 255).uv(1, 0).overlayCoords(overlay).uv2(light).normal(0, 1, 0).endVertex();
             vertexConsumer.vertex(matrix, 0, size, z).color(255, 255, 255, 255).uv(0, 0).overlayCoords(overlay).uv2(light).normal(0, 1, 0).endVertex();
 
-            poseStack.popPose();}
+            poseStack.popPose();
+        }
     }
 }
