@@ -86,7 +86,7 @@ public class TransmutationCategory implements IRecipeCategory<TransmutationRecip
             ItemStack stack = new ItemStack(item);
             item.setAspect(stack, aspectStack);
 
-            int aspectSpacing = 18;
+            int aspectSpacing = 16;
             int y = 0;
             int x = aspectSpacing*i;
             if(i >= ASPECTS_PER_LINE)
