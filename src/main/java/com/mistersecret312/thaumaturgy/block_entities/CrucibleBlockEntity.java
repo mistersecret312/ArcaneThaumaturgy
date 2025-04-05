@@ -47,30 +47,27 @@ public class CrucibleBlockEntity extends BlockEntity
 
     public static void tick(Level level, BlockPos pos, BlockState state, CrucibleBlockEntity crucible)
     {
-        if (!level.isClientSide)
+        if (state.getValue(LEVEL) >= 3 && state.getValue(IS_BOILING))
         {
-            if (state.getValue(LEVEL) >= 3 && state.getValue(IS_BOILING))
+            Aspect randomAspect = crucible.handler.getRandomAspect();
+            if (level.getGameTime() % 200 == 0 && randomAspect != null)
             {
-                Aspect randomAspect = crucible.handler.getRandomAspect();
-                if(level.getGameTime() % 200 == 0 && randomAspect != null)
+                AspectStack stack = crucible.handler.extractAspect(randomAspect, 1, false);
+                if (!stack.getAspect().isPrimal() && stack.getAspect().getDerivationData() != null)
                 {
-                    AspectStack stack = crucible.handler.extractAspect(randomAspect, 1, false);
-                    if(!stack.getAspect().isPrimal() && stack.getAspect().getDerivationData() != null)
+                    if (level.random.nextBoolean())
                     {
-                        if(level.random.nextBoolean())
-                        {
-                            crucible.handler.insertAspect(new AspectStack(stack.getAspect().getDerivationData().aspectA), false);
-                        }
-                        else crucible.handler.insertAspect(new AspectStack(stack.getAspect().getDerivationData().aspectB), false);
-                    }
+                        crucible.handler.insertAspect(new AspectStack(stack.getAspect().getDerivationData().aspectA), false);
+                    } else
+                        crucible.handler.insertAspect(new AspectStack(stack.getAspect().getDerivationData().aspectB), false);
                 }
-
-                int aspects = crucible.handler.getTotalStored();
-                int value = Math.min(aspects / 170, 3);
-
-                //state.setValue(LEVEL, value+3);
-                level.setBlockAndUpdate(pos, state.setValue(LEVEL, value + 3));
             }
+
+            int aspects = crucible.handler.getTotalStored();
+            int value = Math.min(aspects / 170, 3);
+
+            //state.setValue(LEVEL, value+3);
+            level.setBlockAndUpdate(pos, state.setValue(LEVEL, value + 3));
         }
         if (state.getValue(IS_BOILING))
         {

@@ -36,7 +36,6 @@ public class CrucibleRenderer implements BlockEntityRenderer<CrucibleBlockEntity
     public void render(CrucibleBlockEntity crucible, float partialTick, PoseStack poseStack,
                        MultiBufferSource buffer, int packedLight, int pPackedOverlay)
     {
-
         LocalPlayer player = Minecraft.getInstance().player;
         ClientLevel level = (ClientLevel) player.level();
         BlockHitResult rayTrace = level.clip(new ClipContext(player.getEyePosition(1F), player.getEyePosition(1F).add(player.getLookAngle().scale(5F)),
@@ -47,6 +46,7 @@ public class CrucibleRenderer implements BlockEntityRenderer<CrucibleBlockEntity
 
         if(blockState.is(BlockInit.CRUCIBLE.get()))
         {
+            poseStack.translate(-0.01*crucible.handler.getSize(), 0 ,0);
             for (int i = 0; i < crucible.handler.getSize(); i++)
             {
                 AspectStack stack = crucible.handler.getStackInSlot(i);
@@ -64,7 +64,7 @@ public class CrucibleRenderer implements BlockEntityRenderer<CrucibleBlockEntity
                 poseStack.mulPose(Minecraft.getInstance().getEntityRenderDispatcher().cameraOrientation());
                 poseStack.mulPose(Axis.YP.rotationDegrees(180));
 
-                poseStack.translate(-1+(1*i), 0, 0);
+                poseStack.translate(-1+(1*i), 0, 0);;
 
                 VertexConsumer consumerA = buffer.getBuffer(ThaumaturgyRenderTypes.aspect(texture));
                 consumerA.vertex(poseStack.last().pose(), -0.5f, -0.5f, 0).uv(0, 1).endVertex();
