@@ -23,6 +23,7 @@ import org.jetbrains.annotations.Nullable;
 
 public class TransmutationCategory implements IRecipeCategory<TransmutationRecipe>
 {
+    public static final int ASPECTS_PER_LINE = 3;
 
     public static final ResourceLocation RECIPE_ID = new ResourceLocation(ArcaneThaumaturgyMod.MODID, "transmutation");
     public static final ResourceLocation TEXTURE = new ResourceLocation(ArcaneThaumaturgyMod.MODID, "textures/gui/jei_transmutation.png");
@@ -77,32 +78,27 @@ public class TransmutationCategory implements IRecipeCategory<TransmutationRecip
         builder.addSlot(RecipeIngredientRole.OUTPUT, 47, 7).addItemStack(recipe.getResult());
 
         int aspectsTotal = recipe.aspects.size();
-        int aspectRows = 0;
-
+        int row = 1;
         for (int i = 0; i < aspectsTotal; i++)
         {
-            if (i % 3 == 0)
+            AspectStack aspectStack = recipe.aspects.get(i);
+            AspectItem item = (AspectItem) ItemInit.ASPECT.get();
+            ItemStack stack = new ItemStack(item);
+            item.setAspect(stack, aspectStack);
+
+            int aspectSpacing = 18;
+            int y = 0;
+            int x = aspectSpacing*i;
+            if(i >= ASPECTS_PER_LINE)
             {
-                aspectRows++;
+                y = aspectSpacing * (i / ASPECTS_PER_LINE);
+                x -= aspectSpacing*ASPECTS_PER_LINE*row;
+                row++;
             }
-        }
 
-        for (int i = 0; i < aspectRows; i++)
-        {
-            for (int ii = 0; ii < aspectsTotal; ii++) {
-                AspectStack aspectStack = recipe.aspects.get(ii);
-                AspectItem item = (AspectItem) ItemInit.ASPECT.get();
-                ItemStack stack = new ItemStack(item);
-                item.setAspect(stack, aspectStack);
-
-                if (aspectsTotal - ii >= 3) {
-                    builder.addSlot(RecipeIngredientRole.RENDER_ONLY, 33 + (8 * ii), 68 + (8 * i)).addItemStack(stack);
-                } else if (aspectsTotal - ii == 2) {
-                    builder.addSlot(RecipeIngredientRole.RENDER_ONLY, 39 + (8 * ii), 68 + (8 * i)).addItemStack(stack);
-                } else {
-                    builder.addSlot(RecipeIngredientRole.RENDER_ONLY, 47 + (8 * ii), 68 + (8 * i)).addItemStack(stack);
-                }
-            }
+            builder.addSlot(RecipeIngredientRole.RENDER_ONLY, 30 + x, 60 + y).addItemStack(stack);
         }
     }
+
+
 }

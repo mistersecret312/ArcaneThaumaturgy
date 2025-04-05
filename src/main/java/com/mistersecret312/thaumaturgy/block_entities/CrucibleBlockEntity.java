@@ -1,5 +1,6 @@
 package com.mistersecret312.thaumaturgy.block_entities;
 
+import com.mistersecret312.thaumaturgy.aspects.Aspect;
 import com.mistersecret312.thaumaturgy.aspects.AspectStack;
 import com.mistersecret312.thaumaturgy.aspects.UndefinedAspectStackHandler;
 import com.mistersecret312.thaumaturgy.containers.CrucibleContainer;
@@ -8,6 +9,9 @@ import com.mistersecret312.thaumaturgy.entities.HoveringItemEntity;
 import com.mistersecret312.thaumaturgy.init.BlockEntityInit;
 import com.mistersecret312.thaumaturgy.init.SoundInit;
 import com.mistersecret312.thaumaturgy.recipes.TransmutationRecipe;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.particle.BubbleParticle;
+import net.minecraft.client.particle.Particle;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
@@ -47,9 +51,10 @@ public class CrucibleBlockEntity extends BlockEntity
         {
             if (state.getValue(LEVEL) >= 3 && state.getValue(IS_BOILING))
             {
-                if(level.getGameTime() % 200 == 0)
+                Aspect randomAspect = crucible.handler.getRandomAspect();
+                if(level.getGameTime() % 200 == 0 && randomAspect != null)
                 {
-                    AspectStack stack = crucible.handler.extractAspect(crucible.handler.getRandomAspect(), 1, false);
+                    AspectStack stack = crucible.handler.extractAspect(randomAspect, 1, false);
                     if(!stack.getAspect().isPrimal() && stack.getAspect().getDerivationData() != null)
                     {
                         if(level.random.nextBoolean())
@@ -69,11 +74,11 @@ public class CrucibleBlockEntity extends BlockEntity
         }
         if (state.getValue(IS_BOILING))
         {
-            particleTick(level, pos, state);
+            particleTick(level, pos, state, crucible);
         }
     }
 
-    public static void particleTick(Level level, BlockPos pos, BlockState state)
+    public static void particleTick(Level level, BlockPos pos, BlockState state, CrucibleBlockEntity crucible)
     {
         RandomSource random = level.getRandom();
         double pixelHeight = 0.0625;
@@ -85,9 +90,23 @@ public class CrucibleBlockEntity extends BlockEntity
             double x = pos.getX() + 0.5D + (random.nextDouble() * 0.6D - 0.3D);
             double z = pos.getZ() + 0.5D + (random.nextDouble() * 0.6D - 0.3D);
 
+            int r = 255;
+            int g = 255;
+            int b = 255;
 
-            level.addAlwaysVisibleParticle(ParticleTypes.BUBBLE, x, y, z, 0, 0.02 * state.getValue(LEVEL), 0);
-            level.addAlwaysVisibleParticle(ParticleTypes.BUBBLE_POP, x, y, z, 0, 0.02 * state.getValue(LEVEL), 0);
+            Aspect aspect = crucible.handler.getRandomAspect();
+            if(aspect != null)
+            {
+                r = aspect.getColor().get(0);
+                g = aspect.getColor().get(1);
+                b = aspect.getColor().get(2);
+            }
+
+            Minecraft.getInstance().particleEngine.createParticle(ParticleTypes.BUBBLE, x, y, z, 0, 0.02 * state.getValue(LEVEL), 0).setColor(r, g, b);
+            Minecraft.getInstance().particleEngine.createParticle(ParticleTypes.BUBBLE_POP, x, y, z, 0, 0.02 * state.getValue(LEVEL), 0).setColor(r, g, b);
+
+            //level.addAlwaysVisibleParticle(ParticleTypes.BUBBLE, x, y, z, 0, 0.02 * state.getValue(LEVEL), 0);
+            //level.addAlwaysVisibleParticle(ParticleTypes.BUBBLE_POP, x, y, z, 0, 0.02 * state.getValue(LEVEL), 0);
         }
     }
 

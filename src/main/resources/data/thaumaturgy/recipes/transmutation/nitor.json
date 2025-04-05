@@ -1,0 +1,27 @@
+{
+  "type": "thaumaturgy:transmutation",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:ignis",
+      "amount": 3
+    },
+    {
+      "aspect": "thaumaturgy:lux",
+      "amount": 3
+    },
+    {
+      "aspect": "thaumaturgy:potentia",
+      "amount": 3
+    }
+  ],
+  "catalyst":
+  {
+    "item": "minecraft:glowstone_dust"
+  },
+  "result":
+  {
+    "item": "thaumaturgy:nitor",
+    "amount": 1
+  }
+}
