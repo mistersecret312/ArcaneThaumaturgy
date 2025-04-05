@@ -126,7 +126,7 @@ public class CrucibleBlock extends BaseEntityBlock
                     pLevel.setBlockAndUpdate(pPos, this.defaultBlockState());
                     crucible.handler.clear();
 
-                    pLevel.playSound(null, pPos, SoundEvents.LAVA_EXTINGUISH, SoundSource.BLOCKS, 1f, 1f);
+                    pLevel.playSound(null, pPos, SoundInit.CRUCIBLE_BUBBLE.get(), SoundSource.BLOCKS, 1f, 0.75f);
                     return InteractionResult.SUCCESS;
                 }
         }

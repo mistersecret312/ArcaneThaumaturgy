@@ -4,7 +4,11 @@
   [
     {
       "aspect": "thaumaturgy:perditio",
-      "amount": 3
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:vitreus",
+      "amount": 1
     }
   ]
 }

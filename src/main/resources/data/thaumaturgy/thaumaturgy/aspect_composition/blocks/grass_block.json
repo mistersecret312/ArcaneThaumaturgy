@@ -4,11 +4,11 @@
   [
     {
       "aspect": "thaumaturgy:herba",
-      "amount": 2
+      "amount": 1
     },
     {
       "aspect": "thaumaturgy:terra",
-      "amount": 2
+      "amount": 1
     }
   ]
 }

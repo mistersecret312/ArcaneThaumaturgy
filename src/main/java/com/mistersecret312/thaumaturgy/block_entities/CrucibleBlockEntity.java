@@ -108,7 +108,7 @@ public class CrucibleBlockEntity extends BlockEntity
             result.setPos(this.getBlockPos().getCenter().x, this.getBlockPos().getY()+2, this.getBlockPos().getCenter().z);
             result.setDeltaMovement(0, 0, 0);
             level.addFreshEntity(result);
-            level.playSound(null, this.getBlockPos(), SoundInit.CRUCIBLE_BUBBLE.get(), SoundSource.BLOCKS, 1, 1);
+            level.playSound(null, this.getBlockPos(), SoundInit.CRUCIBLE_BUBBLE.get(), SoundSource.BLOCKS, 1, 0.75f);
             markUpdated();
         }
         if(recipe.isEmpty())
@@ -124,7 +124,7 @@ public class CrucibleBlockEntity extends BlockEntity
                     handler.insertAspect(aspectCopy, false);
                 });
                 itemEntity.discard();
-                level.playSound(null, this.getBlockPos(), SoundInit.CRUCIBLE_BUBBLE.get(), SoundSource.BLOCKS, 1, 1);
+                level.playSound(null, this.getBlockPos(), SoundInit.CRUCIBLE_BUBBLE.get(), SoundSource.BLOCKS, 1, 0.75f);
                 markUpdated();
             });
         }

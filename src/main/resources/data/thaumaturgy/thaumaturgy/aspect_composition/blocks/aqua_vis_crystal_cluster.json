@@ -4,7 +4,11 @@
   [
     {
       "aspect": "thaumaturgy:aqua",
-      "amount": 12
+      "amount": 8
+    },
+    {
+      "aspect": "thaumaturgy:vitreus",
+      "amount": 6
     }
   ]
 }
