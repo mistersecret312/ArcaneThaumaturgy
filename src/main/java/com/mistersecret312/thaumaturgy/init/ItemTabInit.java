@@ -110,17 +110,6 @@ public class ItemTabInit
                     .withTabsBefore(RESOURCE_TAB.getKey())
                     .displayItems((parameters, output) ->
                     {
-                        output.accept(BlockInit.ARCANE_STONE.get());
-                        output.accept(BlockInit.ARCANE_STONE_STAIRS.get());
-                        output.accept(BlockInit.ARCANE_STONE_SLAB.get());
-                        output.accept(BlockInit.ARCANE_STONE_WALL.get());
-                        output.accept(BlockInit.ARCANE_STONE_PRESSURE_PLATE.get());
-                        output.accept(BlockInit.ARCANE_STONE_BUTTON.get());
-                        output.accept(BlockInit.ARCANE_STONE_BRICKS.get());
-                        output.accept(BlockInit.ARCANE_STONE_BRICKS_STAIRS.get());
-                        output.accept(BlockInit.ARCANE_STONE_BRICKS_SLAB.get());
-                        output.accept(BlockInit.ARCANE_STONE_BRICKS_WALL.get());
-
                         output.accept(BlockInit.GREATWOOD_LOG.get());
                         output.accept(BlockInit.GREATWOOD_WOOD.get());
                         output.accept(BlockInit.STRIPPED_GREATWOOD_LOG.get());
@@ -134,6 +123,17 @@ public class ItemTabInit
                         output.accept(BlockInit.GREATWOOD_TRAPDOOR.get());
                         output.accept(BlockInit.GREATWOOD_PRESSURE_PLATE.get());
                         output.accept(BlockInit.GREATWOOD_BUTTON.get());
+
+                        output.accept(BlockInit.ARCANE_STONE.get());
+                        output.accept(BlockInit.ARCANE_STONE_STAIRS.get());
+                        output.accept(BlockInit.ARCANE_STONE_SLAB.get());
+                        output.accept(BlockInit.ARCANE_STONE_WALL.get());
+                        output.accept(BlockInit.ARCANE_STONE_PRESSURE_PLATE.get());
+                        output.accept(BlockInit.ARCANE_STONE_BUTTON.get());
+                        output.accept(BlockInit.ARCANE_STONE_BRICKS.get());
+                        output.accept(BlockInit.ARCANE_STONE_BRICKS_STAIRS.get());
+                        output.accept(BlockInit.ARCANE_STONE_BRICKS_SLAB.get());
+                        output.accept(BlockInit.ARCANE_STONE_BRICKS_WALL.get());
                     })
                     .build());
 

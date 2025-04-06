@@ -2,7 +2,6 @@
 	"credit": "Made with Blockbench",
 	"parent": "block/block",
 	"ambientocclusion": false,
-	"render_type": "minecraft:translucent",
 	"textures": {
 		"5": "thaumaturgy:block/crucible/side_inner",
 		"6": "thaumaturgy:block/crucible/water_1",
