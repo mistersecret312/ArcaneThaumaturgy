@@ -58,6 +58,7 @@ public class BlockInit
     public static final RegistryObject<Block> GREATWOOD_PRESSURE_PLATE = registerBlock("greatwood_pressure_plate", () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, BlockBehaviour.Properties.of().strength(2.0F).sound(SoundType.NETHER_WOOD).mapColor(MapColor.COLOR_BROWN).noOcclusion(), BlockSetType.DARK_OAK));
 
     public static final RegistryObject<Block> GREATWOOD_TABLE = registerBlock("greatwood_table", () -> new GreatwoodTableBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(2.0F).sound(SoundType.NETHER_WOOD).ignitedByLava()));
+    public static final RegistryObject<Block> ARCANE_CRAFTING_TABLE = registerBlock("arcane_crafting_table", () -> new GreatwoodTableBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(2.0F).sound(SoundType.NETHER_WOOD).ignitedByLava()));
 
     public static final RegistryObject<AmethystBlock> AER_VIS_CRYSTAL_BLOCK = registerBlock("aer_vis_crystal_block", () -> new AmethystBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_YELLOW).strength(1.5F).sound(SoundType.AMETHYST).requiresCorrectToolForDrops()));
     public static final RegistryObject<BuddingVisCrystalBlock> AER_BUDDING_VIS_CRYSTAL = registerBlock("aer_budding_vis_crystal", () -> new BuddingVisCrystalBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_YELLOW).randomTicks().strength(1.5F).sound(SoundType.AMETHYST).requiresCorrectToolForDrops().pushReaction(PushReaction.DESTROY), BuddingVisCrystalBlock.CrystalAspect.AER));

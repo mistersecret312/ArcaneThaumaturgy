@@ -1,7 +1,6 @@
 package com.mistersecret312.thaumaturgy.init;
 
 import com.mistersecret312.thaumaturgy.ArcaneThaumaturgyMod;
-import com.mistersecret312.thaumaturgy.aspects.DefinedAspectStackHandler;
 import com.mistersecret312.thaumaturgy.items.AspectItem;
 import com.mistersecret312.thaumaturgy.items.WandItem;
 import net.minecraft.core.registries.Registries;
@@ -24,6 +23,8 @@ public class ItemTabInit
                         output.accept(BlockInit.ARCANE_STONE_PEDESTAL.get());
 
                         output.accept(BlockInit.GREATWOOD_TABLE.get());
+
+                        output.accept(BlockInit.ARCANE_CRAFTING_TABLE.get());
 
                         output.accept(BlockInit.CRUCIBLE.get());
 

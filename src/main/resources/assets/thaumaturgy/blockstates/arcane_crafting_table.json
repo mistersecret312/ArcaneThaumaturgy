@@ -1,0 +1,18 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "thaumaturgy:block/arcane_crafting_table"
+    },
+    "facing=south": {
+      "model": "thaumaturgy:block/arcane_crafting_table"
+    },
+    "facing=west": {
+      "model": "thaumaturgy:block/arcane_crafting_table",
+      "y": 90
+    },
+    "facing=east": {
+      "model": "thaumaturgy:block/arcane_crafting_table",
+      "y": 90
+    }
+  }
+}
