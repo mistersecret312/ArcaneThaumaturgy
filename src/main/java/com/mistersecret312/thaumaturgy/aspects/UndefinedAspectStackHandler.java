@@ -91,6 +91,7 @@ public class UndefinedAspectStackHandler implements INBTSerializable<CompoundTag
             if (presentStack.isEmpty())
                 stacks.put(stack.getAspect(), stack.copyWithSize(amountToPut));
             else presentStack.grow(amountToPut);
+            onContentsChanged(stack.getAspect());
         }
 
         return reachedLimit ? stack.copyWithSize(amountToPut) : AspectStack.EMPTY;
@@ -110,6 +111,7 @@ public class UndefinedAspectStackHandler implements INBTSerializable<CompoundTag
             if (!simulate)
             {
                 stacks.put(aspect, existing.copyWithSize(existing.getAmount() - toTake));
+                onContentsChanged(aspect);
             }
 
             return existing.copyWithSize(toTake);
@@ -117,10 +119,18 @@ public class UndefinedAspectStackHandler implements INBTSerializable<CompoundTag
         {
             if (!simulate)
             {
+                stacks.put(aspect, existing.copyWithSize(0));
+                onContentsChanged(aspect);
                 stacks.remove(aspect);
+                onContentsChanged(aspect);
                 return existing;
             } else return existing.copy();
         }
+    }
+
+    public void onContentsChanged(Aspect aspect)
+    {
+
     }
 
     public boolean isValidSlot(Aspect aspect)

@@ -5,6 +5,7 @@ import com.mistersecret312.thaumaturgy.init.BlockInit;
 import com.mistersecret312.thaumaturgy.init.MenuInit;
 import com.mistersecret312.thaumaturgy.menu.slots.WandSlotItemHandler;
 import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.world.Container;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -49,6 +50,14 @@ public class ArcaneWorkbenchMenu extends AbstractContainerMenu
         this.addSlot(new WandSlotItemHandler(this.blockEntity.getWandHandler(), 0, 184, 16));
 
         this.addSlot(new SlotItemHandler(this.blockEntity.getOutputHandler(), 0, 184, 60));
+
+        this.slotsChanged(inventory);
+    }
+
+    @Override
+    public void slotsChanged(Container pContainer)
+    {
+        super.slotsChanged(pContainer);
     }
 
     @Override

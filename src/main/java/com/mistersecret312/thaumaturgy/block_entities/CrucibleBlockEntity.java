@@ -42,12 +42,19 @@ public class CrucibleBlockEntity extends BlockEntity
     public CrucibleBlockEntity(BlockPos pPos, BlockState pBlockState)
     {
         super(BlockEntityInit.CRUCIBLE.get(), pPos, pBlockState);
-        handler = new UndefinedAspectStackHandler(16, true, MAX_CAPACITY);
+        handler = new UndefinedAspectStackHandler(16, true, MAX_CAPACITY)
+        {
+            @Override
+            public void onContentsChanged(Aspect aspect)
+            {
+                markUpdated();
+            }
+        };
     }
 
     public static void tick(Level level, BlockPos pos, BlockState state, CrucibleBlockEntity crucible)
     {
-        if (state.getValue(LEVEL) >= 3 && state.getValue(IS_BOILING))
+        if(!level.isClientSide() && state.getValue(LEVEL) >= 3 && state.getValue(IS_BOILING))
         {
             Aspect randomAspect = crucible.handler.getRandomAspect();
             if (level.getGameTime() % 400 == 0 && randomAspect != null)
@@ -109,7 +116,6 @@ public class CrucibleBlockEntity extends BlockEntity
             result.setDeltaMovement(0, 0, 0);
             level.addFreshEntity(result);
             level.playSound(null, this.getBlockPos(), SoundInit.CRUCIBLE_BUBBLE.get(), SoundSource.BLOCKS, 1, 0.75f);
-            markUpdated();
         }
         if(recipe.isEmpty())
         {
@@ -125,7 +131,6 @@ public class CrucibleBlockEntity extends BlockEntity
                 });
                 itemEntity.discard();
                 level.playSound(null, this.getBlockPos(), SoundInit.CRUCIBLE_BUBBLE.get(), SoundSource.BLOCKS, 1, 0.75f);
-                markUpdated();
             });
         }
     }
