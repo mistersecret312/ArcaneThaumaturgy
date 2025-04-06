@@ -154,7 +154,7 @@ public class CrucibleBlock extends BaseEntityBlock
         if (pFluid == Fluids.WATER) {
             int waterLevel = pState.getValue(LEVEL);
             if (waterLevel < 3) {
-                pLevel.setBlockAndUpdate(pPos, pState.setValue(LEVEL, Math.min(6, waterLevel + 1)));
+                pLevel.setBlockAndUpdate(pPos, pState.setValue(LEVEL, waterLevel + 1));
             }
         }
     }
@@ -162,8 +162,11 @@ public class CrucibleBlock extends BaseEntityBlock
     @Override
     public void handlePrecipitation(BlockState pState, Level pLevel, BlockPos pPos, Biome.Precipitation pPrecipitation) {
         if (pPrecipitation == Biome.Precipitation.RAIN && !isBoiling(pLevel, pPos)) {
-            pLevel.setBlockAndUpdate(pPos, pState.setValue(LEVEL, Math.min(6, pState.getValue(LEVEL) + 1)));
-            pLevel.gameEvent(null, GameEvent.BLOCK_CHANGE, pPos);
+            int waterLevel = pState.getValue(LEVEL);
+            if (waterLevel < 3) {
+                pLevel.setBlockAndUpdate(pPos, pState.setValue(LEVEL, waterLevel + 1));
+                pLevel.gameEvent(null, GameEvent.BLOCK_CHANGE, pPos);
+            }
         }
     }
 
