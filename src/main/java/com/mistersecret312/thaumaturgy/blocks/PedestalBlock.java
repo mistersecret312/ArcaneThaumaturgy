@@ -45,9 +45,9 @@ public class PedestalBlock extends Block implements EntityBlock
         if(level.getBlockEntity(pos) instanceof PedestalBlockEntity pedestal)
         {
             if(!stack.isEmpty())
-                putItem(pedestal, level, player, pos, stack);
+                return putItem(pedestal, level, player, pos, stack);
             else
-                takeItem(pedestal, level, player, pos);
+                return takeItem(pedestal, level, player, pos);
         }
 
         return InteractionResult.PASS;
