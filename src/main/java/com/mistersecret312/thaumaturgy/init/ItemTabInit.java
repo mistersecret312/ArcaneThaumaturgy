@@ -20,11 +20,10 @@ public class ItemTabInit
                     .title(Component.translatable("tabs.thaumaturgy.main_tab"))
                     .displayItems((parameters, output) ->
                     {
-                        output.accept(BlockInit.ARCANE_STONE_PEDESTAL.get());
-
-                        output.accept(BlockInit.GREATWOOD_TABLE.get());
-
                         output.accept(BlockInit.ARCANE_WORKBENCH.get());
+
+                        output.accept(BlockInit.RESEARCH_TABLE_LEFT.get());
+                        output.accept(BlockInit.RESEARCH_TABLE_RIGHT.get());
 
                         output.accept(BlockInit.CRUCIBLE.get());
 
@@ -35,7 +34,6 @@ public class ItemTabInit
                         output.accept(BlockInit.ESSENTIA_JAR.get());
 
                         output.accept(ItemInit.SCRIBING_TOOLS.get());
-                        output.accept(ItemInit.NITOR.get());
 
                         output.accept(WandItem.createPrimal(ItemInit.IRON_WAND.get(), 25, true));
                         output.accept(WandItem.createPrimal(ItemInit.GOLD_WAND.get(), 50, true));
@@ -127,6 +125,13 @@ public class ItemTabInit
                         output.accept(BlockInit.GREATWOOD_PRESSURE_PLATE.get());
                         output.accept(BlockInit.GREATWOOD_BUTTON.get());
 
+                        output.accept(BlockInit.GREATWOOD_TABLE.get());
+
+                        output.accept(BlockInit.GREATWOOD_ARMCHAIR.get());
+                        output.accept(BlockInit.GREATWOOD_STOOL.get());
+
+                        output.accept(BlockInit.THAUMATURGE_EMBLEM.get());
+
                         output.accept(BlockInit.ARCANE_STONE.get());
                         output.accept(BlockInit.ARCANE_STONE_STAIRS.get());
                         output.accept(BlockInit.ARCANE_STONE_SLAB.get());
@@ -137,6 +142,10 @@ public class ItemTabInit
                         output.accept(BlockInit.ARCANE_STONE_BRICKS_STAIRS.get());
                         output.accept(BlockInit.ARCANE_STONE_BRICKS_SLAB.get());
                         output.accept(BlockInit.ARCANE_STONE_BRICKS_WALL.get());
+
+                        output.accept(BlockInit.ARCANE_STONE_PEDESTAL.get());
+
+                        output.accept(ItemInit.NITOR.get());
                     })
                     .build());
 

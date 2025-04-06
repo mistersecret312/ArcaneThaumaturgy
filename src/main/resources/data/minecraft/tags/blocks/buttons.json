@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "thaumaturgy:arcane_stone_button"
+    "thaumaturgy:arcane_stone_button",
+    "thaumaturgy:greatwood_button"
   ]
 }

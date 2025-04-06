@@ -2,7 +2,6 @@
   "replace": false,
   "values": [
     "thaumaturgy:arcane_stone_slab",
-    "thaumaturgy:arcane_stone_bricks_slab",
     "thaumaturgy:greatwood_slab"
   ]
 }

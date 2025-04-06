@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "thaumaturgy:block/thaumaturge_emblem"
+    },
+    "facing=south": {
+      "model": "thaumaturgy:block/thaumaturge_emblem",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "thaumaturgy:block/thaumaturge_emblem",
+      "y": 270
+    },
+    "facing=east": {
+      "model": "thaumaturgy:block/thaumaturge_emblem",
+      "y": 90
+    }
+  }
+}

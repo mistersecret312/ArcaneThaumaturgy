@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "stone",
+  "key": {
+    "C": {
+      "item": "thaumaturgy:terra_vis_crystal"
+    },
+    "S": {
+      "item": "minecraft:stone"
+    }
+  },
+  "pattern": [
+    "SSS",
+    "SCS",
+    "SSS"
+  ],
+  "result": {
+    "item": "thaumaturgy:arcane_stone",
+    "count": 8
+  },
+  "show_notification": true
+}

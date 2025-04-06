@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "thaumaturgy:greatwood_log",
+    "thaumaturgy:greatwood_wood",
+    "thaumaturgy:stripped_greatwood_log",
+    "thaumaturgy:stripped_greatwood_wood"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "S": {
+      "item": "thaumaturgy:arcane_stone_slab"
+    },
+    "A": {
+      "item": "thaumaturgy:arcane_stone"
+    },
+    "B": {
+      "item": "thaumaturgy:arcane_stone_bricks"
+    }
+  },
+  "pattern": [
+    "SSS",
+    " A ",
+    "BBB"
+  ],
+  "result": {
+    "item": "thaumaturgy:arcane_stone_pedestal",
+    "count": 3
+  },
+  "show_notification": true
+}

@@ -46,23 +46,26 @@ public class BlockInit
 
     public static final RegistryObject<PedestalBlock> ARCANE_STONE_PEDESTAL = registerBlock("arcane_stone_pedestal", () -> new PedestalBlock(BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(3.0F, 5f).sound(SoundType.DEEPSLATE).mapColor(MapColor.COLOR_GRAY)));
 
-    public static final RegistryObject<Block> GREATWOOD_LOG = registerBlock("greatwood_log", () -> new GreatRotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(2.0F).sound(SoundType.NETHER_WOOD).ignitedByLava()));
-    public static final RegistryObject<Block> GREATWOOD_WOOD = registerBlock("greatwood_wood", () -> new GreatRotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(2.0F).sound(SoundType.NETHER_WOOD).ignitedByLava()));
+    public static final RegistryObject<Block> GREATWOOD_LOG = registerBlock("greatwood_log", () -> new GreatwoodRotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(2.0F).sound(SoundType.NETHER_WOOD).ignitedByLava()));
+    public static final RegistryObject<Block> GREATWOOD_WOOD = registerBlock("greatwood_wood", () -> new GreatwoodRotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(2.0F).sound(SoundType.NETHER_WOOD).ignitedByLava()));
     public static final RegistryObject<Block> STRIPPED_GREATWOOD_LOG = registerBlock("stripped_greatwood_log", () -> new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(2.0F).sound(SoundType.NETHER_WOOD).ignitedByLava()));
     public static final RegistryObject<Block> STRIPPED_GREATWOOD_WOOD = registerBlock("stripped_greatwood_wood", () -> new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(2.0F).sound(SoundType.NETHER_WOOD).ignitedByLava()));
     public static final RegistryObject<Block> GREATWOOD_PLANKS = registerBlock("greatwood_planks", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(2.0F).sound(SoundType.NETHER_WOOD).ignitedByLava()));
     public static final RegistryObject<Block> GREATWOOD_SLAB = registerBlock("greatwood_slab", () -> new SlabBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).requiresCorrectToolForDrops().strength(2.0F).sound(SoundType.NETHER_WOOD)));
     public static final RegistryObject<Block> GREATWOOD_STAIRS = registerBlock("greatwood_stairs", () -> new StairBlock(ARCANE_STONE_BRICKS.get().defaultBlockState(), BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(2.0F).sound(SoundType.NETHER_WOOD).mapColor(MapColor.COLOR_BROWN)));
-
     public static final RegistryObject<Block> GREATWOOD_FENCE = registerBlock("greatwood_fence", () -> new FenceBlock(BlockBehaviour.Properties.of().strength(2.0F).sound(SoundType.NETHER_WOOD).mapColor(MapColor.COLOR_BROWN).noOcclusion()));
     public static final RegistryObject<Block> GREATWOOD_FENCE_GATE = registerBlock("greatwood_fence_gate", () -> new FenceGateBlock(BlockBehaviour.Properties.of().strength(2.0F).sound(SoundType.NETHER_WOOD).mapColor(MapColor.COLOR_BROWN).noOcclusion(), WoodType.DARK_OAK));
-
     public static final RegistryObject<Block> GREATWOOD_DOOR = registerBlock("greatwood_door", () -> new DoorBlock(BlockBehaviour.Properties.of().strength(2.0F).sound(SoundType.NETHER_WOOD).mapColor(MapColor.COLOR_BROWN).noOcclusion(), BlockSetType.DARK_OAK));
     public static final RegistryObject<Block> GREATWOOD_TRAPDOOR = registerBlock("greatwood_trapdoor", () -> new TrapDoorBlock(BlockBehaviour.Properties.of().strength(2.0F).sound(SoundType.NETHER_WOOD).mapColor(MapColor.COLOR_BROWN).noOcclusion(), BlockSetType.DARK_OAK));
     public static final RegistryObject<Block> GREATWOOD_BUTTON = registerBlock("greatwood_button", () -> new ButtonBlock(BlockBehaviour.Properties.of().strength(2.0F).sound(SoundType.NETHER_WOOD).mapColor(MapColor.COLOR_BROWN).noOcclusion(), BlockSetType.DARK_OAK, 30, true));
     public static final RegistryObject<Block> GREATWOOD_PRESSURE_PLATE = registerBlock("greatwood_pressure_plate", () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, BlockBehaviour.Properties.of().strength(2.0F).sound(SoundType.NETHER_WOOD).mapColor(MapColor.COLOR_BROWN).noOcclusion(), BlockSetType.DARK_OAK));
 
-    public static final RegistryObject<Block> GREATWOOD_TABLE = registerBlock("greatwood_table", () -> new GreatwoodTableBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(2.0F).sound(SoundType.NETHER_WOOD).ignitedByLava()));
+    public static final RegistryObject<Block> GREATWOOD_TABLE = registerBlock("greatwood_table", () -> new GreatwoodTableBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(2.0F).sound(SoundType.NETHER_WOOD).ignitedByLava().noOcclusion()));
+
+    public static final RegistryObject<Block> THAUMATURGE_EMBLEM = registerBlock("thaumaturge_emblem", () -> new ThaumaturgeEmblemBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(2.0F).sound(SoundType.NETHER_WOOD).ignitedByLava().noOcclusion()));
+
+    public static final RegistryObject<Block> GREATWOOD_STOOL = registerBlock("greatwood_stool", () -> new GreatwoodStoolBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(2.0F).sound(SoundType.NETHER_WOOD).ignitedByLava().noOcclusion()));
+    public static final RegistryObject<Block> GREATWOOD_ARMCHAIR = registerBlock("greatwood_armchair", () -> new GreatwoodArmchairBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(2.0F).sound(SoundType.NETHER_WOOD).ignitedByLava().noOcclusion()));
 
     public static final RegistryObject<AmethystBlock> AER_VIS_CRYSTAL_BLOCK = registerBlock("aer_vis_crystal_block", () -> new AmethystBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_YELLOW).strength(1.5F).sound(SoundType.AMETHYST).requiresCorrectToolForDrops()));
     public static final RegistryObject<BuddingVisCrystalBlock> AER_BUDDING_VIS_CRYSTAL = registerBlock("aer_budding_vis_crystal", () -> new BuddingVisCrystalBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_YELLOW).randomTicks().strength(1.5F).sound(SoundType.AMETHYST).requiresCorrectToolForDrops().pushReaction(PushReaction.DESTROY), BuddingVisCrystalBlock.CrystalAspect.AER));

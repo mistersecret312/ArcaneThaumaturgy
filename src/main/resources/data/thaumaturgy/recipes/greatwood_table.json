@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "P": {
+      "item": "thaumaturgy:greatwood_planks"
+    },
+    "S": {
+      "item": "thaumaturgy:greatwood_slab"
+    }
+  },
+  "pattern": [
+    "SSS",
+    "PSP",
+    "P P"
+  ],
+  "result": {
+    "item": "thaumaturgy:greatwood_table",
+    "count": 3
+  },
+  "show_notification": true
+}
