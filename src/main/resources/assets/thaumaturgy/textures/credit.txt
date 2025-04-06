@@ -1,3 +1,7 @@
-"arcane_crafting_table_gui.png" - Arcana's crafting table spritework is used as template, all credit goes to original artists
+All credit goes to original artists. If you want your work to be removed, just message us!
+-------------------------------------------------------------------------------------------
+"arcane_crafting_table_gui.png" - Arcana's crafting table spritework is used as template
 
-Some of the aspects are directly inspired and based off of Arcana's aspect reimagination spritework, all credit goes to original artists
+Some of the aspects are directly inspired and based off of Arcana's aspect reimagination spritework
+
+"scribing_tools.png" - Arcana's ink item texture with slight color edit

@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "thaumaturgy:block/research_table_right"
+    },
+    "facing=south": {
+      "model": "thaumaturgy:block/research_table_right",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "thaumaturgy:block/research_table_right",
+      "y": 270
+    },
+    "facing=east": {
+      "model": "thaumaturgy:block/research_table_right",
+      "y": 90
+    }
+  }
+}
