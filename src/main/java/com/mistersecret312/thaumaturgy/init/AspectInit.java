@@ -33,6 +33,9 @@ public class AspectInit
     public static final RegistryObject<Aspect> POTENTIA = ASPECTS.register("potentia", () -> new Aspect(List.of(0xC0, 0xFF, 0xFF), ResourceLocation.parse("thaumaturgy:textures/aspect/potentia.png")).withDerivation(AspectInit.IGNIS.get(), AspectInit.ORDO.get()));
     public static final RegistryObject<Aspect> LUX = ASPECTS.register("lux", () -> new Aspect(List.of(0xFF, 0xF6, 0x63), ResourceLocation.parse("thaumaturgy:textures/aspect/lux.png")).withDerivation(AspectInit.AER.get(), AspectInit.IGNIS.get()));
     public static final RegistryObject<Aspect> VITREUS = ASPECTS.register("vitreus", () -> new Aspect(List.of(0xB8, 0xE5, 0xDF), ResourceLocation.parse("thaumaturgy:textures/aspect/vitreus.png")).withDerivation(AspectInit.TERRA.get(), AspectInit.ORDO.get()));
+    public static final RegistryObject<Aspect> VACUOS = ASPECTS.register("vacuos", () -> new Aspect(List.of(0x50, 0x55, 0x73), ResourceLocation.parse("thaumaturgy:textures/aspect/vacuos.png")).withDerivation(AspectInit.PERDITIO.get(), AspectInit.AER.get()));
+    public static final RegistryObject<Aspect> METALLUM = ASPECTS.register("metallum", () -> new Aspect(List.of(0xD8, 0xD8, 0xD8), ResourceLocation.parse("thaumaturgy:textures/aspect/metallum.png")).withDerivation(AspectInit.VITREUS.get(), AspectInit.TERRA.get()));
+    public static final RegistryObject<Aspect> PRAECANTATIO = ASPECTS.register("praecantatio", () -> new Aspect(List.of(0xE5, 0x17, 0xD4), ResourceLocation.parse("thaumaturgy:textures/aspect/praecantatio.png")).withDerivation(AspectInit.POTENTIA.get(), AspectInit.VACUOS.get()));
 
     public static final Codec<Aspect> CODEC = ExtraCodecs.lazyInitializedCodec(() -> ASPECT.get().getCodec());
 
