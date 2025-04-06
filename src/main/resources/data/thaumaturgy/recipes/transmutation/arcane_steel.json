@@ -5,6 +5,10 @@
     {
       "aspect": "thaumaturgy:praecantatio",
       "amount": 4
+    },
+    {
+      "aspect": "thaumaturgy:ordo",
+      "amount": 2
     }
   ],
   "catalyst":

@@ -1,0 +1,14 @@
+{
+  "item": "minecraft:glowstone",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:lux",
+      "amount": 8
+    },
+    {
+      "aspect": "thaumaturgy:vitreus",
+      "amount": 4
+    }
+  ]
+}

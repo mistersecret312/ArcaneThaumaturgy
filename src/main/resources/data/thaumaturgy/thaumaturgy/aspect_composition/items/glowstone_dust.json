@@ -1,9 +1,9 @@
 {
-  "item": "thaumaturgy:aqua_vis_crystal",
+  "item": "minecraft:glowstone_dust",
   "aspects":
   [
     {
-      "aspect": "thaumaturgy:aqua",
+      "aspect": "thaumaturgy:lux",
       "amount": 2
     },
     {
@@ -11,7 +11,7 @@
       "amount": 1
     },
     {
-      "aspect": "thaumaturgy:praecantatio",
+      "aspect": "thaumaturgy:perditio",
       "amount": 1
     }
   ]

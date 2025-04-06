@@ -50,7 +50,7 @@ public class CrucibleBlockEntity extends BlockEntity
         if (state.getValue(LEVEL) >= 3 && state.getValue(IS_BOILING))
         {
             Aspect randomAspect = crucible.handler.getRandomAspect();
-            if (level.getGameTime() % 200 == 0 && randomAspect != null)
+            if (level.getGameTime() % 400 == 0 && randomAspect != null)
             {
                 AspectStack stack = crucible.handler.extractAspect(randomAspect, 1, false);
                 if (!stack.getAspect().isPrimal() && stack.getAspect().getDerivationData() != null)
