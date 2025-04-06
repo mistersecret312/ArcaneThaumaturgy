@@ -24,7 +24,7 @@ public class ItemTabInit
 
                         output.accept(BlockInit.GREATWOOD_TABLE.get());
 
-                        output.accept(BlockInit.ARCANE_CRAFTING_TABLE.get());
+                        output.accept(BlockInit.ARCANE_WORKBENCH.get());
 
                         output.accept(BlockInit.CRUCIBLE.get());
 

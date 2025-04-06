@@ -5,6 +5,7 @@ import com.mistersecret312.thaumaturgy.client.Layers;
 import com.mistersecret312.thaumaturgy.client.gui.WandAspectOverlay;
 import com.mistersecret312.thaumaturgy.client.renderer.*;
 import com.mistersecret312.thaumaturgy.aspects.Aspect;
+import com.mistersecret312.thaumaturgy.client.screen.ArcaneWorkbenchScreen;
 import com.mistersecret312.thaumaturgy.datapack.AspectComposition;
 import com.mistersecret312.thaumaturgy.init.*;
 import com.mistersecret312.thaumaturgy.items.NitorItem;
@@ -12,6 +13,7 @@ import com.mistersecret312.thaumaturgy.recipes.TransmutationRecipe;
 import com.mistersecret312.thaumaturgy.tooltipcomponents.AspectTooltipComponent;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.multiplayer.ClientPacketListener;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.core.Holder;
@@ -65,6 +67,7 @@ public class ArcaneThaumaturgyMod
         EntityTypeInit.register(modEventBus);
         RecipeTypeInit.register(modEventBus);
         AspectInit.register(modEventBus);
+        MenuInit.register(modEventBus);
 
         MinecraftForge.EVENT_BUS.register(this);
 
@@ -105,6 +108,8 @@ public class ArcaneThaumaturgyMod
             event.enqueueWork(() ->
             {
                 EntityRenderers.register(EntityTypeInit.HOVERING_ITEM.get(), HoveringItemRenderer::new);
+
+                MenuScreens.register(MenuInit.ARCANE_WORKBENCH.get(), ArcaneWorkbenchScreen::new);
             });
         }
 

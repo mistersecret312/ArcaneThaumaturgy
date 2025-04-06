@@ -1,25 +1,28 @@
 package com.mistersecret312.thaumaturgy.blocks;
 
-import com.mistersecret312.thaumaturgy.init.BlockInit;
-import com.mistersecret312.thaumaturgy.init.SoundInit;
-import com.mistersecret312.thaumaturgy.items.WandItem;
+import com.mistersecret312.thaumaturgy.block_entities.ArcaneWorkbenchBlockEntity;
+import com.mistersecret312.thaumaturgy.block_entities.CrucibleBlockEntity;
+import com.mistersecret312.thaumaturgy.init.BlockEntityInit;
+import com.mistersecret312.thaumaturgy.menu.ArcaneWorkbenchMenu;
 import com.mistersecret312.thaumaturgy.util.MathUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.sounds.SoundSource;
+import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.MenuProvider;
+import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.HorizontalDirectionalBlock;
-import net.minecraft.world.level.block.RenderShape;
-import net.minecraft.world.level.block.SimpleWaterloggedBlock;
-import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityTicker;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -28,12 +31,12 @@ import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
-import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.minecraftforge.network.NetworkHooks;
+import org.jetbrains.annotations.Nullable;
 
-import javax.annotation.Nullable;
-
-public class GreatwoodTableBlock extends HorizontalDirectionalBlock implements SimpleWaterloggedBlock {
+public class ArcaneWorkbenchBlock extends HorizontalDirectionalBlock implements EntityBlock
+{
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
     public static final VoxelShape SHAPE_NORTH_SOUTH = MathUtil.buildShape(
             Block.box(13, 0, 1, 15, 13, 3),
@@ -64,23 +67,43 @@ public class GreatwoodTableBlock extends HorizontalDirectionalBlock implements S
             Block.box(3, 11, 13, 13, 13, 15)
     );
 
-    public GreatwoodTableBlock(Properties pProperties) {
+    public ArcaneWorkbenchBlock(Properties pProperties)
+    {
         super(pProperties);
         this.registerDefaultState(this.defaultBlockState().setValue(FACING, Direction.NORTH).setValue(WATERLOGGED, false));
     }
 
     @Override
-    public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
-        ItemStack stack = pPlayer.getItemInHand(pHand);
+    public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult trace)
+    {
+        if(!level.isClientSide())
+        {
+            BlockEntity blockEntity = level.getBlockEntity(pos);
 
-        if (stack.getItem() instanceof WandItem) {
-            pLevel.setBlockAndUpdate(pPos, BlockInit.ARCANE_WORKBENCH.get().defaultBlockState().setValue(FACING, pState.getValue(FACING)));
+            if(blockEntity instanceof ArcaneWorkbenchBlockEntity)
+            {
+                MenuProvider containerProvider = new MenuProvider()
+                {
+                    @Override
+                    public Component getDisplayName()
+                    {
+                        return Component.translatable("screen.thaumaturgy.arcane_workbench");
+                    }
 
-            pLevel.playSound(null, pPos, SoundInit.WAND_USE.get(), SoundSource.BLOCKS);
-            return InteractionResult.SUCCESS;
+                    @Override
+                    public AbstractContainerMenu createMenu(int windowId, Inventory playerInventory, Player playerEntity)
+                    {
+                        return new ArcaneWorkbenchMenu(windowId, playerInventory, blockEntity);
+                    }
+                };
+                NetworkHooks.openScreen((ServerPlayer) player, containerProvider, blockEntity.getBlockPos());
+            }
+            else
+            {
+                throw new IllegalStateException("Our named container provider is missing!");
+            }
         }
-
-        return InteractionResult.PASS;
+        return InteractionResult.SUCCESS;
     }
 
     @Override
@@ -117,7 +140,7 @@ public class GreatwoodTableBlock extends HorizontalDirectionalBlock implements S
         return super.updateShape(pState, pDirection, pNeighborState, pLevel, pPos, pNeighborPos);
     }
 
-    @Nullable
+    @javax.annotation.Nullable
     public BlockState getStateForPlacement(BlockPlaceContext pContext)
     {
         LevelAccessor accessor = pContext.getLevel();
@@ -130,4 +153,19 @@ public class GreatwoodTableBlock extends HorizontalDirectionalBlock implements S
         return state.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(state);
     }
 
+    @Nullable
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> blockEntity) {
+        return createTickerHelper(blockEntity, BlockEntityInit.ARCANE_WORKBENCH.get(), ArcaneWorkbenchBlockEntity::tick);
+    }
+
+    @javax.annotation.Nullable
+    protected static <E extends BlockEntity, A extends BlockEntity> BlockEntityTicker<A> createTickerHelper(BlockEntityType<A> pServerType, BlockEntityType<E> pClientType, BlockEntityTicker<? super E> pTicker) {
+        return pClientType == pServerType ? (BlockEntityTicker<A>)pTicker : null;
+    }
+
+    @Override
+    public @Nullable BlockEntity newBlockEntity(BlockPos pPos, BlockState pState)
+    {
+        return new ArcaneWorkbenchBlockEntity(pPos, pState);
+    }
 }
