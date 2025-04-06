@@ -6,6 +6,7 @@ import com.mistersecret312.thaumaturgy.aspects.AspectStack;
 import com.mistersecret312.thaumaturgy.block_entities.CrucibleBlockEntity;
 import com.mistersecret312.thaumaturgy.client.ThaumaturgyRenderTypes;
 import com.mistersecret312.thaumaturgy.init.BlockInit;
+import com.mistersecret312.thaumaturgy.items.RevelationGogglesItem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
@@ -44,7 +45,9 @@ public class CrucibleRenderer implements BlockEntityRenderer<CrucibleBlockEntity
         BlockPos pos = rayTrace.getBlockPos();
         BlockState blockState = level.getBlockState(pos);
 
-        if(blockState.is(BlockInit.CRUCIBLE.get()))
+        boolean reveal = player.getInventory().armor.stream().anyMatch(item -> item.getItem() instanceof RevelationGogglesItem);
+
+        if(blockState.is(BlockInit.CRUCIBLE.get()) && reveal)
         {
             poseStack.translate(0.2*crucible.handler.getSize()-((crucible.handler.getSize()-1)*0.3), 0 ,0);
             for (int i = 0; i < crucible.handler.getSize(); i++)
