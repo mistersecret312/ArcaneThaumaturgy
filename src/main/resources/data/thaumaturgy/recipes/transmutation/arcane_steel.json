@@ -1,0 +1,19 @@
+{
+  "type": "thaumaturgy:transmutation",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:praecantatio",
+      "amount": 4
+    }
+  ],
+  "catalyst":
+  {
+    "item": "minecraft:iron_ingot"
+  },
+  "result":
+  {
+    "item": "thaumaturgy:arcane_steel_ingot",
+    "amount": 1
+  }
+}
