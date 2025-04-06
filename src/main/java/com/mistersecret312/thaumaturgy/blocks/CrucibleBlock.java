@@ -134,6 +134,12 @@ public class CrucibleBlock extends BaseEntityBlock
     }
 
     @Override
+    public boolean isRandomlyTicking(BlockState pState)
+    {
+        return true;
+    }
+
+    @Override
     public void tick(BlockState pState, ServerLevel pLevel, BlockPos pPos, RandomSource pRandom)
     {
         if (pLevel.getBlockEntity(pPos) instanceof CrucibleBlockEntity crucible)
@@ -142,7 +148,7 @@ public class CrucibleBlock extends BaseEntityBlock
             if (pos != null)
             {
                 Fluid fluid = PointedDripstoneBlock.getCauldronFillFluidType(pLevel, pos);
-                if (fluid != Fluids.EMPTY)
+                if (fluid == Fluids.WATER)
                 {
                     receiveStalactiteDrip(pState, pLevel, pPos, fluid, crucible);
                 }
