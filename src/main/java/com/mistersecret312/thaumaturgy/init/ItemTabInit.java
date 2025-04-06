@@ -55,6 +55,8 @@ public class ItemTabInit
                     .withTabsBefore(MAIN_TAB.getKey())
                     .displayItems((parameters, output) ->
                     {
+                        output.accept(ItemInit.ARCANE_STEEL_INGOT.get());
+
                         output.accept(ItemInit.AER_VIS_CRYSTAL.get());
                         output.accept(BlockInit.AER_VIS_CRYSTAL_BLOCK.get());
                         output.accept(BlockInit.AER_BUDDING_VIS_CRYSTAL.get());
