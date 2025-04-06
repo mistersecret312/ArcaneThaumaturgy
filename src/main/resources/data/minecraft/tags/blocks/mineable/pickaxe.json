@@ -1,0 +1,61 @@
+{
+  "replace": false,
+  "values": [
+    "thaumaturgy:arcane_stone",
+    "thaumaturgy:arcane_stone_stairs",
+    "thaumaturgy:arcane_stone_slab",
+    "thaumaturgy:arcane_stone_wall",
+    "thaumaturgy:arcane_stone_pressure_plate",
+    "thaumaturgy:arcane_stone_button",
+    "thaumaturgy:arcane_stone_bricks",
+    "thaumaturgy:arcane_stone_bricks_stairs",
+    "thaumaturgy:arcane_stone_bricks_slab",
+    "thaumaturgy:arcane_stone_bricks_wall",
+
+    "thaumaturgy:arcane_stone_pedestal",
+    "thaumaturgy:crucible",
+    "thaumaturgy:runic_matrix",
+
+    "thaumaturgy:aer_vis_crystal_block",
+    "thaumaturgy:aer_budding_vis_crystal",
+    "thaumaturgy:aer_vis_crystal_cluster",
+    "thaumaturgy:aer_large_vis_crystal_bud",
+    "thaumaturgy:aer_medium_vis_crystal_bud",
+    "thaumaturgy:aer_small_vis_crystal_bud",
+
+    "thaumaturgy:ignis_vis_crystal_block",
+    "thaumaturgy:ignis_budding_vis_crystal",
+    "thaumaturgy:ignis_vis_crystal_cluster",
+    "thaumaturgy:ignis_large_vis_crystal_bud",
+    "thaumaturgy:ignis_medium_vis_crystal_bud",
+    "thaumaturgy:ignis_small_vis_crystal_bud",
+
+    "thaumaturgy:aqua_vis_crystal_block",
+    "thaumaturgy:aqua_budding_vis_crystal",
+    "thaumaturgy:aqua_vis_crystal_cluster",
+    "thaumaturgy:aqua_large_vis_crystal_bud",
+    "thaumaturgy:aqua_medium_vis_crystal_bud",
+    "thaumaturgy:aqua_small_vis_crystal_bud",
+
+    "thaumaturgy:terra_vis_crystal_block",
+    "thaumaturgy:terra_budding_vis_crystal",
+    "thaumaturgy:terra_vis_crystal_cluster",
+    "thaumaturgy:terra_large_vis_crystal_bud",
+    "thaumaturgy:terra_medium_vis_crystal_bud",
+    "thaumaturgy:terra_small_vis_crystal_bud",
+
+    "thaumaturgy:ordo_vis_crystal_block",
+    "thaumaturgy:ordo_budding_vis_crystal",
+    "thaumaturgy:ordo_vis_crystal_cluster",
+    "thaumaturgy:ordo_large_vis_crystal_bud",
+    "thaumaturgy:ordo_medium_vis_crystal_bud",
+    "thaumaturgy:ordo_small_vis_crystal_bud",
+
+    "thaumaturgy:perditio_vis_crystal_block",
+    "thaumaturgy:perditio_budding_vis_crystal",
+    "thaumaturgy:perditio_vis_crystal_cluster",
+    "thaumaturgy:perditio_large_vis_crystal_bud",
+    "thaumaturgy:perditio_medium_vis_crystal_bud",
+    "thaumaturgy:perditio_small_vis_crystal_bud"
+  ]
+}

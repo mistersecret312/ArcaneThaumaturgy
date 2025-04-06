@@ -38,9 +38,6 @@ public class ItemTabInit
                         output.accept(WandItem.createPrimal(ItemInit.IRON_WAND.get(), 25, true));
                         output.accept(WandItem.createPrimal(ItemInit.GOLD_WAND.get(), 50, true));
 
-                        output.accept(ItemInit.IRON_KNOB.get());
-                        output.accept(ItemInit.GOLD_KNOB.get());
-
                         output.accept(ItemInit.THAUMOMETER.get());
 
                         output.accept(ItemInit.REVELATION_GOGGLES.get());
@@ -53,6 +50,11 @@ public class ItemTabInit
                     .withTabsBefore(MAIN_TAB.getKey())
                     .displayItems((parameters, output) ->
                     {
+                        output.accept(ItemInit.IRON_KNOB.get());
+                        output.accept(ItemInit.GOLD_KNOB.get());
+
+                        output.accept(ItemInit.GREATWOOD_CORE.get());
+
                         output.accept(ItemInit.ARCANE_STEEL_INGOT.get());
 
                         output.accept(ItemInit.AER_VIS_CRYSTAL.get());

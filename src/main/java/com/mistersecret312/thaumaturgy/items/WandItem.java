@@ -3,13 +3,29 @@ package com.mistersecret312.thaumaturgy.items;
 import com.mistersecret312.thaumaturgy.aspects.AspectStack;
 import com.mistersecret312.thaumaturgy.aspects.DefinedAspectStackHandler;
 import com.mistersecret312.thaumaturgy.aspects.Aspect;
+import com.mistersecret312.thaumaturgy.entities.HoveringItemEntity;
 import com.mistersecret312.thaumaturgy.init.AspectInit;
+import com.mistersecret312.thaumaturgy.init.BlockInit;
+import com.mistersecret312.thaumaturgy.init.ItemInit;
+import com.mistersecret312.thaumaturgy.init.SoundInit;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.ChiseledBookShelfBlock;
+import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
@@ -22,6 +38,41 @@ public class WandItem extends Item
     public WandItem(Properties pProperties)
     {
         super(pProperties);
+    }
+
+    @Override
+    public InteractionResult useOn(UseOnContext pContext) {
+        Level level = pContext.getLevel();
+        BlockPos pos = pContext.getClickedPos();
+        BlockState state = level.getBlockState(pos);
+
+        if (state.getBlock().equals(Blocks.BOOKSHELF)) {
+            level.setBlockAndUpdate(pos, Blocks.AIR.defaultBlockState());
+
+            HoveringItemEntity result = new HoveringItemEntity(level);
+            result.setNoGravity(true);
+            result.setItem(ItemInit.THAUMONOMICON.get().getDefaultInstance());
+            result.setPos(pos.getCenter().x, pos.getCenter().y + 0.5, pos.getCenter().z);
+            result.setDeltaMovement(0, 0, 0);
+            level.addFreshEntity(result);
+
+            level.playSound(null, pos, SoundInit.WAND_USE.get(), SoundSource.BLOCKS, 1, 1);
+
+            level.addAlwaysVisibleParticle(ParticleTypes.EXPLOSION, pos.getCenter().x, pos.getCenter().y, pos.getCenter().z, 0, 0, 0);
+
+            return InteractionResult.SUCCESS;
+        }
+        if (state.getBlock().equals(Blocks.CAULDRON)) {
+            level.setBlockAndUpdate(pos, BlockInit.CRUCIBLE.get().defaultBlockState());
+
+            level.playSound(null, pos, SoundInit.WAND_USE.get(), SoundSource.BLOCKS, 1, 1);
+
+            level.addAlwaysVisibleParticle(ParticleTypes.EXPLOSION, pos.getCenter().x, pos.getCenter().y, pos.getCenter().z, 0, 0, 0);
+
+            return InteractionResult.SUCCESS;
+        }
+
+        return InteractionResult.PASS;
     }
 
     public static ItemStack create(Item item, DefinedAspectStackHandler handler)

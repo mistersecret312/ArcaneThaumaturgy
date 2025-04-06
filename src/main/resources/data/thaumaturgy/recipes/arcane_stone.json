@@ -4,7 +4,7 @@
   "group": "stone",
   "key": {
     "C": {
-      "item": "thaumaturgy:ignis_vis_crystal"
+      "tag": "thaumaturgy:vis_crystals"
     },
     "S": {
       "item": "minecraft:stone"

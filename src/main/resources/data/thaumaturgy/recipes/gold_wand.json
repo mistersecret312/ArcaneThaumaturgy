@@ -2,15 +2,15 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "  K",
-    " S ",
+    " C ",
     "K  "
   ],
   "key": {
     "K": {
       "item": "thaumaturgy:gold_knob"
     },
-    "S": {
-      "item": "minecraft:stick"
+    "C": {
+      "item": "thaumaturgy:greatwood_core"
     }
   },
   "result": {
