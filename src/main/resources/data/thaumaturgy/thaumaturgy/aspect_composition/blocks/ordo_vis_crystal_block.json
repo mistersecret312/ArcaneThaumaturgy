@@ -9,6 +9,10 @@
     {
       "aspect": "thaumaturgy:vitreus",
       "amount": 8
+    },
+    {
+      "aspect": "thaumaturgy:praecantatio",
+      "amount": 4
     }
   ]
 }

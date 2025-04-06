@@ -11,10 +11,6 @@
 		{
 			"parent": "thaumaturgy:item/iron_wand_item"
 		},
-		"fixed":
-		{
-			"parent": "thaumaturgy:item/iron_wand_item"
-		},
 		"ground":
 		{
 			"parent": "thaumaturgy:item/iron_wand_item"
