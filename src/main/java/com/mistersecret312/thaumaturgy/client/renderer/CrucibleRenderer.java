@@ -49,7 +49,7 @@ public class CrucibleRenderer implements BlockEntityRenderer<CrucibleBlockEntity
 
         if(blockState.is(BlockInit.CRUCIBLE.get()) && reveal && pos.equals(crucible.getBlockPos()))
         {
-            poseStack.translate(((float) crucible.handler.getSize() /10)*(((float) crucible.handler.getSize()-1)/crucible.handler.getSize()), 0 ,0);
+            poseStack.translate(((float) crucible.handler.getSize()/10)*(((float) crucible.handler.getSize()-1)/crucible.handler.getSize()), 0 ,0);
             for (int i = 0; i < crucible.handler.getSize(); i++)
             {
                 AspectStack stack = crucible.handler.getStackInSlot(i);
@@ -81,7 +81,7 @@ public class CrucibleRenderer implements BlockEntityRenderer<CrucibleBlockEntity
                 poseStack.translate(3f, -2f, 0f);
                 int size = Minecraft.getInstance().font.width(String.valueOf(stack.getAmount()));
                 poseStack.translate(-2.5*(size > 10 ? (double) size /10 : 0), 0, 0);
-                Minecraft.getInstance().font.drawInBatch(String.valueOf(stack.getAmount()), (float) 1, 10, -1, false, poseStack.last().pose(), buffer, Font.DisplayMode.NORMAL, 0, 15728880);
+                Minecraft.getInstance().font.drawInBatch(String.valueOf(stack.getAmount()), (float) 10, 1, -1, false, poseStack.last().pose(), buffer, Font.DisplayMode.NORMAL, 0, 15728880);
 
                 poseStack.popPose();
             }

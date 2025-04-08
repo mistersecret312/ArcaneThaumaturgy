@@ -6,10 +6,7 @@ import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.Tag;
 import net.minecraftforge.common.util.INBTSerializable;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 
 public class UndefinedAspectStackHandler implements INBTSerializable<CompoundTag>
 {
@@ -33,7 +30,7 @@ public class UndefinedAspectStackHandler implements INBTSerializable<CompoundTag
         this.maxCapacity = capacity;
     }
 
-    public UndefinedAspectStackHandler(NonNullList<AspectStack> stacks, boolean hasTotalCapacity, int capacity)
+    public UndefinedAspectStackHandler(List<AspectStack> stacks, boolean hasTotalCapacity, int capacity)
     {
         this.stacks = new HashMap<>();
         stacks.forEach(stack -> this.stacks.put(stack.getAspect(), stack));
@@ -119,8 +116,6 @@ public class UndefinedAspectStackHandler implements INBTSerializable<CompoundTag
         {
             if (!simulate)
             {
-                stacks.put(aspect, existing.copyWithSize(0));
-                onContentsChanged(aspect);
                 stacks.remove(aspect);
                 onContentsChanged(aspect);
                 return existing;
@@ -150,6 +145,13 @@ public class UndefinedAspectStackHandler implements INBTSerializable<CompoundTag
         {
             return getStored(aspect) >= maxCapacity;
         }
+    }
+
+    public List<AspectStack> toList()
+    {
+        List<AspectStack> aspectStacks = new ArrayList<>();
+        this.stacks.entrySet().stream().toList().forEach(entry -> aspectStacks.add(entry.getValue()));
+        return aspectStacks;
     }
 
     public void clear()

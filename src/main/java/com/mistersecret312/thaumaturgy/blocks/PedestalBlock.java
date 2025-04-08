@@ -1,16 +1,12 @@
 package com.mistersecret312.thaumaturgy.blocks;
 
 import com.mistersecret312.thaumaturgy.block_entities.PedestalBlockEntity;
-import com.mistersecret312.thaumaturgy.init.BlockEntityInit;
-import com.mistersecret312.thaumaturgy.init.NetworkInit;
-import com.mistersecret312.thaumaturgy.network.packets.UpdatePedestalClientboundPacket;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.Containers;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.BlockGetter;

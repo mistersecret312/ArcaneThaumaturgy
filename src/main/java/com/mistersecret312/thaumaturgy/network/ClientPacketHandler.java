@@ -1,21 +1,30 @@
 package com.mistersecret312.thaumaturgy.network;
 
+import com.mistersecret312.thaumaturgy.aspects.AspectStack;
+import com.mistersecret312.thaumaturgy.aspects.UndefinedAspectStackHandler;
+import com.mistersecret312.thaumaturgy.block_entities.CrucibleBlockEntity;
 import com.mistersecret312.thaumaturgy.block_entities.PedestalBlockEntity;
-import com.mistersecret312.thaumaturgy.network.packets.UpdatePedestalClientboundPacket;
+import com.mistersecret312.thaumaturgy.network.packets.UpdateCrucibleClientboundPacket;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.NonNullList;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.block.entity.BlockEntity;
 
 public class ClientPacketHandler
 {
-    public static void handleUpdatePedestalPacket(UpdatePedestalClientboundPacket packet)
+    public static void handleUpdateCruciblePacket(UpdateCrucibleClientboundPacket packet)
     {
         BlockEntity blockEntity = getBlockEntity(packet.pos);
-        if(blockEntity instanceof PedestalBlockEntity pedestal)
-            pedestal.setDisplayItem(packet.stack);
+        if(blockEntity instanceof CrucibleBlockEntity crucible)
+        {
+            UndefinedAspectStackHandler handler = new UndefinedAspectStackHandler(packet.stacks, true, 512);
+
+            crucible.handler = handler;
+        }
+
 
     }
 

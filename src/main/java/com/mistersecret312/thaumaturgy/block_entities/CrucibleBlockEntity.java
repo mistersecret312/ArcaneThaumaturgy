@@ -7,7 +7,9 @@ import com.mistersecret312.thaumaturgy.containers.CrucibleContainer;
 import com.mistersecret312.thaumaturgy.datapack.AspectComposition;
 import com.mistersecret312.thaumaturgy.entities.HoveringItemEntity;
 import com.mistersecret312.thaumaturgy.init.BlockEntityInit;
+import com.mistersecret312.thaumaturgy.init.NetworkInit;
 import com.mistersecret312.thaumaturgy.init.SoundInit;
+import com.mistersecret312.thaumaturgy.network.packets.UpdateCrucibleClientboundPacket;
 import com.mistersecret312.thaumaturgy.recipes.TransmutationRecipe;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.particle.BubbleParticle;
@@ -80,6 +82,8 @@ public class CrucibleBlockEntity extends BlockEntity
         {
             particleTick(level, pos, state, crucible);
         }
+
+
     }
 
     public static void particleTick(Level level, BlockPos pos, BlockState state, CrucibleBlockEntity crucible)
@@ -164,9 +168,12 @@ public class CrucibleBlockEntity extends BlockEntity
         load(pkt.getTag());
     }
 
-    private void markUpdated() {
+    private void markUpdated()
+    {
         super.setChanged();
         if (level != null)
             level.sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(), Block.UPDATE_CLIENTS);
+        if (level != null && !level.isClientSide())
+            NetworkInit.sendToTracking(this, new UpdateCrucibleClientboundPacket(this.getBlockPos(), this.handler.toList()));
     }
 }

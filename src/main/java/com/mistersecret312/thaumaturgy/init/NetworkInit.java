@@ -1,7 +1,7 @@
 package com.mistersecret312.thaumaturgy.init;
 
 import com.mistersecret312.thaumaturgy.ArcaneThaumaturgyMod;
-import com.mistersecret312.thaumaturgy.network.packets.UpdatePedestalClientboundPacket;
+import com.mistersecret312.thaumaturgy.network.packets.UpdateCrucibleClientboundPacket;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
@@ -20,7 +20,7 @@ public class NetworkInit
     public static int ID = 0;
 
     public static void registerPackets(){
-        INSTANCE.registerMessage(id(), UpdatePedestalClientboundPacket.class, UpdatePedestalClientboundPacket::write, UpdatePedestalClientboundPacket::read, UpdatePedestalClientboundPacket::handle);
+        INSTANCE.registerMessage(id(), UpdateCrucibleClientboundPacket.class, UpdateCrucibleClientboundPacket::write, UpdateCrucibleClientboundPacket::read, UpdateCrucibleClientboundPacket::handle);
     }
 
     public static void sendPacketToAll(Object message){

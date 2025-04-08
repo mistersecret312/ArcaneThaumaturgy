@@ -49,7 +49,16 @@ public class ArcaneWorkbenchMenu extends AbstractContainerMenu
 
         this.addSlot(new WandSlotItemHandler(this.blockEntity.getWandHandler(), 0, 184, 16));
 
-        this.addSlot(new SlotItemHandler(this.blockEntity.getOutputHandler(), 0, 184, 60));
+        this.addSlot(new SlotItemHandler(this.blockEntity.getOutputHandler(), 0, 184, 60)
+        {
+            @Override
+            public void onTake(Player pPlayer, ItemStack pStack)
+            {
+                super.onTake(pPlayer, pStack);
+                if(!pPlayer.isLocalPlayer())
+                    ((ArcaneWorkbenchBlockEntity) blockEntity).doRecipeAfterstuff();
+            }
+        });
 
         this.slotsChanged(inventory);
     }
