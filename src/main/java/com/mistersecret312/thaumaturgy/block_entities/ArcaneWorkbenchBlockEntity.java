@@ -22,7 +22,7 @@ public class ArcaneWorkbenchBlockEntity extends BlockEntity
 
     private ItemStackHandler input = createHandler(9);
     private ItemStackHandler output = createHandler(1);
-    private ItemStackHandler wand = createOutput();
+    private ItemStackHandler wand = createHandler(1);
 
     public ArcaneWorkbenchBlockEntity(BlockPos pPos, BlockState pBlockState)
     {
@@ -50,23 +50,6 @@ public class ArcaneWorkbenchBlockEntity extends BlockEntity
             protected void onContentsChanged(int slot)
             {
                 markUpdated();
-            }
-        };
-    }
-
-    public ItemStackHandler createOutput()
-    {
-        return new ItemStackHandler(1)
-        {
-            @Override
-            protected void onContentsChanged(int slot)
-            {
-                if(this.getStackInSlot(slot).isEmpty())
-                {
-                    //System.out.println("Crafted out");
-                    //doRecipeAfterstuff();
-                }
-
             }
         };
     }
