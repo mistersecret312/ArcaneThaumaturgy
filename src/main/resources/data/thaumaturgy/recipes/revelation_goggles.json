@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SGS",
+    "S S",
+    "TGT"
+  ],
+  "key": {
+    "S": {
+      "item": "minecraft:string"
+    },
+    "G": {
+      "item": "minecraft:gold_ingot"
+    },
+    "T": {
+      "item": "thaumaturgy:thaumometer"
+    }
+  },
+  "result": {
+    "item": "thaumaturgy:revelation_goggles"
+  }
+}

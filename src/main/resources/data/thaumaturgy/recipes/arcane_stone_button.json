@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "key": {
+    "#": {
+      "item": "thaumaturgy:arcane_stone"
+    }
+  },
+  "pattern": [
+    "##"
+  ],
+  "result": {
+    "item": "thaumaturgy:arcane_stone_pressure_plate"
+  },
+  "show_notification": true
+}

@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "CGC",
+    "GPG",
+    "CGC"
+  ],
+  "key": {
+    "P": {
+      "item": "minecraft:glass_pane"
+    },
+    "G": {
+      "item": "minecraft:gold_ingot"
+    },
+    "C": {
+      "tag": "thaumaturgy:vis_crystals"
+    }
+  },
+  "result": {
+    "item": "thaumaturgy:thaumometer"
+  }
+}

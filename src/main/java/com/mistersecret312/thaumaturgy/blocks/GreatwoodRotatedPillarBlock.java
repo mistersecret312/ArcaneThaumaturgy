@@ -2,17 +2,15 @@ package com.mistersecret312.thaumaturgy.blocks;
 
 import com.mistersecret312.thaumaturgy.init.BlockInit;
 import net.minecraft.world.item.AxeItem;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.context.UseOnContext;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.ToolAction;
 import org.jetbrains.annotations.Nullable;
 
-public class GreatRotatedPillarBlock extends RotatedPillarBlock
+public class GreatwoodRotatedPillarBlock extends RotatedPillarBlock
 {
-    public GreatRotatedPillarBlock(Properties pProperties)
+    public GreatwoodRotatedPillarBlock(Properties pProperties)
     {
         super(pProperties);
     }

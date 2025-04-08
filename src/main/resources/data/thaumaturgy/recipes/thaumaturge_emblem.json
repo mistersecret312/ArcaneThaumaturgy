@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "P": {
+      "item": "thaumaturgy:greatwood_planks"
+    },
+    "S": {
+      "item": "thaumaturgy:greatwood_slab"
+    },
+    "G": {
+      "item": "minecraft:gold_ingot"
+    }
+  },
+  "pattern": [
+    " S ",
+    "PGP",
+    " S "
+  ],
+  "result": {
+    "item": "thaumaturgy:thaumaturge_emblem",
+    "count": 1
+  },
+  "show_notification": true
+}

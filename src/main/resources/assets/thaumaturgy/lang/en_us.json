@@ -17,6 +17,7 @@
 
   "item.thaumaturgy.iron_knob": "Iron Knob",
   "item.thaumaturgy.gold_knob": "Gold Knob",
+  "item.thaumaturgy.greatwood_core": "Greatwood Core",
 
   "item.thaumaturgy.arcane_steel_ingot": "Arcane Steel Ingot",
 
@@ -60,6 +61,9 @@
   "block.thaumaturgy.greatwood_fence": "Greatwood Fence",
   "block.thaumaturgy.greatwood_fence_gate": "Greatwood Fence Gate",
   "block.thaumaturgy.greatwood_table": "Greatwood Table",
+  "block.thaumaturgy.greatwood_stool": "Greatwood Stool",
+  "block.thaumaturgy.greatwood_armchair": "Greatwood Armchair",
+  "block.thaumaturgy.thaumaturge_emblem": "Thaumaturge Emblem",
 
   "block.thaumaturgy.crucible": "Crucible",
   "block.thaumaturgy.runic_matrix": "Runic Matrix",

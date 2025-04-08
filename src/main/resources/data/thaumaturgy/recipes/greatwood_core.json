@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "cores",
+  "key": {
+    "#": {
+      "item": "thaumaturgy:greatwood_log"
+    }
+  },
+  "pattern": [
+    "#",
+    "#"
+  ],
+  "result": {
+    "item": "thaumaturgy:greatwood_core"
+  },
+  "show_notification": true
+}

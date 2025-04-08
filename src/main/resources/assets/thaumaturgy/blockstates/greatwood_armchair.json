@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "thaumaturgy:block/greatwood_armchair"
+    },
+    "facing=south": {
+      "model": "thaumaturgy:block/greatwood_armchair",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "thaumaturgy:block/greatwood_armchair",
+      "y": 270
+    },
+    "facing=east": {
+      "model": "thaumaturgy:block/greatwood_armchair",
+      "y": 90
+    }
+  }
+}

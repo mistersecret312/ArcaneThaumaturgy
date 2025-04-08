@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "P": {
+      "item": "thaumaturgy:greatwood_planks"
+    },
+    "S": {
+      "item": "thaumaturgy:greatwood_slab"
+    },
+    "W": {
+      "item": "minecraft:red_wool"
+    }
+  },
+  "pattern": [
+    "   ",
+    "SWS",
+    "P P"
+  ],
+  "result": {
+    "item": "thaumaturgy:greatwood_stool",
+    "count": 1
+  },
+  "show_notification": true
+}
