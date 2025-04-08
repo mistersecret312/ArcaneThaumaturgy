@@ -47,9 +47,9 @@ public class CrucibleRenderer implements BlockEntityRenderer<CrucibleBlockEntity
 
         boolean reveal = player.getInventory().armor.stream().anyMatch(item -> item.getItem() instanceof RevelationGogglesItem);
 
-        if(blockState.is(BlockInit.CRUCIBLE.get()) && reveal)
+        if(blockState.is(BlockInit.CRUCIBLE.get()) && reveal && pos.equals(crucible.getBlockPos()))
         {
-            poseStack.translate(0.2*crucible.handler.getSize()-((crucible.handler.getSize()-1)*0.3), 0 ,0);
+            poseStack.translate(((float) crucible.handler.getSize() /10)*(((float) crucible.handler.getSize()-1)/crucible.handler.getSize()), 0 ,0);
             for (int i = 0; i < crucible.handler.getSize(); i++)
             {
                 AspectStack stack = crucible.handler.getStackInSlot(i);
@@ -61,14 +61,13 @@ public class CrucibleRenderer implements BlockEntityRenderer<CrucibleBlockEntity
 
                 poseStack.pushPose();
 
-                poseStack.translate(0.5f, 1.3f, 0.5f);
+                poseStack.translate( ((float) -crucible.handler.getSize() /4)+(float) i/4, 0, 0);
+
+                poseStack.translate(0.95f, 1.3f, 0.5f);
                 poseStack.scale(0.25f, 0.25f, 0.25f);
 
                 poseStack.mulPose(Minecraft.getInstance().getEntityRenderDispatcher().cameraOrientation());
                 poseStack.mulPose(Axis.YP.rotationDegrees(180));
-
-                poseStack.translate((float) -crucible.handler.getSize() /2, 0, 0);
-                poseStack.translate(i, 0, 0);
 
                 VertexConsumer consumerA = buffer.getBuffer(ThaumaturgyRenderTypes.aspect(texture));
                 consumerA.vertex(poseStack.last().pose(), 0f, 0f, 0).uv(0, 1).endVertex();
