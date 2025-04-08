@@ -6,7 +6,9 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.Connection;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -14,6 +16,7 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.items.ItemStackHandler;
 
+import java.util.List;
 import java.util.Optional;
 
 public class ArcaneWorkbenchBlockEntity extends BlockEntity
@@ -36,8 +39,7 @@ public class ArcaneWorkbenchBlockEntity extends BlockEntity
             ArcaneWorkbenchCraftingContainer container = new ArcaneWorkbenchCraftingContainer(workbench.input);
             Optional<CraftingRecipe> recipe = level.getRecipeManager().getRecipeFor(RecipeType.CRAFTING, container, level);
 
-            recipe.ifPresentOrElse(rec ->
-                    workbench.getOutputHandler().setStackInSlot(0, rec.assemble(container, level.registryAccess()).copy()),
+            recipe.ifPresentOrElse(rec -> workbench.getOutputHandler().setStackInSlot(0, rec.assemble(container, level.registryAccess()).copy()),
                     () -> workbench.getOutputHandler().setStackInSlot(0, ItemStack.EMPTY));
         }
     }
@@ -56,9 +58,34 @@ public class ArcaneWorkbenchBlockEntity extends BlockEntity
 
     public void doRecipeAfterstuff()
     {
-        for (int i = 0; i < this.getInput().getSlots(); i++)
+        ArcaneWorkbenchCraftingContainer container = new ArcaneWorkbenchCraftingContainer(this.getInput());
+        List<ItemStack> remaining = this.level.getRecipeManager().getRemainingItemsFor(RecipeType.CRAFTING, container, level);
+
+        for (int i = 0; i < remaining.size(); i++)
         {
-            this.getInput().extractItem(i, 1, false);
+            ItemStack stack = this.getInput().getStackInSlot(i).copy();
+            ItemStack stack1 = remaining.get(i);
+            if(!stack.isEmpty())
+            {
+                this.getInput().extractItem(i, 1, false);
+                stack = this.getInput().getStackInSlot(i).copy();
+            }
+
+            if(!stack1.isEmpty())
+            {
+                if(stack.isEmpty())
+                    this.getInput().setStackInSlot(i, stack1);
+                else if(ItemStack.isSameItemSameTags(stack, stack1))
+                {
+                    stack1.grow(stack.getCount());
+                    this.getInput().setStackInSlot(i, stack1);
+                }
+                else
+                {
+                    ItemEntity item = new ItemEntity(level, this.getBlockPos().getX(), this.getBlockPos().getY(), this.getBlockPos().getZ(), stack1);
+                    //level.addFreshEntity(item);
+                }
+            }
         }
     }
 
