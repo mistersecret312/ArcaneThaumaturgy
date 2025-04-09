@@ -20,6 +20,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.Connection;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.item.ItemEntity;
@@ -100,6 +101,11 @@ public class CrucibleBlockEntity extends BlockEntity
 
             level.addAlwaysVisibleParticle(ParticleTypes.BUBBLE, x, y, z, 0, 0.02 * state.getValue(LEVEL), 0);
             level.addAlwaysVisibleParticle(ParticleTypes.BUBBLE_POP, x, y, z, 0, 0.02 * state.getValue(LEVEL), 0);
+        }
+
+        if (random.nextDouble() > 0.95)
+        {
+            level.playSound(null, crucible.getBlockPos(), SoundEvents.BUBBLE_COLUMN_BUBBLE_POP, SoundSource.BLOCKS, 1, 0.5f);
         }
     }
 

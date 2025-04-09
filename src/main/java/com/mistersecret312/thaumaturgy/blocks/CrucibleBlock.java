@@ -123,7 +123,7 @@ public class CrucibleBlock extends BaseEntityBlock
             if(waterLevel > 0)
                 if(stack.getItem() instanceof WandItem)
                 {
-                    pLevel.setBlockAndUpdate(pPos, this.defaultBlockState());
+                    pLevel.setBlockAndUpdate(pPos, pState.setValue(LEVEL, 0).setValue(IS_BOILING, false));
                     crucible.handler.clear();
 
                     pLevel.playSound(null, pPos, SoundInit.CRUCIBLE_BUBBLE.get(), SoundSource.BLOCKS, 1f, 0.75f);
