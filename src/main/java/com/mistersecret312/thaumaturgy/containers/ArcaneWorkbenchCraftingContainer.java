@@ -1,5 +1,10 @@
 package com.mistersecret312.thaumaturgy.containers;
 
+import com.mistersecret312.thaumaturgy.aspects.Aspect;
+import com.mistersecret312.thaumaturgy.aspects.AspectStack;
+import com.mistersecret312.thaumaturgy.aspects.DefinedAspectStackHandler;
+import com.mistersecret312.thaumaturgy.init.AspectInit;
+import com.mistersecret312.thaumaturgy.items.WandItem;
 import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.StackedContents;
@@ -13,12 +18,21 @@ import java.util.List;
 public class ArcaneWorkbenchCraftingContainer implements CraftingContainer
 {
     public List<ItemStack> items;
-    public ArcaneWorkbenchCraftingContainer(ItemStackHandler items)
+    public List<AspectStack> stacks;
+
+    public ArcaneWorkbenchCraftingContainer(ItemStackHandler items, ItemStackHandler wand)
     {
         this.items = new ArrayList<>();
         for (int i = 0; i < items.getSlots(); i++)
             this.items.add(items.getStackInSlot(i));
-
+        this.stacks = new ArrayList<>();
+        ItemStack stack = wand.getStackInSlot(0);
+        if (!stack.isEmpty() && stack.getItem() instanceof WandItem wandItem)
+        {
+            List<Aspect> primal = List.of(AspectInit.ORDO.get(), AspectInit.AER.get(), AspectInit.AQUA.get(), AspectInit.IGNIS.get(), AspectInit.TERRA.get(), AspectInit.PERDITIO.get());
+            for (Aspect aspect : primal)
+                this.stacks.add(wandItem.getAspects(stack).getStackInSlot(aspect).copy());
+        }
     }
 
     @Override
@@ -59,6 +73,11 @@ public class ArcaneWorkbenchCraftingContainer implements CraftingContainer
     public ItemStack getItem(int pSlot)
     {
         return pSlot >= this.getContainerSize() ? ItemStack.EMPTY : this.items.get(pSlot);
+    }
+
+    public AspectStack getAspect(Aspect aspect)
+    {
+        return this.stacks.stream().filter(aspectStack -> aspectStack.getAspect().equals(aspect)).findFirst().orElse(AspectStack.EMPTY);
     }
 
     @Override

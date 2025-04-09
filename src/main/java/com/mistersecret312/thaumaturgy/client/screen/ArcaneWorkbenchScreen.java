@@ -1,14 +1,29 @@
 package com.mistersecret312.thaumaturgy.client.screen;
 
 import com.mistersecret312.thaumaturgy.ArcaneThaumaturgyMod;
+import com.mistersecret312.thaumaturgy.aspects.Aspect;
+import com.mistersecret312.thaumaturgy.aspects.AspectStack;
+import com.mistersecret312.thaumaturgy.aspects.DefinedAspectStackHandler;
+import com.mistersecret312.thaumaturgy.init.AspectInit;
+import com.mistersecret312.thaumaturgy.items.WandItem;
 import com.mistersecret312.thaumaturgy.menu.ArcaneWorkbenchMenu;
 import com.mojang.blaze3d.systems.RenderSystem;
+import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.blaze3d.vertex.VertexConsumer;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.renderer.GameRenderer;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.item.ItemStack;
+import org.joml.Matrix4f;
+
+import java.util.List;
 
 public class ArcaneWorkbenchScreen extends AbstractContainerScreen<ArcaneWorkbenchMenu>
 {
@@ -37,7 +52,66 @@ public class ArcaneWorkbenchScreen extends AbstractContainerScreen<ArcaneWorkben
     public void render(GuiGraphics graphics, int mouseX, int mouseY, float partialTick)
     {
         renderBackground(graphics);
+        final PoseStack poseStack = graphics.pose();
         super.render(graphics, mouseX, mouseY, partialTick);
+
+        int x = (width - imageWidth) / 2;
+        int y = (height - imageHeight) / 2;
+
+        ItemStack wand = this.menu.blockEntity.getWandHandler().getStackInSlot(0);
+        if(!wand.isEmpty() && wand.getItem() instanceof WandItem wandItem)
+        {
+            DefinedAspectStackHandler handler = wandItem.getAspects(wand);
+            List<Aspect> primal = List.of(AspectInit.AER.get(), AspectInit.TERRA.get(), AspectInit.IGNIS.get(), AspectInit.AQUA.get(), AspectInit.ORDO.get(), AspectInit.PERDITIO.get());
+
+            //Aer
+            poseStack.pushPose();
+            poseStack.translate(88, 10, 0);
+            graphics.blit(primal.get(0).getTexture(), x+(22*0), y, 0, 0, 18, 18, 18, 18);
+            poseStack.scale(0.5f, 0.5f, 0.5f);
+            Minecraft.getInstance().font.drawInBatch(String.valueOf(handler.getStackInSlot(primal.get(0)).getAmount()), 2*(x+(22*0)+15), 2*(y+14), -1, true, poseStack.last().pose(), graphics.bufferSource(), Font.DisplayMode.NORMAL, 0, 15728880);
+            poseStack.popPose();
+
+            //Perditio
+            poseStack.pushPose();
+            poseStack.translate(109, 34, 0);
+            graphics.blit(primal.get(1).getTexture(), x+(22*1), y, 0, 0, 18, 18, 18, 18);
+            poseStack.scale(0.5f, 0.5f, 0.5f);
+            Minecraft.getInstance().font.drawInBatch(String.valueOf(handler.getStackInSlot(primal.get(1)).getAmount()), 2*(x+(22*1)+15), 2*(y+14), -1, true, poseStack.last().pose(), graphics.bufferSource(), Font.DisplayMode.NORMAL, 0, 15728880);
+            poseStack.popPose();
+
+            //Ordo
+            poseStack.pushPose();
+            poseStack.translate(87, 84, 0);
+            graphics.blit(primal.get(2).getTexture(), x+(22*2), y, 0, 0, 18, 18, 18, 18);
+            poseStack.scale(0.5f, 0.5f, 0.5f);
+            Minecraft.getInstance().font.drawInBatch(String.valueOf(handler.getStackInSlot(primal.get(2)).getAmount()), 2*(x+(22*2)+15), 2*(y+14), -1, true, poseStack.last().pose(), graphics.bufferSource(), Font.DisplayMode.NORMAL, 0, 15728880);
+            poseStack.popPose();
+
+            //Aqua
+            poseStack.pushPose();
+            poseStack.translate(22, 108, 0);
+            graphics.blit(primal.get(3).getTexture(), x+(22*3), y, 0, 0, 18, 18, 18, 18);
+            poseStack.scale(0.5f, 0.5f, 0.5f);
+            Minecraft.getInstance().font.drawInBatch(String.valueOf(handler.getStackInSlot(primal.get(3)).getAmount()), 2*(x+(22*3)+15), 2*(y+14), -1, true, poseStack.last().pose(), graphics.bufferSource(), Font.DisplayMode.NORMAL, 0, 15728880);
+            poseStack.popPose();
+
+            //Ignis
+            poseStack.pushPose();
+            poseStack.translate(-43, 84, 0);
+            graphics.blit(primal.get(4).getTexture(), x+(22*4), y, 0, 0, 18, 18, 18, 18);
+            poseStack.scale(0.5f, 0.5f, 0.5f);
+            Minecraft.getInstance().font.drawInBatch(String.valueOf(handler.getStackInSlot(primal.get(4)).getAmount()), 2*(x+(22*4)+15), 2*(y+14), -1, true, poseStack.last().pose(), graphics.bufferSource(), Font.DisplayMode.NORMAL, 0, 15728880);
+            poseStack.popPose();
+
+            //Terra
+            poseStack.pushPose();
+            poseStack.translate(-65, 34, 0);
+            graphics.blit(primal.get(5).getTexture(), x+(22*5), y, 0, 0, 18, 18, 18, 18);
+            poseStack.scale(0.5f, 0.5f, 0.5f);
+            Minecraft.getInstance().font.drawInBatch(String.valueOf(handler.getStackInSlot(primal.get(5)).getAmount()), 2*(x+(22*5)+15), 2*(y+14), -1, true, poseStack.last().pose(), graphics.bufferSource(), Font.DisplayMode.NORMAL, 0, 15728880);
+            poseStack.popPose();
+        }
         renderTooltip(graphics, mouseX, mouseY);
     }
 

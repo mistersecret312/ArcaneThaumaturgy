@@ -1,0 +1,32 @@
+{
+  "type": "thaumaturgy:arcane_crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:stone"
+    },
+    "X": {
+      "tag": "thaumaturgy:vis_crystals"
+    }
+  },
+  "pattern": [
+    "###",
+    "#X#",
+    "###"
+  ],
+  "aspects": [
+    {
+      "aspect": "thaumaturgy:terra",
+      "amount": 1
+    },
+    {
+      "aspect": "thaumaturgy:ignis",
+      "amount": 1
+    }
+  ],
+  "result": {
+    "item": "thaumaturgy:arcane_stone",
+    "count": 8
+  },
+  "show_notification": true
+}

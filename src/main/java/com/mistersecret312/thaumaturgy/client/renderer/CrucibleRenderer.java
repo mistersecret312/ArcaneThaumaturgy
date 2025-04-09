@@ -25,6 +25,7 @@ import net.minecraft.util.FastColor;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.Vec3;
 
 public class CrucibleRenderer implements BlockEntityRenderer<CrucibleBlockEntity>
 {
@@ -49,6 +50,12 @@ public class CrucibleRenderer implements BlockEntityRenderer<CrucibleBlockEntity
 
         if(blockState.is(BlockInit.CRUCIBLE.get()) && reveal && pos.equals(crucible.getBlockPos()))
         {
+            Vec3 direction = crucible.getBlockPos().getCenter().subtract(player.getPosition(partialTick));
+
+            double angleToPlayer = Math.toDegrees(Math.atan2(direction.z, direction.x)) - 90.0;
+
+            System.out.println(angleToPlayer);
+            poseStack.rotateAround(Axis.YN.rotationDegrees((float) angleToPlayer), 0.5f, 0.5f, 0.5f);
             poseStack.translate(((float) crucible.handler.getSize()/10)*(((float) crucible.handler.getSize()-1)/crucible.handler.getSize()), 0 ,0);
             for (int i = 0; i < crucible.handler.getSize(); i++)
             {
@@ -66,7 +73,7 @@ public class CrucibleRenderer implements BlockEntityRenderer<CrucibleBlockEntity
                 poseStack.translate(0.95f, 1.3f, 0.5f);
                 poseStack.scale(0.25f, 0.25f, 0.25f);
 
-                poseStack.mulPose(Minecraft.getInstance().getEntityRenderDispatcher().cameraOrientation());
+                //poseStack.mulPose(Minecraft.getInstance().getEntityRenderDispatcher().cameraOrientation());
                 poseStack.mulPose(Axis.YP.rotationDegrees(180));
 
                 VertexConsumer consumerA = buffer.getBuffer(ThaumaturgyRenderTypes.aspect(texture));

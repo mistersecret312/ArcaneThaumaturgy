@@ -1,20 +1,30 @@
 package com.mistersecret312.thaumaturgy.menu;
 
 import com.mistersecret312.thaumaturgy.block_entities.ArcaneWorkbenchBlockEntity;
+import com.mistersecret312.thaumaturgy.containers.ArcaneWorkbenchCraftingContainer;
 import com.mistersecret312.thaumaturgy.init.BlockInit;
 import com.mistersecret312.thaumaturgy.init.MenuInit;
 import com.mistersecret312.thaumaturgy.menu.slots.WandSlotItemHandler;
+import com.mistersecret312.thaumaturgy.recipes.ArcaneCraftingShapedRecipe;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.Container;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerLevelAccess;
+import net.minecraft.world.inventory.RecipeHolder;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.CraftingRecipe;
+import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.items.SlotItemHandler;
+import org.jetbrains.annotations.NotNull;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
 public class ArcaneWorkbenchMenu extends AbstractContainerMenu
 {
@@ -51,12 +61,74 @@ public class ArcaneWorkbenchMenu extends AbstractContainerMenu
 
         this.addSlot(new SlotItemHandler(this.blockEntity.getOutputHandler(), 0, 184, 60)
         {
+            private int removeCount;
+
+            @Override
+            public @NotNull ItemStack remove(int amount)
+            {
+                if (this.hasItem()) {
+                    this.removeCount += Math.min(amount, this.getItem().getCount());
+                }
+
+                return super.remove(amount);
+            }
+
             @Override
             public void onTake(Player pPlayer, ItemStack pStack)
             {
                 super.onTake(pPlayer, pStack);
+                this.checkTakeAchievements(pStack);
                 if(!pPlayer.isLocalPlayer())
-                    ((ArcaneWorkbenchBlockEntity) blockEntity).doRecipeAfterstuff();
+                {
+                    Optional<CraftingRecipe> craftingRecipe = level.getRecipeManager().getRecipeFor(RecipeType.CRAFTING, new ArcaneWorkbenchCraftingContainer(((ArcaneWorkbenchBlockEntity) blockEntity).getInput(),((ArcaneWorkbenchBlockEntity) blockEntity).getWandHandler()), level);
+                    Optional<ArcaneCraftingShapedRecipe> arcaneShaped = level.getRecipeManager().getRecipeFor(ArcaneCraftingShapedRecipe.Type.INSTANCE, new ArcaneWorkbenchCraftingContainer(((ArcaneWorkbenchBlockEntity) blockEntity).getInput(), ((ArcaneWorkbenchBlockEntity) blockEntity).getWandHandler()), level);
+                    if(craftingRecipe.isPresent())
+                        ((ArcaneWorkbenchBlockEntity) blockEntity).doRecipeAfterstuff(pPlayer);
+                    if(arcaneShaped.isPresent())
+                        ((ArcaneWorkbenchBlockEntity) blockEntity).doMagicRecipeStuff(pPlayer, arcaneShaped.get());
+
+                }
+            }
+
+            @Override
+            protected void onQuickCraft(ItemStack pStack, int pAmount)
+            {
+                removeCount++;
+                this.checkTakeAchievements(pStack);
+            }
+
+            @Override
+            protected void onSwapCraft(int pNumItemsCrafted)
+            {
+                removeCount++;
+            }
+
+            @Override
+            protected void checkTakeAchievements(ItemStack pStack)
+            {
+                if (this.removeCount > 0) {
+                    pStack.onCraftedBy(inventory.player.level(), inventory.player, this.removeCount);
+                    net.minecraftforge.event.ForgeEventFactory.firePlayerCraftingEvent(inventory.player, pStack, new ArcaneWorkbenchCraftingContainer(((ArcaneWorkbenchBlockEntity) blockEntity).getInput(), ((ArcaneWorkbenchBlockEntity) blockEntity).getWandHandler()));
+                }
+
+                Container container = this.container;
+                if (container instanceof RecipeHolder recipeholder)
+                {
+                    List<ItemStack> stacks = new ArrayList<>();
+                    for (int i = 0; i < ((ArcaneWorkbenchBlockEntity) blockEntity).getInput().getSlots(); i++)
+                    {
+                        stacks.add(((ArcaneWorkbenchBlockEntity) blockEntity).getInput().getStackInSlot(i).copy());
+                    }
+                    recipeholder.awardUsedRecipes(inventory.player, stacks);
+                }
+
+                this.removeCount = 0;
+            }
+
+            @Override
+            public boolean mayPlace(@NotNull ItemStack stack)
+            {
+                return false;
             }
         });
 

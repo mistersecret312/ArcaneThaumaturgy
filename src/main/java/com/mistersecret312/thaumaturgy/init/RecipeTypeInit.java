@@ -1,6 +1,7 @@
 package com.mistersecret312.thaumaturgy.init;
 
 import com.mistersecret312.thaumaturgy.ArcaneThaumaturgyMod;
+import com.mistersecret312.thaumaturgy.recipes.ArcaneCraftingShapedRecipe;
 import com.mistersecret312.thaumaturgy.recipes.TransmutationRecipe;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -13,6 +14,7 @@ public class RecipeTypeInit
     public static final DeferredRegister<RecipeSerializer<?>> SERIALIZERS = DeferredRegister.create(ForgeRegistries.RECIPE_SERIALIZERS, ArcaneThaumaturgyMod.MODID);
 
     public static final RegistryObject<RecipeSerializer<TransmutationRecipe>> TRANSMUTATION = SERIALIZERS.register("transmutation", () -> TransmutationRecipe.Serializer.INSTANCE);
+    public static final RegistryObject<RecipeSerializer<ArcaneCraftingShapedRecipe>> ARCANE_CRAFTING_SHAPED = SERIALIZERS.register("arcane_crafting_shaped", () -> ArcaneCraftingShapedRecipe.Serializer.INSTANCE);
 
     public static void register(IEventBus bus)
     {
