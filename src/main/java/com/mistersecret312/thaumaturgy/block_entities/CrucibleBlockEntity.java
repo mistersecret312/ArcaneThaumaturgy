@@ -105,7 +105,7 @@ public class CrucibleBlockEntity extends BlockEntity
 
         if (random.nextDouble() > 0.95)
         {
-            level.playSound(null, crucible.getBlockPos(), SoundEvents.BUBBLE_COLUMN_BUBBLE_POP, SoundSource.BLOCKS, 1, 0.5f);
+            level.playSound(null, crucible.getBlockPos(), SoundEvents.BUBBLE_COLUMN_BUBBLE_POP, SoundSource.BLOCKS, 1, 0.2f + (level.random.nextFloat() * 0.5f));
         }
     }
 

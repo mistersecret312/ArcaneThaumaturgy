@@ -1,0 +1,39 @@
+{
+  "display": {
+    "icon": {
+      "item": "thaumaturgy:iron_wand"
+    },
+    "title": {
+      "translate": "advancements.thaumaturgy.root.title"
+    },
+    "description": {
+      "translate": "advancements.thaumaturgy.root.description"
+    },
+    "background": "thaumaturgy:textures/block/greatwood_log.png",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "iron_wand": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "thaumaturgy:iron_wand"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    ["iron_wand"]
+  ],
+  "rewards": {
+    "experience": 100
+  },
+  "sends_telemetry_event": false
+}

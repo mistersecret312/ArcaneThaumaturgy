@@ -1,0 +1,106 @@
+{
+  "parent": "thaumaturgy:root",
+  "display": {
+    "icon": {
+      "item": "thaumaturgy:aer_vis_crystal"
+    },
+    "title": {
+      "translate": "advancements.thaumaturgy.any_vis_shard.title"
+    },
+    "description": {
+      "translate": "advancements.thaumaturgy.any_vis_shard.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "aer_vis_crystal": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "thaumaturgy:aer_vis_crystal"
+            ]
+          }
+        ]
+      }
+    },
+    "aqua_vis_crystal": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "thaumaturgy:aqua_vis_crystal"
+            ]
+          }
+        ]
+      }
+    },
+    "ignis_vis_crystal": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "thaumaturgy:ignis_vis_crystal"
+            ]
+          }
+        ]
+      }
+    },
+    "terra_vis_crystal": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "thaumaturgy:terra_vis_crystal"
+            ]
+          }
+        ]
+      }
+    },
+    "ordo_vis_crystal": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "thaumaturgy:ordo_vis_crystal"
+            ]
+          }
+        ]
+      }
+    },
+    "perditio_vis_crystal": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "thaumaturgy:perditio_vis_crystal"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "aer_vis_crystal",
+      "aqua_vis_crystal",
+      "ignis_vis_crystal",
+      "terra_vis_crystal",
+      "ordo_vis_crystal",
+      "perditio_vis_crystal"
+    ]
+  ],
+  "rewards": {
+    "experience": 250
+  },
+  "sends_telemetry_event": false
+}

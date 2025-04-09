@@ -113,6 +113,8 @@ public class ItemTabInit
                     .withTabsBefore(RESOURCE_TAB.getKey())
                     .displayItems((parameters, output) ->
                     {
+                        output.accept(BlockInit.GREATWOOD_SAPLING.get());
+                        output.accept(BlockInit.GREATWOOD_LEAVES.get());
                         output.accept(BlockInit.GREATWOOD_LOG.get());
                         output.accept(BlockInit.GREATWOOD_WOOD.get());
                         output.accept(BlockInit.STRIPPED_GREATWOOD_LOG.get());

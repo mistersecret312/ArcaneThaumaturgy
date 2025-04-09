@@ -47,6 +47,8 @@
   "block.thaumaturgy.arcane_stone_bricks_wall": "Arcane Stone Bricks Wall",
   "block.thaumaturgy.arcane_stone_pedestal": "Arcane Stone Pedestal",
 
+  "block.thaumaturgy.greatwood_sapling": "Greatwood Sapling",
+  "block.thaumaturgy.greatwood_leaves": "Greatwood Leaves",
   "block.thaumaturgy.greatwood_log": "Greatwood Log",
   "block.thaumaturgy.greatwood_wood": "Greatwood Wood",
   "block.thaumaturgy.stripped_greatwood_log": "Stripped Greatwood Log",
@@ -146,6 +148,12 @@
   "aspect.thaumaturgy.metallum.description": "Metal, Rigid, Durability",
   "aspect.thaumaturgy.vacuos": "Vacuos",
   "aspect.thaumaturgy.vacuos.description": "Void, Emptiness, Absence",
+
+  "_advancements": "Advancements",
+  "advancements.thaumaturgy.root.title": "Apprenticeship",
+  "advancements.thaumaturgy.root.description": "Craft an Iron Wand - Your first step towards learning to harness the arcane",
+  "advancements.thaumaturgy.any_vis_shard.title": "Primordial Curiosity",
+  "advancements.thaumaturgy.any_vis_shard.description": "Find a Primordial Geode and mine a Vis Crystal",
 
   "book.thaumaturgy.thaumonomicon.fundamentals.name": "Fundamentals",
   "book.thaumaturgy.thaumonomicon.fundamentals.primordial_geodes.name": "Primordial Geodes",

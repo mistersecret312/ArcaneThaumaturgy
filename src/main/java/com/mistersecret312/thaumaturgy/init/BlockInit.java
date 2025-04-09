@@ -2,10 +2,15 @@ package com.mistersecret312.thaumaturgy.init;
 
 import com.mistersecret312.thaumaturgy.ArcaneThaumaturgyMod;
 import com.mistersecret312.thaumaturgy.blocks.*;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.grower.OakTreeGrower;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.material.MapColor;
@@ -45,6 +50,9 @@ public class BlockInit
     public static final RegistryObject<Block> ARCANE_STONE_PRESSURE_PLATE = registerBlock("arcane_stone_pressure_plate", () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.MOBS, BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(3.0F, 5f).sound(SoundType.DEEPSLATE).mapColor(MapColor.COLOR_GRAY), BlockSetType.STONE));
 
     public static final RegistryObject<PedestalBlock> ARCANE_STONE_PEDESTAL = registerBlock("arcane_stone_pedestal", () -> new PedestalBlock(BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(3.0F, 5f).sound(SoundType.DEEPSLATE).mapColor(MapColor.COLOR_GRAY)));
+
+    public static final RegistryObject<Block> GREATWOOD_SAPLING = registerBlock("greatwood_sapling", () -> new SaplingBlock(new OakTreeGrower(), BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE).noCollission().randomTicks().instabreak().sound(SoundType.SWEET_BERRY_BUSH).pushReaction(PushReaction.DESTROY).noOcclusion()));
+    public static final RegistryObject<Block> GREATWOOD_LEAVES = registerBlock("greatwood_leaves", () -> new LeavesBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE).ignitedByLava().noOcclusion().strength(0.2F).randomTicks().sound(SoundType.AZALEA_LEAVES).noOcclusion().isValidSpawn(BlockInit::ocelotOrParrot).isSuffocating((BlockState, BlockGetter, BlockPos) -> false).isViewBlocking((BlockState, BlockGetter, BlockPos) -> false).ignitedByLava().pushReaction(PushReaction.DESTROY).isRedstoneConductor((BlockState, BlockGetter, BlockPos) -> false)));
 
     public static final RegistryObject<Block> GREATWOOD_LOG = registerBlock("greatwood_log", () -> new GreatwoodRotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(2.0F).sound(SoundType.NETHER_WOOD).ignitedByLava()));
     public static final RegistryObject<Block> GREATWOOD_WOOD = registerBlock("greatwood_wood", () -> new GreatwoodRotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(2.0F).sound(SoundType.NETHER_WOOD).ignitedByLava()));
@@ -108,6 +116,10 @@ public class BlockInit
     public static final RegistryObject<AmethystClusterBlock> PERDITIO_LARGE_VIS_CRYSTAL_BUD = registerBlock("perditio_large_vis_crystal_bud", () -> new AmethystClusterBlock(5, 3,BlockBehaviour.Properties.copy(PERDITIO_VIS_CRYSTAL_CLUSTER.get()).sound(SoundType.MEDIUM_AMETHYST_BUD).forceSolidOn().lightLevel((state) -> 4).pushReaction(PushReaction.DESTROY)));
     public static final RegistryObject<AmethystClusterBlock> PERDITIO_MEDIUM_VIS_CRYSTAL_BUD = registerBlock("perditio_medium_vis_crystal_bud", () -> new AmethystClusterBlock(4, 3,BlockBehaviour.Properties.copy(PERDITIO_VIS_CRYSTAL_CLUSTER.get()).sound(SoundType.LARGE_AMETHYST_BUD).forceSolidOn().lightLevel((state) -> 2).pushReaction(PushReaction.DESTROY)));
     public static final RegistryObject<AmethystClusterBlock> PERDITIO_SMALL_VIS_CRYSTAL_BUD = registerBlock("perditio_small_vis_crystal_bud", () -> new AmethystClusterBlock(3, 4,BlockBehaviour.Properties.copy(PERDITIO_VIS_CRYSTAL_CLUSTER.get()).sound(SoundType.SMALL_AMETHYST_BUD).forceSolidOn().lightLevel((state) -> 1).pushReaction(PushReaction.DESTROY)));
+
+    private static Boolean ocelotOrParrot(BlockState state, BlockGetter getter, BlockPos pos, EntityType<?> type) {
+        return type == EntityType.OCELOT || type == EntityType.PARROT;
+    }
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block)
     {
