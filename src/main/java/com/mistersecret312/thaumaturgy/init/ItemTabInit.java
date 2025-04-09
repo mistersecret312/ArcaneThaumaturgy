@@ -136,6 +136,9 @@ public class ItemTabInit
 
                         output.accept(BlockInit.THAUMATURGE_EMBLEM.get());
 
+                        output.accept(BlockInit.SILVERWOOD_LOG.get());
+                        output.accept(BlockInit.SILVERWOOD_PLANKS.get());
+
                         output.accept(BlockInit.ARCANE_STONE.get());
                         output.accept(BlockInit.ARCANE_STONE_STAIRS.get());
                         output.accept(BlockInit.ARCANE_STONE_SLAB.get());
