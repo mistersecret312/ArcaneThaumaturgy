@@ -1,6 +1,6 @@
 package com.mistersecret312.thaumaturgy.menu;
 
-import com.mistersecret312.thaumaturgy.block_entities.ArcaneWorkbenchBlockEntity;
+import com.mistersecret312.thaumaturgy.block_entities.ArcaneCraftingTableBlockEntity;
 import com.mistersecret312.thaumaturgy.containers.ArcaneWorkbenchCraftingContainer;
 import com.mistersecret312.thaumaturgy.init.BlockInit;
 import com.mistersecret312.thaumaturgy.init.MenuInit;
@@ -28,7 +28,7 @@ import java.util.Optional;
 
 public class ArcaneWorkbenchMenu extends AbstractContainerMenu
 {
-    public ArcaneWorkbenchBlockEntity blockEntity;
+    public ArcaneCraftingTableBlockEntity blockEntity;
     public Level level;
 
     public ArcaneWorkbenchMenu(int containerId, Inventory inventory, FriendlyByteBuf buffer)
@@ -39,7 +39,7 @@ public class ArcaneWorkbenchMenu extends AbstractContainerMenu
     public ArcaneWorkbenchMenu(int pContainerId, Inventory inventory, BlockEntity blockEntity)
     {
         super(MenuInit.ARCANE_WORKBENCH.get(), pContainerId);
-        this.blockEntity = ((ArcaneWorkbenchBlockEntity) blockEntity);
+        this.blockEntity = ((ArcaneCraftingTableBlockEntity) blockEntity);
         this.level = inventory.player.level();
 
         addPlayerInventory(inventory);
@@ -80,12 +80,12 @@ public class ArcaneWorkbenchMenu extends AbstractContainerMenu
                 this.checkTakeAchievements(pStack);
                 if(!pPlayer.isLocalPlayer())
                 {
-                    Optional<CraftingRecipe> craftingRecipe = level.getRecipeManager().getRecipeFor(RecipeType.CRAFTING, new ArcaneWorkbenchCraftingContainer(((ArcaneWorkbenchBlockEntity) blockEntity).getInput(),((ArcaneWorkbenchBlockEntity) blockEntity).getWandHandler()), level);
-                    Optional<ArcaneCraftingShapedRecipe> arcaneShaped = level.getRecipeManager().getRecipeFor(ArcaneCraftingShapedRecipe.Type.INSTANCE, new ArcaneWorkbenchCraftingContainer(((ArcaneWorkbenchBlockEntity) blockEntity).getInput(), ((ArcaneWorkbenchBlockEntity) blockEntity).getWandHandler()), level);
+                    Optional<CraftingRecipe> craftingRecipe = level.getRecipeManager().getRecipeFor(RecipeType.CRAFTING, new ArcaneWorkbenchCraftingContainer(((ArcaneCraftingTableBlockEntity) blockEntity).getInput(),((ArcaneCraftingTableBlockEntity) blockEntity).getWandHandler()), level);
+                    Optional<ArcaneCraftingShapedRecipe> arcaneShaped = level.getRecipeManager().getRecipeFor(ArcaneCraftingShapedRecipe.Type.INSTANCE, new ArcaneWorkbenchCraftingContainer(((ArcaneCraftingTableBlockEntity) blockEntity).getInput(), ((ArcaneCraftingTableBlockEntity) blockEntity).getWandHandler()), level);
                     if(craftingRecipe.isPresent())
-                        ((ArcaneWorkbenchBlockEntity) blockEntity).doRecipeAfterstuff(pPlayer);
+                        ((ArcaneCraftingTableBlockEntity) blockEntity).doRecipeAfterstuff(pPlayer);
                     if(arcaneShaped.isPresent())
-                        ((ArcaneWorkbenchBlockEntity) blockEntity).doMagicRecipeStuff(pPlayer, arcaneShaped.get());
+                        ((ArcaneCraftingTableBlockEntity) blockEntity).doMagicRecipeStuff(pPlayer, arcaneShaped.get());
 
                 }
             }
@@ -108,16 +108,16 @@ public class ArcaneWorkbenchMenu extends AbstractContainerMenu
             {
                 if (this.removeCount > 0) {
                     pStack.onCraftedBy(inventory.player.level(), inventory.player, this.removeCount);
-                    net.minecraftforge.event.ForgeEventFactory.firePlayerCraftingEvent(inventory.player, pStack, new ArcaneWorkbenchCraftingContainer(((ArcaneWorkbenchBlockEntity) blockEntity).getInput(), ((ArcaneWorkbenchBlockEntity) blockEntity).getWandHandler()));
+                    net.minecraftforge.event.ForgeEventFactory.firePlayerCraftingEvent(inventory.player, pStack, new ArcaneWorkbenchCraftingContainer(((ArcaneCraftingTableBlockEntity) blockEntity).getInput(), ((ArcaneCraftingTableBlockEntity) blockEntity).getWandHandler()));
                 }
 
                 Container container = this.container;
                 if (container instanceof RecipeHolder recipeholder)
                 {
                     List<ItemStack> stacks = new ArrayList<>();
-                    for (int i = 0; i < ((ArcaneWorkbenchBlockEntity) blockEntity).getInput().getSlots(); i++)
+                    for (int i = 0; i < ((ArcaneCraftingTableBlockEntity) blockEntity).getInput().getSlots(); i++)
                     {
-                        stacks.add(((ArcaneWorkbenchBlockEntity) blockEntity).getInput().getStackInSlot(i).copy());
+                        stacks.add(((ArcaneCraftingTableBlockEntity) blockEntity).getInput().getStackInSlot(i).copy());
                     }
                     recipeholder.awardUsedRecipes(inventory.player, stacks);
                 }

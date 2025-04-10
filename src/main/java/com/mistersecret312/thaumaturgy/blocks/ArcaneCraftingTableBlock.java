@@ -1,7 +1,6 @@
 package com.mistersecret312.thaumaturgy.blocks;
 
-import com.mistersecret312.thaumaturgy.block_entities.ArcaneWorkbenchBlockEntity;
-import com.mistersecret312.thaumaturgy.block_entities.CrucibleBlockEntity;
+import com.mistersecret312.thaumaturgy.block_entities.ArcaneCraftingTableBlockEntity;
 import com.mistersecret312.thaumaturgy.init.BlockEntityInit;
 import com.mistersecret312.thaumaturgy.menu.ArcaneWorkbenchMenu;
 import com.mistersecret312.thaumaturgy.util.MathUtil;
@@ -9,6 +8,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.Containers;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.MenuProvider;
@@ -35,7 +35,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.network.NetworkHooks;
 import org.jetbrains.annotations.Nullable;
 
-public class ArcaneWorkbenchBlock extends HorizontalDirectionalBlock implements EntityBlock
+public class ArcaneCraftingTableBlock extends HorizontalDirectionalBlock implements EntityBlock
 {
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
     public static final VoxelShape SHAPE_NORTH_SOUTH = MathUtil.buildShape(
@@ -69,10 +69,26 @@ public class ArcaneWorkbenchBlock extends HorizontalDirectionalBlock implements 
             Block.box(0, 0, 0, 16, 5, 16)
     );
 
-    public ArcaneWorkbenchBlock(Properties pProperties)
+    public ArcaneCraftingTableBlock(Properties pProperties)
     {
         super(pProperties);
         this.registerDefaultState(this.defaultBlockState().setValue(FACING, Direction.NORTH).setValue(WATERLOGGED, false));
+    }
+
+    @Override
+    public void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean isMoving)
+    {
+        if (state.getBlock() != newState.getBlock())
+        {
+            BlockEntity tileEntity = level.getBlockEntity(pos);
+            if (tileEntity instanceof ArcaneCraftingTableBlockEntity table)
+            {
+                Containers.dropContents(level, pos, table.getDroppableInventory());
+                level.updateNeighbourForOutputSignal(pos, this);
+            }
+
+            super.onRemove(state, level, pos, newState, isMoving);
+        }
     }
 
     @Override
@@ -82,7 +98,7 @@ public class ArcaneWorkbenchBlock extends HorizontalDirectionalBlock implements 
         {
             BlockEntity blockEntity = level.getBlockEntity(pos);
 
-            if(blockEntity instanceof ArcaneWorkbenchBlockEntity)
+            if(blockEntity instanceof ArcaneCraftingTableBlockEntity)
             {
                 MenuProvider containerProvider = new MenuProvider()
                 {
@@ -157,7 +173,7 @@ public class ArcaneWorkbenchBlock extends HorizontalDirectionalBlock implements 
 
     @Nullable
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> blockEntity) {
-        return createTickerHelper(blockEntity, BlockEntityInit.ARCANE_WORKBENCH.get(), ArcaneWorkbenchBlockEntity::tick);
+        return createTickerHelper(blockEntity, BlockEntityInit.ARCANE_WORKBENCH.get(), ArcaneCraftingTableBlockEntity::tick);
     }
 
     @javax.annotation.Nullable
@@ -168,6 +184,6 @@ public class ArcaneWorkbenchBlock extends HorizontalDirectionalBlock implements 
     @Override
     public @Nullable BlockEntity newBlockEntity(BlockPos pPos, BlockState pState)
     {
-        return new ArcaneWorkbenchBlockEntity(pPos, pState);
+        return new ArcaneCraftingTableBlockEntity(pPos, pState);
     }
 }

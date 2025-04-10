@@ -27,7 +27,7 @@ public class BlockInit
 {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, ArcaneThaumaturgyMod.MODID);
 
-    public static final RegistryObject<ArcaneWorkbenchBlock> ARCANE_WORKBENCH = registerBlock("arcane_crafting_table", () -> new ArcaneWorkbenchBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(2.0F).sound(SoundType.NETHER_WOOD).ignitedByLava()));
+    public static final RegistryObject<ArcaneCraftingTableBlock> ARCANE_WORKBENCH = registerBlock("arcane_crafting_table", () -> new ArcaneCraftingTableBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(2.0F).sound(SoundType.NETHER_WOOD).ignitedByLava()));
 
     public static final RegistryObject<Block> RESEARCH_TABLE_LEFT = registerBlock("research_table_left", () -> new TableBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(2.0F).sound(SoundType.NETHER_WOOD).ignitedByLava()));
     public static final RegistryObject<Block> RESEARCH_TABLE_RIGHT = registerBlock("research_table_right", () -> new TableBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(2.0F).sound(SoundType.NETHER_WOOD).ignitedByLava()));

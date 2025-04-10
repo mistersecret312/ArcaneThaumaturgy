@@ -1,19 +1,16 @@
 package com.mistersecret312.thaumaturgy.block_entities;
 
-import com.mistersecret312.thaumaturgy.aspects.DefinedAspectStackHandler;
 import com.mistersecret312.thaumaturgy.containers.ArcaneWorkbenchCraftingContainer;
 import com.mistersecret312.thaumaturgy.init.BlockEntityInit;
-import com.mistersecret312.thaumaturgy.init.RecipeTypeInit;
 import com.mistersecret312.thaumaturgy.items.WandItem;
 import com.mistersecret312.thaumaturgy.recipes.ArcaneCraftingShapedRecipe;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.Connection;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
-import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -24,7 +21,7 @@ import net.minecraftforge.items.ItemStackHandler;
 import java.util.List;
 import java.util.Optional;
 
-public class ArcaneWorkbenchBlockEntity extends BlockEntity
+public class ArcaneCraftingTableBlockEntity extends BlockEntity
 {
     public static final String STORAGE = "storage";
 
@@ -32,12 +29,12 @@ public class ArcaneWorkbenchBlockEntity extends BlockEntity
     private ItemStackHandler output = createHandler(1);
     private ItemStackHandler wand = createHandler(1);
 
-    public ArcaneWorkbenchBlockEntity(BlockPos pPos, BlockState pBlockState)
+    public ArcaneCraftingTableBlockEntity(BlockPos pPos, BlockState pBlockState)
     {
         super(BlockEntityInit.ARCANE_WORKBENCH.get(), pPos, pBlockState);
     }
 
-    public static void tick(Level level, BlockPos pos, BlockState state, ArcaneWorkbenchBlockEntity workbench)
+    public static void tick(Level level, BlockPos pos, BlockState state, ArcaneCraftingTableBlockEntity workbench)
     {
         if (!level.isClientSide())
         {
@@ -184,6 +181,22 @@ public class ArcaneWorkbenchBlockEntity extends BlockEntity
     public void setOutput(ItemStack stack)
     {
         this.output.setStackInSlot(0, stack);
+    }
+
+    public NonNullList<ItemStack> getDroppableInventory()
+    {
+        NonNullList<ItemStack> drops = NonNullList.create();
+        for (int i = 0; i < input.getSlots(); ++i)
+        {
+            drops.add(input.getStackInSlot(i));
+            input.setStackInSlot(i, ItemStack.EMPTY);
+        }
+        for (int i = 0; i < wand.getSlots(); i++)
+        {
+            drops.add(wand.getStackInSlot(i));
+            wand.setStackInSlot(i, ItemStack.EMPTY);
+        }
+        return drops;
     }
 
     @Override
