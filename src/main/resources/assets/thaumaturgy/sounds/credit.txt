@@ -1,3 +1,4 @@
 "wand_use" - Magic spell (small positive) by Nakhas from Freesound.org
 "essentia_jar_open_1", "essentia_jar_open_2" - bottle_corks.mp3 by keus92 from Freesound.org
 "essentia_jar_close" - Squeaky cork pull by Kinton from Freesound.org
+"silverwood" - Vanilla cherry wood sounds + edited Sparkly.wav by opticalillusions from Freesound.org
