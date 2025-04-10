@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "thaumaturgy:block/silverwood_armchair"
+    },
+    "facing=south": {
+      "model": "thaumaturgy:block/silverwood_armchair",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "thaumaturgy:block/silverwood_armchair",
+      "y": 270
+    },
+    "facing=east": {
+      "model": "thaumaturgy:block/silverwood_armchair",
+      "y": 90
+    }
+  }
+}

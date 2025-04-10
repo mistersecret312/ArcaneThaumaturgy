@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/fence_post",
+  "textures": {
+    "texture": "thaumaturgy:block/silverwood_planks"
+  }
+}

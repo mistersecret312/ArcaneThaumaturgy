@@ -22,10 +22,10 @@ public class SilverwoodRotatedPillarBlock extends RotatedPillarBlock
         if(context.getItemInHand().getItem() instanceof AxeItem)
         {
             if(state.is(BlockInit.SILVERWOOD_LOG.get()))
-                return BlockInit.STRIPPED_GREATWOOD_LOG.get().defaultBlockState().setValue(AXIS, state.getValue(AXIS));
+                return BlockInit.STRIPPED_SILVERWOOD_LOG.get().defaultBlockState().setValue(AXIS, state.getValue(AXIS));
 
-            if(state.is(BlockInit.SILVERWOOD_LOG.get()))
-                return BlockInit.STRIPPED_GREATWOOD_WOOD.get().defaultBlockState().setValue(AXIS, state.getValue(AXIS));
+            if(state.is(BlockInit.SILVERWOOD_WOOD.get()))
+                return BlockInit.STRIPPED_SILVERWOOD_WOOD.get().defaultBlockState().setValue(AXIS, state.getValue(AXIS));
         }
 
         return super.getToolModifiedState(state, context, toolAction, simulate);

@@ -28,7 +28,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 
 import javax.annotation.Nullable;
 
-public class GreatwoodArmchairBlock extends HorizontalDirectionalBlock implements SittableBlock, SimpleWaterloggedBlock {
+public class ArmchairBlock extends HorizontalDirectionalBlock implements SittableBlock, SimpleWaterloggedBlock {
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 
     public static final AABB SEAT = new AABB(0, 0, 0, 1, 0.5, 1);
@@ -106,7 +106,7 @@ public class GreatwoodArmchairBlock extends HorizontalDirectionalBlock implement
             Block.box(5, 6, 3, 11, 8, 5)
     );
 
-    public GreatwoodArmchairBlock(Properties pProperties) {
+    public ArmchairBlock(Properties pProperties) {
         super(pProperties);
         this.registerDefaultState(this.defaultBlockState().setValue(FACING, Direction.NORTH).setValue(WATERLOGGED, false));
     }

@@ -27,5 +27,28 @@
     [
       "thaumaturgy:crucible_bubble"
     ]
+  },
+  "silverwood_break": {
+    "subtitle": "sound.thaumaturgy.silverwood_break",
+    "sounds":
+    [
+      "thaumaturgy:silverwood_break_1",
+      "thaumaturgy:silverwood_break_2",
+      "thaumaturgy:silverwood_break_3",
+      "thaumaturgy:silverwood_break_4",
+      "thaumaturgy:silverwood_break_5"
+    ]
+  },
+  "silverwood_step": {
+    "subtitle": "sound.thaumaturgy.silverwood_step",
+    "sounds":
+    [
+      "thaumaturgy:silverwood_step_1",
+      "thaumaturgy:silverwood_step_2",
+      "thaumaturgy:silverwood_step_3",
+      "thaumaturgy:silverwood_step_4",
+      "thaumaturgy:silverwood_step_5",
+      "thaumaturgy:silverwood_step_6"
+    ]
   }
 }

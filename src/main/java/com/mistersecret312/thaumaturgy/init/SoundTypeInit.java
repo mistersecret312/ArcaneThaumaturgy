@@ -9,4 +9,5 @@ public class SoundTypeInit
     public static final SoundType NITOR = new ForgeSoundType(1.0F, 1.0F, () -> SoundEvents.FIRE_EXTINGUISH, () -> SoundEvents.EMPTY, () -> SoundEvents.FIRECHARGE_USE, () -> SoundEvents.EMPTY, () -> SoundEvents.EMPTY);
 
     public static final SoundType ESSENTIA_JAR = new ForgeSoundType(1.0F, 1.0F, () -> SoundInit.ESSENTIA_JAR_OPEN.get(), () -> SoundEvents.GLASS_STEP, () -> SoundInit.ESSENTIA_JAR_OPEN.get(), () -> SoundEvents.EMPTY, () -> SoundEvents.GLASS_FALL);
+    public static final SoundType SILVERWOOD = new ForgeSoundType(1.0F, 1.0F, () -> SoundInit.SILVERWOOD_BREAK.get(), () -> SoundInit.SILVERWOOD_STEP.get(), () -> SoundInit.SILVERWOOD_BREAK.get(), () -> SoundInit.SILVERWOOD_STEP.get(), () -> SoundInit.SILVERWOOD_STEP.get());
 }

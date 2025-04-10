@@ -113,8 +113,11 @@ public class ItemTabInit
                     .withTabsBefore(RESOURCE_TAB.getKey())
                     .displayItems((parameters, output) ->
                     {
-                        output.accept(BlockInit.GREATWOOD_SAPLING.get());
-                        output.accept(BlockInit.GREATWOOD_LEAVES.get());
+                        output.accept(BlockInit.GREATWOOD_TABLE.get());
+                        output.accept(BlockInit.GREATWOOD_ARMCHAIR.get());
+                        output.accept(BlockInit.GREATWOOD_STOOL.get());
+                        output.accept(BlockInit.THAUMATURGE_EMBLEM.get());
+
                         output.accept(BlockInit.GREATWOOD_LOG.get());
                         output.accept(BlockInit.GREATWOOD_WOOD.get());
                         output.accept(BlockInit.STRIPPED_GREATWOOD_LOG.get());
@@ -128,16 +131,30 @@ public class ItemTabInit
                         output.accept(BlockInit.GREATWOOD_TRAPDOOR.get());
                         output.accept(BlockInit.GREATWOOD_PRESSURE_PLATE.get());
                         output.accept(BlockInit.GREATWOOD_BUTTON.get());
+                        output.accept(BlockInit.GREATWOOD_SIGN.get());
+                        output.accept(BlockInit.GREATWOOD_HANGING_SIGN.get());
+                        output.accept(BlockInit.GREATWOOD_LEAVES.get());
+                        output.accept(BlockInit.GREATWOOD_SAPLING.get());
 
-                        output.accept(BlockInit.GREATWOOD_TABLE.get());
-
-                        output.accept(BlockInit.GREATWOOD_ARMCHAIR.get());
-                        output.accept(BlockInit.GREATWOOD_STOOL.get());
-
-                        output.accept(BlockInit.THAUMATURGE_EMBLEM.get());
+                        output.accept(BlockInit.SILVERWOOD_TABLE.get());
+                        output.accept(BlockInit.SILVERWOOD_ARMCHAIR.get());
+                        output.accept(BlockInit.SILVERWOOD_STOOL.get());
 
                         output.accept(BlockInit.SILVERWOOD_LOG.get());
+                        output.accept(BlockInit.SILVERWOOD_WOOD.get());
+                        output.accept(BlockInit.STRIPPED_SILVERWOOD_LOG.get());
+                        output.accept(BlockInit.STRIPPED_SILVERWOOD_WOOD.get());
                         output.accept(BlockInit.SILVERWOOD_PLANKS.get());
+                        output.accept(BlockInit.SILVERWOOD_STAIRS.get());
+                        output.accept(BlockInit.SILVERWOOD_SLAB.get());
+                        output.accept(BlockInit.SILVERWOOD_FENCE.get());
+                        output.accept(BlockInit.SILVERWOOD_FENCE_GATE.get());
+                        output.accept(BlockInit.SILVERWOOD_DOOR.get());
+                        output.accept(BlockInit.SILVERWOOD_TRAPDOOR.get());
+                        output.accept(BlockInit.SILVERWOOD_PRESSURE_PLATE.get());
+                        output.accept(BlockInit.SILVERWOOD_BUTTON.get());
+                        output.accept(BlockInit.SILVERWOOD_SIGN.get());
+                        output.accept(BlockInit.SILVERWOOD_HANGING_SIGN.get());
 
                         output.accept(BlockInit.ARCANE_STONE.get());
                         output.accept(BlockInit.ARCANE_STONE_STAIRS.get());

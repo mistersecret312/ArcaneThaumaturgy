@@ -27,7 +27,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 
 import javax.annotation.Nullable;
 
-public class GreatwoodStoolBlock extends Block implements SimpleWaterloggedBlock, SittableBlock {
+public class StoolBlock extends Block implements SimpleWaterloggedBlock, SittableBlock {
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 
     public static final AABB SEAT = new AABB(0, 0, 0, 1, 0.5, 1);
@@ -45,7 +45,7 @@ public class GreatwoodStoolBlock extends Block implements SimpleWaterloggedBlock
             Block.box(3, 10, 3, 13, 11, 13)
     );
 
-    public GreatwoodStoolBlock(Properties pProperties) {
+    public StoolBlock(Properties pProperties) {
         super(pProperties);
         this.registerDefaultState(this.defaultBlockState().setValue(WATERLOGGED, false));
     }

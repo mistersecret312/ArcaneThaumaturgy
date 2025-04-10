@@ -1,0 +1,18 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "thaumaturgy:block/silverwood_table"
+    },
+    "facing=south": {
+      "model": "thaumaturgy:block/silverwood_table"
+    },
+    "facing=west": {
+      "model": "thaumaturgy:block/silverwood_table",
+      "y": 90
+    },
+    "facing=east": {
+      "model": "thaumaturgy:block/silverwood_table",
+      "y": 90
+    }
+  }
+}

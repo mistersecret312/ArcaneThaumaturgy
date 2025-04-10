@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "thaumaturgy:block/silverwood_wood",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "thaumaturgy:block/silverwood_wood"
+    },
+    "axis=z": {
+      "model": "thaumaturgy:block/silverwood_wood",
+      "x": 90
+    }
+  }
+}
