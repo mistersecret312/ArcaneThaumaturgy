@@ -4,8 +4,10 @@ import com.mistersecret312.thaumaturgy.block_entities.ArcaneCraftingTableBlockEn
 import com.mistersecret312.thaumaturgy.containers.ArcaneWorkbenchCraftingContainer;
 import com.mistersecret312.thaumaturgy.init.BlockInit;
 import com.mistersecret312.thaumaturgy.init.MenuInit;
+import com.mistersecret312.thaumaturgy.init.RecipeTypeInit;
 import com.mistersecret312.thaumaturgy.menu.slots.WandSlotItemHandler;
 import com.mistersecret312.thaumaturgy.recipes.ArcaneCraftingShapedRecipe;
+import com.mistersecret312.thaumaturgy.recipes.IArcaneCraftingRecipe;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.Container;
 import net.minecraft.world.entity.player.Inventory;
@@ -81,7 +83,9 @@ public class ArcaneWorkbenchMenu extends AbstractContainerMenu
                 if(!pPlayer.isLocalPlayer())
                 {
                     Optional<CraftingRecipe> craftingRecipe = level.getRecipeManager().getRecipeFor(RecipeType.CRAFTING, new ArcaneWorkbenchCraftingContainer(((ArcaneCraftingTableBlockEntity) blockEntity).getInput(),((ArcaneCraftingTableBlockEntity) blockEntity).getWandHandler()), level);
-                    Optional<ArcaneCraftingShapedRecipe> arcaneShaped = level.getRecipeManager().getRecipeFor(ArcaneCraftingShapedRecipe.Type.INSTANCE, new ArcaneWorkbenchCraftingContainer(((ArcaneCraftingTableBlockEntity) blockEntity).getInput(), ((ArcaneCraftingTableBlockEntity) blockEntity).getWandHandler()), level);
+                    Optional<IArcaneCraftingRecipe> arcaneShaped = level.getRecipeManager().getRecipeFor(RecipeTypeInit.Types.ARCANE_CRAFTING.get(), new ArcaneWorkbenchCraftingContainer(((ArcaneCraftingTableBlockEntity) blockEntity).getInput(), ((ArcaneCraftingTableBlockEntity) blockEntity).getWandHandler()), level);
+                    List<IArcaneCraftingRecipe> recipes = level.getRecipeManager().getAllRecipesFor(RecipeTypeInit.Types.ARCANE_CRAFTING.get());
+                    System.out.println(recipes);
                     if(craftingRecipe.isPresent())
                         ((ArcaneCraftingTableBlockEntity) blockEntity).doRecipeAfterstuff(pPlayer);
                     if(arcaneShaped.isPresent())

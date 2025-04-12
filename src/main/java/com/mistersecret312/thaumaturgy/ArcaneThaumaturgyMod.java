@@ -66,6 +66,7 @@ public class ArcaneThaumaturgyMod
         SoundInit.register(modEventBus);
         EntityTypeInit.register(modEventBus);
         RecipeTypeInit.register(modEventBus);
+        RecipeTypeInit.Types.register(modEventBus);
         AspectInit.register(modEventBus);
         MenuInit.register(modEventBus);
 

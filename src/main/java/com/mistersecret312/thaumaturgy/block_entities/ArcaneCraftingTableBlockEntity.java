@@ -1,15 +1,19 @@
 package com.mistersecret312.thaumaturgy.block_entities;
 
+import com.mistersecret312.thaumaturgy.aspects.DefinedAspectStackHandler;
 import com.mistersecret312.thaumaturgy.containers.ArcaneWorkbenchCraftingContainer;
 import com.mistersecret312.thaumaturgy.init.BlockEntityInit;
+import com.mistersecret312.thaumaturgy.init.RecipeTypeInit;
 import com.mistersecret312.thaumaturgy.items.WandItem;
 import com.mistersecret312.thaumaturgy.recipes.ArcaneCraftingShapedRecipe;
+import com.mistersecret312.thaumaturgy.recipes.IArcaneCraftingRecipe;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.Connection;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.CraftingMenu;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
@@ -40,7 +44,7 @@ public class ArcaneCraftingTableBlockEntity extends BlockEntity
         {
             ArcaneWorkbenchCraftingContainer container = new ArcaneWorkbenchCraftingContainer(workbench.input, workbench.wand);
 
-            Optional<ArcaneCraftingShapedRecipe> arcaneShapedRecipe = level.getRecipeManager().getRecipeFor(ArcaneCraftingShapedRecipe.Type.INSTANCE, container, level);
+            Optional<IArcaneCraftingRecipe> arcaneShapedRecipe = level.getRecipeManager().getRecipeFor(RecipeTypeInit.Types.ARCANE_CRAFTING.get(), container, level);
             arcaneShapedRecipe.ifPresentOrElse(rec ->
             {
                 workbench.getOutputHandler().setStackInSlot(0, rec.assemble(container, level.registryAccess()).copy());
@@ -51,7 +55,11 @@ public class ArcaneCraftingTableBlockEntity extends BlockEntity
             });
 
             Optional<CraftingRecipe> recipe = level.getRecipeManager().getRecipeFor(RecipeType.CRAFTING, container, level);
-            recipe.ifPresentOrElse(rec -> workbench.getOutputHandler().setStackInSlot(0, rec.assemble(container, level.registryAccess()).copy()), () -> workbench.getOutputHandler().setStackInSlot(0, ItemStack.EMPTY));
+            recipe.ifPresentOrElse(rec -> workbench.getOutputHandler().setStackInSlot(0, rec.assemble(container, level.registryAccess()).copy()), () -> {
+                if(arcaneShapedRecipe.isPresent())
+                    return;
+                workbench.getOutputHandler().setStackInSlot(0, ItemStack.EMPTY);
+            });
 
         }
     }
@@ -98,17 +106,19 @@ public class ArcaneCraftingTableBlockEntity extends BlockEntity
         }
     }
 
-    public void doMagicRecipeStuff(Player player, ArcaneCraftingShapedRecipe recipe)
+    public void doMagicRecipeStuff(Player player, IArcaneCraftingRecipe recipe)
     {
         ArcaneWorkbenchCraftingContainer container = new ArcaneWorkbenchCraftingContainer(this.getInput(), this.getWandHandler());
-        List<ItemStack> remaining = this.level.getRecipeManager().getRemainingItemsFor(ArcaneCraftingShapedRecipe.Type.INSTANCE, container, level);
+        List<ItemStack> remaining = this.level.getRecipeManager().getRemainingItemsFor(RecipeTypeInit.Types.ARCANE_CRAFTING.get(), container, level);
 
         ItemStack wandStack = this.getWandHandler().getStackInSlot(0);
         if(!wandStack.isEmpty() && wandStack.getItem() instanceof WandItem wandItem)
         {
             recipe.getAspects().forEach(aspectStack ->
             {
-                wandItem.getAspects(wandStack).extractAspect(aspectStack.getAspect(), aspectStack.getAmount(), false);
+                DefinedAspectStackHandler handler = wandItem.getAspects(wandStack);
+                handler.extractAspect(aspectStack.getAspect(), aspectStack.getAmount(), false);
+                wandItem.setAspects(wandStack, handler);
             });
         }
         for (int i = 0; i < remaining.size(); i++)
