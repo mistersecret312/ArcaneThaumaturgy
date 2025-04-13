@@ -1,6 +1,5 @@
 {
   "type": "thaumaturgy:arcane_crafting_shaped",
-  "category": "misc",
   "key": {
     "#": {
       "item": "minecraft:stone"
@@ -27,6 +26,5 @@
   "result": {
     "item": "thaumaturgy:arcane_stone",
     "count": 8
-  },
-  "show_notification": true
+  }
 }

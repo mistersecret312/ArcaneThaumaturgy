@@ -24,8 +24,6 @@ public class NitorItem extends BlockItem implements DyeableLeatherItem
         super(BlockInit.NITOR.get(), pProperties);
     }
 
-
-
     @Override
     public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltip, TooltipFlag pFlag)
     {

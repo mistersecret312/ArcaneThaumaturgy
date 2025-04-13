@@ -12,6 +12,8 @@ import com.mistersecret312.thaumaturgy.aspects.Aspect;
 import com.mistersecret312.thaumaturgy.aspects.AspectStack;
 import com.mistersecret312.thaumaturgy.containers.ArcaneWorkbenchCraftingContainer;
 import com.mistersecret312.thaumaturgy.init.AspectInit;
+import com.mistersecret312.thaumaturgy.init.RecipeTypeInit;
+import mezz.jei.api.recipe.vanilla.IJeiCompostingRecipe;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -19,11 +21,13 @@ import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
 import net.minecraft.world.inventory.CraftingContainer;
+import net.minecraft.world.inventory.CraftingMenu;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
+import net.minecraftforge.common.crafting.IShapedRecipe;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
@@ -31,7 +35,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-public class ArcaneCraftingShapedRecipe implements Recipe<ArcaneWorkbenchCraftingContainer>
+public class ArcaneCraftingShapedRecipe implements IArcaneCraftingRecipe, IShapedRecipe<ArcaneWorkbenchCraftingContainer>
 {
     final int width;
     final int height;
@@ -128,6 +132,18 @@ public class ArcaneCraftingShapedRecipe implements Recipe<ArcaneWorkbenchCraftin
                     return false;
                 }
             }
+        }
+
+        for (int i = 0; i < pCraftingInventory.stacks.size(); i++)
+        {
+            List<Aspect> primal = List.of(AspectInit.ORDO.get(), AspectInit.PERDITIO.get(), AspectInit.TERRA.get(), AspectInit.IGNIS.get(), AspectInit.AQUA.get(), AspectInit.AER.get());
+            Aspect aspectChecked = primal.get(i);
+            AspectStack stack = pCraftingInventory.getAspect(aspectChecked);
+            AspectStack recipeStack = this.aspectCost.stream().filter(aspectStack -> aspectStack.getAspect().equals(aspectChecked)).findFirst().orElse(AspectStack.EMPTY);
+            if(stack.isEmpty())
+                return false;
+            if(recipeStack.getAmount() >= stack.getAmount())
+                return false;
         }
 
         return true;
@@ -308,7 +324,19 @@ public class ArcaneCraftingShapedRecipe implements Recipe<ArcaneWorkbenchCraftin
     @Override
     public RecipeType<?> getType()
     {
-        return Type.INSTANCE;
+        return RecipeTypeInit.Types.ARCANE_CRAFTING.get();
+    }
+
+    @Override
+    public int getRecipeWidth()
+    {
+        return 3;
+    }
+
+    @Override
+    public int getRecipeHeight()
+    {
+        return 3;
     }
 
     public static class Type implements RecipeType<ArcaneCraftingShapedRecipe>
