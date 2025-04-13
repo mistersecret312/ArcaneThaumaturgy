@@ -2,6 +2,7 @@ package com.mistersecret312.thaumaturgy.init;
 
 import com.mistersecret312.thaumaturgy.ArcaneThaumaturgyMod;
 import com.mistersecret312.thaumaturgy.blocks.*;
+import com.mistersecret312.thaumaturgy.world.GreatwoodTreeGrower;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.BlockItem;
@@ -52,7 +53,7 @@ public class BlockInit
 
     public static final RegistryObject<PedestalBlock> ARCANE_STONE_PEDESTAL = registerBlock("arcane_stone_pedestal", () -> new PedestalBlock(BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(3.0F, 5f).sound(SoundType.DEEPSLATE).mapColor(MapColor.COLOR_GRAY)));
 
-    public static final RegistryObject<Block> GREATWOOD_SAPLING = registerBlock("greatwood_sapling", () -> new SaplingBlock(new OakTreeGrower(), BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE).noCollission().randomTicks().instabreak().sound(SoundType.SWEET_BERRY_BUSH).pushReaction(PushReaction.DESTROY).noOcclusion()));
+    public static final RegistryObject<Block> GREATWOOD_SAPLING = registerBlock("greatwood_sapling", () -> new SaplingBlock(new GreatwoodTreeGrower(), BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE).noCollission().randomTicks().instabreak().sound(SoundType.SWEET_BERRY_BUSH).pushReaction(PushReaction.DESTROY).noOcclusion()));
     public static final RegistryObject<Block> GREATWOOD_LEAVES = registerBlock("greatwood_leaves", () -> new LeavesBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE).ignitedByLava().noOcclusion().strength(0.2F).randomTicks().sound(SoundType.AZALEA_LEAVES).noOcclusion().isValidSpawn(BlockInit::ocelotOrParrot).isSuffocating((BlockState, BlockGetter, BlockPos) -> false).isViewBlocking((BlockState, BlockGetter, BlockPos) -> false).ignitedByLava().pushReaction(PushReaction.DESTROY).isRedstoneConductor((BlockState, BlockGetter, BlockPos) -> false)));
 
     public static final RegistryObject<Block> GREATWOOD_LOG = registerBlock("greatwood_log", () -> new GreatwoodRotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(2.0F).sound(SoundType.NETHER_WOOD).ignitedByLava()));
