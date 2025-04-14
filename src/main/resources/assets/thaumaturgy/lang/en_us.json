@@ -31,6 +31,10 @@
   "item.thaumaturgy.ordo_vis_crystal": "Ordo Vis Crystal",
   "item.thaumaturgy.perditio_vis_crystal": "Perditio Vis Crystal",
 
+  "item.thaumaturgy.purified_iron": "Purified Iron",
+  "item.thaumaturgy.purified_copper": "Purified Copper",
+  "item.thaumaturgy.purified_gold": "Purified Gold",
+
   "_tooltips": "Tooltips",
   "thaumaturgy.nitor.color": "Color:",
 

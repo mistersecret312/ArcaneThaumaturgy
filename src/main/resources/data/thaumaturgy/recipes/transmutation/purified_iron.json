@@ -1,0 +1,23 @@
+{
+  "type": "thaumaturgy:transmutation",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:metallum",
+      "amount": 1
+    },
+    {
+      "aspect": "thaumaturgy:ordo",
+      "amount": 1
+    }
+  ],
+  "catalyst":
+  {
+    "tag": "forge:raw_materials/iron"
+  },
+  "result":
+  {
+    "item": "thaumaturgy:purified_iron",
+    "amount": 2
+  }
+}

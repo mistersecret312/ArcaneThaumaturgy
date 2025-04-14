@@ -45,17 +45,21 @@ public class ItemTabInit
                     .build());
 
     public static final RegistryObject<CreativeModeTab> RESOURCE_TAB = TABS.register("resource_tab",
-            () -> CreativeModeTab.builder().icon(() -> BlockInit.AER_VIS_CRYSTAL_CLUSTER.get().asItem().getDefaultInstance())
+            () -> CreativeModeTab.builder().icon(() -> ItemInit.ARCANE_STEEL_INGOT.get().asItem().getDefaultInstance())
                     .title(Component.translatable("tabs.thaumaturgy.resources_tab"))
                     .withTabsBefore(MAIN_TAB.getKey())
                     .displayItems((parameters, output) ->
                     {
+                        output.accept(ItemInit.ARCANE_STEEL_INGOT.get());
+
+                        output.accept(ItemInit.PURIFIED_IRON.get());
+                        output.accept(ItemInit.PURIFIED_GOLD.get());
+                        output.accept(ItemInit.PURIFIED_COPPER.get());
+
                         output.accept(ItemInit.IRON_KNOB.get());
                         output.accept(ItemInit.GOLD_KNOB.get());
 
                         output.accept(ItemInit.GREATWOOD_CORE.get());
-
-                        output.accept(ItemInit.ARCANE_STEEL_INGOT.get());
 
                         output.accept(ItemInit.AER_VIS_CRYSTAL.get());
                         output.accept(BlockInit.AER_VIS_CRYSTAL_BLOCK.get());
@@ -108,7 +112,7 @@ public class ItemTabInit
                     .build());
 
     public static final RegistryObject<CreativeModeTab> DECORATIONS_TAB = TABS.register("decorations_tab",
-            () -> CreativeModeTab.builder().icon(() -> BlockInit.ARCANE_STONE_BRICKS.get().asItem().getDefaultInstance())
+            () -> CreativeModeTab.builder().icon(() -> BlockInit.GREATWOOD_LOG.get().asItem().getDefaultInstance())
                     .title(Component.translatable("tabs.thaumaturgy.decorations_tab"))
                     .withTabsBefore(RESOURCE_TAB.getKey())
                     .displayItems((parameters, output) ->
