@@ -10,13 +10,9 @@ import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 
 public class FeatureInit {
-    public static final ResourceKey<ConfiguredFeature<?, ?>> GREATWOOD_TREE = registerKey("tree/twilight_oak_tree");
-
-    public static void bootstrap(BootstapContext<ConfiguredFeature<?, ?>> context) {
-        context.register(GREATWOOD_TREE, new ConfiguredFeature<>(Feature.TREE, TreeConfigurations.GREATWOOD));
-    }
+    public static final ResourceKey<ConfiguredFeature<?, ?>> GREATWOOD_TREE = registerKey("tree/greatwood_tree");
 
     public static ResourceKey<ConfiguredFeature<?, ?>> registerKey(String name) {
-        return ResourceKey.create(Registries.CONFIGURED_FEATURE, new ResourceLocation(ArcaneThaumaturgyMod.MODID));
+        return ResourceKey.create(Registries.CONFIGURED_FEATURE, new ResourceLocation(ArcaneThaumaturgyMod.MODID, name));
     }
 }

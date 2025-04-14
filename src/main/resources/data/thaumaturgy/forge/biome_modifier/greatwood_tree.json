@@ -1,0 +1,8 @@
+{
+  "type": "forge:add_features",
+  "biomes": "minecraft:dark_forest",
+  "features": [
+    "thaumaturgy:tree/greatwood_tree"
+  ],
+  "step": "vegetal_decoration"
+}
