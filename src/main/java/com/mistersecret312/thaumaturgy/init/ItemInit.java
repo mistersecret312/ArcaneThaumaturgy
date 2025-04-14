@@ -32,6 +32,10 @@ public class ItemInit
     public static final RegistryObject<Item> ORDO_VIS_CRYSTAL = ITEMS.register("ordo_vis_crystal", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> PERDITIO_VIS_CRYSTAL = ITEMS.register("perditio_vis_crystal", () -> new Item(new Item.Properties()));
 
+    public static final RegistryObject<Item> PURIFIED_IRON = ITEMS.register("purified_iron", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> PURIFIED_COPPER = ITEMS.register("purified_copper", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> PURIFIED_GOLD = ITEMS.register("purified_gold", () -> new Item(new Item.Properties()));
+
     public static final RegistryObject<Item> ASPECT = ITEMS.register("aspect", AspectItem::new);
 
     public static final RegistryObject<RevelationGogglesItem> REVELATION_GOGGLES = ITEMS.register("revelation_goggles", () -> new RevelationGogglesItem(new Item.Properties().stacksTo(1).rarity(Rarity.RARE)));
