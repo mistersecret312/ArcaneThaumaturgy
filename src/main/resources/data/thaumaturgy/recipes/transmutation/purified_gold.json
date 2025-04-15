@@ -9,11 +9,11 @@
   ],
   "catalyst":
   {
-    "tag": "forge:ores/gold"
+    "tag": "forge:raw_materials/gold"
   },
   "result":
   {
     "item": "thaumaturgy:purified_gold_nucleus",
-    "amount": 4
+    "amount": 2
   }
 }

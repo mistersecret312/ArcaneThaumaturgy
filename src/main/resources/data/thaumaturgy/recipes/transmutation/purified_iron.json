@@ -9,11 +9,11 @@
   ],
   "catalyst":
   {
-    "tag": "forge:ores/iron"
+    "tag": "forge:raw_materials/iron"
   },
   "result":
   {
     "item": "thaumaturgy:purified_iron_nucleus",
-    "amount": 4
+    "amount": 2
   }
 }

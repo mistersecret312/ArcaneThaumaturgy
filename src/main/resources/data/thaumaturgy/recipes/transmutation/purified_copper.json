@@ -9,11 +9,11 @@
   ],
   "catalyst":
   {
-    "tag": "forge:ores/copper"
+    "tag": "forge:raw_materials/copper"
   },
   "result":
   {
     "item": "thaumaturgy:purified_copper_nucleus",
-    "amount": 20
+    "amount": 2
   }
 }
