@@ -9,11 +9,11 @@
   ],
   "catalyst":
   {
-    "tag": "forge:ores/iron"
+    "tag": "forge:ores/netherite_scrap"
   },
   "result":
   {
-    "item": "thaumaturgy:purified_iron_nucleus",
-    "amount": 4
+    "item": "thaumaturgy:purified_netherite_nucleus",
+    "amount": 2
   }
 }

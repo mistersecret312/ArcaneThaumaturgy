@@ -9,11 +9,11 @@
   ],
   "catalyst":
   {
-    "tag": "forge:ores/iron"
+    "tag": "forge:ores/lapis"
   },
   "result":
   {
-    "item": "thaumaturgy:purified_iron_nucleus",
-    "amount": 4
+    "item": "thaumaturgy:purified_lapis_nucleus",
+    "amount": 36
   }
 }

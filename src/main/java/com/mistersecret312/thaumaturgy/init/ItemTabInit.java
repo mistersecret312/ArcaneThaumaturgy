@@ -52,9 +52,15 @@ public class ItemTabInit
                     {
                         output.accept(ItemInit.ARCANE_STEEL_INGOT.get());
 
-                        output.accept(ItemInit.PURIFIED_IRON.get());
-                        output.accept(ItemInit.PURIFIED_GOLD.get());
-                        output.accept(ItemInit.PURIFIED_COPPER.get());
+                        output.accept(ItemInit.PURIFIED_NETHERITE_NUCLEUS.get());
+                        output.accept(ItemInit.PURIFIED_DIAMOND_NUCLEUS.get());
+                        output.accept(ItemInit.PURIFIED_EMERALD_NUCLEUS.get());
+                        output.accept(ItemInit.PURIFIED_QUARTZ_NUCLEUS.get());
+                        output.accept(ItemInit.PURIFIED_LAPIS_NUCLEUS.get());
+                        output.accept(ItemInit.PURIFIED_REDSTONE_NUCLEUS.get());
+                        output.accept(ItemInit.PURIFIED_IRON_NUCLEUS.get());
+                        output.accept(ItemInit.PURIFIED_GOLD_NUCLEUS.get());
+                        output.accept(ItemInit.PURIFIED_COPPER_NUCLEUS.get());
 
                         output.accept(ItemInit.IRON_KNOB.get());
                         output.accept(ItemInit.GOLD_KNOB.get());

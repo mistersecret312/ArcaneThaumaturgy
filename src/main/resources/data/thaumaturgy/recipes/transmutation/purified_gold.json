@@ -3,21 +3,17 @@
   "aspects":
   [
     {
-      "aspect": "thaumaturgy:metallum",
-      "amount": 1
-    },
-    {
-      "aspect": "thaumaturgy:ordo",
+      "aspect": "thaumaturgy:potentia",
       "amount": 1
     }
   ],
   "catalyst":
   {
-    "tag": "forge:raw_materials/gold"
+    "tag": "forge:ores/gold"
   },
   "result":
   {
-    "item": "thaumaturgy:purified_gold",
-    "amount": 2
+    "item": "thaumaturgy:purified_gold_nucleus",
+    "amount": 4
   }
 }

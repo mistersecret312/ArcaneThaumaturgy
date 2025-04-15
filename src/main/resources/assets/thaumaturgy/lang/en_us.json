@@ -31,9 +31,15 @@
   "item.thaumaturgy.ordo_vis_crystal": "Ordo Vis Crystal",
   "item.thaumaturgy.perditio_vis_crystal": "Perditio Vis Crystal",
 
-  "item.thaumaturgy.purified_iron": "Purified Iron",
-  "item.thaumaturgy.purified_copper": "Purified Copper",
-  "item.thaumaturgy.purified_gold": "Purified Gold",
+  "item.thaumaturgy.purified_netherite_nucleus": "Purified Netherite Nucleus",
+  "item.thaumaturgy.purified_diamond_nucleus": "Purified Diamond Nucleus",
+  "item.thaumaturgy.purified_emerald_nucleus": "Purified Emerald Nucleus",
+  "item.thaumaturgy.purified_quartz_nucleus": "Purified Quartz Nucleus",
+  "item.thaumaturgy.purified_lapis_nucleus": "Purified Lapis Nucleus",
+  "item.thaumaturgy.purified_redstone_nucleus": "Purified Redstone Nucleus",
+  "item.thaumaturgy.purified_iron_nucleus": "Purified Iron Nucleus",
+  "item.thaumaturgy.purified_gold_nucleus": "Purified Gold Nucleus",
+  "item.thaumaturgy.purified_copper_nucleus": "Purified Copper Nucleus",
 
   "_tooltips": "Tooltips",
   "thaumaturgy.nitor.color": "Color:",

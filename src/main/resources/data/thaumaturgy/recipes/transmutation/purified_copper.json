@@ -3,21 +3,17 @@
   "aspects":
   [
     {
-      "aspect": "thaumaturgy:metallum",
-      "amount": 1
-    },
-    {
-      "aspect": "thaumaturgy:ordo",
+      "aspect": "thaumaturgy:potentia",
       "amount": 1
     }
   ],
   "catalyst":
   {
-    "tag": "forge:raw_materials/copper"
+    "tag": "forge:ores/copper"
   },
   "result":
   {
-    "item": "thaumaturgy:purified_copper",
-    "amount": 2
+    "item": "thaumaturgy:purified_copper_nucleus",
+    "amount": 20
   }
 }

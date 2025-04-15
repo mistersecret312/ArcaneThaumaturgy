@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "thaumaturgy:item/purified_copper"
+    "layer0": "thaumaturgy:item/purified_copper_nucleus"
   }
 }

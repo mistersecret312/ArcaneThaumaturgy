@@ -5,7 +5,7 @@
   "experience": 0.7,
   "group": "copper_ingot",
   "ingredient": {
-    "item": "thaumaturgy:purified_copper"
+    "item": "thaumaturgy:purified_copper_nucleus"
   },
   "result": "minecraft:copper_ingot"
 }

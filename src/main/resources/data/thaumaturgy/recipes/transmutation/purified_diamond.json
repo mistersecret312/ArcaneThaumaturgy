@@ -9,11 +9,11 @@
   ],
   "catalyst":
   {
-    "tag": "forge:ores/iron"
+    "tag": "forge:ores/diamond"
   },
   "result":
   {
-    "item": "thaumaturgy:purified_iron_nucleus",
+    "item": "thaumaturgy:purified_diamond_nucleus",
     "amount": 4
   }
 }

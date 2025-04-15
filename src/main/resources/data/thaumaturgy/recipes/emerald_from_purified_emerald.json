@@ -3,9 +3,9 @@
   "category": "misc",
   "cookingtime": 200,
   "experience": 0.7,
-  "group": "iron_ingot",
+  "group": "emerald",
   "ingredient": {
-    "item": "thaumaturgy:purified_iron_nucleus"
+    "item": "thaumaturgy:purified_emerald_nucleus"
   },
-  "result": "minecraft:iron_ingot"
+  "result": "minecraft:emerald"
 }

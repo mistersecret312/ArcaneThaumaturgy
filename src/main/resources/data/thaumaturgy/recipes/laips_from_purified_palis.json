@@ -3,9 +3,9 @@
   "category": "misc",
   "cookingtime": 200,
   "experience": 0.7,
-  "group": "iron_ingot",
+  "group": "lapis",
   "ingredient": {
-    "item": "thaumaturgy:purified_iron_nucleus"
+    "item": "thaumaturgy:purified_lapis_nucleus"
   },
-  "result": "minecraft:iron_ingot"
+  "result": "minecraft:lapis_lazuli"
 }

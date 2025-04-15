@@ -54,7 +54,6 @@ public class CrucibleRenderer implements BlockEntityRenderer<CrucibleBlockEntity
 
             double angleToPlayer = Math.toDegrees(Math.atan2(direction.z, direction.x)) - 90.0;
 
-            System.out.println(angleToPlayer);
             poseStack.rotateAround(Axis.YN.rotationDegrees((float) angleToPlayer), 0.5f, 0.5f, 0.5f);
             poseStack.translate(((float) crucible.handler.getSize()/10)*(((float) crucible.handler.getSize()-1)/crucible.handler.getSize()), 0 ,0);
             for (int i = 0; i < crucible.handler.getSize(); i++)
