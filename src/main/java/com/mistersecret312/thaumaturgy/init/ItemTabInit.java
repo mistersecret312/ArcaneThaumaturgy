@@ -50,6 +50,11 @@ public class ItemTabInit
                     .withTabsBefore(MAIN_TAB.getKey())
                     .displayItems((parameters, output) ->
                     {
+                        output.accept(ItemInit.IRON_KNOB.get());
+                        output.accept(ItemInit.GOLD_KNOB.get());
+
+                        output.accept(ItemInit.GREATWOOD_CORE.get());
+
                         output.accept(ItemInit.ARCANE_STEEL_INGOT.get());
 
                         output.accept(ItemInit.PURIFIED_NETHERITE_NUCLEUS.get());
@@ -61,11 +66,12 @@ public class ItemTabInit
                         output.accept(ItemInit.PURIFIED_IRON_NUCLEUS.get());
                         output.accept(ItemInit.PURIFIED_GOLD_NUCLEUS.get());
                         output.accept(ItemInit.PURIFIED_COPPER_NUCLEUS.get());
+                        output.accept(ItemInit.PURIFIED_QUICKSILVER_NUCLEUS.get());
 
-                        output.accept(ItemInit.IRON_KNOB.get());
-                        output.accept(ItemInit.GOLD_KNOB.get());
-
-                        output.accept(ItemInit.GREATWOOD_CORE.get());
+                        output.accept(ItemInit.QUICKSILVER.get());
+                        output.accept(ItemInit.CINNABAR_CRYSTAL.get());
+                        output.accept(BlockInit.CINNABAR_ORE.get());
+                        output.accept(BlockInit.DEEPSLATE_CINNABAR_ORE.get());
 
                         output.accept(ItemInit.AER_VIS_CRYSTAL.get());
                         output.accept(BlockInit.AER_VIS_CRYSTAL_BLOCK.get());

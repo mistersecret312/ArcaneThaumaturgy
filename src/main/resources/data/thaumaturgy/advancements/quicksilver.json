@@ -1,0 +1,41 @@
+{
+  "parent": "thaumaturgy:thaumonomicon",
+  "display": {
+    "icon": {
+      "item": "thaumaturgy:quicksilver"
+    },
+    "title": {
+      "translate": "advancements.thaumaturgy.quicksilver.title"
+    },
+    "description": {
+      "translate": "advancements.thaumaturgy.quicksilver.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "quicksilver": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "thaumaturgy:quicksilver"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "quicksilver"
+    ]
+  ],
+  "rewards": {
+    "experience": 250
+  },
+  "sends_telemetry_event": false
+}

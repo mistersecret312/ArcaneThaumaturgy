@@ -1,0 +1,158 @@
+{
+  "parent": "thaumaturgy:quicksilver",
+  "display": {
+    "icon": {
+      "item": "thaumaturgy:purified_iron_nucleus"
+    },
+    "title": {
+      "translate": "advancements.thaumaturgy.any_purified_nucleus.title"
+    },
+    "description": {
+      "translate": "advancements.thaumaturgy.any_purified_nucleus.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "purified_netherite": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "thaumaturgy:purified_netherite_nucleus"
+            ]
+          }
+        ]
+      }
+    },
+    "purified_diamond": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "thaumaturgy:purified_diamond_nucleus"
+            ]
+          }
+        ]
+      }
+    },
+    "purified_emerald": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "thaumaturgy:purified_emerald_nucleus"
+            ]
+          }
+        ]
+      }
+    },
+    "purified_quartz": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "thaumaturgy:purified_quartz_nucleus"
+            ]
+          }
+        ]
+      }
+    },
+    "purified_lapis": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "thaumaturgy:purified_lapis_nucleus"
+            ]
+          }
+        ]
+      }
+    },
+    "purified_redstone": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "thaumaturgy:purified_redstone_nucleus"
+            ]
+          }
+        ]
+      }
+    },
+    "purified_iron": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "thaumaturgy:purified_iron_nucleus"
+            ]
+          }
+        ]
+      }
+    },
+    "purified_gold": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "thaumaturgy:purified_gold_nucleus"
+            ]
+          }
+        ]
+      }
+    },
+    "purified_copper": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "thaumaturgy:purified_copper_nucleus"
+            ]
+          }
+        ]
+      }
+    },
+    "purified_quicksilver": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "thaumaturgy:purified_quicksilver_nucleus"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "purified_netherite",
+      "purified_diamond",
+      "purified_emerald",
+      "purified_quartz",
+      "purified_lapis",
+      "purified_redstone",
+      "purified_iron",
+      "purified_gold",
+      "purified_copper",
+      "purified_quicksilver"
+    ]
+  ],
+  "rewards": {
+    "experience": 250
+  },
+  "sends_telemetry_event": false
+}

@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.8,
+  "group": "quicksilver",
+  "ingredient": {
+    "item": "thaumaturgy:cinnabar_crystal"
+  },
+  "result": "thaumaturgy:quicksilver"
+}

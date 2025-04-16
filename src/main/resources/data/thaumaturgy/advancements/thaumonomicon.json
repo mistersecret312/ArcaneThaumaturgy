@@ -1,0 +1,41 @@
+{
+  "parent": "thaumaturgy:root",
+  "display": {
+    "icon": {
+      "item": "thaumaturgy:thaumonomicon"
+    },
+    "title": {
+      "translate": "advancements.thaumaturgy.thaumonomicon.title"
+    },
+    "description": {
+      "translate": "advancements.thaumaturgy.thaumonomicon.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "thaumonomicon": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "thaumaturgy:thaumonomicon"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "thaumonomicon"
+    ]
+  ],
+  "rewards": {
+    "experience": 250
+  },
+  "sends_telemetry_event": false
+}

@@ -56,6 +56,9 @@
     "thaumaturgy:perditio_vis_crystal_cluster",
     "thaumaturgy:perditio_large_vis_crystal_bud",
     "thaumaturgy:perditio_medium_vis_crystal_bud",
-    "thaumaturgy:perditio_small_vis_crystal_bud"
+    "thaumaturgy:perditio_small_vis_crystal_bud",
+
+    "thaumaturgy:cinnabar_ore",
+    "thaumaturgy:deepslate_cinnabar_ore"
   ]
 }

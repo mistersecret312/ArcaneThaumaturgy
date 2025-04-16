@@ -37,6 +37,7 @@ public class AspectInit
     public static final RegistryObject<Aspect> METALLUM = ASPECTS.register("metallum", () -> new Aspect(List.of(0xD8, 0xD8, 0xD8), ResourceLocation.parse("thaumaturgy:textures/aspect/metallum.png")).withDerivation(AspectInit.VITREUS.get(), AspectInit.TERRA.get()));
     public static final RegistryObject<Aspect> PRAECANTATIO = ASPECTS.register("praecantatio", () -> new Aspect(List.of(0xE5, 0x17, 0xD4), ResourceLocation.parse("thaumaturgy:textures/aspect/praecantatio.png")).withDerivation(AspectInit.POTENTIA.get(), AspectInit.VACUOS.get()));
     public static final RegistryObject<Aspect> ARBOR = ASPECTS.register("arbor", () -> new Aspect(List.of(0xE5, 0x17, 0xD4), ResourceLocation.parse("thaumaturgy:textures/aspect/arbor.png")).withDerivation(AspectInit.HERBA.get(), AspectInit.AER.get()));
+    public static final RegistryObject<Aspect> PERMUTATIO = ASPECTS.register("permutatio", () -> new Aspect(List.of(0xCC, 0x59, 0x33), ResourceLocation.parse("thaumaturgy:textures/aspect/permutatio.png")).withDerivation(AspectInit.ORDO.get(), AspectInit.PERDITIO.get()));
 
     public static final Codec<Aspect> CODEC = ExtraCodecs.lazyInitializedCodec(() -> ASPECT.get().getCodec());
 

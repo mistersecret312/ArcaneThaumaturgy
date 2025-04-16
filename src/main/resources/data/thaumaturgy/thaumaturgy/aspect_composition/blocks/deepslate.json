@@ -1,0 +1,10 @@
+{
+  "item": "minecraft:deepslate",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:terra",
+      "amount": 4
+    }
+  ]
+}

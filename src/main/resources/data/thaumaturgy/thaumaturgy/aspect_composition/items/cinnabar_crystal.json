@@ -1,0 +1,14 @@
+{
+  "item": "thaumaturgy:cinnabar_crystal",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:vitreus",
+      "amount": 1
+    },
+    {
+      "aspect": "thaumaturgy:permutatio",
+      "amount": 2
+    }
+  ]
+}

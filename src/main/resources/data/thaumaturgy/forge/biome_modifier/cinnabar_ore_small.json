@@ -1,0 +1,6 @@
+{
+    "type": "forge:add_features",
+    "features": "thaumaturgy:cinnabar_ore_small",
+    "biomes": "#minecraft:is_overworld",
+    "step": "underground_ores"
+}

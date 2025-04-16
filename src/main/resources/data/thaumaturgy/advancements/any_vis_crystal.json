@@ -1,14 +1,14 @@
 {
-  "parent": "thaumaturgy:root",
+  "parent": "thaumaturgy:thaumonomicon",
   "display": {
     "icon": {
       "item": "thaumaturgy:aer_vis_crystal"
     },
     "title": {
-      "translate": "advancements.thaumaturgy.any_vis_shard.title"
+      "translate": "advancements.thaumaturgy.any_vis_crystal.title"
     },
     "description": {
-      "translate": "advancements.thaumaturgy.any_vis_shard.description"
+      "translate": "advancements.thaumaturgy.any_vis_crystal.description"
     },
     "frame": "task",
     "show_toast": true,

@@ -1,8 +1,8 @@
 {
-  "type": "minecraft:smelting",
+  "type": "minecraft:blasting",
   "category": "misc",
-  "cookingtime": 200,
-  "experience": 0.7,
+  "cookingtime": 100,
+  "experience": 0.2,
   "group": "lapis",
   "ingredient": {
     "item": "thaumaturgy:purified_lapis_nucleus"

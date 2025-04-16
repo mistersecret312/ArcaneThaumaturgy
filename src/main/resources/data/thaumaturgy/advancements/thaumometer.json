@@ -1,0 +1,41 @@
+{
+  "parent": "thaumaturgy:any_vis_crystal",
+  "display": {
+    "icon": {
+      "item": "thaumaturgy:thaumometer"
+    },
+    "title": {
+      "translate": "advancements.thaumaturgy.thaumometer.title"
+    },
+    "description": {
+      "translate": "advancements.thaumaturgy.thaumometer.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "thaumometer": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "thaumaturgy:thaumometer"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "thaumometer"
+    ]
+  ],
+  "rewards": {
+    "experience": 250
+  },
+  "sends_telemetry_event": false
+}

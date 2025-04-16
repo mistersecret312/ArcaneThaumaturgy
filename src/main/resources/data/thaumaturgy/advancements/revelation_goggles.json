@@ -1,0 +1,41 @@
+{
+  "parent": "thaumaturgy:thaumometer",
+  "display": {
+    "icon": {
+      "item": "thaumaturgy:revelation_goggles"
+    },
+    "title": {
+      "translate": "advancements.thaumaturgy.revelation_goggles.title"
+    },
+    "description": {
+      "translate": "advancements.thaumaturgy.revelation_goggles.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "revelation_goggles": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "thaumaturgy:revelation_goggles"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "revelation_goggles"
+    ]
+  ],
+  "rewards": {
+    "experience": 250
+  },
+  "sends_telemetry_event": false
+}

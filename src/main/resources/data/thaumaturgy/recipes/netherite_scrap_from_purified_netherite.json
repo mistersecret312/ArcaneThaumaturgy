@@ -2,7 +2,7 @@
   "type": "minecraft:smelting",
   "category": "misc",
   "cookingtime": 200,
-  "experience": 0.7,
+  "experience": 2.0,
   "group": "netherite",
   "ingredient": {
     "item": "thaumaturgy:purified_netherite_nucleus"

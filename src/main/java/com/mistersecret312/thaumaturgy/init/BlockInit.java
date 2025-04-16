@@ -4,6 +4,7 @@ import com.mistersecret312.thaumaturgy.ArcaneThaumaturgyMod;
 import com.mistersecret312.thaumaturgy.blocks.*;
 import com.mistersecret312.thaumaturgy.world.GreatwoodTreeGrower;
 import net.minecraft.core.BlockPos;
+import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -138,6 +139,9 @@ public class BlockInit
     public static final RegistryObject<AmethystClusterBlock> PERDITIO_LARGE_VIS_CRYSTAL_BUD = registerBlock("perditio_large_vis_crystal_bud", () -> new AmethystClusterBlock(5, 3,BlockBehaviour.Properties.copy(PERDITIO_VIS_CRYSTAL_CLUSTER.get()).sound(SoundType.MEDIUM_AMETHYST_BUD).forceSolidOn().lightLevel((state) -> 4).pushReaction(PushReaction.DESTROY)));
     public static final RegistryObject<AmethystClusterBlock> PERDITIO_MEDIUM_VIS_CRYSTAL_BUD = registerBlock("perditio_medium_vis_crystal_bud", () -> new AmethystClusterBlock(4, 3,BlockBehaviour.Properties.copy(PERDITIO_VIS_CRYSTAL_CLUSTER.get()).sound(SoundType.LARGE_AMETHYST_BUD).forceSolidOn().lightLevel((state) -> 2).pushReaction(PushReaction.DESTROY)));
     public static final RegistryObject<AmethystClusterBlock> PERDITIO_SMALL_VIS_CRYSTAL_BUD = registerBlock("perditio_small_vis_crystal_bud", () -> new AmethystClusterBlock(3, 4,BlockBehaviour.Properties.copy(PERDITIO_VIS_CRYSTAL_CLUSTER.get()).sound(SoundType.SMALL_AMETHYST_BUD).forceSolidOn().lightLevel((state) -> 1).pushReaction(PushReaction.DESTROY)));
+
+    public static final RegistryObject<DropExperienceBlock> CINNABAR_ORE = registerBlock("cinnabar_ore", () -> new DropExperienceBlock(BlockBehaviour.Properties.of().mapColor(MapColor.STONE).requiresCorrectToolForDrops().strength(3.0F, 3.0F), UniformInt.of(3, 7)));
+    public static final RegistryObject<DropExperienceBlock> DEEPSLATE_CINNABAR_ORE = registerBlock("deepslate_cinnabar_ore", () -> new DropExperienceBlock(BlockBehaviour.Properties.of().mapColor(MapColor.STONE).requiresCorrectToolForDrops().strength(4.5F, 3.0F), UniformInt.of(3, 7)));
 
     private static Boolean ocelotOrParrot(BlockState state, BlockGetter getter, BlockPos pos, EntityType<?> type) {
         return type == EntityType.OCELOT || type == EntityType.PARROT;
