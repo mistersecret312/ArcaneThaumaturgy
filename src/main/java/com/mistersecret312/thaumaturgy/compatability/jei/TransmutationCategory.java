@@ -21,9 +21,13 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
 public class TransmutationCategory implements IRecipeCategory<TransmutationRecipe>
 {
-    public static final int ASPECTS_PER_LINE = 3;
+    public static final int ASPECTS_PER_LINE = 2;
 
     public static final ResourceLocation RECIPE_ID = new ResourceLocation(ArcaneThaumaturgyMod.MODID, "transmutation");
     public static final ResourceLocation TEXTURE = new ResourceLocation(ArcaneThaumaturgyMod.MODID, "textures/gui/jei_transmutation.png");
@@ -71,34 +75,37 @@ public class TransmutationCategory implements IRecipeCategory<TransmutationRecip
     }
 
     @Override
-    public void setRecipe(IRecipeLayoutBuilder builder, TransmutationRecipe recipe,
-                          IFocusGroup group)
+    public void setRecipe(IRecipeLayoutBuilder builder, TransmutationRecipe recipe, IFocusGroup group)
     {
         builder.addSlot(RecipeIngredientRole.INPUT, 4, 29).addIngredients(recipe.getCatalyst());
         builder.addSlot(RecipeIngredientRole.OUTPUT, 47, 7).addItemStack(recipe.getResult());
 
-        int aspectsTotal = recipe.aspects.size();
-        int row = 1;
-        for (int i = 0; i < aspectsTotal; i++)
+        HashMap<Integer, List<AspectStack>> rowList = new HashMap<>();
+        for (int i = 0; i < recipe.aspects.size(); i += ASPECTS_PER_LINE)
         {
-            AspectStack aspectStack = recipe.aspects.get(i);
-            AspectItem item = (AspectItem) ItemInit.ASPECT.get();
-            ItemStack stack = new ItemStack(item);
-            item.setAspect(stack, aspectStack);
-
-            int aspectSpacing = 16;
-            int y = 0;
-            int x = aspectSpacing*i;
-            if(i >= ASPECTS_PER_LINE)
+            List<AspectStack> subList = new ArrayList<>();
+            for (int j = i; j < recipe.aspects.size() &&  j < ASPECTS_PER_LINE+i; j++)
             {
-                y = aspectSpacing * (i / ASPECTS_PER_LINE);
-                x -= aspectSpacing*ASPECTS_PER_LINE*row;
-                row++;
+                subList.add(recipe.aspects.get(j));
             }
 
-            builder.addSlot(RecipeIngredientRole.RENDER_ONLY, 30 + x, 60 + y).addItemStack(stack);
+            rowList.put(i/ASPECTS_PER_LINE, subList);
         }
+        rowList.forEach((row, aspects) -> {
+            int x = 31-(((aspects.size()-1)*16)/2);
+            int y = 60+row*16;
+            for (AspectStack aspectStack : aspects)
+            {
+                AspectItem item = (AspectItem) ItemInit.ASPECT.get();
+                ItemStack stack = new ItemStack(item);
+                item.setAspect(stack, aspectStack);
+                x += 16;
+
+                builder.addSlot(RecipeIngredientRole.RENDER_ONLY, x, y).addItemStack(stack);
+            }
+        });
     }
-
-
 }
+
+
+

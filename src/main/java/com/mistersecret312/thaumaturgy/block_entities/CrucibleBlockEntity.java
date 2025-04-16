@@ -114,18 +114,22 @@ public class CrucibleBlockEntity extends BlockEntity
         Optional<TransmutationRecipe> recipe = level.getRecipeManager().getRecipeFor(TransmutationRecipe.Type.INSTANCE, new CrucibleContainer(handler, itemEntity.getItem()), level);
         if(recipe.isPresent())
         {
-            TransmutationRecipe realRecipe = recipe.get();
-            itemEntity.getItem().shrink(1);
-            realRecipe.aspects.forEach(aspect ->
-                    handler.extractAspect(aspect.getAspect(), aspect.getAmount(), false));
+            for (int i = 0; i < itemEntity.getItem().getCount(); i++)
+            {
+                TransmutationRecipe realRecipe = recipe.get();
+                itemEntity.getItem().shrink(1);
+                realRecipe.aspects.forEach(aspect ->
+                        handler.extractAspect(aspect.getAspect(), aspect.getAmount(), false));
 
-            HoveringItemEntity result = new HoveringItemEntity(level);
-            result.setNoGravity(true);
-            result.setItem(recipe.get().getResult());
-            result.setPos(this.getBlockPos().getCenter().x, this.getBlockPos().getY()+2, this.getBlockPos().getCenter().z);
-            result.setDeltaMovement(0, 0, 0);
-            level.addFreshEntity(result);
-            level.playSound(null, this.getBlockPos(), SoundInit.CRUCIBLE_BUBBLE.get(), SoundSource.BLOCKS, 1, 0.75f);
+                HoveringItemEntity result = new HoveringItemEntity(level);
+                result.setNoGravity(true);
+                result.setItem(recipe.get().getResult());
+                result.setPos(this.getBlockPos().getCenter().x, this.getBlockPos().getY()+2, this.getBlockPos().getCenter().z);
+                result.setDeltaMovement(0, 0, 0);
+                level.addFreshEntity(result);
+                level.playSound(null, this.getBlockPos(), SoundInit.CRUCIBLE_BUBBLE.get(), SoundSource.BLOCKS, 1, 0.75f);
+
+            }
         }
         if(recipe.isEmpty())
         {

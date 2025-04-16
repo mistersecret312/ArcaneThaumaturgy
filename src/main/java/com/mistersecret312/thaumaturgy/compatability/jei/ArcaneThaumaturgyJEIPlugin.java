@@ -5,6 +5,7 @@ import com.mistersecret312.thaumaturgy.init.BlockInit;
 import com.mistersecret312.thaumaturgy.recipes.TransmutationRecipe;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
+import mezz.jei.api.ingredients.IIngredientType;
 import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.registration.IModIngredientRegistration;
 import mezz.jei.api.registration.IRecipeCatalystRegistration;
