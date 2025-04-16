@@ -1,0 +1,14 @@
+{
+  "item": "thaumaturgy:purified_iron_nucleus",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:metallum",
+      "amount": 4
+    },
+    {
+      "aspect": "thaumaturgy:ordo",
+      "amount": 2
+    }
+  ]
+}

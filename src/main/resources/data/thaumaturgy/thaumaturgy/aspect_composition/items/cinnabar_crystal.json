@@ -9,6 +9,10 @@
     {
       "aspect": "thaumaturgy:permutatio",
       "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:perditio",
+      "amount": 1
     }
   ]
 }

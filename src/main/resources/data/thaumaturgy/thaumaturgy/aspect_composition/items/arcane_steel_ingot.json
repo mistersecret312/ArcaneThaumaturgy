@@ -1,0 +1,14 @@
+{
+  "item": "minecraft:iron_ingot",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:metallum",
+      "amount": 4
+    },
+    {
+      "aspect": "thaumaturgy:praecantatio",
+      "amount": 1
+    }
+  ]
+}

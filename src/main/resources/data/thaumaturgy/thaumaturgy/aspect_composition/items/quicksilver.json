@@ -1,0 +1,14 @@
+{
+  "item": "thaumaturgy:quicksilver",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:metallum",
+      "amount": 1
+    },
+    {
+      "aspect": "thaumaturgy:permutatio",
+      "amount": 2
+    }
+  ]
+}
