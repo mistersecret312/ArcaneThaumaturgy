@@ -1,0 +1,18 @@
+{
+  "item": "thaumaturgy:aer_small_vis_crystal_bud",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:aer",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:vitreus",
+      "amount": 1
+    },
+    {
+      "aspect": "thaumaturgy:praecantatio",
+      "amount": 1
+    }
+  ]
+}

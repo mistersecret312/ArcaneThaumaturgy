@@ -1,0 +1,14 @@
+{
+  "item": "minecraft:torch",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:lux",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:arbor",
+      "amount": 1
+    }
+  ]
+}

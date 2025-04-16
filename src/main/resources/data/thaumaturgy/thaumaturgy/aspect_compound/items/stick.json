@@ -1,0 +1,10 @@
+{
+  "item": "minecraft:stick",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:arbor",
+      "amount": 1
+    }
+  ]
+}

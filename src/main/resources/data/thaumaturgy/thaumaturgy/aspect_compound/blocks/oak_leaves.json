@@ -1,0 +1,10 @@
+{
+  "item": "minecraft:oak_leaves",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:herba",
+      "amount": 4
+    }
+  ]
+}

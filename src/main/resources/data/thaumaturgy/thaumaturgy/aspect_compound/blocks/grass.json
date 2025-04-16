@@ -1,0 +1,10 @@
+{
+  "item": "minecraft:grass",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:herba",
+      "amount": 2
+    }
+  ]
+}

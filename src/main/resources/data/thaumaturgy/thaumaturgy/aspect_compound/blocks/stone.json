@@ -1,0 +1,10 @@
+{
+  "item": "minecraft:stone",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:terra",
+      "amount": 2
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "item": "thaumaturgy:ignis_vis_crystal_cluster",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:ignis",
+      "amount": 8
+    },
+    {
+      "aspect": "thaumaturgy:vitreus",
+      "amount": 6
+    },
+    {
+      "aspect": "thaumaturgy:praecantatio",
+      "amount": 6
+    }
+  ]
+}
