@@ -1,0 +1,33 @@
+{
+  "type": "thaumaturgy:arcane_crafting_shaped",
+  "pattern": [
+    "  K",
+    " C ",
+    "K  "
+  ],
+  "key": {
+    "K": {
+      "item": "thaumaturgy:gold_knob"
+    },
+    "C": {
+      "item": "thaumaturgy:greatwood_core"
+    }
+  },
+  "aspects": [
+    {
+      "aspect": "thaumaturgy:aer",
+      "amount": 5
+    },
+    {
+      "aspect": "thaumaturgy:ignis",
+      "amount": 5
+    },
+    {
+      "aspect": "thaumaturgy:ordo",
+      "amount": 5
+    }
+  ],
+  "result": {
+    "item": "thaumaturgy:gold_wand"
+  }
+}
