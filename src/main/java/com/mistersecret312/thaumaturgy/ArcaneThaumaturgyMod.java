@@ -1,27 +1,18 @@
 package com.mistersecret312.thaumaturgy;
 
-import com.mistersecret312.thaumaturgy.aspects.AspectStack;
 import com.mistersecret312.thaumaturgy.client.Layers;
 import com.mistersecret312.thaumaturgy.client.gui.WandAspectOverlay;
 import com.mistersecret312.thaumaturgy.client.renderer.*;
-import com.mistersecret312.thaumaturgy.aspects.Aspect;
 import com.mistersecret312.thaumaturgy.client.screen.ArcaneWorkbenchScreen;
-import com.mistersecret312.thaumaturgy.datapack.AspectComposition;
+import com.mistersecret312.thaumaturgy.datapack.AspectCompound;
 import com.mistersecret312.thaumaturgy.init.*;
 import com.mistersecret312.thaumaturgy.items.NitorItem;
-import com.mistersecret312.thaumaturgy.recipes.TransmutationRecipe;
 import com.mistersecret312.thaumaturgy.tooltipcomponents.AspectTooltipComponent;
 import com.mojang.logging.LogUtils;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.MenuScreens;
-import net.minecraft.client.multiplayer.ClientPacketListener;
 import net.minecraft.client.renderer.entity.EntityRenderers;
-import net.minecraft.core.Holder;
-import net.minecraft.core.Registry;
-import net.minecraft.core.RegistryAccess;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.server.packs.resources.ResourceManagerReloadListener;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.api.distmarker.Dist;
@@ -36,11 +27,8 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DataPackRegistryEvent;
-import net.minecraftforge.registries.NewRegistryEvent;
-import net.minecraftforge.registries.RegistryBuilder;
 import org.slf4j.Logger;
 
-import java.util.List;
 import java.util.function.Function;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -73,7 +61,7 @@ public class ArcaneThaumaturgyMod
         MinecraftForge.EVENT_BUS.register(this);
 
         modEventBus.addListener((DataPackRegistryEvent.NewRegistry event) -> {
-            event.dataPackRegistry(AspectComposition.REGISTRY_KEY, AspectComposition.CODEC, AspectComposition.CODEC);
+            event.dataPackRegistry(AspectCompound.REGISTRY_KEY, AspectCompound.CODEC, AspectCompound.CODEC);
         });
 
         // Register the item to a creative tab

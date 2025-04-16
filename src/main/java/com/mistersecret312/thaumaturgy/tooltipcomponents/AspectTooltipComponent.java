@@ -3,23 +3,22 @@ package com.mistersecret312.thaumaturgy.tooltipcomponents;
 import com.mistersecret312.thaumaturgy.ArcaneThaumaturgyMod;
 import com.mistersecret312.thaumaturgy.aspects.AspectStack;
 import com.mistersecret312.thaumaturgy.aspects.Aspect;
-import com.mistersecret312.thaumaturgy.datapack.AspectComposition;
+import com.mistersecret312.thaumaturgy.datapack.AspectCompound;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.tooltip.ClientTooltipComponent;
-import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.inventory.tooltip.TooltipComponent;
 
 public class AspectTooltipComponent implements ClientTooltipComponent, TooltipComponent
 {
-    public AspectComposition aspectComposition;
+    public AspectCompound aspectCompound;
 
-    public AspectTooltipComponent(AspectComposition composition)
+    public AspectTooltipComponent(AspectCompound composition)
     {
-        this.aspectComposition = composition;
+        this.aspectCompound = composition;
     }
 
     @Override
@@ -28,9 +27,9 @@ public class AspectTooltipComponent implements ClientTooltipComponent, TooltipCo
         final PoseStack pose = pGuiGraphics.pose();
 
         Minecraft minecraft = Minecraft.getInstance();
-        for (int i = 0; i < aspectComposition.getAspects().size(); i++)
+        for (int i = 0; i < aspectCompound.getAspects().size(); i++)
         {
-            AspectStack stack = aspectComposition.getAspects().get(i);
+            AspectStack stack = aspectCompound.getAspects().get(i);
             Aspect aspect = stack.getAspect();
             if(aspect != null)
             {

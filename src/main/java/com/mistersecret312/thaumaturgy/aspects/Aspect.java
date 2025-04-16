@@ -18,7 +18,7 @@ public class Aspect
     private List<Integer> color;
     private ResourceLocation texture;
     @Nullable
-    private DerivationData derivationData = null;
+    private CompoundData compoundData = null;
     public Aspect(List<Integer> color, ResourceLocation texture)
     {
         this.color = color;
@@ -36,28 +36,28 @@ public class Aspect
     }
 
     @Nullable
-    public DerivationData getDerivationData()
+    public CompoundData getCompoundData()
     {
-        return derivationData;
+        return compoundData;
     }
 
-    public Aspect withDerivation(Aspect aspectA, Aspect aspectB)
+    public Aspect withCompound(Aspect aspectA, Aspect aspectB)
     {
-        derivationData = new DerivationData(aspectA, aspectB);
+        compoundData = new CompoundData(aspectA, aspectB);
         return this;
     }
 
-    public boolean isPrimal()
+    public boolean isPrime()
     {
-        return derivationData == null;
+        return compoundData == null;
     }
 
-    public static class DerivationData
+    public static class CompoundData
     {
         public Aspect aspectA;
         public Aspect aspectB;
 
-        public DerivationData(Aspect aspectA, Aspect aspectB)
+        public CompoundData(Aspect aspectA, Aspect aspectB)
         {
             this.aspectA = aspectA;
             this.aspectB = aspectB;

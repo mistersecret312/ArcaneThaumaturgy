@@ -4,16 +4,13 @@ import com.mistersecret312.thaumaturgy.aspects.Aspect;
 import com.mistersecret312.thaumaturgy.aspects.AspectStack;
 import com.mistersecret312.thaumaturgy.aspects.UndefinedAspectStackHandler;
 import com.mistersecret312.thaumaturgy.containers.CrucibleContainer;
-import com.mistersecret312.thaumaturgy.datapack.AspectComposition;
+import com.mistersecret312.thaumaturgy.datapack.AspectCompound;
 import com.mistersecret312.thaumaturgy.entities.HoveringItemEntity;
 import com.mistersecret312.thaumaturgy.init.BlockEntityInit;
 import com.mistersecret312.thaumaturgy.init.NetworkInit;
 import com.mistersecret312.thaumaturgy.init.SoundInit;
 import com.mistersecret312.thaumaturgy.network.packets.UpdateCrucibleClientboundPacket;
 import com.mistersecret312.thaumaturgy.recipes.TransmutationRecipe;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.particle.BubbleParticle;
-import net.minecraft.client.particle.Particle;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
@@ -31,8 +28,6 @@ import net.minecraft.world.level.block.state.BlockState;
 
 import java.util.Map;
 import java.util.Optional;
-import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.concurrent.atomic.AtomicInteger;
 
 import static com.mistersecret312.thaumaturgy.blocks.CrucibleBlock.IS_BOILING;
 import static com.mistersecret312.thaumaturgy.blocks.CrucibleBlock.LEVEL;
@@ -63,13 +58,13 @@ public class CrucibleBlockEntity extends BlockEntity
             if (level.getGameTime() % 400 == 0 && randomAspect != null)
             {
                 AspectStack stack = crucible.handler.extractAspect(randomAspect, 1, false);
-                if (!stack.getAspect().isPrimal() && stack.getAspect().getDerivationData() != null)
+                if (!stack.getAspect().isPrime() && stack.getAspect().getCompoundData() != null)
                 {
                     if (level.random.nextBoolean())
                     {
-                        crucible.handler.insertAspect(new AspectStack(stack.getAspect().getDerivationData().aspectA), false);
+                        crucible.handler.insertAspect(new AspectStack(stack.getAspect().getCompoundData().aspectA), false);
                     } else
-                        crucible.handler.insertAspect(new AspectStack(stack.getAspect().getDerivationData().aspectB), false);
+                        crucible.handler.insertAspect(new AspectStack(stack.getAspect().getCompoundData().aspectB), false);
                 }
             }
 
@@ -133,7 +128,7 @@ public class CrucibleBlockEntity extends BlockEntity
         }
         if(recipe.isEmpty())
         {
-            Optional<Map.Entry<ResourceKey<AspectComposition>, AspectComposition>> composition = level.getServer().registryAccess().registryOrThrow(AspectComposition.REGISTRY_KEY).entrySet().stream()
+            Optional<Map.Entry<ResourceKey<AspectCompound>, AspectCompound>> composition = level.getServer().registryAccess().registryOrThrow(AspectCompound.REGISTRY_KEY).entrySet().stream()
                     .filter(filter -> itemEntity.getItem().is(filter.getValue().getItem())).findFirst();
 
             composition.ifPresent(comp -> {

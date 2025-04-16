@@ -1,7 +1,7 @@
 package com.mistersecret312.thaumaturgy.events;
 
 import com.mistersecret312.thaumaturgy.ArcaneThaumaturgyMod;
-import com.mistersecret312.thaumaturgy.datapack.AspectComposition;
+import com.mistersecret312.thaumaturgy.datapack.AspectCompound;
 import com.mistersecret312.thaumaturgy.items.RevelationGogglesItem;
 import com.mistersecret312.thaumaturgy.tooltipcomponents.AspectTooltipComponent;
 import com.mojang.datafixers.util.Either;
@@ -33,19 +33,19 @@ public class ClientBusEvents
         Minecraft minecraft = Minecraft.getInstance();
         ClientPacketListener clientPacketListener = minecraft.getConnection();
         RegistryAccess registries = clientPacketListener.registryAccess();
-        Registry<AspectComposition> aspectCompositions = registries.registryOrThrow(AspectComposition.REGISTRY_KEY);
+        Registry<AspectCompound> aspectCompositions = registries.registryOrThrow(AspectCompound.REGISTRY_KEY);
 
-        Stream<Map.Entry<ResourceKey<AspectComposition>, AspectComposition>> filtered = aspectCompositions.entrySet().stream().filter(key -> {
+        Stream<Map.Entry<ResourceKey<AspectCompound>, AspectCompound>> filtered = aspectCompositions.entrySet().stream().filter(key -> {
             Item item = key.getValue().getItem();
             return event.getItemStack().is(item);
         });
 
-        Optional<Map.Entry<ResourceKey<AspectComposition>, AspectComposition>> object = filtered.findFirst();
+        Optional<Map.Entry<ResourceKey<AspectCompound>, AspectCompound>> object = filtered.findFirst();
         LocalPlayer player = Minecraft.getInstance().player;
         boolean reveal = player.getInventory().armor.stream().anyMatch(item -> item.getItem() instanceof RevelationGogglesItem);
         if(object.isPresent() && reveal)
         {
-            AspectComposition composition = object.get().getValue();
+            AspectCompound composition = object.get().getValue();
             event.getTooltipElements().add(Either.right(new AspectTooltipComponent(composition)));
         }
     }

@@ -3,8 +3,7 @@ package com.mistersecret312.thaumaturgy.client.renderer;
 import com.mistersecret312.thaumaturgy.ArcaneThaumaturgyMod;
 import com.mistersecret312.thaumaturgy.aspects.AspectStack;
 import com.mistersecret312.thaumaturgy.aspects.Aspect;
-import com.mistersecret312.thaumaturgy.datapack.AspectComposition;
-import com.mistersecret312.thaumaturgy.init.AspectInit;
+import com.mistersecret312.thaumaturgy.datapack.AspectCompound;
 import com.mojang.blaze3d.platform.GlStateManager;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.*;
@@ -95,7 +94,7 @@ public class ThaumometerInfoRenderer extends BlockEntityWithoutLevelRenderer {
 
         ClientPacketListener packetListener = minecraft.getConnection();
         RegistryAccess access = packetListener.registryAccess();
-        Registry<AspectComposition> aspectCompositions = access.registryOrThrow(AspectComposition.REGISTRY_KEY);
+        Registry<AspectCompound> aspectCompositions = access.registryOrThrow(AspectCompound.REGISTRY_KEY);
 
 
         if(result != null)
@@ -111,7 +110,7 @@ public class ThaumometerInfoRenderer extends BlockEntityWithoutLevelRenderer {
                 font.drawInBatch(name, -textWidth/2, -45, -1, false, pose.last().pose(), buffer, Font.DisplayMode.NORMAL, 0, 15728880);
                 pose.popPose();
 
-                Optional<Map.Entry<ResourceKey<AspectComposition>, AspectComposition>> object = aspectCompositions.entrySet().stream().filter(entry -> {
+                Optional<Map.Entry<ResourceKey<AspectCompound>, AspectCompound>> object = aspectCompositions.entrySet().stream().filter(entry -> {
                     Item item = entry.getValue().getItem();
                     if(item != null)
                     {
@@ -130,7 +129,7 @@ public class ThaumometerInfoRenderer extends BlockEntityWithoutLevelRenderer {
                 font.drawInBatch(name, -textWidth/2, -45, -1, false, pose.last().pose(), buffer, Font.DisplayMode.NORMAL, 0, 15728880);
                 pose.popPose();
 
-                Optional<Map.Entry<ResourceKey<AspectComposition>, AspectComposition>> object = aspectCompositions.entrySet().stream().filter(entry -> {
+                Optional<Map.Entry<ResourceKey<AspectCompound>, AspectCompound>> object = aspectCompositions.entrySet().stream().filter(entry -> {
                     EntityType<?> type = entry.getValue().getEntity();
                     if(type != null)
                     {
@@ -169,20 +168,20 @@ public class ThaumometerInfoRenderer extends BlockEntityWithoutLevelRenderer {
 
             ClientPacketListener packetListener = minecraft.getConnection();
             RegistryAccess access = packetListener.registryAccess();
-            Registry<AspectComposition> aspectCompositions = access.registryOrThrow(AspectComposition.REGISTRY_KEY);
+            Registry<AspectCompound> aspectCompositions = access.registryOrThrow(AspectCompound.REGISTRY_KEY);
 
-            Stream<Map.Entry<ResourceKey<AspectComposition>, AspectComposition>> filtered = aspectCompositions.entrySet().stream().filter(key -> {
+            Stream<Map.Entry<ResourceKey<AspectCompound>, AspectCompound>> filtered = aspectCompositions.entrySet().stream().filter(key -> {
                 Item item = key.getValue().getItem();
                 if(item != null)
                     return blockState.getBlock().asItem().equals(item);
                 return false;
             });
-            Optional<Map.Entry<ResourceKey<AspectComposition>, AspectComposition>> object = filtered.findFirst();
+            Optional<Map.Entry<ResourceKey<AspectCompound>, AspectCompound>> object = filtered.findFirst();
             object.ifPresent(resourceKeyAspectCompositionEntry -> renderAspectComposition(pose, font, buffer, minecraft, resourceKeyAspectCompositionEntry));
         }
     }
 
-    public void renderAspectComposition(PoseStack pose, Font font, MultiBufferSource buffer, Minecraft minecraft, Map.Entry<ResourceKey<AspectComposition>, AspectComposition> object)
+    public void renderAspectComposition(PoseStack pose, Font font, MultiBufferSource buffer, Minecraft minecraft, Map.Entry<ResourceKey<AspectCompound>, AspectCompound> object)
     {
         for (int i = 0; i < object.getValue().getAspects().size(); i++)
         {
