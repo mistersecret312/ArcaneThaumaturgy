@@ -1,0 +1,18 @@
+{
+  "item": "minecraft:deepslate_gold_ore",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:metallum",
+      "amount": 9
+    },
+    {
+      "aspect": "thaumaturgy:lucrum",
+      "amount": 6
+    },
+    {
+      "aspect": "thaumaturgy:terra",
+      "amount": 4
+    }
+  ]
+}

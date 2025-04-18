@@ -1,0 +1,14 @@
+{
+  "item": "minecraft:cherry_wood",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:arbor",
+      "amount": 4
+    },
+    {
+      "aspect": "thaumaturgy:volatus",
+      "amount": 2
+    }
+  ]
+}

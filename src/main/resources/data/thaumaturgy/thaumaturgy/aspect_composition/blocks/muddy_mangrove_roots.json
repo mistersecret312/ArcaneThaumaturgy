@@ -1,0 +1,22 @@
+{
+  "item": "minecraft:muddy_mangrove_roots",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:arbor",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:vinculum",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:aqua",
+      "amount": 1
+    },
+    {
+      "aspect": "thaumaturgy:terra",
+      "amount": 1
+    }
+  ]
+}

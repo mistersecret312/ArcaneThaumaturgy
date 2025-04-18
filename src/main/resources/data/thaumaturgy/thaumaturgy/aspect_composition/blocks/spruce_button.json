@@ -1,0 +1,22 @@
+{
+  "item": "minecraft:spruce_button",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:arbor",
+      "amount": 1
+    },
+    {
+      "aspect": "thaumaturgy:machina",
+      "amount": 1
+    },
+    {
+      "aspect": "thaumaturgy:sensus",
+      "amount": 1
+    },
+    {
+      "aspect": "thaumaturgy:frigus",
+      "amount": 1
+    }
+  ]
+}

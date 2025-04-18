@@ -1,0 +1,14 @@
+{
+  "item": "minecraft:gold_block",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:metallum",
+      "amount": 27
+    },
+    {
+      "aspect": "thaumaturgy:lucrum",
+      "amount": 18
+    }
+  ]
+}

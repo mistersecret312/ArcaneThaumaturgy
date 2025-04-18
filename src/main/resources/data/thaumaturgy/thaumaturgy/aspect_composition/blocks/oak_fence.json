@@ -1,0 +1,10 @@
+{
+  "item": "minecraft:oak_fence",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:arbor",
+      "amount": 2
+    }
+  ]
+}

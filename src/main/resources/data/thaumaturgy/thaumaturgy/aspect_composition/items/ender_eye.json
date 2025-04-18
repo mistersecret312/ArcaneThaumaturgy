@@ -1,0 +1,22 @@
+{
+  "item": "minecraft:ender_eye",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:prohibitum",
+      "amount": 3
+    },
+    {
+      "aspect": "thaumaturgy:iter",
+      "amount": 3
+    },
+    {
+      "aspect": "thaumaturgy:praecantatio",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:sensus",
+      "amount": 2
+    }
+  ]
+}

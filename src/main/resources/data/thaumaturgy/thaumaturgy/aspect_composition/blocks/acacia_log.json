@@ -1,0 +1,14 @@
+{
+  "item": "minecraft:acacia_log",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:arbor",
+      "amount": 4
+    },
+    {
+      "aspect": "thaumaturgy:terra",
+      "amount": 2
+    }
+  ]
+}

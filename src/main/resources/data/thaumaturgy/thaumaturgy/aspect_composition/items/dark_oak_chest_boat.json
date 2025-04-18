@@ -1,0 +1,22 @@
+{
+  "item": "minecraft:dark_oak_chest_boat",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:arbor",
+      "amount": 8
+    },
+    {
+      "aspect": "thaumaturgy:vacuos",
+      "amount": 4
+    },
+    {
+      "aspect": "thaumaturgy:iter",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:perditio",
+      "amount": 2
+    }
+  ]
+}

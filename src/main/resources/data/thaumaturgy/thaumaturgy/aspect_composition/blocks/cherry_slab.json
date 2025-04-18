@@ -1,0 +1,14 @@
+{
+  "item": "minecraft:cherry_slab",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:arbor",
+      "amount": 1
+    },
+    {
+      "aspect": "thaumaturgy:volatus",
+      "amount": 1
+    }
+  ]
+}

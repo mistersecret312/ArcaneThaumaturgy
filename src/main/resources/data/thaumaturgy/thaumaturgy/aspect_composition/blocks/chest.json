@@ -1,0 +1,14 @@
+{
+  "item": "minecraft:chest",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:arbor",
+      "amount": 6
+    },
+    {
+      "aspect": "thaumaturgy:vacuos",
+      "amount": 4
+    }
+  ]
+}

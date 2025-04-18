@@ -1,0 +1,18 @@
+{
+  "item": "minecraft:crying_obsidian",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:prohibitum",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:ignis",
+      "amount": 1
+    },
+    {
+      "aspect": "thaumaturgy:terra",
+      "amount": 2
+    }
+  ]
+}

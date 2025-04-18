@@ -1,0 +1,18 @@
+{
+  "item": "minecraft:birch_sapling",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:herba",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:arbor",
+      "amount": 1
+    },
+    {
+      "aspect": "thaumaturgy:aer",
+      "amount": 1
+    }
+  ]
+}

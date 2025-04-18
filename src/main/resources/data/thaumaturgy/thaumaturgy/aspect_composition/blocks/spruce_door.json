@@ -1,0 +1,22 @@
+{
+  "item": "minecraft:spruce_door",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:arbor",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:machina",
+      "amount": 1
+    },
+    {
+      "aspect": "thaumaturgy:motus",
+      "amount": 1
+    },
+    {
+      "aspect": "thaumaturgy:frigus",
+      "amount": 1
+    }
+  ]
+}

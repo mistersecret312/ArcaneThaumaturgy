@@ -1,0 +1,14 @@
+{
+  "item": "minecraft:stripped_acacia_wood",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:arbor",
+      "amount": 3
+    },
+    {
+      "aspect": "thaumaturgy:terra",
+      "amount": 2
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "item": "thaumaturgy:purified_quicksilver_nucleus",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:permutatio",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:veneum",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:ordo",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:metallum",
+      "amount": 1
+    }
+  ]
+}

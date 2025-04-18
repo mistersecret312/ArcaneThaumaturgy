@@ -1,0 +1,14 @@
+{
+  "item": "minecraft:stripped_spruce_log",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:arbor",
+      "amount": 3
+    },
+    {
+      "aspect": "thaumaturgy:frigus",
+      "amount": 2
+    }
+  ]
+}

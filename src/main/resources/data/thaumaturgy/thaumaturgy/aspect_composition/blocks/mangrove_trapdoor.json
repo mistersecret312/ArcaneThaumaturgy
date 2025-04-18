@@ -1,0 +1,22 @@
+{
+  "item": "minecraft:mangrove_trapdoor",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:arbor",
+      "amount": 3
+    },
+    {
+      "aspect": "thaumaturgy:machina",
+      "amount": 1
+    },
+    {
+      "aspect": "thaumaturgy:motus",
+      "amount": 1
+    },
+    {
+      "aspect": "thaumaturgy:vinculum",
+      "amount": 1
+    }
+  ]
+}

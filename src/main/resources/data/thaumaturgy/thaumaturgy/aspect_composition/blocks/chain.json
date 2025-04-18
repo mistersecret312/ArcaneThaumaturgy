@@ -1,0 +1,10 @@
+{
+  "item": "minecraft:oak_sign",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:metallum",
+      "amount": 6
+    }
+  ]
+}

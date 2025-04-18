@@ -4,7 +4,7 @@ import com.mistersecret312.thaumaturgy.client.Layers;
 import com.mistersecret312.thaumaturgy.client.gui.WandAspectOverlay;
 import com.mistersecret312.thaumaturgy.client.renderer.*;
 import com.mistersecret312.thaumaturgy.client.screen.ArcaneWorkbenchScreen;
-import com.mistersecret312.thaumaturgy.datapack.AspectCompound;
+import com.mistersecret312.thaumaturgy.datapack.AspectComposition;
 import com.mistersecret312.thaumaturgy.init.*;
 import com.mistersecret312.thaumaturgy.items.NitorItem;
 import com.mistersecret312.thaumaturgy.tooltipcomponents.AspectTooltipComponent;
@@ -61,7 +61,7 @@ public class ArcaneThaumaturgyMod
         MinecraftForge.EVENT_BUS.register(this);
 
         modEventBus.addListener((DataPackRegistryEvent.NewRegistry event) -> {
-            event.dataPackRegistry(AspectCompound.REGISTRY_KEY, AspectCompound.CODEC, AspectCompound.CODEC);
+            event.dataPackRegistry(AspectComposition.REGISTRY_KEY, AspectComposition.CODEC, AspectComposition.CODEC);
         });
 
         // Register the item to a creative tab

@@ -1,0 +1,14 @@
+{
+  "item": "minecraft:spruce_leaves",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:herba",
+      "amount": 4
+    },
+    {
+      "aspect": "thaumaturgy:frigus",
+      "amount": 2
+    }
+  ]
+}

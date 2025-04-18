@@ -1,0 +1,14 @@
+{
+  "item": "minecraft:birch_fence",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:arbor",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:aer",
+      "amount": 1
+    }
+  ]
+}

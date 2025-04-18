@@ -1,0 +1,10 @@
+{
+  "item": "minecraft:stripped_oak_log",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:arbor",
+      "amount": 3
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "item": "minecraft:copper_block",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:metallum",
+      "amount": 27
+    },
+    {
+      "aspect": "thaumaturgy:machina",
+      "amount": 18
+    }
+  ]
+}

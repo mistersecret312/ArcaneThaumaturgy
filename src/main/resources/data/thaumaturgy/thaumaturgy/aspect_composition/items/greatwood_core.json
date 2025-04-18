@@ -1,0 +1,14 @@
+{
+  "item": "thaumaturgy:greatwood_core",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:arbor",
+      "amount": 6
+    },
+    {
+      "aspect": "thaumaturgy:praecantatio",
+      "amount": 2
+    }
+  ]
+}

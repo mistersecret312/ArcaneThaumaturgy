@@ -1,0 +1,14 @@
+{
+  "item": "minecraft:birch_wood",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:arbor",
+      "amount": 4
+    },
+    {
+      "aspect": "thaumaturgy:aer",
+      "amount": 2
+    }
+  ]
+}

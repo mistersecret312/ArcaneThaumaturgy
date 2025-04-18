@@ -1,0 +1,22 @@
+{
+  "item": "minecraft:birch_button",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:arbor",
+      "amount": 1
+    },
+    {
+      "aspect": "thaumaturgy:machina",
+      "amount": 1
+    },
+    {
+      "aspect": "thaumaturgy:sensus",
+      "amount": 1
+    },
+    {
+      "aspect": "thaumaturgy:aer",
+      "amount": 1
+    }
+  ]
+}

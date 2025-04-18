@@ -1,0 +1,22 @@
+{
+  "item": "minecraft:birch_chest_boat",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:arbor",
+      "amount": 8
+    },
+    {
+      "aspect": "thaumaturgy:vacuos",
+      "amount": 4
+    },
+    {
+      "aspect": "thaumaturgy:iter",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:aer",
+      "amount": 2
+    }
+  ]
+}

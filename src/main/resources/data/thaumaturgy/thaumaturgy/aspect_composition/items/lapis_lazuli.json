@@ -1,0 +1,18 @@
+{
+  "item": "minecraft:lapis_lazuli",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:vitreus",
+      "amount": 3
+    },
+    {
+      "aspect": "thaumaturgy:praecantatio",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:sensus",
+      "amount": 1
+    }
+  ]
+}

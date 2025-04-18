@@ -1,0 +1,14 @@
+{
+  "item": "minecraft:jungle_sign",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:arbor",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:aqua",
+      "amount": 1
+    }
+  ]
+}

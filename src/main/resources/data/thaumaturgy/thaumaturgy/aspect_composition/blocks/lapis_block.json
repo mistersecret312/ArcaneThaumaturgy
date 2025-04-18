@@ -1,0 +1,18 @@
+{
+  "item": "minecraft:lapis_block",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:vitreus",
+      "amount": 27
+    },
+    {
+      "aspect": "thaumaturgy:praecantatio",
+      "amount": 18
+    },
+    {
+      "aspect": "thaumaturgy:sensus",
+      "amount": 9
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "item": "minecraft:lapis_ore",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:vitreus",
+      "amount": 6
+    },
+    {
+      "aspect": "thaumaturgy:praecantatio",
+      "amount": 4
+    },
+    {
+      "aspect": "thaumaturgy:sensus",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:terra",
+      "amount": 2
+    }
+  ]
+}

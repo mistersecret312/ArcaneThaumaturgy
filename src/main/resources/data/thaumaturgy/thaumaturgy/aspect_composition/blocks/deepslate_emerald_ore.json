@@ -1,0 +1,18 @@
+{
+  "item": "minecraft:deepslate_emerald_ore",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:lucrum",
+      "amount": 18
+    },
+    {
+      "aspect": "thaumaturgy:vitreus",
+      "amount": 9
+    },
+    {
+      "aspect": "thaumaturgy:terra",
+      "amount": 4
+    }
+  ]
+}

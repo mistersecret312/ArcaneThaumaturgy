@@ -1,0 +1,14 @@
+{
+  "item": "minecraft:spruce_sign",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:arbor",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:frigus",
+      "amount": 1
+    }
+  ]
+}

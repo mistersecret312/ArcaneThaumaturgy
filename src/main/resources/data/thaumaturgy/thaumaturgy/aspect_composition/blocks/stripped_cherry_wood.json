@@ -1,0 +1,14 @@
+{
+  "item": "minecraft:stripped_cherry_wood",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:arbor",
+      "amount": 3
+    },
+    {
+      "aspect": "thaumaturgy:volatus",
+      "amount": 2
+    }
+  ]
+}

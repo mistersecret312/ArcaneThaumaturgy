@@ -1,0 +1,18 @@
+{
+  "item": "minecraft:raw_iron_block",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:metallum",
+      "amount": 27
+    },
+    {
+      "aspect": "thaumaturgy:terra",
+      "amount": 18
+    },
+    {
+      "aspect": "thaumaturgy:perditio",
+      "amount": 9
+    }
+  ]
+}

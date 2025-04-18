@@ -1,0 +1,22 @@
+{
+  "item": "minecraft:raw_copper_block",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:terra",
+      "amount": 18
+    },
+    {
+      "aspect": "thaumaturgy:metallum",
+      "amount": 18
+    },
+    {
+      "aspect": "thaumaturgy:machina",
+      "amount": 9
+    },
+    {
+      "aspect": "thaumaturgy:perditio",
+      "amount": 9
+    }
+  ]
+}

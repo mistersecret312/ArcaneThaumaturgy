@@ -1,0 +1,14 @@
+{
+  "item": "minecraft:birch_slab",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:arbor",
+      "amount": 1
+    },
+    {
+      "aspect": "thaumaturgy:aer",
+      "amount": 1
+    }
+  ]
+}

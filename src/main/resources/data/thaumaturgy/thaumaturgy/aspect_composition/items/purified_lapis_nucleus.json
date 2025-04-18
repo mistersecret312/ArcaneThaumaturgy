@@ -1,0 +1,22 @@
+{
+  "item": "thaumaturgy:purified_lapis_nucleus",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:vitreus",
+      "amount": 3
+    },
+    {
+      "aspect": "thaumaturgy:praecantatio",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:ordo",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:sensus",
+      "amount": 1
+    }
+  ]
+}

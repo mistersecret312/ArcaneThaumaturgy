@@ -1,0 +1,10 @@
+{
+  "item": "minecraft:oak_stairs",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:arbor",
+      "amount": 1
+    }
+  ]
+}

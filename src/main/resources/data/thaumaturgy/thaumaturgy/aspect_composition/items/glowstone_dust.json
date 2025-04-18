@@ -1,0 +1,22 @@
+{
+  "item": "minecraft:glowstone_dust",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:lux",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:sensus",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:vitreus",
+      "amount": 1
+    },
+    {
+      "aspect": "thaumaturgy:perditio",
+      "amount": 1
+    }
+  ]
+}

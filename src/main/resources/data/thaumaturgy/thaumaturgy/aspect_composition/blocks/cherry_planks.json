@@ -1,0 +1,14 @@
+{
+  "item": "minecraft:cherry_planks",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:arbor",
+      "amount": 1
+    },
+    {
+      "aspect": "thaumaturgy:volatus",
+      "amount": 1
+    }
+  ]
+}

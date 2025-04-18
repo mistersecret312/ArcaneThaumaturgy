@@ -1,0 +1,14 @@
+{
+  "item": "minecraft:diamond_block",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:lucrum",
+      "amount": 36
+    },
+    {
+      "aspect": "thaumaturgy:vitreus",
+      "amount": 27
+    }
+  ]
+}

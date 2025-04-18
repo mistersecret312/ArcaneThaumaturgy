@@ -1,0 +1,14 @@
+{
+  "item": "minecraft:stripped_mangrove_log",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:arbor",
+      "amount": 3
+    },
+    {
+      "aspect": "thaumaturgy:vinculum",
+      "amount": 2
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "item": "minecraft:jungle_wood",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:arbor",
+      "amount": 4
+    },
+    {
+      "aspect": "thaumaturgy:aqua",
+      "amount": 2
+    }
+  ]
+}

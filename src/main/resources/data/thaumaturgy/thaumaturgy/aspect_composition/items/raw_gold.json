@@ -1,0 +1,22 @@
+{
+  "item": "minecraft:raw_gold",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:terra",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:metallum",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:lucrum",
+      "amount": 1
+    },
+    {
+      "aspect": "thaumaturgy:perditio",
+      "amount": 1
+    }
+  ]
+}

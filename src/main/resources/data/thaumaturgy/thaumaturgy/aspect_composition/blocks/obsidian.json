@@ -1,0 +1,18 @@
+{
+  "item": "minecraft:obsidian",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:ignis",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:terra",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:tenebrae",
+      "amount": 1
+    }
+  ]
+}

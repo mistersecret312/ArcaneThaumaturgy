@@ -4,7 +4,7 @@ import com.mistersecret312.thaumaturgy.aspects.Aspect;
 import com.mistersecret312.thaumaturgy.aspects.AspectStack;
 import com.mistersecret312.thaumaturgy.aspects.UndefinedAspectStackHandler;
 import com.mistersecret312.thaumaturgy.containers.CrucibleContainer;
-import com.mistersecret312.thaumaturgy.datapack.AspectCompound;
+import com.mistersecret312.thaumaturgy.datapack.AspectComposition;
 import com.mistersecret312.thaumaturgy.entities.HoveringItemEntity;
 import com.mistersecret312.thaumaturgy.init.BlockEntityInit;
 import com.mistersecret312.thaumaturgy.init.NetworkInit;
@@ -128,7 +128,7 @@ public class CrucibleBlockEntity extends BlockEntity
         }
         if(recipe.isEmpty())
         {
-            Optional<Map.Entry<ResourceKey<AspectCompound>, AspectCompound>> composition = level.getServer().registryAccess().registryOrThrow(AspectCompound.REGISTRY_KEY).entrySet().stream()
+            Optional<Map.Entry<ResourceKey<AspectComposition>, AspectComposition>> composition = level.getServer().registryAccess().registryOrThrow(AspectComposition.REGISTRY_KEY).entrySet().stream()
                     .filter(filter -> itemEntity.getItem().is(filter.getValue().getItem())).findFirst();
 
             composition.ifPresent(comp -> {

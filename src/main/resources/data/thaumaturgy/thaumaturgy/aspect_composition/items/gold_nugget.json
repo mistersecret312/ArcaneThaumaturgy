@@ -1,0 +1,10 @@
+{
+  "item": "minecraft:gold_nugget",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:metallum",
+      "amount": 1
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "item": "thaumaturgy:iron_knob",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:metallum",
+      "amount": 8
+    }
+  ]
+}

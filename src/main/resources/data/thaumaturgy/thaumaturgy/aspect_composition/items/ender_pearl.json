@@ -1,0 +1,22 @@
+{
+  "item": "minecraft:ender_pearl",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:prohibitum",
+      "amount": 4
+    },
+    {
+      "aspect": "thaumaturgy:iter",
+      "amount": 4
+    },
+    {
+      "aspect": "thaumaturgy:praecantatio",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:potentia",
+      "amount": 2
+    }
+  ]
+}

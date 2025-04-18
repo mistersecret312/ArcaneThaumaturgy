@@ -1,0 +1,10 @@
+{
+  "item": "minecraft:iron_block",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:metallum",
+      "amount": 36
+    }
+  ]
+}
