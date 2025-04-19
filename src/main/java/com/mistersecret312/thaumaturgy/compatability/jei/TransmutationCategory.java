@@ -15,6 +15,7 @@ import mezz.jei.api.recipe.IFocusGroup;
 import mezz.jei.api.recipe.RecipeIngredientRole;
 import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.recipe.category.IRecipeCategory;
+import mezz.jei.api.recipe.vanilla.IJeiBrewingRecipe;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -101,7 +102,7 @@ public class TransmutationCategory implements IRecipeCategory<TransmutationRecip
                 item.setAspect(stack, aspectStack);
                 x += 16;
 
-                builder.addSlot(RecipeIngredientRole.RENDER_ONLY, x, y).addItemStack(stack);
+                builder.addSlot(RecipeIngredientRole.INPUT, x, y).addItemStack(stack);
             }
         });
     }

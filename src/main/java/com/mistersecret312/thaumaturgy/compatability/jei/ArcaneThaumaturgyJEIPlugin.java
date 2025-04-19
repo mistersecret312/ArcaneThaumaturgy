@@ -1,24 +1,28 @@
 package com.mistersecret312.thaumaturgy.compatability.jei;
 
 import com.mistersecret312.thaumaturgy.ArcaneThaumaturgyMod;
+import com.mistersecret312.thaumaturgy.aspects.AspectStack;
+import com.mistersecret312.thaumaturgy.init.AspectInit;
 import com.mistersecret312.thaumaturgy.init.BlockInit;
+import com.mistersecret312.thaumaturgy.init.ItemInit;
+import com.mistersecret312.thaumaturgy.items.AspectItem;
 import com.mistersecret312.thaumaturgy.recipes.TransmutationRecipe;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
+import mezz.jei.api.constants.RecipeTypes;
 import mezz.jei.api.ingredients.IIngredientType;
+import mezz.jei.api.ingredients.subtypes.IIngredientSubtypeInterpreter;
+import mezz.jei.api.ingredients.subtypes.UidContext;
 import mezz.jei.api.recipe.RecipeType;
-import mezz.jei.api.registration.IModIngredientRegistration;
-import mezz.jei.api.registration.IRecipeCatalystRegistration;
-import mezz.jei.api.registration.IRecipeCategoryRegistration;
-import mezz.jei.api.registration.IRecipeRegistration;
+import mezz.jei.api.registration.*;
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.SpawnEggItem;
 import net.minecraft.world.item.crafting.RecipeManager;
 
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 @JeiPlugin
 public class ArcaneThaumaturgyJEIPlugin implements IModPlugin
@@ -40,6 +44,15 @@ public class ArcaneThaumaturgyJEIPlugin implements IModPlugin
     }
 
     @Override
+    public void registerItemSubtypes(ISubtypeRegistration registration)
+    {
+        IIngredientSubtypeInterpreter<ItemStack> aspects =
+                (stack, context) -> AspectItem.getAspect(stack).toLanguageKey();
+
+        registration.registerSubtypeInterpreter(ItemInit.ASPECT.get(), aspects);
+    }
+
+    @Override
     public void registerRecipes(IRecipeRegistration registration)
     {
         RecipeManager recipeManager = Objects.requireNonNull(minecraft.level).getRecipeManager();
@@ -55,6 +68,12 @@ public class ArcaneThaumaturgyJEIPlugin implements IModPlugin
             Item item = crucible.asItem();
             if(item != null)
                 registration.addRecipeCatalyst(new ItemStack(item), TransmutationCategory.TRANSMUTATION_TYPE);
+        });
+
+        BlockInit.ARCANE_WORKBENCH.ifPresent(workbench -> {
+            Item item = workbench.asItem();
+            if(item != null)
+                registration.addRecipeCatalyst(new ItemStack(item), RecipeTypes.CRAFTING);
         });
     }
 }

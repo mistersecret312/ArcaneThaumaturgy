@@ -78,7 +78,7 @@ public class AspectItem extends Item
         stack.getOrCreateTag().putString("aspectKey", AspectInit.ASPECT.get().getKey(aspectStack.getAspect()).toString());
     }
 
-    public ResourceLocation getAspect(ItemStack stack)
+    public static ResourceLocation getAspect(ItemStack stack)
     {
         if(stack.getTag() != null && stack.getTag().contains("aspectKey"))
         {
