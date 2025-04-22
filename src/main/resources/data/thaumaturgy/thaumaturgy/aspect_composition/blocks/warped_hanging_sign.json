@@ -1,0 +1,18 @@
+{
+  "item": "minecraft:warped_hanging_sign",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:metallum",
+      "amount": 8
+    },
+    {
+      "aspect": "thaumaturgy:arbor",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:prohibitum",
+      "amount": 1
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "item": "minecraft:warped_sign",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:arbor",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:prohibitum",
+      "amount": 1
+    }
+  ]
+}

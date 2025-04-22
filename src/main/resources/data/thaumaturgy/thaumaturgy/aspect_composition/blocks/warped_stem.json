@@ -1,0 +1,18 @@
+{
+  "item": "minecraft:warped_stem",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:arbor",
+      "amount": 4
+    },
+    {
+      "aspect": "thaumaturgy:prohibitum",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:praecantatio",
+      "amount": 2
+    }
+  ]
+}

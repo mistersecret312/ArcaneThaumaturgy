@@ -1,0 +1,14 @@
+{
+  "item": "minecraft:bamboo_mosaic_stairs",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:arbor",
+      "amount": 1
+    },
+    {
+      "aspect": "thaumaturgy:herba",
+      "amount": 1
+    }
+  ]
+}

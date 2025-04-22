@@ -1,5 +1,5 @@
 {
-  "item": "minecraft:cherry_chest_boat",
+  "item": "minecraft:bamboo_chest_raft",
   "aspects":
   [
     {
@@ -15,7 +15,7 @@
       "amount": 2
     },
     {
-      "aspect": "thaumaturgy:volatus",
+      "aspect": "thaumaturgy:herba",
       "amount": 6
     }
   ]

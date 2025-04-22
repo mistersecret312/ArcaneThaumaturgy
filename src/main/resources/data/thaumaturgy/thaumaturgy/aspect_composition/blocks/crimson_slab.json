@@ -1,0 +1,14 @@
+{
+  "item": "minecraft:crimson_slab",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:arbor",
+      "amount": 1
+    },
+    {
+      "aspect": "thaumaturgy:corpus",
+      "amount": 1
+    }
+  ]
+}

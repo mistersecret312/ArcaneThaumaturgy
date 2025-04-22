@@ -1,0 +1,14 @@
+{
+  "item": "minecraft:warped_wart_block",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:prohibitum",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:praecantatio",
+      "amount": 2
+    }
+  ]
+}

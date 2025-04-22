@@ -1,0 +1,18 @@
+{
+  "item": "minecraft:crimson_stem",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:arbor",
+      "amount": 4
+    },
+    {
+      "aspect": "thaumaturgy:corpus",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:victus",
+      "amount": 2
+    }
+  ]
+}

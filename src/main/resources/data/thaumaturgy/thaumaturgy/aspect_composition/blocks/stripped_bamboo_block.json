@@ -1,0 +1,14 @@
+{
+  "item": "minecraft:stripped_bamboo_block",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:arbor",
+      "amount": 7
+    },
+    {
+      "aspect": "thaumaturgy:herba",
+      "amount": 6
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "item": "minecraft:stripped_warped_hyphae",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:arbor",
+      "amount": 3
+    },
+    {
+      "aspect": "thaumaturgy:prohibitum",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:praecantatio",
+      "amount": 2
+    }
+  ]
+}

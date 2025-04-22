@@ -1,0 +1,14 @@
+{
+  "item": "minecraft:crimson_sign",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:arbor",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:corpus",
+      "amount": 1
+    }
+  ]
+}

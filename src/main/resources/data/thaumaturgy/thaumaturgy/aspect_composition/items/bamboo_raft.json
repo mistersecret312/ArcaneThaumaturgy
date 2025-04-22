@@ -1,0 +1,18 @@
+{
+  "item": "minecraft:bamboo_raft",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:arbor",
+      "amount": 3
+    },
+    {
+      "aspect": "thaumaturgy:iter",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:herba",
+      "amount": 2
+    }
+  ]
+}

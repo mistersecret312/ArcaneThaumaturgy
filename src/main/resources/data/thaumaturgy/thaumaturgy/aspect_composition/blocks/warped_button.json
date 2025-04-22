@@ -1,0 +1,22 @@
+{
+  "item": "minecraft:warped_button",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:arbor",
+      "amount": 1
+    },
+    {
+      "aspect": "thaumaturgy:machina",
+      "amount": 1
+    },
+    {
+      "aspect": "thaumaturgy:sensus",
+      "amount": 1
+    },
+    {
+      "aspect": "thaumaturgy:prohibitum",
+      "amount": 1
+    }
+  ]
+}

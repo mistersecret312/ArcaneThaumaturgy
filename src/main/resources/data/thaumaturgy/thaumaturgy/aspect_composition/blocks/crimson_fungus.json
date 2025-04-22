@@ -1,0 +1,14 @@
+{
+  "item": "minecraft:crimson_fungus",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:corpus",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:victus",
+      "amount": 1
+    }
+  ]
+}

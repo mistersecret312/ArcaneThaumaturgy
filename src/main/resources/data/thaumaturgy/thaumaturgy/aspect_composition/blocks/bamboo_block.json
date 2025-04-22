@@ -1,0 +1,14 @@
+{
+  "item": "minecraft:bamboo_block",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:arbor",
+      "amount": 8
+    },
+    {
+      "aspect": "thaumaturgy:herba",
+      "amount": 6
+    }
+  ]
+}

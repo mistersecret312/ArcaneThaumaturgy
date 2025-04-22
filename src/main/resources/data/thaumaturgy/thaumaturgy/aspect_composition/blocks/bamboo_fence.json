@@ -1,0 +1,14 @@
+{
+  "item": "minecraft:bamboo_fence",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:arbor",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:herba",
+      "amount": 1
+    }
+  ]
+}

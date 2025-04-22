@@ -1,0 +1,14 @@
+{
+  "item": "minecraft:nether_wart",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:corpus",
+      "amount": 1
+    },
+    {
+      "aspect": "thaumaturgy:victus",
+      "amount": 1
+    }
+  ]
+}
