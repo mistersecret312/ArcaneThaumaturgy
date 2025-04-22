@@ -1,0 +1,18 @@
+{
+  "item": "thaumaturgy:greatwood_stairs",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:arbor",
+      "amount": 1
+    },
+    {
+      "aspect": "thaumaturgy:praecantatio",
+      "amount": 1
+    },
+    {
+      "aspect": "thaumaturgy:potentia",
+      "amount": 1
+    }
+  ]
+}

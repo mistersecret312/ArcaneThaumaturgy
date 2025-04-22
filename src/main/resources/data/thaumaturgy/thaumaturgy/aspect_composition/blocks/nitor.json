@@ -1,0 +1,18 @@
+{
+  "item": "thaumaturgy:nitor",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:ignis",
+      "amount": 6
+    },
+    {
+      "aspect": "thaumaturgy:lux",
+      "amount": 4
+    },
+    {
+      "aspect": "thaumaturgy:sensus",
+      "amount": 4
+    }
+  ]
+}
