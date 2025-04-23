@@ -28,7 +28,7 @@ public class AspectInit
     public static final RegistryObject<Aspect> PERDITIO = ASPECTS.register("perditio", () -> new Aspect(List.of(0x40, 0x40, 0x40), ResourceLocation.parse("thaumaturgy:textures/aspect/perditio.png")));
 
     //Tier 1 Aspects
-    public static final RegistryObject<Aspect> VICTUS = ASPECTS.register("victus", () -> new Aspect(List.of(0xDE, 0x0, 0x5), ResourceLocation.parse("thaumaturgy:textures/aspect/victus.png")).withCompound(AspectInit.TERRA.get(), AspectInit.AQUA.get()));
+    public static final RegistryObject<Aspect> VICTUS = ASPECTS.register("victus", () -> new Aspect(List.of(0xCC, 0x14, 0x33), ResourceLocation.parse("thaumaturgy:textures/aspect/victus.png")).withCompound(AspectInit.TERRA.get(), AspectInit.AQUA.get()));
     public static final RegistryObject<Aspect> MOTUS = ASPECTS.register("motus", () -> new Aspect(List.of(0xCD, 0xCC, 0xF4), ResourceLocation.parse("thaumaturgy:textures/aspect/motus.png")).withCompound(AspectInit.ORDO.get(), AspectInit.AER.get()));
     public static final RegistryObject<Aspect> POTENTIA = ASPECTS.register("potentia", () -> new Aspect(List.of(0xC0, 0xFF, 0xFF), ResourceLocation.parse("thaumaturgy:textures/aspect/potentia.png")).withCompound(AspectInit.IGNIS.get(), AspectInit.ORDO.get()));
     public static final RegistryObject<Aspect> PERMUTATIO = ASPECTS.register("permutatio", () -> new Aspect(List.of(0xCC, 0x59, 0x33), ResourceLocation.parse("thaumaturgy:textures/aspect/permutatio.png")).withCompound(AspectInit.ORDO.get(), AspectInit.PERDITIO.get()));
