@@ -7,6 +7,10 @@
       "amount": 2
     },
     {
+      "aspect": "thaumaturgy:aer",
+      "amount": 1
+    },
+    {
       "aspect": "thaumaturgy:tenebrae",
       "amount": 1
     }
