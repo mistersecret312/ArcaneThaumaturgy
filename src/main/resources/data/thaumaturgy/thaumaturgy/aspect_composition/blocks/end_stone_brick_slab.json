@@ -1,0 +1,18 @@
+{
+  "item": "minecraft:end_stone_brick_slab",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:terra",
+      "amount": 1
+    },
+    {
+      "aspect": "thaumaturgy:aer",
+      "amount": 1
+    },
+    {
+      "aspect": "thaumaturgy:tenebrae",
+      "amount": 1
+    }
+  ]
+}

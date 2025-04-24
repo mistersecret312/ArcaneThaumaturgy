@@ -1,0 +1,18 @@
+{
+  "item": "minecraft:red_sandstone_stairs",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:terra",
+      "amount": 1
+    },
+    {
+      "aspect": "thaumaturgy:metallum",
+      "amount": 1
+    },
+    {
+      "aspect": "thaumaturgy:perditio",
+      "amount": 1
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "item": "minecraft:smooth_stone",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:terra",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:sensus",
+      "amount": 1
+    }
+  ]
+}

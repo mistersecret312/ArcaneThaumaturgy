@@ -1,0 +1,14 @@
+{
+  "item": "minecraft:mud_brick_wall",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:terra",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:arbor",
+      "amount": 1
+    }
+  ]
+}

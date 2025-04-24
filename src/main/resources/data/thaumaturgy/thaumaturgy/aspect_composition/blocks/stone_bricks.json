@@ -1,0 +1,14 @@
+{
+  "item": "minecraft:stone_bricks",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:terra",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:ordo",
+      "amount": 1
+    }
+  ]
+}

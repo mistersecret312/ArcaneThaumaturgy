@@ -1,0 +1,14 @@
+{
+  "item": "minecraft:deepslate_tile_slab",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:terra",
+      "amount": 1
+    },
+    {
+      "aspect": "thaumaturgy:ordo",
+      "amount": 1
+    }
+  ]
+}

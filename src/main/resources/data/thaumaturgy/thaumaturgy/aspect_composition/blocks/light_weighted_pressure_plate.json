@@ -1,0 +1,22 @@
+{
+  "item": "minecraft:light_weighted_pressure_plate",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:metallum",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:lucrum",
+      "amount": 1
+    },
+    {
+      "aspect": "thaumaturgy:machina",
+      "amount": 1
+    },
+    {
+      "aspect": "thaumaturgy:sensus",
+      "amount": 1
+    }
+  ]
+}

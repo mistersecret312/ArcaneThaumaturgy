@@ -1,0 +1,18 @@
+{
+  "item": "minecraft:purpur_stairs",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:praecantatio",
+      "amount": 1
+    },
+    {
+      "aspect": "thaumaturgy:terra",
+      "amount": 1
+    },
+    {
+      "aspect": "thaumaturgy:sensus",
+      "amount": 1
+    }
+  ]
+}

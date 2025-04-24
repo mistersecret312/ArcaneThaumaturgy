@@ -1,0 +1,18 @@
+{
+  "item": "minecraft:chiseled_quartz_block",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:vitreus",
+      "amount": 9
+    },
+    {
+      "aspect": "thaumaturgy:potentia",
+      "amount": 6
+    },
+    {
+      "aspect": "thaumaturgy:ordo",
+      "amount": 2
+    }
+  ]
+}

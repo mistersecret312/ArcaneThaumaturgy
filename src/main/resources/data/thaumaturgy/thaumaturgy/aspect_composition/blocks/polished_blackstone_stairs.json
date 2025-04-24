@@ -1,0 +1,22 @@
+{
+  "item": "minecraft:polished_blackstone_stairs",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:terra",
+      "amount": 1
+    },
+    {
+      "aspect": "thaumaturgy:tenebrae",
+      "amount": 1
+    },
+    {
+      "aspect": "thaumaturgy:perditio",
+      "amount": 1
+    },
+    {
+      "aspect": "thaumaturgy:ordo",
+      "amount": 1
+    }
+  ]
+}

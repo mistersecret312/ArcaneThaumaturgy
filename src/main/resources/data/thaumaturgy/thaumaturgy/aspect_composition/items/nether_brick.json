@@ -1,0 +1,14 @@
+{
+  "item": "minecraft:nether_brick",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:terra",
+      "amount": 1
+    },
+    {
+      "aspect": "thaumaturgy:ignis",
+      "amount": 1
+    }
+  ]
+}

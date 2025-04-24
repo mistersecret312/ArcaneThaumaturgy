@@ -1,0 +1,18 @@
+{
+  "item": "minecraft:mossy_stone_brick_wall",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:terra",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:ordo",
+      "amount": 1
+    },
+    {
+      "aspect": "thaumaturgy:herba",
+      "amount": 1
+    }
+  ]
+}

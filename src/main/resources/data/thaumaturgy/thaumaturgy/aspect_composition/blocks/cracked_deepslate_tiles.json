@@ -1,0 +1,18 @@
+{
+  "item": "minecraft:cracked_deepslate_tiles",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:terra",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:ordo",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:perditio",
+      "amount": 1
+    }
+  ]
+}

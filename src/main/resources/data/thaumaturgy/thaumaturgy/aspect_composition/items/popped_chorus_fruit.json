@@ -1,0 +1,18 @@
+{
+  "item": "minecraft:popped_chorus_fruit",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:praecantatio",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:terra",
+      "amount": 1
+    },
+    {
+      "aspect": "thaumaturgy:sensus",
+      "amount": 1
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "item": "minecraft:iron_bars",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:metallum",
+      "amount": 1
+    }
+  ]
+}

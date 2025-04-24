@@ -1,0 +1,14 @@
+{
+  "item": "minecraft:cobblestone_stairs",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:terra",
+      "amount": 1
+    },
+    {
+      "aspect": "thaumaturgy:perditio",
+      "amount": 1
+    }
+  ]
+}

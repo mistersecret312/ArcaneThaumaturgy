@@ -1,0 +1,22 @@
+{
+  "item": "minecraft:waxed_exposed_copper",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:metallum",
+      "amount": 27
+    },
+    {
+      "aspect": "thaumaturgy:machina",
+      "amount": 18
+    },
+    {
+      "aspect": "thaumaturgy:ordo",
+      "amount": 4
+    },
+    {
+      "aspect": "thaumaturgy:aer",
+      "amount": 2
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "item": "minecraft:granite_slab",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:terra",
+      "amount": 1
+    },
+    {
+      "aspect": "thaumaturgy:potentia",
+      "amount": 1
+    }
+  ]
+}

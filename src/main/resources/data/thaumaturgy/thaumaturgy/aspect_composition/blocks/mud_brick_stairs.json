@@ -1,0 +1,14 @@
+{
+  "item": "minecraft:mud_brick_stairs",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:terra",
+      "amount": 1
+    },
+    {
+      "aspect": "thaumaturgy:arbor",
+      "amount": 1
+    }
+  ]
+}

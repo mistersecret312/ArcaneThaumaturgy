@@ -1,0 +1,18 @@
+{
+  "item": "minecraft:polished_basalt",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:terra",
+      "amount": 4
+    },
+    {
+      "aspect": "thaumaturgy:ignis",
+      "amount": 1
+    },
+    {
+      "aspect": "thaumaturgy:ordo",
+      "amount": 1
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "item": "minecraft:cut_red_sandstone",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:terra",
+      "amount": 6
+    },
+    {
+      "aspect": "thaumaturgy:perditio",
+      "amount": 8
+    },
+    {
+      "aspect": "thaumaturgy:metallum",
+      "amount": 3
+    },
+    {
+      "aspect": "thaumaturgy:ordo",
+      "amount": 1
+    }
+  ]
+}

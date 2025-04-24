@@ -1,0 +1,14 @@
+{
+  "item": "minecraft:cracked_stone_bricks",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:terra",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:perditio",
+      "amount": 1
+    }
+  ]
+}

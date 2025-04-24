@@ -1,0 +1,18 @@
+{
+  "item": "minecraft:sea_lantern",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:vitreus",
+      "amount": 12
+    },
+    {
+      "aspect": "thaumaturgy:lux",
+      "amount": 12
+    },
+    {
+      "aspect": "thaumaturgy:aqua",
+      "amount": 8
+    }
+  ]
+}

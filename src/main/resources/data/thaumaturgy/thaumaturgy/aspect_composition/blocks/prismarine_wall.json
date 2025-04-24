@@ -1,0 +1,14 @@
+{
+  "item": "minecraft:prismarine_wall",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:vitreus",
+      "amount": 6
+    },
+    {
+      "aspect": "thaumaturgy:aqua",
+      "amount": 3
+    }
+  ]
+}

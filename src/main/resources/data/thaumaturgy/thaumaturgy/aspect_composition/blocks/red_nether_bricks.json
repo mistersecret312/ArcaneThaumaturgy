@@ -1,0 +1,22 @@
+{
+  "item": "minecraft:red_nether_bricks",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:terra",
+      "amount": 3
+    },
+    {
+      "aspect": "thaumaturgy:ignis",
+      "amount": 3
+    },
+    {
+      "aspect": "thaumaturgy:corpus",
+      "amount": 1
+    },
+    {
+      "aspect": "thaumaturgy:ordo",
+      "amount": 1
+    }
+  ]
+}

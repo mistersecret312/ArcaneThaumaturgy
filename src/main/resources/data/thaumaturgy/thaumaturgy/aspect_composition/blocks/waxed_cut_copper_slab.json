@@ -1,0 +1,18 @@
+{
+  "item": "minecraft:waxed_cut_copper_slab",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:metallum",
+      "amount": 6
+    },
+    {
+      "aspect": "thaumaturgy:ordo",
+      "amount": 5
+    },
+    {
+      "aspect": "thaumaturgy:machina",
+      "amount": 4
+    }
+  ]
+}

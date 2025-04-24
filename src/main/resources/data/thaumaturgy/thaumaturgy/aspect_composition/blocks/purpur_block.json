@@ -1,0 +1,18 @@
+{
+  "item": "minecraft:purpur_block",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:praecantatio",
+      "amount": 6
+    },
+    {
+      "aspect": "thaumaturgy:terra",
+      "amount": 3
+    },
+    {
+      "aspect": "thaumaturgy:sensus",
+      "amount": 3
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "item": "minecraft:weathered_copper",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:metallum",
+      "amount": 27
+    },
+    {
+      "aspect": "thaumaturgy:machina",
+      "amount": 18
+    },
+    {
+      "aspect": "thaumaturgy:ordo",
+      "amount": 5
+    },
+    {
+      "aspect": "thaumaturgy:aer",
+      "amount": 4
+    }
+
+  ]
+}

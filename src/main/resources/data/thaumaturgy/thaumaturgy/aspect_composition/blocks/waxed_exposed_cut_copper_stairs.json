@@ -1,0 +1,22 @@
+{
+  "item": "minecraft:waxed_exposed_cut_copper_stairs",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:metallum",
+      "amount": 6
+    },
+    {
+      "aspect": "thaumaturgy:machina",
+      "amount": 4
+    },
+    {
+      "aspect": "thaumaturgy:ordo",
+      "amount": 8
+    },
+    {
+      "aspect": "thaumaturgy:aer",
+      "amount": 2
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "item": "minecraft:prismarine_crystals",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:vitreus",
+      "amount": 3
+    },
+    {
+      "aspect": "thaumaturgy:lux",
+      "amount": 3
+    },
+    {
+      "aspect": "thaumaturgy:aqua",
+      "amount": 2
+    }
+  ]
+}

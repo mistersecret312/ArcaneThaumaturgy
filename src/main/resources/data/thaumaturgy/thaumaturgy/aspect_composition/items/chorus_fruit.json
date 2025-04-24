@@ -1,0 +1,22 @@
+{
+  "item": "minecraft:chorus_fruit",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:fames",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:iter",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:praecantatio",
+      "amount": 1
+    },
+    {
+      "aspect": "thaumaturgy:sensus",
+      "amount": 1
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "item": "minecraft:polished_blackstone_wall",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:terra",
+      "amount": 4
+    },
+    {
+      "aspect": "thaumaturgy:tenebrae",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:perditio",
+      "amount": 1
+    },
+    {
+      "aspect": "thaumaturgy:ordo",
+      "amount": 1
+    }
+  ]
+}

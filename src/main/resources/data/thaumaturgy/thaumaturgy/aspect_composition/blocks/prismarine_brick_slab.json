@@ -1,0 +1,14 @@
+{
+  "item": "minecraft:prismarine_brick_slab",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:vitreus",
+      "amount": 1
+    },
+    {
+      "aspect": "thaumaturgy:aqua",
+      "amount": 1
+    }
+  ]
+}

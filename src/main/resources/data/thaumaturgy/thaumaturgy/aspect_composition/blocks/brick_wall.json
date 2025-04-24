@@ -1,0 +1,14 @@
+{
+  "item": "minecraft:brick_wall",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:terra",
+      "amount": 3
+    },
+    {
+      "aspect": "thaumaturgy:vinculum",
+      "amount": 3
+    }
+  ]
+}

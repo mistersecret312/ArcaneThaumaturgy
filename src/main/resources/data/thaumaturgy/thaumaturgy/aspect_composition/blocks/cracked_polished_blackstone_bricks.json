@@ -1,0 +1,22 @@
+{
+  "item": "minecraft:cracked_polished_blackstone_bricks",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:terra",
+      "amount": 4
+    },
+    {
+      "aspect": "thaumaturgy:tenebrae",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:ordo",
+      "amount": 1
+    },
+    {
+      "aspect": "thaumaturgy:perditio",
+      "amount": 1
+    }
+  ]
+}

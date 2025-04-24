@@ -1,0 +1,22 @@
+{
+  "item": "minecraft:smooth_red_sandstone_slab",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:terra",
+      "amount": 1
+    },
+    {
+      "aspect": "thaumaturgy:perditio",
+      "amount": 1
+    },
+    {
+      "aspect": "thaumaturgy:metallum",
+      "amount": 1
+    },
+    {
+      "aspect": "thaumaturgy:ordo",
+      "amount": 1
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "item": "minecraft:weathered_cut_copper_slab",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:metallum",
+      "amount": 6
+    },
+    {
+      "aspect": "thaumaturgy:ordo",
+      "amount": 5
+    },
+    {
+      "aspect": "thaumaturgy:machina",
+      "amount": 4
+    },
+    {
+      "aspect": "thaumaturgy:aer",
+      "amount": 4
+    }
+  ]
+}

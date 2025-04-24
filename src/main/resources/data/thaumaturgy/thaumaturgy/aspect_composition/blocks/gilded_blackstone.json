@@ -1,0 +1,26 @@
+{
+  "item": "minecraft:gilded_blackstone",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:terra",
+      "amount": 4
+    },
+    {
+      "aspect": "thaumaturgy:metallum",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:lucrum",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:tenebrae",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:perditio",
+      "amount": 2
+    }
+  ]
+}
