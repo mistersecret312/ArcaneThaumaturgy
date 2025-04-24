@@ -1,0 +1,22 @@
+{
+  "item": "minecraft:bee_nest",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:arbor",
+      "amount": 6
+    },
+    {
+      "aspect": "thaumaturgy:ordo",
+      "amount": 4
+    },
+    {
+      "aspect": "thaumaturgy:vacuos",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:messis",
+      "amount": 2
+    }
+  ]
+}

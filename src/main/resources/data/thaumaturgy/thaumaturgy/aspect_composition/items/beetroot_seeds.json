@@ -1,0 +1,18 @@
+{
+  "item": "minecraft:beetroot_seeds",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:herba",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:terra",
+      "amount": 1
+    },
+    {
+      "aspect": "thaumaturgy:potentia",
+      "amount": 1
+    }
+  ]
+}

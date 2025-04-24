@@ -1,0 +1,14 @@
+{
+  "item": "minecraft:seagrass",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:herba",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:aqua",
+      "amount": 1
+    }
+  ]
+}

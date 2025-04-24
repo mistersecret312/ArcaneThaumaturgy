@@ -1,0 +1,14 @@
+{
+  "item": "minecraft:amethyst_block",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:vitreus",
+      "amount": 4
+    },
+    {
+      "aspect": "thaumaturgy:sensus",
+      "amount": 2
+    }
+  ]
+}

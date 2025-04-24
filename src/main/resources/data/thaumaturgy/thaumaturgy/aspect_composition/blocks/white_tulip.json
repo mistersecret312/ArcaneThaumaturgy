@@ -1,0 +1,14 @@
+{
+  "item": "minecraft:white_tulip",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:herba",
+      "amount": 3
+    },
+    {
+      "aspect": "thaumaturgy:ordo",
+      "amount": 2
+    }
+  ]
+}

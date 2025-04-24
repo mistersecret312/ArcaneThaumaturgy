@@ -1,0 +1,18 @@
+{
+  "item": "minecraft:carved_pumpkin",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:herba",
+      "amount": 6
+    },
+    {
+      "aspect": "thaumaturgy:aqua",
+      "amount": 4
+    },
+    {
+      "aspect": "thaumaturgy:vacuos",
+      "amount": 4
+    }
+  ]
+}

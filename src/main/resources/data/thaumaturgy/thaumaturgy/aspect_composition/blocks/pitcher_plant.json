@@ -1,0 +1,18 @@
+{
+  "item": "minecraft:pitcher_plant",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:herba",
+      "amount": 4
+    },
+    {
+      "aspect": "thaumaturgy:permutatio",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:vinculum",
+      "amount": 2
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "item": "minecraft:sponge",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:aer",
+      "amount": 6
+    },
+    {
+      "aspect": "thaumaturgy:permutatio",
+      "amount": 4
+    },
+    {
+      "aspect": "thaumaturgy:aqua",
+      "amount": 4
+    }
+  ]
+}

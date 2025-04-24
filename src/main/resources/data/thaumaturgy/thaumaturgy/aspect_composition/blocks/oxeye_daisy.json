@@ -1,0 +1,14 @@
+{
+  "item": "minecraft:oxeye_daisy",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:herba",
+      "amount": 3
+    },
+    {
+      "aspect": "thaumaturgy:aer",
+      "amount": 2
+    }
+  ]
+}

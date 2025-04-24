@@ -1,0 +1,10 @@
+{
+  "item": "minecraft:snow",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:frigus",
+      "amount": 1
+    }
+  ]
+}

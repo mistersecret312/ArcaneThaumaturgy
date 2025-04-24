@@ -1,0 +1,14 @@
+{
+  "item": "minecraft:nether_sprouts",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:prohibitum",
+      "amount": 1
+    },
+    {
+      "aspect": "thaumaturgy:praecantatio",
+      "amount": 1
+    }
+  ]
+}

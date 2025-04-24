@@ -1,0 +1,14 @@
+{
+  "item": "minecraft:cave_vines",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:herba",
+      "amount": 4
+    },
+    {
+      "aspect": "thaumaturgy:lux",
+      "amount": 1
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "item": "minecraft:honey_block",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:limus",
+      "amount": 9
+    },
+    {
+      "aspect": "thaumaturgy:vinculum",
+      "amount": 6
+    },
+    {
+      "aspect": "thaumaturgy:fames",
+      "amount": 3
+    },
+    {
+      "aspect": "thaumaturgy:sensus",
+      "amount": 6
+    }
+  ]
+}

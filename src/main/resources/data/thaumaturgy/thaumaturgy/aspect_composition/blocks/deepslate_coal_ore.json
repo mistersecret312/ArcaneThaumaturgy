@@ -1,0 +1,18 @@
+{
+  "item": "minecraft:deepslate_coal_ore",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:ignis",
+      "amount": 6
+    },
+    {
+      "aspect": "thaumaturgy:potentia",
+      "amount": 4
+    },
+    {
+      "aspect": "thaumaturgy:terra",
+      "amount": 4
+    }
+  ]
+}

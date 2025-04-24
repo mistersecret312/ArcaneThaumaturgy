@@ -1,0 +1,14 @@
+{
+  "item": "minecraft:medium_amethyst_bud",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:vitreus",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:sensus",
+      "amount": 1
+    }
+  ]
+}

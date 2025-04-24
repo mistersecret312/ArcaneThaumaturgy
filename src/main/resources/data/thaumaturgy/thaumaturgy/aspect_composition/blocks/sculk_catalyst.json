@@ -1,0 +1,26 @@
+{
+  "item": "minecraft:sculk_catalyst",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:victus",
+      "amount": 6
+    },
+    {
+      "aspect": "thaumaturgy:permutatio",
+      "amount": 4
+    },
+    {
+      "aspect": "thaumaturgy:vinculum",
+      "amount": 4
+    },
+    {
+      "aspect": "thaumaturgy:prohibitum",
+      "amount": 3
+    },
+    {
+      "aspect": "thaumaturgy:tenebrae",
+      "amount": 2
+    }
+  ]
+}

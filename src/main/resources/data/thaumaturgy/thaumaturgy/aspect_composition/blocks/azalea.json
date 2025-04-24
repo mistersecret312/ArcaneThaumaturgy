@@ -1,0 +1,18 @@
+{
+  "item": "minecraft:azalea",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:herba",
+      "amount": 4
+    },
+    {
+      "aspect": "thaumaturgy:arbor",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:sensus",
+      "amount": 2
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "item": "minecraft:red_mushroom",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:corpus",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:tenebrae",
+      "amount": 1
+    },
+    {
+      "aspect": "thaumaturgy:ordo",
+      "amount": 1
+    }
+  ]
+}

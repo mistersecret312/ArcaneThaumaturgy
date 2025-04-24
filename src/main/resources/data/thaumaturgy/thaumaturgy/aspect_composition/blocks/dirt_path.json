@@ -1,0 +1,18 @@
+{
+  "item": "minecraft:dirt_path",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:iter",
+      "amount": 1
+    },
+    {
+      "aspect": "thaumaturgy:herba",
+      "amount": 1
+    },
+    {
+      "aspect": "thaumaturgy:terra",
+      "amount": 1
+    }
+  ]
+}

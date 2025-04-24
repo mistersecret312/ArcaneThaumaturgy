@@ -1,0 +1,18 @@
+{
+  "item": "minecraft:sea_pickle",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:herba",
+      "amount": 3
+    },
+    {
+      "aspect": "thaumaturgy:aqua",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:lux",
+      "amount": 1
+    }
+  ]
+}

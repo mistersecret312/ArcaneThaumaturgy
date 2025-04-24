@@ -1,0 +1,14 @@
+{
+  "item": "minecraft:big_dripleaf",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:herba",
+      "amount": 4
+    },
+    {
+      "aspect": "thaumaturgy:motus",
+      "amount": 2
+    }
+  ]
+}

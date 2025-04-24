@@ -1,0 +1,14 @@
+{
+  "item": "minecraft:bone_block",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:corpus",
+      "amount": 8
+    },
+    {
+      "aspect": "thaumaturgy:mortuus",
+      "amount": 6
+    }
+  ]
+}

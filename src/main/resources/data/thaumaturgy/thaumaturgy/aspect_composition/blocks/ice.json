@@ -1,0 +1,10 @@
+{
+  "item": "minecraft:ice",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:frigus",
+      "amount": 4
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "item": "minecraft:clay",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:terra",
+      "amount": 3
+    },
+    {
+      "aspect": "thaumaturgy:aqua",
+      "amount": 3
+    },
+    {
+      "aspect": "thaumaturgy:vinculum",
+      "amount": 3
+    }
+  ]
+}

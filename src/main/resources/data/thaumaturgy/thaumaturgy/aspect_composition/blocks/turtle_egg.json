@@ -1,0 +1,22 @@
+{
+  "item": "minecraft:turtle_egg",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:bestia",
+      "amount": 4
+    },
+    {
+      "aspect": "thaumaturgy:victus",
+      "amount": 3
+    },
+    {
+      "aspect": "thaumaturgy:potentia",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:aqua",
+      "amount": 1
+    }
+  ]
+}

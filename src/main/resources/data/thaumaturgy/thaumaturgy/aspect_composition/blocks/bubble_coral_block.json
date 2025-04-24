@@ -1,0 +1,18 @@
+{
+  "item": "minecraft:bubble_coral_block",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:terra",
+      "amount": 3
+    },
+    {
+      "aspect": "thaumaturgy:victus",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:perditio",
+      "amount": 2
+    }
+  ]
+}

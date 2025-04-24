@@ -1,0 +1,14 @@
+{
+  "item": "minecraft:hanging_roots",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:herba",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:terra",
+      "amount": 1
+    }
+  ]
+}

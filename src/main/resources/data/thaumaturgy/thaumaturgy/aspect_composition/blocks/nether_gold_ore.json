@@ -1,0 +1,22 @@
+{
+  "item": "minecraft:nether_gold_ore",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:ignis",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:metallum",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:lucrum",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:terra",
+      "amount": 1
+    }
+  ]
+}

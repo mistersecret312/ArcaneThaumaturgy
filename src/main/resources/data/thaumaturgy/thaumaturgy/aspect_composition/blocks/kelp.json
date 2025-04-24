@@ -1,0 +1,18 @@
+{
+  "item": "minecraft:kelp",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:herba",
+      "amount": 4
+    },
+    {
+      "aspect": "thaumaturgy:aqua",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:motus",
+      "amount": 1
+    }
+  ]
+}

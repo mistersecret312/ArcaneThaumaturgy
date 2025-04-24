@@ -1,0 +1,22 @@
+{
+  "item": "minecraft:glow_berries",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:herba",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:fames",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:messis",
+      "amount": 1
+    },
+    {
+      "aspect": "thaumaturgy:lux",
+      "amount": 1
+    }
+  ]
+}

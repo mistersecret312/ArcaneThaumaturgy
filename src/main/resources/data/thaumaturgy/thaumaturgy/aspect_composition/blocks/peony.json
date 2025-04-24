@@ -1,0 +1,14 @@
+{
+  "item": "minecraft:peony",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:herba",
+      "amount": 4
+    },
+    {
+      "aspect": "thaumaturgy:aer",
+      "amount": 3
+    }
+  ]
+}

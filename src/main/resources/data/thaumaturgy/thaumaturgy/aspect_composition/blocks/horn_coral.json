@@ -1,0 +1,18 @@
+{
+  "item": "minecraft:horn_coral",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:terra",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:victus",
+      "amount": 1
+    },
+    {
+      "aspect": "thaumaturgy:aer",
+      "amount": 1
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "item": "minecraft:sculk_sensor",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:victus",
+      "amount": 4
+    },
+    {
+      "aspect": "thaumaturgy:sensus",
+      "amount": 4
+    },
+    {
+      "aspect": "thaumaturgy:prohibitum",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:tenebrae",
+      "amount": 2
+    }
+  ]
+}

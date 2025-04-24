@@ -1,0 +1,14 @@
+{
+  "item": "minecraft:soul_soil",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:terra",
+      "amount": 4
+    },
+    {
+      "aspect": "thaumaturgy:spiritus",
+      "amount": 4
+    }
+  ]
+}

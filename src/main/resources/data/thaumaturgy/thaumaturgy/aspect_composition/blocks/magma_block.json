@@ -1,22 +1,18 @@
 {
-  "item": "minecraft:crying_obsidian",
+  "item": "minecraft:magma_block",
   "aspects":
   [
     {
-      "aspect": "thaumaturgy:prohibitum",
-      "amount": 2
-    },
-    {
       "aspect": "thaumaturgy:terra",
-      "amount": 2
+      "amount": 3
     },
     {
       "aspect": "thaumaturgy:ignis",
-      "amount": 1
+      "amount": 3
     },
     {
       "aspect": "thaumaturgy:sensus",
-      "amount": 1
+      "amount": 2
     }
   ]
 }

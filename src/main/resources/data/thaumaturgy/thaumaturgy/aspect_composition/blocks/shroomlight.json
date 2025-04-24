@@ -1,0 +1,18 @@
+{
+  "item": "minecraft:shroomlight",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:corpus",
+      "amount": 4
+    },
+    {
+      "aspect": "thaumaturgy:lux",
+      "amount": 3
+    },
+    {
+      "aspect": "thaumaturgy:sensus",
+      "amount": 1
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "item": "minecraft:basalt",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:terra",
+      "amount": 4
+    },
+    {
+      "aspect": "thaumaturgy:perditio",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:ignis",
+      "amount": 1
+    }
+  ]
+}

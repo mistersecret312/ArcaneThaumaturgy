@@ -1,0 +1,14 @@
+{
+  "item": "minecraft:twisting_vines",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:prohibitum",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:praecantatio",
+      "amount": 1
+    }
+  ]
+}

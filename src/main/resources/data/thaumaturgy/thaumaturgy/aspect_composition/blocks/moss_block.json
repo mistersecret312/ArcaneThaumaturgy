@@ -1,0 +1,10 @@
+{
+  "item": "minecraft:moss_block",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:herba",
+      "amount": 5
+    }
+  ]
+}

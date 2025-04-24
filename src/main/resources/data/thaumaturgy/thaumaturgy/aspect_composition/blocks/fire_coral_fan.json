@@ -1,0 +1,18 @@
+{
+  "item": "minecraft:fire_coral_fan",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:terra",
+      "amount": 1
+    },
+    {
+      "aspect": "thaumaturgy:victus",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:ignis",
+      "amount": 2
+    }
+  ]
+}

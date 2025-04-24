@@ -1,0 +1,18 @@
+{
+  "item": "minecraft:soul_sand",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:terra",
+      "amount": 3
+    },
+    {
+      "aspect": "thaumaturgy:spiritus",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:vinculum",
+      "amount": 1
+    }
+  ]
+}

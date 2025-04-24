@@ -1,0 +1,18 @@
+{
+  "item": "minecraft:dried_kelp_block",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:herba",
+      "amount": 16
+    },
+    {
+      "aspect": "thaumaturgy:fames",
+      "amount": 16
+    },
+    {
+      "aspect": "thaumaturgy:mortuus",
+      "amount": 8
+    }
+  ]
+}

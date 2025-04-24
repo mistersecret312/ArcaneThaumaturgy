@@ -1,0 +1,10 @@
+{
+  "item": "minecraft:blue_ice",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:frigus",
+      "amount": 192
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "item": "minecraft:dead_tube_coral",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:terra",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:mortuus",
+      "amount": 1
+    }
+  ]
+}

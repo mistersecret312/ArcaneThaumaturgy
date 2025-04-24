@@ -1,0 +1,14 @@
+{
+  "item": "minecraft:smooth_basalt",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:terra",
+      "amount": 4
+    },
+    {
+      "aspect": "thaumaturgy:ignis",
+      "amount": 1
+    }
+  ]
+}

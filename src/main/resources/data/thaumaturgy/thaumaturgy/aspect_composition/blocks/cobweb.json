@@ -1,0 +1,14 @@
+{
+  "item": "minecraft:cobweb",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:vinculum",
+      "amount": 4
+    },
+    {
+      "aspect": "thaumaturgy:pannus",
+      "amount": 2
+    }
+  ]
+}

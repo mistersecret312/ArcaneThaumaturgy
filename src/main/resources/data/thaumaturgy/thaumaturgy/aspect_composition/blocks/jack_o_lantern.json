@@ -1,0 +1,18 @@
+{
+  "item": "minecraft:jack_o_lantern",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:herba",
+      "amount": 6
+    },
+    {
+      "aspect": "thaumaturgy:aqua",
+      "amount": 4
+    },
+    {
+      "aspect": "thaumaturgy:lux",
+      "amount": 3
+    }
+  ]
+}

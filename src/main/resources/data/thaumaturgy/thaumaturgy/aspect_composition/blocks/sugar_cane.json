@@ -1,0 +1,18 @@
+{
+  "item": "minecraft:sugar_cane",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:herba",
+      "amount": 4
+    },
+    {
+      "aspect": "thaumaturgy:aqua",
+      "amount": 3
+    },
+    {
+      "aspect": "thaumaturgy:aer",
+      "amount": 2
+    }
+  ]
+}

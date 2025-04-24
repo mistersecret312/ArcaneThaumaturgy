@@ -1,0 +1,14 @@
+{
+  "item": "minecraft:weeping_vines",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:corpus",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:victus",
+      "amount": 1
+    }
+  ]
+}

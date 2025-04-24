@@ -230,6 +230,12 @@
   "aspect.thaumaturgy.volatus.description": "Feather, Light, Glide",
   "aspect.thaumaturgy.vitium": "Vitium",
   "aspect.thaumaturgy.vitium.description": "Taint, Corruption, Pollution",
+  "aspect.thaumaturgy.messis": "Messis",
+  "aspect.thaumaturgy.messis.description": "Crop, Yield, Produce",
+  "aspect.thaumaturgy.limus": "Limus",
+  "aspect.thaumaturgy.limus.description": "Slime, Goo, Viscous",
+  "aspect.thaumaturgy.pannus": "Pannus",
+  "aspect.thaumaturgy.pannus.description": "Cloth, Fabric",
 
   "_advancements": "Advancements",
   "advancements.thaumaturgy.root.title": "Apprenticeship",

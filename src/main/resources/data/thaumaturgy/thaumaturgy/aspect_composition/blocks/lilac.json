@@ -1,0 +1,14 @@
+{
+  "item": "minecraft:lilac",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:herba",
+      "amount": 4
+    },
+    {
+      "aspect": "thaumaturgy:iter",
+      "amount": 3
+    }
+  ]
+}

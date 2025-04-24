@@ -1,0 +1,18 @@
+{
+  "item": "minecraft:brain_coral_fan",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:terra",
+      "amount": 1
+    },
+    {
+      "aspect": "thaumaturgy:victus",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:ordo",
+      "amount": 2
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "item": "minecraft:dead_brain_coral_block",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:terra",
+      "amount": 3
+    },
+    {
+      "aspect": "thaumaturgy:mortuus",
+      "amount": 2
+    }
+  ]
+}

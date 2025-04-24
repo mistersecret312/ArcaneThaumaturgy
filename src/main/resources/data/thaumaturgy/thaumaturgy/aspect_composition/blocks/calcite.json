@@ -1,0 +1,14 @@
+{
+  "item": "minecraft:calcite",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:terra",
+      "amount": 4
+    },
+    {
+      "aspect": "thaumaturgy:corpus",
+      "amount": 2
+    }
+  ]
+}

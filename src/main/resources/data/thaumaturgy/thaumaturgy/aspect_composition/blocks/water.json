@@ -1,0 +1,10 @@
+{
+  "item": "minecraft:water",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:aqua",
+      "amount": 4
+    }
+  ]
+}

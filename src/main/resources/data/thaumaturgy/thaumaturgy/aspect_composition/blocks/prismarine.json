@@ -1,0 +1,14 @@
+{
+  "item": "minecraft:prismarine",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:vitreus",
+      "amount": 3
+    },
+    {
+      "aspect": "thaumaturgy:aqua",
+      "amount": 3
+    }
+  ]
+}

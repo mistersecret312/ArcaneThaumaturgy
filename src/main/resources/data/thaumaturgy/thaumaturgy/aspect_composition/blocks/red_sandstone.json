@@ -1,0 +1,18 @@
+{
+  "item": "minecraft:red_sandstone",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:terra",
+      "amount": 6
+    },
+    {
+      "aspect": "thaumaturgy:metallum",
+      "amount": 3
+    },
+    {
+      "aspect": "thaumaturgy:perditio",
+      "amount": 9
+    }
+  ]
+}

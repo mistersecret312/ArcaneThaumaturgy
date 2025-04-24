@@ -1,0 +1,10 @@
+{
+  "item": "minecraft:snow_block",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:frigus",
+      "amount": 3
+    }
+  ]
+}

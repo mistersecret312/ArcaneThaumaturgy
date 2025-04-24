@@ -1,0 +1,14 @@
+{
+  "item": "minecraft:dead_bubble_coral_fan",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:terra",
+      "amount": 1
+    },
+    {
+      "aspect": "thaumaturgy:mortuus",
+      "amount": 2
+    }
+  ]
+}

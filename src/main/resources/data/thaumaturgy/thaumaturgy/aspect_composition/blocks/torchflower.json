@@ -1,0 +1,18 @@
+{
+  "item": "minecraft:torchflower",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:herba",
+      "amount": 3
+    },
+    {
+      "aspect": "thaumaturgy:ignis",
+      "amount": 3
+    },
+    {
+      "aspect": "thaumaturgy:lux",
+      "amount": 1
+    }
+  ]
+}

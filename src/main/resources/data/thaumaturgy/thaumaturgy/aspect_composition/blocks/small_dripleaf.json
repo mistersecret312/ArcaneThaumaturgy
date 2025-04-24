@@ -1,0 +1,10 @@
+{
+  "item": "minecraft:small_dripleaf",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:herba",
+      "amount": 2
+    }
+  ]
+}

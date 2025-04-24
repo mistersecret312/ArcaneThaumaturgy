@@ -1,0 +1,22 @@
+{
+  "item": "minecraft:pearlescent_froglight",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:corpus",
+      "amount": 4
+    },
+    {
+      "aspect": "thaumaturgy:lux",
+      "amount": 3
+    },
+    {
+      "aspect": "thaumaturgy:sensus",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:ordo",
+      "amount": 2
+    }
+  ]
+}

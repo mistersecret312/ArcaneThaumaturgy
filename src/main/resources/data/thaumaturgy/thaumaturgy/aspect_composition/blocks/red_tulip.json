@@ -1,0 +1,14 @@
+{
+  "item": "minecraft:red_tulip",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:herba",
+      "amount": 3
+    },
+    {
+      "aspect": "thaumaturgy:victus",
+      "amount": 2
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "item": "minecraft:rose_bush",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:herba",
+      "amount": 4
+    },
+    {
+      "aspect": "thaumaturgy:victus",
+      "amount": 3
+    }
+  ]
+}

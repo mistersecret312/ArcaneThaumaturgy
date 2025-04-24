@@ -1,0 +1,18 @@
+{
+  "item": "minecraft:sweet_berry_bush",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:herba",
+      "amount": 4
+    },
+    {
+      "aspect": "thaumaturgy:arbor",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:frigus",
+      "amount": 1
+    }
+  ]
+}

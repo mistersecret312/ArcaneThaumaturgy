@@ -1,0 +1,22 @@
+{
+  "item": "minecraft:sculk_shrieker",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:victus",
+      "amount": 6
+    },
+    {
+      "aspect": "thaumaturgy:prohibitum",
+      "amount": 6
+    },
+    {
+      "aspect": "thaumaturgy:tenebrae",
+      "amount": 4
+    },
+    {
+      "aspect": "thaumaturgy:sensus",
+      "amount": 2
+    }
+  ]
+}

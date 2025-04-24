@@ -1,0 +1,14 @@
+{
+  "item": "minecraft:orange_tulip",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:herba",
+      "amount": 3
+    },
+    {
+      "aspect": "thaumaturgy:ignis",
+      "amount": 2
+    }
+  ]
+}

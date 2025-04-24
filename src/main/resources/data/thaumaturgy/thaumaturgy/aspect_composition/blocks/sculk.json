@@ -1,0 +1,18 @@
+{
+  "item": "minecraft:sculk",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:victus",
+      "amount": 4
+    },
+    {
+      "aspect": "thaumaturgy:tenebrae",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:prohibitum",
+      "amount": 2
+    }
+  ]
+}

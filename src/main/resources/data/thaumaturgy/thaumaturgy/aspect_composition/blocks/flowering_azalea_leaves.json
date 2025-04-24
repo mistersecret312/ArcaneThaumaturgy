@@ -1,0 +1,14 @@
+{
+  "item": "minecraft:flowering_azalea_leaves",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:herba",
+      "amount": 4
+    },
+    {
+      "aspect": "thaumaturgy:sensus",
+      "amount": 4
+    }
+  ]
+}

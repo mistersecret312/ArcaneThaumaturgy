@@ -1,17 +1,13 @@
 {
-  "item": "minecraft:crying_obsidian",
+  "item": "minecraft:pointed_dripstone",
   "aspects":
   [
-    {
-      "aspect": "thaumaturgy:prohibitum",
-      "amount": 2
-    },
     {
       "aspect": "thaumaturgy:terra",
       "amount": 2
     },
     {
-      "aspect": "thaumaturgy:ignis",
+      "aspect": "thaumaturgy:aqua",
       "amount": 1
     },
     {

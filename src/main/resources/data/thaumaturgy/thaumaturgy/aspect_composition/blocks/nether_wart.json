@@ -4,10 +4,14 @@
   [
     {
       "aspect": "thaumaturgy:corpus",
-      "amount": 1
+      "amount": 2
     },
     {
       "aspect": "thaumaturgy:victus",
+      "amount": 1
+    },
+    {
+      "aspect": "thaumaturgy:praecantatio",
       "amount": 1
     }
   ]

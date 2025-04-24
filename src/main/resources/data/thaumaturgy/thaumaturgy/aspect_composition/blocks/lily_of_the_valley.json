@@ -1,0 +1,14 @@
+{
+  "item": "minecraft:lily_of_the_valley",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:herba",
+      "amount": 3
+    },
+    {
+      "aspect": "thaumaturgy:iter",
+      "amount": 2
+    }
+  ]
+}

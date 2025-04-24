@@ -1,0 +1,14 @@
+{
+  "item": "minecraft:large_amethyst_bud",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:vitreus",
+      "amount": 4
+    },
+    {
+      "aspect": "thaumaturgy:sensus",
+      "amount": 2
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "item": "minecraft:podzol",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:potentia",
+      "amount": 1
+    },
+    {
+      "aspect": "thaumaturgy:herba",
+      "amount": 1
+    },
+    {
+      "aspect": "thaumaturgy:terra",
+      "amount": 1
+    }
+  ]
+}

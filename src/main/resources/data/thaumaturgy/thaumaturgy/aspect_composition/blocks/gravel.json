@@ -1,0 +1,14 @@
+{
+  "item": "minecraft:gravel",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:terra",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:perditio",
+      "amount": 2
+    }
+  ]
+}

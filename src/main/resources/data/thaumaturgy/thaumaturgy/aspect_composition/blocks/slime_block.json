@@ -1,0 +1,18 @@
+{
+  "item": "minecraft:slime_block",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:limus",
+      "amount": 9
+    },
+    {
+      "aspect": "thaumaturgy:vinculum",
+      "amount": 6
+    },
+    {
+      "aspect": "thaumaturgy:sensus",
+      "amount": 3
+    }
+  ]
+}

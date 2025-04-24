@@ -1,0 +1,18 @@
+{
+  "item": "minecraft:hay_block",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:herba",
+      "amount": 16
+    },
+    {
+      "aspect": "thaumaturgy:messis",
+      "amount": 16
+    },
+    {
+      "aspect": "thaumaturgy:fames",
+      "amount": 8
+    }
+  ]
+}
