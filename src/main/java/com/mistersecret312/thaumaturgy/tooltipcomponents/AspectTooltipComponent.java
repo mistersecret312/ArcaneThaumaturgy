@@ -38,7 +38,7 @@ public class AspectTooltipComponent implements ClientTooltipComponent, TooltipCo
                     texture = ResourceLocation.fromNamespaceAndPath(ArcaneThaumaturgyMod.MODID, "textures/aspect/error.png");
 
                 pose.pushPose();
-                pGuiGraphics.blit(texture, pX+(22*i), pY, 0, 0, 18, 18, 18, 18);
+                pGuiGraphics.blit(texture, pX+(22*i), pY, 0, 0, 16, 16, 16, 16);
                 pose.scale(0.5f, 0.5f, 0.5f);
                 pFont.drawInBatch(String.valueOf(stack.getAmount()), 2*(pX+(22*i)+15), 2*(pY+14), -1, true, pose.last().pose(), pGuiGraphics.bufferSource(), Font.DisplayMode.NORMAL, 0, 15728880);
                 pose.popPose();
@@ -55,6 +55,6 @@ public class AspectTooltipComponent implements ClientTooltipComponent, TooltipCo
     @Override
     public int getWidth(Font pFont)
     {
-        return 18;
+        return 16+(19*this.aspectComposition.getAspects().size());
     }
 }
