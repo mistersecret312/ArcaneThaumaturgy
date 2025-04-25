@@ -11,6 +11,8 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.material.Fluid;
+import net.minecraftforge.registries.ForgeRegistries;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -22,23 +24,24 @@ public class AspectComposition
     public static final Codec<ResourceKey<AspectComposition>> RESOURCE_KEY_CODEC = ResourceKey.codec(REGISTRY_KEY);
 
     public static final Codec<AspectComposition> CODEC = RecordCodecBuilder.create(instance -> instance.group(
-            Codec.mapEither(BuiltInRegistries.ENTITY_TYPE.byNameCodec().fieldOf("entity"),
+            Codec.mapEither(Codec.mapEither(BuiltInRegistries.ENTITY_TYPE.byNameCodec().fieldOf("entity"),
+                            ForgeRegistries.FLUIDS.getCodec().fieldOf("fluid")),
                     BuiltInRegistries.ITEM.byNameCodec().fieldOf("item")).forGetter(AspectComposition::getObject),
             Codec.BOOL.optionalFieldOf("inherit_crafting_aspects", false).forGetter(AspectComposition::isInheriting),
             AspectStack.CODEC.listOf().fieldOf("aspects").forGetter(AspectComposition::getAspects)
     ).apply(instance, AspectComposition::new));
 
-    private Either<EntityType<?>, Item> object;
+    private Either<Either<EntityType<?>, Fluid>, Item> object;
     private boolean inherit;
     private List<AspectStack> aspects;
-    public AspectComposition(Either<EntityType<?>, Item> object, boolean inherit, List<AspectStack> aspects)
+    public AspectComposition(Either<Either<EntityType<?>, Fluid>, Item> object, boolean inherit, List<AspectStack> aspects)
     {
         this.object = object;
         this.inherit = inherit;
         this.aspects = aspects;
     }
 
-    protected Either<EntityType<?>, Item> getObject()
+    protected Either<Either<EntityType<?>, Fluid>, Item> getObject()
     {
         return object;
     }
@@ -52,7 +55,19 @@ public class AspectComposition
     @Nullable
     public EntityType<?> getEntity()
     {
-        return object.left().orElse(null);
+        Either<EntityType<?>, Fluid> either = object.left().orElse(null);
+        if(either != null)
+            return either.left().orElse(null);
+        else return null;
+    }
+
+    @Nullable
+    public Fluid getFluid()
+    {
+        Either<EntityType<?>, Fluid> either = object.left().orElse(null);
+        if(either != null)
+            return either.right().orElse(null);
+        else return null;
     }
 
     public boolean isInheriting()

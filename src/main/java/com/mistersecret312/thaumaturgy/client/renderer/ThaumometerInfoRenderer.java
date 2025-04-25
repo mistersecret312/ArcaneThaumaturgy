@@ -32,8 +32,10 @@ import net.minecraft.world.entity.projectile.ProjectileUtil;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
@@ -172,8 +174,15 @@ public class ThaumometerInfoRenderer extends BlockEntityWithoutLevelRenderer {
 
             Stream<Map.Entry<ResourceKey<AspectComposition>, AspectComposition>> filtered = aspectCompositions.entrySet().stream().filter(key -> {
                 Item item = key.getValue().getItem();
-                if(item != null)
+                if(item != null && item != Items.AIR)
+                {
                     return blockState.getBlock().asItem().equals(item);
+                }
+                Fluid fluid = key.getValue().getFluid();
+                if(fluid != null)
+                {
+                    return blockState.getFluidState().is(fluid);
+                }
                 return false;
             });
             Optional<Map.Entry<ResourceKey<AspectComposition>, AspectComposition>> object = filtered.findFirst();
