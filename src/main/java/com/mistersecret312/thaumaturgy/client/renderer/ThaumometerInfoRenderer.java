@@ -181,7 +181,7 @@ public class ThaumometerInfoRenderer extends BlockEntityWithoutLevelRenderer {
                 Fluid fluid = key.getValue().getFluid();
                 if(fluid != null)
                 {
-                    return blockState.getFluidState().is(fluid);
+                    return blockState.getFluidState().getFluidType().equals(fluid.getFluidType());
                 }
                 return false;
             });

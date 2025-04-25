@@ -6,6 +6,7 @@ import com.mistersecret312.thaumaturgy.init.BlockInit;
 import com.mistersecret312.thaumaturgy.init.ItemInit;
 import com.mistersecret312.thaumaturgy.items.AspectItem;
 import com.mistersecret312.thaumaturgy.recipes.TransmutationRecipe;
+import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.drawable.IDrawable;
@@ -17,8 +18,10 @@ import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.recipe.category.IRecipeCategory;
 import mezz.jei.api.recipe.vanilla.IJeiBrewingRecipe;
 import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.data.tags.VanillaItemTagsProvider;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.Nullable;
 
@@ -105,6 +108,7 @@ public class TransmutationCategory implements IRecipeCategory<TransmutationRecip
                 builder.addSlot(RecipeIngredientRole.INPUT, x, y).addItemStack(stack);
             }
         });
+
     }
 }
 

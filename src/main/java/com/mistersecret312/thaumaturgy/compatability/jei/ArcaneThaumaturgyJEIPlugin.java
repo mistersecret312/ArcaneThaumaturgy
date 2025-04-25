@@ -1,11 +1,15 @@
 package com.mistersecret312.thaumaturgy.compatability.jei;
 
 import com.mistersecret312.thaumaturgy.ArcaneThaumaturgyMod;
+import com.mistersecret312.thaumaturgy.aspects.Aspect;
 import com.mistersecret312.thaumaturgy.aspects.AspectStack;
+import com.mistersecret312.thaumaturgy.datapack.AspectComposition;
 import com.mistersecret312.thaumaturgy.init.AspectInit;
 import com.mistersecret312.thaumaturgy.init.BlockInit;
 import com.mistersecret312.thaumaturgy.init.ItemInit;
+import com.mistersecret312.thaumaturgy.init.RecipeTypeInit;
 import com.mistersecret312.thaumaturgy.items.AspectItem;
+import com.mistersecret312.thaumaturgy.recipes.CompositionRecipe;
 import com.mistersecret312.thaumaturgy.recipes.TransmutationRecipe;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
@@ -21,6 +25,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.SpawnEggItem;
 import net.minecraft.world.item.crafting.RecipeManager;
+import org.checkerframework.checker.units.qual.C;
 
 import java.util.*;
 
@@ -41,6 +46,7 @@ public class ArcaneThaumaturgyJEIPlugin implements IModPlugin
     public void registerCategories(IRecipeCategoryRegistration registration)
     {
         registration.addRecipeCategories(new TransmutationCategory(registration.getJeiHelpers().getGuiHelper()));
+        registration.addRecipeCategories(new CompositionCategory(registration.getJeiHelpers().getGuiHelper()));
     }
 
     @Override
@@ -59,6 +65,27 @@ public class ArcaneThaumaturgyJEIPlugin implements IModPlugin
 
         List<TransmutationRecipe> transmutationRecipes = recipeManager.getAllRecipesFor(TransmutationRecipe.Type.INSTANCE);
         registration.addRecipes(new RecipeType<>(TransmutationCategory.RECIPE_ID, TransmutationRecipe.class), transmutationRecipes);
+
+        List<CompositionRecipe> compositionRecipes = new ArrayList<>();
+        AspectInit.ASPECTS.getEntries().forEach(entry -> {
+            Aspect aspect = entry.get();
+            List<AspectComposition> compositions = new ArrayList<>();
+            minecraft.getConnection().registryAccess().registryOrThrow(AspectComposition.REGISTRY_KEY).entrySet().forEach(compositionEntry -> {
+                if(compositionEntry.getValue().getItem() != null && compositionEntry.getValue().getAspects().stream().anyMatch(stack -> stack.getAspect().equals(aspect)))
+                    compositions.add(compositionEntry.getValue());
+            });
+
+            compositions.sort(Comparator.comparing(
+                    composition -> composition.getAspects().stream().filter(filter ->
+                            filter.getAspect().equals(aspect)).toList().get(0).getAmount()));
+
+            List<Item> items = new ArrayList<>();
+            Collections.reverse(compositions);
+            compositions.forEach(composition -> items.add(composition.getItem()));
+
+            compositionRecipes.add(new CompositionRecipe(aspect, items));
+        });
+        registration.addRecipes(new RecipeType<>(CompositionCategory.RECIPE_ID, CompositionRecipe.class), compositionRecipes);
     }
 
     @Override
