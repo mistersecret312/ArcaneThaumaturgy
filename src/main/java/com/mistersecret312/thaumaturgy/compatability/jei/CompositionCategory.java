@@ -52,7 +52,7 @@ public class CompositionCategory implements IRecipeCategory<CompositionRecipe>
     public CompositionCategory(IGuiHelper helper)
     {
         this.icon = helper.createDrawableIngredient(VanillaTypes.ITEM_STACK, AspectItem.create(AspectInit.ORDO.get()));
-        this.aspectBackground = helper.createDrawable(ResourceLocation.fromNamespaceAndPath(ArcaneThaumaturgyMod.MODID, "textures/gui/jei_composition.png"), 0, 0, 16, 16);
+        this.aspectBackground = helper.drawableBuilder(ResourceLocation.fromNamespaceAndPath(ArcaneThaumaturgyMod.MODID, "textures/gui/jei_composition.png"), 0, 0, 16, 16).setTextureSize(16, 16).build();
     }
 
     @Override
