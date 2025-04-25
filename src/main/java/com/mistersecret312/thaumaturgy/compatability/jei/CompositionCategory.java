@@ -115,7 +115,7 @@ public class CompositionCategory implements IRecipeCategory<CompositionRecipe>
 
         FormattedText text = new AspectStack(recipe.getAspect()).getTranslatable();
         builder.addText(text, getWidth() - 22, 20)
-                .setPosition(22, 0)
+                .setPosition(10, 0)
                 .setColor(0xFF505050)
                 .setLineSpacing(0)
                 .setShadow(true)
