@@ -146,6 +146,10 @@ public class GreatwoodTapBlock extends HorizontalDirectionalBlock implements Sim
     @Override
     public BlockState updateShape(BlockState pState, Direction pDirection, BlockState pNeighborState, LevelAccessor pLevel, BlockPos pPos, BlockPos pNeighborPos)
     {
+        if (!isOnGreatwoodTree(pLevel, pPos, pState)) {
+            pLevel.destroyBlock(pPos, true);
+        }
+
         if (pState.getValue(WATERLOGGED))
         {
             pLevel.scheduleTick(pPos, Fluids.WATER, Fluids.WATER.getTickDelay(pLevel));
@@ -159,5 +163,17 @@ public class GreatwoodTapBlock extends HorizontalDirectionalBlock implements Sim
         LevelAccessor accessor = pContext.getLevel();
         BlockPos pos = pContext.getClickedPos();
         return this.defaultBlockState().setValue(WATERLOGGED, accessor.getFluidState(pos).getType() == Fluids.WATER).setValue(FACING, pContext.getHorizontalDirection().getOpposite()).setValue(SAP, false);
+    }
+
+    public boolean isOnGreatwoodTree(Level pLevel, BlockPos pPos, BlockState pState) {
+        Direction tapDirection = pState.getValue(FACING);
+        Block tappedBlock = pLevel.getBlockState(pPos.relative(tapDirection.getOpposite())).getBlock();
+        return tappedBlock.equals(BlockInit.GREATWOOD_LOG.get()) || tappedBlock.equals(BlockInit.GREATWOOD_WOOD.get()) || tappedBlock.equals(BlockInit.STRIPPED_GREATWOOD_LOG.get()) || tappedBlock.equals(BlockInit.STRIPPED_SILVERWOOD_WOOD.get());
+    }
+
+    public boolean isOnGreatwoodTree(LevelAccessor pLevel, BlockPos pPos, BlockState pState) {
+        Direction tapDirection = pState.getValue(FACING);
+        Block tappedBlock = pLevel.getBlockState(pPos.relative(tapDirection.getOpposite())).getBlock();
+        return tappedBlock.equals(BlockInit.GREATWOOD_LOG.get()) || tappedBlock.equals(BlockInit.GREATWOOD_WOOD.get()) || tappedBlock.equals(BlockInit.STRIPPED_GREATWOOD_LOG.get()) || tappedBlock.equals(BlockInit.STRIPPED_SILVERWOOD_WOOD.get());
     }
 }

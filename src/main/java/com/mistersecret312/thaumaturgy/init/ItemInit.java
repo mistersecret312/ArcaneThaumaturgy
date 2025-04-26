@@ -62,6 +62,9 @@ public class ItemInit
     public static final RegistryObject<ThaumometerItem> THAUMOMETER = ITEMS.register("thaumometer", () -> new ThaumometerItem(new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> SCRIBING_TOOLS = ITEMS.register("scribing_tools", () -> new Item(new Item.Properties().stacksTo(1)));
 
+    public static final RegistryObject<GreatwoodTapItem> GREATWOOD_TAP = ITEMS.register("greatwood_tap", () -> new GreatwoodTapItem(new Item.Properties()));
+
+
     public static final RegistryObject<Item> GREAT_SAP = ITEMS.register("great_sap", () -> new Item((new Item.Properties())));
     public static final RegistryObject<GreatSapBottleItem> GREAT_SAP_BOTTLE = ITEMS.register("great_sap_bottle", () -> new GreatSapBottleItem((new Item.Properties()).craftRemainder(Items.GLASS_BOTTLE).food(FoodsInit.GREAT_SAP_BOTTLE).stacksTo(16)));
     public static final RegistryObject<GreatSyrupBottleItem> GREAT_SYRUP_BOTTLE = ITEMS.register("great_syrup_bottle", () -> new GreatSyrupBottleItem((new Item.Properties()).craftRemainder(Items.GLASS_BOTTLE).food(FoodsInit.GREAT_SYRUP_BOTTLE).stacksTo(16)));
