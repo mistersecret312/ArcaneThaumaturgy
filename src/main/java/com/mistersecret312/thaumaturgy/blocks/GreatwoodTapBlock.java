@@ -1,11 +1,20 @@
 package com.mistersecret312.thaumaturgy.blocks;
 
 import com.mistersecret312.thaumaturgy.init.BlockInit;
+import com.mistersecret312.thaumaturgy.init.ItemInit;
 import com.mistersecret312.thaumaturgy.util.MathUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -19,12 +28,13 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.material.Fluids;
+import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 import javax.annotation.Nullable;
 
-public class GreatwoodTapperBlock extends HorizontalDirectionalBlock implements SimpleWaterloggedBlock {
+public class GreatwoodTapBlock extends HorizontalDirectionalBlock implements SimpleWaterloggedBlock {
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
     public static final BooleanProperty SAP = BooleanProperty.create("sap");
 
@@ -41,9 +51,33 @@ public class GreatwoodTapperBlock extends HorizontalDirectionalBlock implements 
             Block.box(0, 4, 6, 5, 10, 10)
     );
 
-    public GreatwoodTapperBlock(Properties pProperties) {
+    public GreatwoodTapBlock(Properties pProperties) {
         super(pProperties);
         this.registerDefaultState(this.defaultBlockState().setValue(FACING, Direction.NORTH).setValue(WATERLOGGED, false).setValue(SAP, false));
+    }
+
+    @Override
+    public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
+        ItemStack itemStack = pPlayer.getItemInHand(pHand);
+        boolean sap = pState.getValue(SAP);
+
+        if (sap) {
+            if (itemStack.getItem() == Items.GLASS_BOTTLE) {
+                itemStack.shrink(1);
+                pPlayer.addItem(new ItemStack(ItemInit.GREAT_SAP_BOTTLE.get(), 1));
+
+                pLevel.playSound(pPlayer, pPos, SoundEvents.BOTTLE_FILL, SoundSource.BLOCKS, 1, 1);
+            } else {
+                pPlayer.addItem(new ItemStack(ItemInit.GREAT_SAP.get(), 1));
+
+                pLevel.playSound(pPlayer, pPos, SoundEvents.HONEYCOMB_WAX_ON, SoundSource.BLOCKS, 1, 1);
+            }
+            pLevel.setBlockAndUpdate(pPos, pState.setValue(SAP, false));
+
+            return InteractionResult.SUCCESS;
+        }
+
+        return InteractionResult.PASS;
     }
 
     @Override

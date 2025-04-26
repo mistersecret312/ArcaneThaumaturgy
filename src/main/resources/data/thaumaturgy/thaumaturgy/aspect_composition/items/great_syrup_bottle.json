@@ -1,0 +1,22 @@
+{
+  "item": "thaumaturgy:great_syrup_bottle",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:messis",
+      "amount": 4
+    },
+    {
+      "aspect": "thaumaturgy:fames",
+      "amount": 3
+    },
+    {
+      "aspect": "thaumaturgy:praecantatio",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:limus",
+      "amount": 2
+    }
+  ]
+}

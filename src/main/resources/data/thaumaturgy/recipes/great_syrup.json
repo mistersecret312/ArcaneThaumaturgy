@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.3,
+  "group": "great_syrup",
+  "ingredient": {
+    "item": "thaumaturgy:great_sap_bottle"
+  },
+  "result": "thaumaturgy:great_syrup_bottle"
+}

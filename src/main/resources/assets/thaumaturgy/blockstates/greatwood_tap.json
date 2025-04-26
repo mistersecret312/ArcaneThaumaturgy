@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "facing=north,sap=false": {
+      "model": "thaumaturgy:block/greatwood_tap"
+    },
+    "facing=south,sap=false": {
+      "model": "thaumaturgy:block/greatwood_tap",
+      "y": 180
+    },
+    "facing=west,sap=false": {
+      "model": "thaumaturgy:block/greatwood_tap",
+      "y": 270
+    },
+    "facing=east,sap=false": {
+      "model": "thaumaturgy:block/greatwood_tap",
+      "y": 90
+    },
+    "facing=north,sap=true": {
+      "model": "thaumaturgy:block/greatwood_tap_sap"
+    },
+    "facing=south,sap=true": {
+      "model": "thaumaturgy:block/greatwood_tap_sap",
+      "y": 180
+    },
+    "facing=west,sap=true": {
+      "model": "thaumaturgy:block/greatwood_tap_sap",
+      "y": 270
+    },
+    "facing=east,sap=true": {
+      "model": "thaumaturgy:block/greatwood_tap_sap",
+      "y": 90
+    }
+  }
+}

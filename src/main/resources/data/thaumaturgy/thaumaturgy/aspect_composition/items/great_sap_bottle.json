@@ -1,0 +1,26 @@
+{
+  "item": "thaumaturgy:great_sap_bottle",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:praecantatio",
+      "amount": 6
+    },
+    {
+      "aspect": "thaumaturgy:herba",
+      "amount": 4
+    },
+    {
+      "aspect": "thaumaturgy:limus",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:vitreus",
+      "amount": 1
+    },
+    {
+      "aspect": "thaumaturgy:vacuos",
+      "amount": 1
+    }
+  ]
+}

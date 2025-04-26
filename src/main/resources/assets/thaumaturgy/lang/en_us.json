@@ -46,6 +46,10 @@
   "item.thaumaturgy.purified_copper_nucleus": "Purified Copper Nucleus",
   "item.thaumaturgy.purified_quicksilver_nucleus": "Purified Quicksilver Nucleus",
 
+  "item.thaumaturgy.great_sap": "Great Sap",
+  "item.thaumaturgy.great_sap_bottle": "Great Sap Bottle",
+  "item.thaumaturgy.great_syrup_bottle": "Great Syrup Bottle",
+
   "_tooltips": "Tooltips",
   "thaumaturgy.nitor.color": "Color:",
 
@@ -83,6 +87,7 @@
   "block.thaumaturgy.thaumaturge_emblem": "Thaumaturge Emblem",
   "block.thaumaturgy.greatwood_sign": "Greatwood Sign",
   "block.thaumaturgy.greatwood_hanging_sign": "Greatwood Hanging Sign",
+  "block.thaumaturgy.greatwood_tap": "Greatwood Tap",
 
   "block.thaumaturgy.silverwood_sapling": "Silverwood Sapling",
   "block.thaumaturgy.silverwood_leaves": "Silverwood Leaves",

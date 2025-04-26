@@ -1,8 +1,8 @@
 {
 	"credit": "Made with Blockbench",
 	"textures": {
-		"0": "thaumaturgy:block/greatwood_tapper",
-		"particle": "thaumaturgy:block/greatwood_tapper"
+		"0": "thaumaturgy:block/greatwood_tap",
+		"particle": "thaumaturgy:block/greatwood_tap"
 	},
 	"elements": [
 		{

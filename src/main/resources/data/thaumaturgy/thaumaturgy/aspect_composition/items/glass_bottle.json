@@ -1,0 +1,14 @@
+{
+  "item": "minecraft:glass_bottle",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:vitreus",
+      "amount": 1
+    },
+    {
+      "aspect": "thaumaturgy:vacuos",
+      "amount": 1
+    }
+  ]
+}

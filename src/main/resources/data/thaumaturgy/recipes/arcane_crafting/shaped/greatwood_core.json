@@ -1,0 +1,36 @@
+{
+  "type": "thaumaturgy:arcane_crafting_shaped",
+  "category": "misc",
+  "group": "cores",
+  "key": {
+    "L": {
+      "item": "thaumaturgy:greatwood_log"
+    },
+    "S": {
+      "item": "thaumaturgy:great_sap"
+    }
+  },
+  "pattern": [
+    " S ",
+    " L ",
+    " L "
+  ],
+  "aspects": [
+    {
+      "aspect": "thaumaturgy:terra",
+      "amount": 2
+    },
+    {
+      "aspect": "thaumaturgy:perditio",
+      "amount": 3
+    },
+    {
+      "aspect": "thaumaturgy:ordo",
+      "amount": 3
+    }
+  ],
+  "result": {
+    "item": "thaumaturgy:greatwood_core"
+  },
+  "show_notification": true
+}

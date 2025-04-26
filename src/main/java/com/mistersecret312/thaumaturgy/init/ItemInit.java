@@ -3,7 +3,10 @@ package com.mistersecret312.thaumaturgy.init;
 import com.mistersecret312.thaumaturgy.ArcaneThaumaturgyMod;
 import com.mistersecret312.thaumaturgy.blocks.NitorBlock;
 import com.mistersecret312.thaumaturgy.items.*;
+import net.minecraft.world.food.Foods;
+import net.minecraft.world.item.HoneyBottleItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Rarity;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -58,6 +61,10 @@ public class ItemInit
     public static final RegistryObject<ThaumonomiconItem> THAUMONOMICON = ITEMS.register("thaumonomicon", () -> new ThaumonomiconItem(new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<ThaumometerItem> THAUMOMETER = ITEMS.register("thaumometer", () -> new ThaumometerItem(new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> SCRIBING_TOOLS = ITEMS.register("scribing_tools", () -> new Item(new Item.Properties().stacksTo(1)));
+
+    public static final RegistryObject<Item> GREAT_SAP = ITEMS.register("great_sap", () -> new Item((new Item.Properties())));
+    public static final RegistryObject<GreatSapBottleItem> GREAT_SAP_BOTTLE = ITEMS.register("great_sap_bottle", () -> new GreatSapBottleItem((new Item.Properties()).craftRemainder(Items.GLASS_BOTTLE).food(FoodsInit.GREAT_SAP_BOTTLE).stacksTo(16)));
+    public static final RegistryObject<GreatSyrupBottleItem> GREAT_SYRUP_BOTTLE = ITEMS.register("great_syrup_bottle", () -> new GreatSyrupBottleItem((new Item.Properties()).craftRemainder(Items.GLASS_BOTTLE).food(FoodsInit.GREAT_SYRUP_BOTTLE).stacksTo(16)));
 
     public static void register(IEventBus bus)
     {

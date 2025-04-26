@@ -20,28 +20,22 @@ public class ItemTabInit
                     .title(Component.translatable("tabs.thaumaturgy.main_tab"))
                     .displayItems((parameters, output) ->
                     {
-                        output.accept(BlockInit.GREATWOOD_TAPPER.get());
-
                         output.accept(BlockInit.ARCANE_WORKBENCH.get());
-
                         output.accept(BlockInit.RESEARCH_TABLE.get());
-
                         output.accept(BlockInit.CRUCIBLE.get());
-
                         output.accept(BlockInit.RUNIC_MATRIX.get());
 
-                        output.accept(ItemInit.THAUMONOMICON.get());
-
-                        output.accept(BlockInit.ESSENTIA_JAR.get());
-
-                        output.accept(ItemInit.SCRIBING_TOOLS.get());
+                        output.accept(ItemInit.THAUMOMETER.get());
+                        output.accept(ItemInit.REVELATION_GOGGLES.get());
 
                         output.accept(WandItem.createPrimal(ItemInit.IRON_WAND.get(), 25, true));
                         output.accept(WandItem.createPrimal(ItemInit.GOLD_WAND.get(), 50, true));
 
-                        output.accept(ItemInit.THAUMOMETER.get());
+                        output.accept(ItemInit.THAUMONOMICON.get());
+                        output.accept(ItemInit.SCRIBING_TOOLS.get());
 
-                        output.accept(ItemInit.REVELATION_GOGGLES.get());
+                        output.accept(BlockInit.GREATWOOD_TAP.get());
+                        output.accept(BlockInit.ESSENTIA_JAR.get());
                     })
                     .build());
 
@@ -55,6 +49,10 @@ public class ItemTabInit
                         output.accept(ItemInit.GOLD_KNOB.get());
 
                         output.accept(ItemInit.GREATWOOD_CORE.get());
+
+                        output.accept(ItemInit.GREAT_SAP.get());
+                        output.accept(ItemInit.GREAT_SAP_BOTTLE.get());
+                        output.accept(ItemInit.GREAT_SYRUP_BOTTLE.get());
 
                         output.accept(ItemInit.ARCANE_STEEL_INGOT.get());
 
