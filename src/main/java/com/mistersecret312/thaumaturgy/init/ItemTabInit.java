@@ -34,7 +34,7 @@ public class ItemTabInit
                         output.accept(ItemInit.THAUMONOMICON.get());
                         output.accept(ItemInit.SCRIBING_TOOLS.get());
 
-                        output.accept(BlockInit.GREATWOOD_TAP.get());
+                        output.accept(ItemInit.GREATWOOD_TAP.get());
                         output.accept(BlockInit.ESSENTIA_JAR.get());
                     })
                     .build());
