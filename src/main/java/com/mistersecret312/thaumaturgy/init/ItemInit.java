@@ -29,6 +29,8 @@ public class ItemInit
     public static final RegistryObject<NitorItem> NITOR_PERDITIO = ITEMS.register("nitor_perditio", () -> new NitorItem(new Item.Properties().stacksTo(1), NitorBlock.NitorType.PERDITIO));
     public static final RegistryObject<NitorItem> NITOR_AER = ITEMS.register("nitor_aer", () -> new NitorItem(new Item.Properties().stacksTo(1), NitorBlock.NitorType.AER));
 
+    public static final RegistryObject<ResearchTableItem> RESEARCH_TABLE = ITEMS.register("research_table", () -> new ResearchTableItem(new Item.Properties().stacksTo(64)));
+
     public static final RegistryObject<Item> AER_VIS_CRYSTAL = ITEMS.register("aer_vis_crystal", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> IGNIS_VIS_CRYSTAL = ITEMS.register("ignis_vis_crystal", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> AQUA_VIS_CRYSTAL = ITEMS.register("aqua_vis_crystal", () -> new Item(new Item.Properties()));

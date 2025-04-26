@@ -30,8 +30,7 @@ public class BlockInit
 
     public static final RegistryObject<ArcaneCraftingTableBlock> ARCANE_WORKBENCH = registerBlock("arcane_crafting_table", () -> new ArcaneCraftingTableBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(2.0F).sound(SoundType.NETHER_WOOD).ignitedByLava()));
 
-    public static final RegistryObject<Block> RESEARCH_TABLE_LEFT = registerBlock("research_table_left", () -> new TableBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(2.0F).sound(SoundType.NETHER_WOOD).ignitedByLava()));
-    public static final RegistryObject<Block> RESEARCH_TABLE_RIGHT = registerBlock("research_table_right", () -> new TableBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(2.0F).sound(SoundType.NETHER_WOOD).ignitedByLava()));
+    public static final RegistryObject<Block> RESEARCH_TABLE = BLOCKS.register("research_table", () -> new ResearchTableBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(2.0F).sound(SoundType.NETHER_WOOD).ignitedByLava()));
 
     public static final RegistryObject<CrucibleBlock> CRUCIBLE = registerBlock("crucible", () -> new CrucibleBlock(BlockBehaviour.Properties.of().strength(3f).requiresCorrectToolForDrops().sound(SoundType.COPPER).mapColor(MapColor.COLOR_GRAY)));
 

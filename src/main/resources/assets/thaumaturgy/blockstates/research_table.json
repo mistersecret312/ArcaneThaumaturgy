@@ -1,0 +1,35 @@
+{
+  "variants": {
+    "facing=north,dummy=false": {
+      "model": "thaumaturgy:block/research_table_left"
+    },
+    "facing=south,dummy=false": {
+      "model": "thaumaturgy:block/research_table_left",
+      "y": 180
+    },
+    "facing=west,dummy=false": {
+      "model": "thaumaturgy:block/research_table_left",
+      "y": 270
+    },
+    "facing=east,dummy=false": {
+      "model": "thaumaturgy:block/research_table_left",
+      "y": 90
+    },
+
+    "facing=north,dummy=true": {
+      "model": "thaumaturgy:block/research_table_right"
+    },
+    "facing=south,dummy=true": {
+      "model": "thaumaturgy:block/research_table_right",
+      "y": 180
+    },
+    "facing=west,dummy=true": {
+      "model": "thaumaturgy:block/research_table_right",
+      "y": 270
+    },
+    "facing=east,dummy=true": {
+      "model": "thaumaturgy:block/research_table_right",
+      "y": 90
+    }
+  }
+}

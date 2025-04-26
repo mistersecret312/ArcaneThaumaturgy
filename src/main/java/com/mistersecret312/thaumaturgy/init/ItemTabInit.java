@@ -22,8 +22,7 @@ public class ItemTabInit
                     {
                         output.accept(BlockInit.ARCANE_WORKBENCH.get());
 
-                        output.accept(BlockInit.RESEARCH_TABLE_LEFT.get());
-                        output.accept(BlockInit.RESEARCH_TABLE_RIGHT.get());
+                        output.accept(BlockInit.RESEARCH_TABLE.get());
 
                         output.accept(BlockInit.CRUCIBLE.get());
 

@@ -1,10 +1,8 @@
 package com.mistersecret312.thaumaturgy.init;
 
 import com.mistersecret312.thaumaturgy.ArcaneThaumaturgyMod;
-import com.mistersecret312.thaumaturgy.block_entities.ArcaneCraftingTableBlockEntity;
-import com.mistersecret312.thaumaturgy.block_entities.CrucibleBlockEntity;
-import com.mistersecret312.thaumaturgy.block_entities.NitorBlockEntity;
-import com.mistersecret312.thaumaturgy.block_entities.PedestalBlockEntity;
+import com.mistersecret312.thaumaturgy.block_entities.*;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -23,6 +21,8 @@ public class BlockEntityInit
             () -> BlockEntityType.Builder.of(PedestalBlockEntity::new, BlockInit.ARCANE_STONE_PEDESTAL.get()).build(null));
     public static final RegistryObject<BlockEntityType<NitorBlockEntity>> NITOR = BLOCK_ENTITIES.register("nitor",
             () -> BlockEntityType.Builder.of(NitorBlockEntity::new, BlockInit.NITOR.get()).build(null));
+    public static final RegistryObject<BlockEntityType<ResearchTableBlockEntity>> RESEARCH_TABLE = BLOCK_ENTITIES.register("research_table",
+            () -> BlockEntityType.Builder.of(ResearchTableBlockEntity::new, BlockInit.RESEARCH_TABLE.get()).build(null));
 
     public static void register(IEventBus bus)
     {
