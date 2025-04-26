@@ -12,8 +12,6 @@ import org.jetbrains.annotations.Nullable;
 
 public class NitorBlockEntity extends BlockEntity
 {
-    public int color;
-
     public NitorBlockEntity(BlockPos pPos, BlockState pBlockState)
     {
         super(BlockEntityInit.NITOR.get(), pPos, pBlockState);
@@ -41,15 +39,5 @@ public class NitorBlockEntity extends BlockEntity
     public void load(CompoundTag tag)
     {
         super.load(tag);
-    }
-
-    public int getColor()
-    {
-        return color;
-    }
-
-    public void setColor(int color)
-    {
-        this.color = color;
     }
 }
