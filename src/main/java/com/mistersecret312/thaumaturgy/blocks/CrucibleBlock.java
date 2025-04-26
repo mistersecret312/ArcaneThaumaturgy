@@ -204,7 +204,7 @@ public class CrucibleBlock extends BaseEntityBlock
         BlockState state = accessor.getBlockState(pos.below());
         Block block = state.getBlock();
 
-        return block instanceof FireBlock || (block instanceof CampfireBlock && state.getValue(CampfireBlock.LIT)) || block instanceof SoulFireBlock || block instanceof TorchBlock || state.getFluidState().is(FluidTags.LAVA) || block instanceof NitorBlock;
+        return block instanceof FireBlock || (block instanceof CampfireBlock && state.getValue(CampfireBlock.LIT)) || block instanceof SoulFireBlock || block instanceof TorchBlock || state.getFluidState().is(FluidTags.LAVA) || block instanceof NitorBlock || block instanceof MagmaBlock;
     }
 
     @Nullable

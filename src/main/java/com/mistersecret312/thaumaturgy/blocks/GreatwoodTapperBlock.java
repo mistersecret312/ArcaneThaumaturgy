@@ -1,10 +1,14 @@
 package com.mistersecret312.thaumaturgy.blocks;
 
+import com.mistersecret312.thaumaturgy.init.BlockInit;
 import com.mistersecret312.thaumaturgy.util.MathUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
@@ -14,48 +18,66 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
-import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 import javax.annotation.Nullable;
 
-public class ThaumaturgeEmblemBlock extends HorizontalDirectionalBlock implements SimpleWaterloggedBlock {
+public class GreatwoodTapperBlock extends HorizontalDirectionalBlock implements SimpleWaterloggedBlock {
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
+    public static final BooleanProperty SAP = BooleanProperty.create("sap");
 
     public static final VoxelShape SHAPE_NORTH = MathUtil.buildShape(
-            Block.box(6, 2, 15, 10, 14, 16),
-            Block.box(10, 3, 15, 12, 13, 16),
-            Block.box(4, 3, 15, 6, 13, 16),
-            Block.box(12, 4, 15, 14, 12, 16),
-            Block.box(2, 4, 15, 4, 12, 16)
+            Block.box(6, 4, 11, 10, 10, 16)
     );
     public static final VoxelShape SHAPE_SOUTH = MathUtil.buildShape(
-            Block.box(6, 2, 0, 10, 14, 1),
-            Block.box(10, 3, 0, 12, 13, 1),
-            Block.box(4, 3, 0, 6, 13, 1),
-            Block.box(12, 4, 0, 14, 12, 1),
-            Block.box(2, 4, 0, 4, 12, 1)
+            Block.box(6, 4, 0, 10, 10, 5)
     );
     public static final VoxelShape SHAPE_WEST = MathUtil.buildShape(
-            Block.box(15, 2, 6, 16, 14, 10),
-            Block.box(15, 3, 10, 16, 13, 12),
-            Block.box(15, 3, 4, 16, 13, 6),
-            Block.box(15, 4, 12, 16, 12, 14),
-            Block.box(15, 4, 2, 16, 12, 4)
+            Block.box(11, 4, 6, 16, 10, 10)
     );
     public static final VoxelShape SHAPE_EAST = MathUtil.buildShape(
-            Block.box(0, 2, 6, 1, 14, 10),
-            Block.box(0, 3, 10, 1, 13, 12),
-            Block.box(0, 3, 4, 1, 13, 6),
-            Block.box(0, 4, 12, 1, 12, 14),
-            Block.box(0, 4, 2, 1, 12, 4)
+            Block.box(0, 4, 6, 5, 10, 10)
     );
 
-    public ThaumaturgeEmblemBlock(Properties pProperties) {
+    public GreatwoodTapperBlock(Properties pProperties) {
         super(pProperties);
-        this.registerDefaultState(this.defaultBlockState().setValue(FACING, Direction.NORTH).setValue(WATERLOGGED, false));
+        this.registerDefaultState(this.defaultBlockState().setValue(FACING, Direction.NORTH).setValue(WATERLOGGED, false).setValue(SAP, false));
+    }
+
+    @Override
+    public void animateTick(BlockState pState, Level pLevel, BlockPos pPos, RandomSource pRandom) {
+        Direction tapDirection = pState.getValue(FACING);
+        Block tappedBlock = pLevel.getBlockState(pPos.relative(tapDirection.getOpposite())).getBlock();
+
+        if (tappedBlock.equals(BlockInit.GREATWOOD_LOG.get()) || tappedBlock.equals(BlockInit.GREATWOOD_WOOD.get()) || tappedBlock.equals(BlockInit.STRIPPED_GREATWOOD_LOG.get()) || tappedBlock.equals(BlockInit.STRIPPED_SILVERWOOD_WOOD.get())) {
+            if (pLevel.getGameTime() % pRandom.nextInt(40, 100) == 0) {
+                if (pRandom.nextDouble() > 0.75) {
+                    if (!pState.getValue(SAP)) {
+                        pLevel.setBlockAndUpdate(pPos, pState.setValue(SAP, true));
+                    }
+                }
+                double x = pPos.getX() + 0.5;
+                double y = pPos.getY() + 0.2;
+                double z = pPos.getZ() + 0.5;
+
+                if (tapDirection == Direction.NORTH) {
+                    z = z + 0.15;
+                } else if (tapDirection == Direction.SOUTH) {
+                    z = z - 0.15;
+                } else if (tapDirection == Direction.EAST) {
+                    x = x - 0.15;
+                } else if (tapDirection == Direction.WEST) {
+                    x = x + 0.15;
+                }
+
+                for (int i = 0; i < 3; i++) {
+                    pLevel.addParticle(ParticleTypes.DRIPPING_WATER, x, y, z, 0, 0, 0);
+                }
+            }
+        }
+        super.animateTick(pState, pLevel, pPos, pRandom);
     }
 
     @Override
@@ -83,7 +105,7 @@ public class ThaumaturgeEmblemBlock extends HorizontalDirectionalBlock implement
 
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> blockStateBuilder)
     {
-        blockStateBuilder.add(WATERLOGGED, FACING);
+        blockStateBuilder.add(WATERLOGGED, FACING, SAP);
         super.createBlockStateDefinition(blockStateBuilder);
     }
 
@@ -102,11 +124,6 @@ public class ThaumaturgeEmblemBlock extends HorizontalDirectionalBlock implement
     {
         LevelAccessor accessor = pContext.getLevel();
         BlockPos pos = pContext.getClickedPos();
-        return this.defaultBlockState().setValue(WATERLOGGED, accessor.getFluidState(pos).getType() == Fluids.WATER).setValue(FACING, pContext.getHorizontalDirection().getOpposite());
-    }
-
-    public FluidState getFluidState(BlockState state)
-    {
-        return state.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(state);
+        return this.defaultBlockState().setValue(WATERLOGGED, accessor.getFluidState(pos).getType() == Fluids.WATER).setValue(FACING, pContext.getHorizontalDirection().getOpposite()).setValue(SAP, false);
     }
 }

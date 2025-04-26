@@ -20,6 +20,8 @@ public class ItemTabInit
                     .title(Component.translatable("tabs.thaumaturgy.main_tab"))
                     .displayItems((parameters, output) ->
                     {
+                        output.accept(BlockInit.GREATWOOD_TAPPER.get());
+
                         output.accept(BlockInit.ARCANE_WORKBENCH.get());
 
                         output.accept(BlockInit.RESEARCH_TABLE_LEFT.get());
