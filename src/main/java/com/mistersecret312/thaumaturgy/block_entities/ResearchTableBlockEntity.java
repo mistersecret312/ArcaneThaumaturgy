@@ -7,14 +7,15 @@ import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.Nullable;
 
-public class NitorBlockEntity extends BlockEntity
+public class ResearchTableBlockEntity extends BlockEntity
 {
-    public NitorBlockEntity(BlockPos pPos, BlockState pBlockState)
+    public ResearchTableBlockEntity(BlockPos pPos, BlockState pBlockState)
     {
-        super(BlockEntityInit.NITOR.get(), pPos, pBlockState);
+        super(BlockEntityInit.RESEARCH_TABLE.get(), pPos, pBlockState);
     }
 
     @Override

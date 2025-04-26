@@ -1,6 +1,7 @@
 package com.mistersecret312.thaumaturgy.init;
 
 import com.mistersecret312.thaumaturgy.ArcaneThaumaturgyMod;
+import com.mistersecret312.thaumaturgy.blocks.NitorBlock;
 import com.mistersecret312.thaumaturgy.items.*;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
@@ -20,6 +21,15 @@ public class ItemInit
 
     public static final RegistryObject<WandItem> IRON_WAND = ITEMS.register("iron_wand", () -> new WandItem(new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<WandItem> GOLD_WAND = ITEMS.register("gold_wand", () -> new WandItem(new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON)));
+
+    public static final RegistryObject<NitorItem> NITOR_IGNIS = ITEMS.register("nitor_ignis", () -> new NitorItem(new Item.Properties().stacksTo(1), NitorBlock.NitorType.IGNIS));
+    public static final RegistryObject<NitorItem> NITOR_ORDO = ITEMS.register("nitor_ordo", () -> new NitorItem(new Item.Properties().stacksTo(1), NitorBlock.NitorType.ORDO));
+    public static final RegistryObject<NitorItem> NITOR_TERRA = ITEMS.register("nitor_terra", () -> new NitorItem(new Item.Properties().stacksTo(1), NitorBlock.NitorType.TERRA));
+    public static final RegistryObject<NitorItem> NITOR_AQUA = ITEMS.register("nitor_aqua", () -> new NitorItem(new Item.Properties().stacksTo(1), NitorBlock.NitorType.AQUA));
+    public static final RegistryObject<NitorItem> NITOR_PERDITIO = ITEMS.register("nitor_perditio", () -> new NitorItem(new Item.Properties().stacksTo(1), NitorBlock.NitorType.PERDITIO));
+    public static final RegistryObject<NitorItem> NITOR_AER = ITEMS.register("nitor_aer", () -> new NitorItem(new Item.Properties().stacksTo(1), NitorBlock.NitorType.AER));
+
+    public static final RegistryObject<ResearchTableItem> RESEARCH_TABLE = ITEMS.register("research_table", () -> new ResearchTableItem(new Item.Properties().stacksTo(64)));
 
     public static final RegistryObject<Item> AER_VIS_CRYSTAL = ITEMS.register("aer_vis_crystal", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> IGNIS_VIS_CRYSTAL = ITEMS.register("ignis_vis_crystal", () -> new Item(new Item.Properties()));

@@ -30,15 +30,14 @@ public class BlockInit
 
     public static final RegistryObject<ArcaneCraftingTableBlock> ARCANE_WORKBENCH = registerBlock("arcane_crafting_table", () -> new ArcaneCraftingTableBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(2.0F).sound(SoundType.NETHER_WOOD).ignitedByLava()));
 
-    public static final RegistryObject<Block> RESEARCH_TABLE_LEFT = registerBlock("research_table_left", () -> new TableBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(2.0F).sound(SoundType.NETHER_WOOD).ignitedByLava()));
-    public static final RegistryObject<Block> RESEARCH_TABLE_RIGHT = registerBlock("research_table_right", () -> new TableBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(2.0F).sound(SoundType.NETHER_WOOD).ignitedByLava()));
+    public static final RegistryObject<Block> RESEARCH_TABLE = BLOCKS.register("research_table", () -> new ResearchTableBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(2.0F).sound(SoundType.NETHER_WOOD).ignitedByLava()));
 
     public static final RegistryObject<CrucibleBlock> CRUCIBLE = registerBlock("crucible", () -> new CrucibleBlock(BlockBehaviour.Properties.of().strength(3f).requiresCorrectToolForDrops().sound(SoundType.COPPER).mapColor(MapColor.COLOR_GRAY)));
 
     public static final RegistryObject<RunicMatrixBlock> RUNIC_MATRIX = registerBlock("runic_matrix", () -> new RunicMatrixBlock(BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(3.0F).sound(SoundType.DEEPSLATE).mapColor(MapColor.COLOR_GRAY).noOcclusion()));
     public static final RegistryObject<EssentiaJarBlock> ESSENTIA_JAR = registerBlock("essentia_jar", () -> new EssentiaJarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GRAY).noOcclusion().instabreak().sound(SoundTypeInit.ESSENTIA_JAR)));
 
-    public static final RegistryObject<NitorBlock> NITOR = registerBlock("nitor", () -> new NitorBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE).noOcclusion().noCollission().lightLevel((state) -> 10).emissiveRendering((state, getter, pos) -> true).instabreak().sound(SoundTypeInit.NITOR)));
+    public static final RegistryObject<NitorBlock> NITOR = BLOCKS.register("nitor", () -> new NitorBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE).noOcclusion().noCollission().lightLevel((state) -> 10).emissiveRendering((state, getter, pos) -> true).instabreak().sound(SoundTypeInit.NITOR)));
 
     public static final RegistryObject<Block> ARCANE_STONE = registerBlock("arcane_stone", () -> new Block(BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(3.0F, 5f).sound(SoundType.DEEPSLATE).mapColor(MapColor.COLOR_GRAY)));
     public static final RegistryObject<Block> ARCANE_STONE_SLAB = registerBlock("arcane_stone_slab", () -> new SlabBlock(BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(3.0F, 5f).sound(SoundType.DEEPSLATE).mapColor(MapColor.COLOR_GRAY)));
