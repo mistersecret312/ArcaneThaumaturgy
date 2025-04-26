@@ -21,7 +21,7 @@ public class BlockEntityInit
             () -> BlockEntityType.Builder.of(CrucibleBlockEntity::new, BlockInit.CRUCIBLE.get()).build(null));
     public static final RegistryObject<BlockEntityType<PedestalBlockEntity>> PEDESTAL = BLOCK_ENTITIES.register("pedestal",
             () -> BlockEntityType.Builder.of(PedestalBlockEntity::new, BlockInit.ARCANE_STONE_PEDESTAL.get()).build(null));
-    public static final RegistryObject<BlockEntityType<NitorBlockEntity>> NITOR = BLOCK_ENTITIES.register("niter",
+    public static final RegistryObject<BlockEntityType<NitorBlockEntity>> NITOR = BLOCK_ENTITIES.register("nitor",
             () -> BlockEntityType.Builder.of(NitorBlockEntity::new, BlockInit.NITOR.get()).build(null));
 
     public static void register(IEventBus bus)

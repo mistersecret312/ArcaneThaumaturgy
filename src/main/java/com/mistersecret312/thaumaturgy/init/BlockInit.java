@@ -10,7 +10,6 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.*;
-import net.minecraft.world.level.block.grower.OakTreeGrower;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
@@ -37,9 +36,9 @@ public class BlockInit
     public static final RegistryObject<CrucibleBlock> CRUCIBLE = registerBlock("crucible", () -> new CrucibleBlock(BlockBehaviour.Properties.of().strength(3f).requiresCorrectToolForDrops().sound(SoundType.COPPER).mapColor(MapColor.COLOR_GRAY)));
 
     public static final RegistryObject<RunicMatrixBlock> RUNIC_MATRIX = registerBlock("runic_matrix", () -> new RunicMatrixBlock(BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(3.0F).sound(SoundType.DEEPSLATE).mapColor(MapColor.COLOR_GRAY).noOcclusion()));
-
-    public static final RegistryObject<NitorBlock> NITOR = BLOCKS.register("nitor", () -> new NitorBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE).noOcclusion().noCollission().lightLevel((state) -> 10).emissiveRendering((state, getter, pos) -> true).instabreak().sound(SoundTypeInit.NITOR)));
     public static final RegistryObject<EssentiaJarBlock> ESSENTIA_JAR = registerBlock("essentia_jar", () -> new EssentiaJarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GRAY).noOcclusion().instabreak().sound(SoundTypeInit.ESSENTIA_JAR)));
+
+    public static final RegistryObject<NitorBlock> NITOR = registerBlock("nitor", () -> new NitorBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE).noOcclusion().noCollission().lightLevel((state) -> 10).emissiveRendering((state, getter, pos) -> true).instabreak().sound(SoundTypeInit.NITOR)));
 
     public static final RegistryObject<Block> ARCANE_STONE = registerBlock("arcane_stone", () -> new Block(BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(3.0F, 5f).sound(SoundType.DEEPSLATE).mapColor(MapColor.COLOR_GRAY)));
     public static final RegistryObject<Block> ARCANE_STONE_SLAB = registerBlock("arcane_stone_slab", () -> new SlabBlock(BlockBehaviour.Properties.of().requiresCorrectToolForDrops().strength(3.0F, 5f).sound(SoundType.DEEPSLATE).mapColor(MapColor.COLOR_GRAY)));
@@ -56,7 +55,6 @@ public class BlockInit
 
     public static final RegistryObject<Block> GREATWOOD_SAPLING = registerBlock("greatwood_sapling", () -> new SaplingBlock(new GreatwoodTreeGrower(), BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE).noCollission().randomTicks().instabreak().sound(SoundType.SWEET_BERRY_BUSH).pushReaction(PushReaction.DESTROY).noOcclusion()));
     public static final RegistryObject<Block> GREATWOOD_LEAVES = registerBlock("greatwood_leaves", () -> new LeavesBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE).ignitedByLava().noOcclusion().strength(0.2F).randomTicks().sound(SoundType.AZALEA_LEAVES).noOcclusion().isValidSpawn(BlockInit::ocelotOrParrot).isSuffocating((BlockState, BlockGetter, BlockPos) -> false).isViewBlocking((BlockState, BlockGetter, BlockPos) -> false).ignitedByLava().pushReaction(PushReaction.DESTROY).isRedstoneConductor((BlockState, BlockGetter, BlockPos) -> false)));
-
     public static final RegistryObject<Block> GREATWOOD_LOG = registerBlock("greatwood_log", () -> new GreatwoodRotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(2.0F).sound(SoundType.NETHER_WOOD).ignitedByLava()));
     public static final RegistryObject<Block> GREATWOOD_WOOD = registerBlock("greatwood_wood", () -> new GreatwoodRotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(2.0F).sound(SoundType.NETHER_WOOD).ignitedByLava()));
     public static final RegistryObject<Block> STRIPPED_GREATWOOD_LOG = registerBlock("stripped_greatwood_log", () -> new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(2.0F).sound(SoundType.NETHER_WOOD).ignitedByLava()));
@@ -78,6 +76,7 @@ public class BlockInit
     public static final RegistryObject<Block> GREATWOOD_STOOL = registerBlock("greatwood_stool", () -> new StoolBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(2.0F).sound(SoundType.NETHER_WOOD).ignitedByLava().noOcclusion()));
     public static final RegistryObject<Block> THAUMATURGE_EMBLEM = registerBlock("thaumaturge_emblem", () -> new ThaumaturgeEmblemBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(2.0F).sound(SoundType.NETHER_WOOD).ignitedByLava().noOcclusion()));
 
+    public static final RegistryObject<Block> SILVERWOOD_LEAVES = registerBlock("silverwood_leaves", () -> new LeavesBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_CYAN).noOcclusion().strength(0.2F).randomTicks().sound(SoundType.AZALEA_LEAVES).noOcclusion().isValidSpawn(BlockInit::ocelotOrParrot).isSuffocating((BlockState, BlockGetter, BlockPos) -> false).isViewBlocking((BlockState, BlockGetter, BlockPos) -> false).ignitedByLava().pushReaction(PushReaction.DESTROY).isRedstoneConductor((BlockState, BlockGetter, BlockPos) -> false)));
     public static final RegistryObject<Block> SILVERWOOD_LOG = registerBlock("silverwood_log", () -> new SilverwoodRotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GRAY).strength(2.0F).sound(SoundTypeInit.SILVERWOOD)));
     public static final RegistryObject<Block> SILVERWOOD_WOOD = registerBlock("silverwood_wood", () -> new SilverwoodRotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GRAY).strength(2.0F).sound(SoundTypeInit.SILVERWOOD)));
     public static final RegistryObject<Block> STRIPPED_SILVERWOOD_LOG = registerBlock("stripped_silverwood_log", () -> new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GRAY).strength(2.0F).sound(SoundTypeInit.SILVERWOOD)));

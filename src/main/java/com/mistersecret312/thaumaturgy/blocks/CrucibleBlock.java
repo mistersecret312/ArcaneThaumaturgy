@@ -3,7 +3,6 @@ package com.mistersecret312.thaumaturgy.blocks;
 import com.mistersecret312.thaumaturgy.block_entities.CrucibleBlockEntity;
 import com.mistersecret312.thaumaturgy.init.BlockEntityInit;
 import com.mistersecret312.thaumaturgy.init.SoundInit;
-import com.mistersecret312.thaumaturgy.init.SoundTypeInit;
 import com.mistersecret312.thaumaturgy.items.WandItem;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;

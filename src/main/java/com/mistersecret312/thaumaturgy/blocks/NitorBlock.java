@@ -1,24 +1,10 @@
 package com.mistersecret312.thaumaturgy.blocks;
 
 import com.mistersecret312.thaumaturgy.block_entities.NitorBlockEntity;
-import com.mistersecret312.thaumaturgy.init.SoundInit;
-import com.mistersecret312.thaumaturgy.items.NitorItem;
-import com.mistersecret312.thaumaturgy.items.WandItem;
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.sounds.SoundEvents;
-import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.item.ItemEntity;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.DyeItem;
-import net.minecraft.world.item.DyeableLeatherItem;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -26,151 +12,56 @@ import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.phys.BlockHitResult;
-import net.minecraft.world.phys.shapes.BooleanOp;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
 
-import static com.mistersecret312.thaumaturgy.blocks.CrucibleBlock.LEVEL;
+import javax.annotation.ParametersAreNonnullByDefault;
 
-public class NitorBlock extends Block implements EntityBlock
-{
-    private static final VoxelShape SHAPE = Block.box(4, 4, 4, 12, 12, 12);
+@SuppressWarnings("deprecation")
+@ParametersAreNonnullByDefault
+@MethodsReturnNonnullByDefault
+public class NitorBlock extends Block implements EntityBlock {
+    private static final VoxelShape SHAPE = Block.box(6, 6, 6, 10, 10, 10);
 
-    public NitorBlock(Properties pProperties)
-    {
-        super(pProperties);
+    public NitorBlock(Properties properties){
+        super(properties);
+    }
+
+    @Override
+    public VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context){
+        return SHAPE;
+    }
+
+    @Override
+    public VoxelShape getCollisionShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context){
+        return Shapes.empty();
     }
 
     @Override
     public RenderShape getRenderShape(BlockState pState)
     {
-        return RenderShape.MODEL;
+        return RenderShape.INVISIBLE;
     }
 
     @Override
-    public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext)
-    {
-        return SHAPE;
-    }
-
-    @Override
-    public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand,
-                                 BlockHitResult pHit)
-    {
-        ItemStack stack = pPlayer.getItemInHand(pHand);
-
-        if (pLevel.getBlockEntity(pPos) instanceof NitorBlockEntity nitor)
-        {
-            if (stack.getItem() instanceof DyeItem dye)
-            {
-                int color = nitor.getColor();
-                float[] colors = dye.getDyeColor().getTextureDiffuseColors();
-
-                int[] aint = new int[3];
-                int i = 0;
-                int j = 0;
-
-                int k = color;
-                float f = (float) (k >> 16 & 255) / 255.0F;
-                float f1 = (float) (k >> 8 & 255) / 255.0F;
-                float f2 = (float) (k & 255) / 255.0F;
-                i += (int) (Math.max(f, Math.max(f1, f2)) * 255.0F);
-                aint[0] += (int) (f * 255.0F);
-                aint[1] += (int) (f1 * 255.0F);
-                aint[2] += (int) (f2 * 255.0F);
-                ++j;
-
-                float[] afloat = colors;
-                int i2 = (int) (afloat[0] * 255.0F);
-                int l = (int) (afloat[1] * 255.0F);
-                int i1 = (int) (afloat[2] * 255.0F);
-                i += Math.max(i2, Math.max(l, i1));
-                aint[0] += i2;
-                aint[1] += l;
-                aint[2] += i1;
-                ++j;
-
-                int j1 = aint[0] / j;
-                int k1 = aint[1] / j;
-                int l1 = aint[2] / j;
-                float f3 = (float) i / (float) j;
-                float f4 = (float) Math.max(j1, Math.max(k1, l1));
-                j1 = (int) ((float) j1 * f3 / f4);
-                k1 = (int) ((float) k1 * f3 / f4);
-                l1 = (int) ((float) l1 * f3 / f4);
-                int j2 = (j1 << 8) + k1;
-                j2 = (j2 << 8) + l1;
-
-                nitor.setColor(j2);
-
-                if (!pPlayer.isCreative())
-                {
-                    stack.shrink(1);
-                }
-                return InteractionResult.SUCCESS;
-            } else if (stack.getItem() instanceof WandItem && nitor.getColor() != 15834178)
-            {
-                nitor.setColor(15834178);
-
-                pLevel.playSound(pPlayer, pPos, SoundInit.WAND_USE.get(), SoundSource.BLOCKS, 1, 1);
-
-                return InteractionResult.SUCCESS;
-            }
+    public void animateTick(BlockState pState, Level pLevel, BlockPos pPos, RandomSource pRandom) {
+        double x = pPos.getX() + .5;
+        double y = pPos.getY() + .5;
+        double z = pPos.getZ() + .5;
+        for(int i = 0; i < 3; i++){
+            double vX = pRandom.nextGaussian() / 12;
+            double vY = pRandom.nextGaussian() / 12;
+            double vZ = pRandom.nextGaussian() / 12;
+            pLevel.addParticle(pRandom.nextBoolean() ? ParticleTypes.SMOKE : ParticleTypes.FLAME, x + vX, y + vY, z + vZ, vX / 16, vY / 16, vZ / 16);
         }
-        return InteractionResult.PASS;
-    }
-
-    @Override
-    public void playerWillDestroy(Level level, BlockPos pos, BlockState state, Player player)
-    {
-        NitorBlockEntity nitor = getBlockEntity(level, pos);
-        if(!level.isClientSide() && !player.isCreative() && nitor != null)
-        {
-            ItemStack stack = new ItemStack(asItem());
-
-            NitorItem.setColorData(stack, nitor.getColor());
-            level.addFreshEntity(new ItemEntity(level, pos.getX(), pos.getY(), pos.getZ(), stack));
-        }
-
-        super.playerWillDestroy(level, pos, state, player);
-    }
-
-    @Override
-    public void setPlacedBy(Level pLevel, BlockPos pPos, BlockState pState, @Nullable LivingEntity pPlacer,
-                            ItemStack pStack)
-    {
-        super.setPlacedBy(pLevel, pPos, pState, pPlacer, pStack);
-        if(pLevel.getBlockEntity(pPos) instanceof NitorBlockEntity nitor)
-        {
-            nitor.setColor(NitorItem.getColorData(pStack));
-        }
-    }
-
-    public NitorBlockEntity getBlockEntity(Level level, BlockPos pos)
-    {
-        BlockEntity entity = level.getBlockEntity(pos);
-        if(entity instanceof NitorBlockEntity nitor)
-            return nitor;
-        else return null;
+        super.animateTick(pState, pLevel, pPos, pRandom);
     }
 
     @Override
     public @Nullable BlockEntity newBlockEntity(BlockPos pPos, BlockState pState)
     {
         return new NitorBlockEntity(pPos, pState);
-    }
-
-    @Override
-    public boolean isRandomlyTicking(BlockState pState) {
-        return true;
-    }
-
-    @Override
-    public void tick(BlockState pState, ServerLevel pLevel, BlockPos pPos, RandomSource pRandom) {
-        pLevel.addAlwaysVisibleParticle(ParticleTypes.SMOKE, pPos.getX(), pPos.getY(), pPos.getZ(), 0, 0.5, 0);
-        super.tick(pState, pLevel, pPos, pRandom);
     }
 }

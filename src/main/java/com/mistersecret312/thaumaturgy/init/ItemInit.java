@@ -13,8 +13,6 @@ public class ItemInit
 {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, ArcaneThaumaturgyMod.MODID);
 
-    public static final RegistryObject<Item> NITOR = ITEMS.register("nitor", () -> new NitorItem(new Item.Properties()));
-
     public static final RegistryObject<Item> IRON_KNOB = ITEMS.register("iron_knob", () -> new Item(new Item.Properties().stacksTo(16)));
     public static final RegistryObject<Item> GOLD_KNOB = ITEMS.register("gold_knob", () -> new Item(new Item.Properties().stacksTo(16)));
     public static final RegistryObject<Item> GREATWOOD_CORE = ITEMS.register("greatwood_core", () -> new Item(new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON)));

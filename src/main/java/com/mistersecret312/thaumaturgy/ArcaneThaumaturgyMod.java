@@ -1,14 +1,11 @@
 package com.mistersecret312.thaumaturgy;
 
-import com.mistersecret312.thaumaturgy.aspects.Aspect;
 import com.mistersecret312.thaumaturgy.client.Layers;
 import com.mistersecret312.thaumaturgy.client.gui.WandAspectOverlay;
 import com.mistersecret312.thaumaturgy.client.renderer.*;
 import com.mistersecret312.thaumaturgy.client.screen.ArcaneWorkbenchScreen;
 import com.mistersecret312.thaumaturgy.datapack.AspectComposition;
 import com.mistersecret312.thaumaturgy.init.*;
-import com.mistersecret312.thaumaturgy.items.NitorItem;
-import com.mistersecret312.thaumaturgy.recipes.CompositionRecipe;
 import com.mistersecret312.thaumaturgy.tooltipcomponents.AspectTooltipComponent;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.gui.screens.MenuScreens;
@@ -17,7 +14,6 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.crafting.Recipe;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.*;
 import net.minecraftforge.common.MinecraftForge;
@@ -32,10 +28,6 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DataPackRegistryEvent;
 import org.slf4j.Logger;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import java.util.function.Function;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -136,11 +128,11 @@ public class ArcaneThaumaturgyMod
             event.registerReloadListener(ThaumometerInfoRenderer.INSTANCE);
         }
 
-        @SubscribeEvent
+/*        @SubscribeEvent
         public static void itemColors(RegisterColorHandlersEvent.Item event)
         {
-            event.register((stack, color) -> color != 0 ? -1 : NitorItem.getColorData(stack), ItemInit.NITOR.get());
-        }
+            event.register((stack, color) -> color != 0 ? -1 : NitorItemOld.getColorData(stack), ItemInit.NITOR_OLD.get());
+        }*/
 
         @SubscribeEvent
         public static void onModelBaked(ModelEvent.RegisterAdditional event)

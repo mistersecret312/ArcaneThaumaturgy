@@ -31,7 +31,7 @@ import org.joml.Quaternionf;
 
 public class NitorRenderer implements BlockEntityRenderer<NitorBlockEntity>
 {
-    public static final ResourceLocation TEXTURE = new ResourceLocation(ArcaneThaumaturgyMod.MODID, "block/nitor");
+    public static final ResourceLocation TEXTURE = new ResourceLocation(ArcaneThaumaturgyMod.MODID, "block/nitor/nitor_ignis");
 
     public NitorRenderer(BlockEntityRendererProvider.Context context)
     {
@@ -56,10 +56,10 @@ public class NitorRenderer implements BlockEntityRenderer<NitorBlockEntity>
         int color = blockEntity.getColor();
 
         VertexConsumer consumerA = buffer.getBuffer(ThaumaturgyRenderTypes.nitor(spriteA.atlasLocation()));
-        consumerA.vertex(poseStack.last().pose(), -0.5f, -0.5f, 0).color(FastColor.ABGR32.color(255, color)).uv(spriteA.getU0(), spriteA.getV1()).endVertex();
-        consumerA.vertex(poseStack.last().pose(), 0.5f, -0.5f, 0).color(FastColor.ABGR32.color(255, color)).uv(spriteA.getU1(), spriteA.getV1()).endVertex();
-        consumerA.vertex(poseStack.last().pose(), 0.5f, 0.5f, 0).color(FastColor.ABGR32.color(255, color)).uv(spriteA.getU1(), spriteA.getV0()).endVertex();
-        consumerA.vertex(poseStack.last().pose(), -0.5f, 0.5f, 0).color(FastColor.ABGR32.color(255, color)).uv(spriteA.getU0(), spriteA.getV0()).endVertex();
+        consumerA.vertex(poseStack.last().pose(), -0.5f, -0.5f, 0).color(FastColor.ABGR32.color(255, 255, 255, 255)).uv(spriteA.getU0(), spriteA.getV1()).endVertex();
+        consumerA.vertex(poseStack.last().pose(), 0.5f, -0.5f, 0).color(FastColor.ABGR32.color(255, 255, 255, 255)).uv(spriteA.getU1(), spriteA.getV1()).endVertex();
+        consumerA.vertex(poseStack.last().pose(), 0.5f, 0.5f, 0).color(FastColor.ABGR32.color(255, 255, 255, 255)).uv(spriteA.getU1(), spriteA.getV0()).endVertex();
+        consumerA.vertex(poseStack.last().pose(), -0.5f, 0.5f, 0).color(FastColor.ABGR32.color(255, 255, 255, 255)).uv(spriteA.getU0(), spriteA.getV0()).endVertex();
 
         poseStack.popPose();
 
