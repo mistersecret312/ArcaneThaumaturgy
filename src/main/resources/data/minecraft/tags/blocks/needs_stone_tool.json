@@ -2,6 +2,26 @@
   "replace": false,
   "values": [
     "thaumaturgy:cinnabar_ore",
-    "thaumaturgy:cinnabar_ore"
+    "thaumaturgy:cinnabar_ore",
+    "thaumaturgy:greatwood_log",
+    "thaumaturgy:greatwood_wood",
+    "thaumaturgy:stripped_greatwood_log",
+    "thaumaturgy:stripped_greatwood_wood",
+    "thaumaturgy:greatwood_planks",
+    "thaumaturgy:greatwood_stairs",
+    "thaumaturgy:greatwood_slab",
+    "thaumaturgy:greatwood_fence",
+    "thaumaturgy:greatwood_fence_gate",
+    "thaumaturgy:greatwood_door",
+    "thaumaturgy:greatwood_trapdoor",
+    "thaumaturgy:greatwood_pressure_plate",
+    "thaumaturgy:greatwood_button",
+    "thaumaturgy:greatwood_table",
+    "thaumaturgy:greatwood_tap",
+    "thaumaturgy:greatwood_armchair",
+    "thaumaturgy:greatwood_stool",
+    "thaumaturgy:thaumaturge_emblem",
+
+    "thaumaturgy:arcane_crafting_table"
   ]
 }

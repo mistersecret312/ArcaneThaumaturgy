@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-	  "thaumaturgy:greatwood_pressure_plate"
+    "thaumaturgy:greatwood_pressure_plate",
+    "thaumaturgy:silverwood_pressure_plate"
   ]
 }

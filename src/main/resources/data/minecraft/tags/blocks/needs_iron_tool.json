@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    "thaumaturgy:cinnabar_ore",
+    "thaumaturgy:cinnabar_ore",
+    "thaumaturgy:silverwood_log",
+    "thaumaturgy:silverwood_wood",
+    "thaumaturgy:stripped_silverwood_log",
+    "thaumaturgy:stripped_silverwood_wood",
+    "thaumaturgy:silverwood_planks",
+    "thaumaturgy:silverwood_stairs",
+    "thaumaturgy:silverwood_slab",
+    "thaumaturgy:silverwood_fence",
+    "thaumaturgy:silverwood_fence_gate",
+    "thaumaturgy:silverwood_door",
+    "thaumaturgy:silverwood_trapdoor",
+    "thaumaturgy:silverwood_pressure_plate",
+    "thaumaturgy:silverwood_button",
+    "thaumaturgy:silverwood_table"
+  ]
+}

@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-	  "thaumaturgy:greatwood_button"
+    "thaumaturgy:greatwood_button",
+    "thaumaturgy:silverwood_button"
   ]
 }

@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-     "thaumaturgy:greatwood_stairs"
+     "thaumaturgy:greatwood_stairs",
+     "thaumaturgy:silverwood_stairs"
   ]
 }

@@ -1,5 +1,6 @@
 package com.mistersecret312.thaumaturgy.blocks;
 
+import com.mistersecret312.thaumaturgy.init.BlockInit;
 import com.mistersecret312.thaumaturgy.util.MathUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -90,11 +91,21 @@ public class ThaumaturgeEmblemBlock extends HorizontalDirectionalBlock implement
     @Override
     public BlockState updateShape(BlockState pState, Direction pDirection, BlockState pNeighborState, LevelAccessor pLevel, BlockPos pPos, BlockPos pNeighborPos)
     {
+        if (!isValidBlock(pLevel, pPos, pState)) {
+            pLevel.destroyBlock(pPos, true);
+        }
+
         if (pState.getValue(WATERLOGGED))
         {
             pLevel.scheduleTick(pPos, Fluids.WATER, Fluids.WATER.getTickDelay(pLevel));
         }
         return super.updateShape(pState, pDirection, pNeighborState, pLevel, pPos, pNeighborPos);
+    }
+
+    public boolean isValidBlock(LevelAccessor pLevel, BlockPos pPos, BlockState pState) {
+        Direction tapDirection = pState.getValue(FACING);
+        BlockState tappedBlockState = pLevel.getBlockState(pPos.relative(tapDirection.getOpposite()));
+        return !tappedBlockState.isAir();
     }
 
     @Nullable

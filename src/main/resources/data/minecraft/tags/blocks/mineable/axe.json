@@ -16,10 +16,25 @@
     "thaumaturgy:greatwood_button",
     "thaumaturgy:greatwood_table",
     "thaumaturgy:greatwood_tap",
-
     "thaumaturgy:greatwood_armchair",
     "thaumaturgy:greatwood_stool",
     "thaumaturgy:thaumaturge_emblem",
+
+    "thaumaturgy:silverwood_log",
+    "thaumaturgy:silverwood_wood",
+    "thaumaturgy:stripped_silverwood_log",
+    "thaumaturgy:stripped_silverwood_wood",
+    "thaumaturgy:silverwood_planks",
+    "thaumaturgy:silverwood_stairs",
+    "thaumaturgy:silverwood_slab",
+    "thaumaturgy:silverwood_fence",
+    "thaumaturgy:silverwood_fence_gate",
+    "thaumaturgy:silverwood_door",
+    "thaumaturgy:silverwood_trapdoor",
+    "thaumaturgy:silverwood_pressure_plate",
+    "thaumaturgy:silverwood_button",
+    "thaumaturgy:silverwood_table",
+
     "thaumaturgy:arcane_crafting_table"
   ]
 }

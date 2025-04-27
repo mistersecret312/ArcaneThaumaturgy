@@ -23,6 +23,8 @@ public class BlockEntityInit
             () -> BlockEntityType.Builder.of(NitorBlockEntity::new, BlockInit.NITOR.get()).build(null));
     public static final RegistryObject<BlockEntityType<ResearchTableBlockEntity>> RESEARCH_TABLE = BLOCK_ENTITIES.register("research_table",
             () -> BlockEntityType.Builder.of(ResearchTableBlockEntity::new, BlockInit.RESEARCH_TABLE.get()).build(null));
+    public static final RegistryObject<BlockEntityType<GreatwoodTapBlockEntity>> GREATWOOD_TAP = BLOCK_ENTITIES.register("greatwood_tap",
+            () -> BlockEntityType.Builder.of(GreatwoodTapBlockEntity::new, BlockInit.GREATWOOD_TAP.get()).build(null));
 
     public static void register(IEventBus bus)
     {

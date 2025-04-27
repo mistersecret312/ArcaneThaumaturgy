@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-	  "thaumaturgy:greatwood_planks"
+    "thaumaturgy:greatwood_planks",
+    "thaumaturgy:silverwood_planks"
   ]
 }

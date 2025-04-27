@@ -1,11 +1,16 @@
 package com.mistersecret312.thaumaturgy.blocks;
 
+import com.mistersecret312.thaumaturgy.block_entities.CrucibleBlockEntity;
+import com.mistersecret312.thaumaturgy.block_entities.GreatwoodTapBlockEntity;
+import com.mistersecret312.thaumaturgy.block_entities.NitorBlockEntity;
+import com.mistersecret312.thaumaturgy.init.BlockEntityInit;
 import com.mistersecret312.thaumaturgy.init.BlockInit;
 import com.mistersecret312.thaumaturgy.init.ItemInit;
 import com.mistersecret312.thaumaturgy.util.MathUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
@@ -19,14 +24,15 @@ import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.HorizontalDirectionalBlock;
-import net.minecraft.world.level.block.RenderShape;
-import net.minecraft.world.level.block.SimpleWaterloggedBlock;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityTicker;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
@@ -34,9 +40,10 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 
 import javax.annotation.Nullable;
 
-public class GreatwoodTapBlock extends HorizontalDirectionalBlock implements SimpleWaterloggedBlock {
+public class GreatwoodTapBlock extends BaseEntityBlock implements SimpleWaterloggedBlock {
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
     public static final BooleanProperty SAP = BooleanProperty.create("sap");
+    public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;;
 
     public static final VoxelShape SHAPE_NORTH = MathUtil.buildShape(
             Block.box(6, 4, 11, 10, 10, 16)
@@ -63,55 +70,33 @@ public class GreatwoodTapBlock extends HorizontalDirectionalBlock implements Sim
 
         if (sap) {
             if (itemStack.getItem() == Items.GLASS_BOTTLE) {
-                itemStack.shrink(1);
-                pPlayer.addItem(new ItemStack(ItemInit.GREAT_SAP_BOTTLE.get(), 1));
+                if (!pPlayer.isCreative()) {
+                    itemStack.shrink(1);
+                }
+                if (itemStack.isEmpty()) {
+                    pPlayer.setItemInHand(pHand, new ItemStack(ItemInit.GREAT_SAP_BOTTLE.get()));
+                } else if (!pPlayer.getInventory().add(new ItemStack(ItemInit.GREAT_SAP_BOTTLE.get()))) {
+                    pPlayer.drop(new ItemStack(ItemInit.GREAT_SAP_BOTTLE.get()), false);
+                }
 
                 pLevel.playSound(pPlayer, pPos, SoundEvents.BOTTLE_FILL, SoundSource.BLOCKS, 1, 1);
             } else {
-                pPlayer.addItem(new ItemStack(ItemInit.GREAT_SAP.get(), 1));
+                if (itemStack.isEmpty()) {
+                    pPlayer.setItemInHand(pHand, new ItemStack(ItemInit.GREAT_SAP.get()));
+                } else if (!pPlayer.getInventory().add(new ItemStack(ItemInit.GREAT_SAP.get()))) {
+                    pPlayer.drop(new ItemStack(ItemInit.GREAT_SAP.get()), false);
+                }
 
                 pLevel.playSound(pPlayer, pPos, SoundEvents.HONEYCOMB_WAX_ON, SoundSource.BLOCKS, 1, 1);
             }
-            pLevel.setBlockAndUpdate(pPos, pState.setValue(SAP, false));
+            if (!pLevel.isClientSide) {
+                pLevel.setBlock(pPos, pState.setValue(SAP, false), 2);
+            }
 
             return InteractionResult.SUCCESS;
         }
 
         return InteractionResult.PASS;
-    }
-
-    @Override
-    public void animateTick(BlockState pState, Level pLevel, BlockPos pPos, RandomSource pRandom) {
-        Direction tapDirection = pState.getValue(FACING);
-        Block tappedBlock = pLevel.getBlockState(pPos.relative(tapDirection.getOpposite())).getBlock();
-
-        if (tappedBlock.equals(BlockInit.GREATWOOD_LOG.get()) || tappedBlock.equals(BlockInit.GREATWOOD_WOOD.get()) || tappedBlock.equals(BlockInit.STRIPPED_GREATWOOD_LOG.get()) || tappedBlock.equals(BlockInit.STRIPPED_SILVERWOOD_WOOD.get())) {
-            if (pLevel.getGameTime() % pRandom.nextInt(40, 100) == 0) {
-                if (pRandom.nextDouble() > 0.75) {
-                    if (!pState.getValue(SAP)) {
-                        pLevel.setBlockAndUpdate(pPos, pState.setValue(SAP, true));
-                    }
-                }
-                double x = pPos.getX() + 0.5;
-                double y = pPos.getY() + 0.2;
-                double z = pPos.getZ() + 0.5;
-
-                if (tapDirection == Direction.NORTH) {
-                    z = z + 0.15;
-                } else if (tapDirection == Direction.SOUTH) {
-                    z = z - 0.15;
-                } else if (tapDirection == Direction.EAST) {
-                    x = x - 0.15;
-                } else if (tapDirection == Direction.WEST) {
-                    x = x + 0.15;
-                }
-
-                for (int i = 0; i < 3; i++) {
-                    pLevel.addParticle(ParticleTypes.DRIPPING_WATER, x, y, z, 0, 0, 0);
-                }
-            }
-        }
-        super.animateTick(pState, pLevel, pPos, pRandom);
     }
 
     @Override
@@ -165,15 +150,19 @@ public class GreatwoodTapBlock extends HorizontalDirectionalBlock implements Sim
         return this.defaultBlockState().setValue(WATERLOGGED, accessor.getFluidState(pos).getType() == Fluids.WATER).setValue(FACING, pContext.getHorizontalDirection().getOpposite()).setValue(SAP, false);
     }
 
-    public boolean isOnGreatwoodTree(Level pLevel, BlockPos pPos, BlockState pState) {
+    public boolean isOnGreatwoodTree(LevelAccessor pLevel, BlockPos pPos, BlockState pState) {
         Direction tapDirection = pState.getValue(FACING);
         Block tappedBlock = pLevel.getBlockState(pPos.relative(tapDirection.getOpposite())).getBlock();
         return tappedBlock.equals(BlockInit.GREATWOOD_LOG.get()) || tappedBlock.equals(BlockInit.GREATWOOD_WOOD.get()) || tappedBlock.equals(BlockInit.STRIPPED_GREATWOOD_LOG.get()) || tappedBlock.equals(BlockInit.STRIPPED_SILVERWOOD_WOOD.get());
     }
 
-    public boolean isOnGreatwoodTree(LevelAccessor pLevel, BlockPos pPos, BlockState pState) {
-        Direction tapDirection = pState.getValue(FACING);
-        Block tappedBlock = pLevel.getBlockState(pPos.relative(tapDirection.getOpposite())).getBlock();
-        return tappedBlock.equals(BlockInit.GREATWOOD_LOG.get()) || tappedBlock.equals(BlockInit.GREATWOOD_WOOD.get()) || tappedBlock.equals(BlockInit.STRIPPED_GREATWOOD_LOG.get()) || tappedBlock.equals(BlockInit.STRIPPED_SILVERWOOD_WOOD.get());
+    @org.jetbrains.annotations.Nullable
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> blockEntity) {
+        return createTickerHelper(blockEntity, BlockEntityInit.GREATWOOD_TAP.get(), GreatwoodTapBlockEntity::tick);
+    }
+
+    @Override
+    public @org.jetbrains.annotations.Nullable BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
+        return BlockEntityInit.GREATWOOD_TAP.get().create(pos, state);
     }
 }

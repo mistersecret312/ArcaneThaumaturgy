@@ -131,7 +131,7 @@ public class ItemTabInit
                         output.accept(BlockInit.GREATWOOD_TABLE.get());
                         output.accept(BlockInit.GREATWOOD_ARMCHAIR.get());
                         output.accept(BlockInit.GREATWOOD_STOOL.get());
-                        output.accept(BlockInit.THAUMATURGE_EMBLEM.get());
+                        output.accept(ItemInit.THAUMATURGE_EMBLEM.get());
 
                         output.accept(BlockInit.GREATWOOD_LOG.get());
                         output.accept(BlockInit.GREATWOOD_WOOD.get());
