@@ -78,7 +78,7 @@ public class GreatwoodTapBlock extends BaseEntityBlock implements SimpleWaterlog
                     pPlayer.drop(new ItemStack(ItemInit.GREAT_SAP_BOTTLE.get()), false);
                 }
 
-                pLevel.playSound(pPlayer, pPos, SoundEvents.BOTTLE_FILL, SoundSource.BLOCKS, 1, 1);
+                pLevel.playSound(pPlayer, pPos, SoundEvents.BOTTLE_FILL, SoundSource.BLOCKS, 1, 1.25f);
             } else {
                 if (itemStack.isEmpty()) {
                     pPlayer.setItemInHand(pHand, new ItemStack(ItemInit.GREAT_SAP.get()));
@@ -86,7 +86,7 @@ public class GreatwoodTapBlock extends BaseEntityBlock implements SimpleWaterlog
                     pPlayer.drop(new ItemStack(ItemInit.GREAT_SAP.get()), false);
                 }
 
-                pLevel.playSound(pPlayer, pPos, SoundEvents.HONEYCOMB_WAX_ON, SoundSource.BLOCKS, 1, 1);
+                pLevel.playSound(pPlayer, pPos, SoundEvents.HONEYCOMB_WAX_ON, SoundSource.BLOCKS, 1, 1.25f);
             }
             if (!pLevel.isClientSide) {
                 pLevel.setBlock(pPos, pState.setValue(SAP, false), 2);

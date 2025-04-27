@@ -41,7 +41,7 @@ public class GreatwoodTapBlockEntity extends BlockEntity {
                             pLevel.setBlock(pPos, pState.setValue(SAP, true), 2);
                         }
 
-                        pLevel.playSound(null, pPos, SoundEvents.HONEY_BLOCK_PLACE, SoundSource.BLOCKS);
+                        pLevel.playSound(null, pPos, SoundEvents.HONEY_BLOCK_PLACE, SoundSource.BLOCKS, 1, 1.25f);
                     }
                 }
                 double x = pPos.getX() + 0.5;
