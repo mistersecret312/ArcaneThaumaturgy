@@ -63,7 +63,7 @@ public class AspectInit
     public static final RegistryObject<Aspect> VINCULUM = ASPECTS.register("vinculum", () -> new Aspect(List.of(0x4C, 0x66, 0x99), ResourceLocation.parse("thaumaturgy:textures/aspect/vinculum.png")).withCompound(AspectInit.MOTUS.get(), AspectInit.PERDITIO.get()));
     public static final RegistryObject<Aspect> VOLATUS = ASPECTS.register("volatus", () -> new Aspect(List.of(0xFF, 0xFF, 0xFF), ResourceLocation.parse("thaumaturgy:textures/aspect/volatus.png")).withCompound(AspectInit.MOTUS.get(), AspectInit.AER.get()));
     public static final RegistryObject<Aspect> MESSIS = ASPECTS.register("messis", () -> new Aspect(List.of(0xCC, 0xCC, 0x52), ResourceLocation.parse("thaumaturgy:textures/aspect/messis.png")).withCompound(AspectInit.HUMANUS.get(), AspectInit.HERBA.get()));
-    public static final RegistryObject<Aspect> LIMUS = ASPECTS.register("limus", () -> new Aspect(List.of(0xC9, 0xF1, 0x81), ResourceLocation.parse("thaumaturgy:textures/aspect/limus.png")).withCompound(AspectInit.VICTUS.get(), AspectInit.AQUA.get()));
+    public static final RegistryObject<Aspect> LIMUS = ASPECTS.register("limus", () -> new Aspect(List.of(0xC9, 0xF1, 0x81), ResourceLocation.parse("thaumaturgy:textures/aspect/limus.png")).withCompound(AspectInit.VINCULUM.get(), AspectInit.AQUA.get()));
     public static final RegistryObject<Aspect> PANNUS = ASPECTS.register("pannus", () -> new Aspect(List.of(0xD1, 0xC4, 0x84), ResourceLocation.parse("thaumaturgy:textures/aspect/pannus.png")).withCompound(AspectInit.HUMANUS.get(), AspectInit.BESTIA.get()));
 
     public static final Codec<Aspect> CODEC = ExtraCodecs.lazyInitializedCodec(() -> ASPECT.get().getCodec());

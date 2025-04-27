@@ -1,0 +1,18 @@
+{
+  "item": "thaumaturgy:greatwood_tap",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:arbor",
+      "amount": 1
+    },
+    {
+      "aspect": "thaumaturgy:praecantatio",
+      "amount": 1
+    },
+    {
+      "aspect": "thaumaturgy:vacuos",
+      "amount": 1
+    }
+  ]
+}

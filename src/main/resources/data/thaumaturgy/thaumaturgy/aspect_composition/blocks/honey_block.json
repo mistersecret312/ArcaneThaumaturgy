@@ -7,16 +7,12 @@
       "amount": 9
     },
     {
-      "aspect": "thaumaturgy:vinculum",
+      "aspect": "thaumaturgy:sensus",
       "amount": 6
     },
     {
       "aspect": "thaumaturgy:fames",
       "amount": 3
-    },
-    {
-      "aspect": "thaumaturgy:sensus",
-      "amount": 6
     }
   ]
 }
