@@ -69,7 +69,9 @@ public class GreatwoodTapBlock extends BaseEntityBlock implements SimpleWaterlog
 
         if (sap) {
             if (itemStack.getItem() == Items.GLASS_BOTTLE) {
-                itemStack.shrink(1);
+                if (!pPlayer.isCreative()) {
+                    itemStack.shrink(1);
+                }
                 if (itemStack.isEmpty()) {
                     pPlayer.setItemInHand(pHand, new ItemStack(ItemInit.GREAT_SAP_BOTTLE.get()));
                 } else if (!pPlayer.getInventory().add(new ItemStack(ItemInit.GREAT_SAP_BOTTLE.get()))) {
