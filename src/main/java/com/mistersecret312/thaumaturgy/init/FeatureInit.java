@@ -19,8 +19,8 @@ public class FeatureInit {
     public static final DeferredRegister<TrunkPlacerType<?>> TRUNKS = DeferredRegister.create(Registries.TRUNK_PLACER_TYPE, ArcaneThaumaturgyMod.MODID);
     public static final DeferredRegister<FoliagePlacerType<?>> FOLIAGES = DeferredRegister.create(Registries.FOLIAGE_PLACER_TYPE, ArcaneThaumaturgyMod.MODID);
 
-    public static final RegistryObject<TrunkPlacerType<GreatwoodTrunkPlacer>> GREATWOOD_TRUNK = TRUNKS.register("greatwood_trunk", () -> new TrunkPlacerType<>(GreatwoodTrunkPlacer.CODEC));
-    public static final RegistryObject<FoliagePlacerType<?>> GREATWOOD_FOLIAGE = FOLIAGES.register("greatwood_foliage", () -> new FoliagePlacerType<>(GreatwoodFoliagePlacer.CODEC));
+    public static final RegistryObject<TrunkPlacerType<GreatwoodTrunkPlacer>> GREATWOOD_TRUNK = TRUNKS.register("greatwood_trunk_placer", () -> new TrunkPlacerType<>(GreatwoodTrunkPlacer.CODEC));
+    public static final RegistryObject<FoliagePlacerType<?>> GREATWOOD_FOLIAGE = FOLIAGES.register("greatwood_foliage_placer", () -> new FoliagePlacerType<>(GreatwoodFoliagePlacer.CODEC));
 
     public static void register(IEventBus bus)
     {
