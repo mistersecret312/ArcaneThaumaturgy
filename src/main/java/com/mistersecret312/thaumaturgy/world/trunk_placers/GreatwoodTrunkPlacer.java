@@ -1,9 +1,12 @@
 package com.mistersecret312.thaumaturgy.world.trunk_placers;
 
+import com.google.common.collect.Lists;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
+import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelSimulatedReader;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
@@ -33,12 +36,61 @@ public class GreatwoodTrunkPlacer extends TrunkPlacer
         return null;
     }
 
+/*    @Override
+    public List<FoliagePlacer.FoliageAttachment> placeTrunk(LevelSimulatedReader pLevel,
+                                                            BiConsumer<BlockPos, BlockState> pBlockSetter,
+                                                            RandomSource pRandom, int pFreeTreeHeight, BlockPos pPos,
+                                                            TreeConfiguration pConfig)
+    {
+        List<FoliagePlacer.FoliageAttachment> trunkBlocks = Lists.newArrayList();
+
+        for(int i = pFreeTreeHeight - 2 - pRandom.nextInt(4); i > pFreeTreeHeight / 2; i -= 2 + pRandom.nextInt(4)) {
+            float randomOffset = pRandom.nextFloat() * ((float) Math.PI * 2F);
+            int var1 = 0;
+            int var2 = 0;
+
+            for(int ii = 0; ii < 5; ++ii) {
+                var1 = (int) (1.5F + Mth.cos(randomOffset) * (float) ii);
+                var2 = (int) (1.5F + Mth.sin(randomOffset) * (float) ii);
+                BlockPos logPos = pPos.offset(var1, i - 3 + ii / 2, var2);
+                this.placeLog(pLevel, pBlockSetter, pRandom, logPos, pConfig);
+            }
+
+            trunkBlocks.add(new FoliagePlacer.FoliageAttachment(pPos.offset(var1, i, var2), -2, false));
+        }
+
+        return trunkBlocks;
+    }*/
+
     @Override
     public List<FoliagePlacer.FoliageAttachment> placeTrunk(LevelSimulatedReader pLevel,
                                                             BiConsumer<BlockPos, BlockState> pBlockSetter,
                                                             RandomSource pRandom, int pFreeTreeHeight, BlockPos pPos,
                                                             TreeConfiguration pConfig)
     {
-        return List.of();
+        List<FoliagePlacer.FoliageAttachment> trunkBlocks = Lists.newArrayList();
+
+        placeTrunkLine(pLevel, pBlockSetter, pRandom, pPos, pConfig, pFreeTreeHeight);
+        placeTrunkLine(pLevel, pBlockSetter, pRandom, pPos.offset(1, 0, 0), pConfig, pFreeTreeHeight / 2);
+        placeTrunkLine(pLevel, pBlockSetter, pRandom, pPos.offset(-1, 0, 0), pConfig, pFreeTreeHeight / 2);
+        placeTrunkLine(pLevel, pBlockSetter, pRandom, pPos.offset(0, 0, 1), pConfig, pFreeTreeHeight / 2);
+        placeTrunkLine(pLevel, pBlockSetter, pRandom, pPos.offset(0, 0, -1), pConfig, pFreeTreeHeight / 2);
+
+        trunkBlocks.add(new FoliagePlacer.FoliageAttachment(pPos.offset(-3, pFreeTreeHeight, 3), -2, false));
+
+        return trunkBlocks;
+    }
+
+    private void placeTrunkLine(LevelSimulatedReader pLevel,
+                                BiConsumer<BlockPos, BlockState> pBlockSetter,
+                                RandomSource pRandom, BlockPos pPos,
+                                TreeConfiguration pConfig, int lineHeight)
+    {
+        int randomOffset = pRandom.nextInt(this.heightRandA, this.heightRandB);
+
+        for (int currentLog = 0; currentLog < lineHeight - randomOffset; currentLog++)
+        {
+            this.placeLog(pLevel, pBlockSetter, pRandom, pPos.offset(0, currentLog, 0), pConfig);
+        }
     }
 }
