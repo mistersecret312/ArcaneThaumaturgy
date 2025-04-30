@@ -35,6 +35,7 @@ public class ItemTabInit
                         output.accept(ItemInit.SCRIBING_TOOLS.get());
 
                         output.accept(ItemInit.GREATWOOD_TAP.get());
+                        output.accept(BlockInit.GREATWOOD_SAP_BOWL.get());
                         output.accept(BlockInit.ESSENTIA_JAR.get());
                     })
                     .build());

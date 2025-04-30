@@ -17,6 +17,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.Level;
 
 import static com.mistersecret312.thaumaturgy.blocks.GreatwoodTapBlock.SAP;
+import static com.mistersecret312.thaumaturgy.blocks.GreatwoodSapBowlBlock.SAP_AMOUNT;
 import static com.mistersecret312.thaumaturgy.blocks.GreatwoodTapBlock.FACING;
 
 public class GreatwoodTapBlockEntity extends BlockEntity {
@@ -36,12 +37,24 @@ public class GreatwoodTapBlockEntity extends BlockEntity {
         if (tap.isOnGreatwoodTree(pLevel, pPos, pState)) {
             if (tap.ticker == 0) {
                 if (pRandom.nextDouble() > 0.75) {
-                    if (!pState.getValue(SAP)) {
-                        if (!pLevel.isClientSide) {
-                            pLevel.setBlock(pPos, pState.setValue(SAP, true), 2);
-                        }
+                    BlockState belowBlock = pLevel.getBlockState(pPos.below());
 
-                        pLevel.playSound(null, pPos, SoundEvents.HONEY_BLOCK_PLACE, SoundSource.BLOCKS, 1, 1.25f);
+                    if (belowBlock.getBlock() == BlockInit.GREATWOOD_SAP_BOWL.get() && belowBlock.getValue(SAP_AMOUNT) < 5) {
+                        int sap = belowBlock.getValue(SAP_AMOUNT);
+
+                        if (sap < 5) {
+                            if (!pLevel.isClientSide) {
+                                pLevel.setBlock(pPos.below(), belowBlock.setValue(SAP_AMOUNT, sap + 1), 2);
+                            }
+                            pLevel.playSound(null, pPos.below(), SoundEvents.HONEY_BLOCK_PLACE, SoundSource.BLOCKS, 1, 1.25f);
+                        }
+                    } else {
+                        if (!pState.getValue(SAP)) {
+                            if (!pLevel.isClientSide) {
+                             pLevel.setBlock(pPos, pState.setValue(SAP, true), 2);
+                            }
+                            pLevel.playSound(null, pPos, SoundEvents.HONEY_BLOCK_PLACE, SoundSource.BLOCKS, 1, 1.25f);
+                        }
                     }
                 }
                 double x = pPos.getX() + 0.5;

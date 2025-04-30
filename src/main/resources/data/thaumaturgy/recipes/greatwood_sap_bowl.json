@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "P": {
+      "item": "thaumaturgy:greatwood_planks"
+    },
+    "S": {
+      "item": "thaumaturgy:greatwood_slab"
+    }
+  },
+  "pattern": [
+    "   ",
+    "S S",
+    "PSP"
+  ],
+  "result": {
+    "item": "thaumaturgy:greatwood_sap_bowl"
+  },
+  "show_notification": true
+}
