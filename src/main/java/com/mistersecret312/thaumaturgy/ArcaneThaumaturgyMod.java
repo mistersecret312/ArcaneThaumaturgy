@@ -50,6 +50,7 @@ public class ArcaneThaumaturgyMod
         BlockEntityInit.register(modEventBus);
         ItemInit.register(modEventBus);
         ItemTabInit.register(modEventBus);
+        FeatureInit.register(modEventBus);
         SoundInit.register(modEventBus);
         EntityTypeInit.register(modEventBus);
         RecipeTypeInit.register(modEventBus);
