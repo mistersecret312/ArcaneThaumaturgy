@@ -1,18 +1,32 @@
 package com.mistersecret312.thaumaturgy.init;
 
 import com.mistersecret312.thaumaturgy.ArcaneThaumaturgyMod;
-import com.mistersecret312.thaumaturgy.world.TreeConfigurations;
+import com.mistersecret312.thaumaturgy.world.trunk_placers.GreatwoodTrunkPlacer;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
-import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacerType;
+import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.RegistryObject;
 
 public class FeatureInit {
+
+    public static final DeferredRegister<TrunkPlacerType<?>> TRUNKS = DeferredRegister.create(Registries.TRUNK_PLACER_TYPE, ArcaneThaumaturgyMod.MODID);
+
+    public static final RegistryObject<TrunkPlacerType<GreatwoodTrunkPlacer>> GREATWOOD_TRUNK = TRUNKS.register("greatwood_trunk", () -> new TrunkPlacerType<>(GreatwoodTrunkPlacer.CODEC));
+
+    public static void register(IEventBus bus)
+    {
+        TRUNKS.register(bus);
+    }
+
     public static final ResourceKey<ConfiguredFeature<?, ?>> GREATWOOD_TREE = registerKey("tree/greatwood_tree");
 
     public static ResourceKey<ConfiguredFeature<?, ?>> registerKey(String name) {
         return ResourceKey.create(Registries.CONFIGURED_FEATURE, new ResourceLocation(ArcaneThaumaturgyMod.MODID, name));
     }
+
+
 }
