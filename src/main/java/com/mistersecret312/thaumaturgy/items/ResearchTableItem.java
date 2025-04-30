@@ -22,7 +22,7 @@ public class ResearchTableItem extends BlockItem
     {
         Level level = pContext.getLevel();
         BlockPos pos = pContext.getClickedPos();
-        Direction direction = pContext.getNearestLookingDirection();
+        Direction direction = pContext.getHorizontalDirection();
 
         if (level.getBlockState(pos.relative(direction.getClockWise())).canBeReplaced(pContext))
         {
