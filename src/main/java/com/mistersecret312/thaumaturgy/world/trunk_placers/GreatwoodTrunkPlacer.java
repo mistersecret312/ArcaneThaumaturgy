@@ -43,32 +43,6 @@ public class GreatwoodTrunkPlacer extends TrunkPlacer
         return FeatureInit.GREATWOOD_TRUNK.get();
     }
 
-/*    @Override
-    public List<FoliagePlacer.FoliageAttachment> placeTrunk(LevelSimulatedReader pLevel,
-                                                            BiConsumer<BlockPos, BlockState> pBlockSetter,
-                                                            RandomSource pRandom, int pFreeTreeHeight, BlockPos pPos,
-                                                            TreeConfiguration pConfig)
-    {
-        List<FoliagePlacer.FoliageAttachment> trunkBlocks = Lists.newArrayList();
-
-        for(int i = pFreeTreeHeight - 2 - pRandom.nextInt(4); i > pFreeTreeHeight / 2; i -= 2 + pRandom.nextInt(4)) {
-            float randomOffset = pRandom.nextFloat() * ((float) Math.PI * 2F);
-            int var1 = 0;
-            int var2 = 0;
-
-            for(int ii = 0; ii < 5; ++ii) {
-                var1 = (int) (1.5F + Mth.cos(randomOffset) * (float) ii);
-                var2 = (int) (1.5F + Mth.sin(randomOffset) * (float) ii);
-                BlockPos logPos = pPos.offset(var1, i - 3 + ii / 2, var2);
-                this.placeLog(pLevel, pBlockSetter, pRandom, logPos, pConfig);
-            }
-
-            trunkBlocks.add(new FoliagePlacer.FoliageAttachment(pPos.offset(var1, i, var2), -2, false));
-        }
-
-        return trunkBlocks;
-    }*/
-
     @Override
     public List<FoliagePlacer.FoliageAttachment> placeTrunk(LevelSimulatedReader pLevel,
                                                             BiConsumer<BlockPos, BlockState> pBlockSetter,

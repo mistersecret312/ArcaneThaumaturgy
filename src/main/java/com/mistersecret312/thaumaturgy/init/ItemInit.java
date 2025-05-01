@@ -60,6 +60,7 @@ public class ItemInit
 
     public static final RegistryObject<ThaumaturgeEmblemBlockItem> THAUMATURGE_EMBLEM = ITEMS.register("thaumaturge_emblem", () -> new ThaumaturgeEmblemBlockItem(new Item.Properties()));
     public static final RegistryObject<GreatwoodTapBlockItem> GREATWOOD_TAP = ITEMS.register("greatwood_tap", () -> new GreatwoodTapBlockItem(new Item.Properties()));
+    public static final RegistryObject<SilverwoodTapBlockItem> SILVERWOOD_TAP = ITEMS.register("silverwood_tap", () -> new SilverwoodTapBlockItem(new Item.Properties()));
 
     public static final RegistryObject<RevelationGogglesItem> REVELATION_GOGGLES = ITEMS.register("revelation_goggles", () -> new RevelationGogglesItem(new Item.Properties().stacksTo(1).rarity(Rarity.RARE)));
     public static final RegistryObject<ThaumonomiconItem> THAUMONOMICON = ITEMS.register("thaumonomicon", () -> new ThaumonomiconItem(new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON)));

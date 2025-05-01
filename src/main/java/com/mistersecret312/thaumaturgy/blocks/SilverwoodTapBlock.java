@@ -1,9 +1,11 @@
 package com.mistersecret312.thaumaturgy.blocks;
 
 import com.mistersecret312.thaumaturgy.block_entities.GreatwoodTapBlockEntity;
+import com.mistersecret312.thaumaturgy.block_entities.SilverwoodTapBlockEntity;
 import com.mistersecret312.thaumaturgy.init.BlockEntityInit;
 import com.mistersecret312.thaumaturgy.init.BlockInit;
 import com.mistersecret312.thaumaturgy.init.ItemInit;
+import com.mistersecret312.thaumaturgy.init.SoundInit;
 import com.mistersecret312.thaumaturgy.util.MathUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -19,7 +21,10 @@ import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.BaseEntityBlock;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.RenderShape;
+import net.minecraft.world.level.block.SimpleWaterloggedBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -35,7 +40,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 
 import javax.annotation.Nullable;
 
-public class GreatwoodTapBlock extends BaseEntityBlock implements SimpleWaterloggedBlock {
+public class SilverwoodTapBlock extends BaseEntityBlock implements SimpleWaterloggedBlock {
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
 
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
@@ -54,7 +59,7 @@ public class GreatwoodTapBlock extends BaseEntityBlock implements SimpleWaterlog
             Block.box(0, 4, 6, 5, 10, 10)
     );
 
-    public GreatwoodTapBlock(Properties pProperties) {
+    public SilverwoodTapBlock(Properties pProperties) {
         super(pProperties);
         this.registerDefaultState(this.defaultBlockState().setValue(FACING, Direction.NORTH).setValue(WATERLOGGED, false).setValue(SAP, false));
     }
@@ -65,26 +70,14 @@ public class GreatwoodTapBlock extends BaseEntityBlock implements SimpleWaterlog
         boolean sap = pState.getValue(SAP);
 
         if (sap) {
-            if (itemStack.getItem() == Items.GLASS_BOTTLE) {
-                if (!pPlayer.isCreative()) {
-                    itemStack.shrink(1);
-                }
-                if (itemStack.isEmpty()) {
-                    pPlayer.setItemInHand(pHand, new ItemStack(ItemInit.GREAT_SAP_BOTTLE.get()));
-                } else if (!pPlayer.getInventory().add(new ItemStack(ItemInit.GREAT_SAP_BOTTLE.get()))) {
-                    pPlayer.drop(new ItemStack(ItemInit.GREAT_SAP_BOTTLE.get()), false);
-                }
-
-                pLevel.playSound(pPlayer, pPos, SoundEvents.BOTTLE_FILL, SoundSource.BLOCKS, 1, 1.25f);
-            } else {
-                if (itemStack.isEmpty()) {
-                    pPlayer.setItemInHand(pHand, new ItemStack(ItemInit.GREAT_SAP.get()));
-                } else if (!pPlayer.getInventory().add(new ItemStack(ItemInit.GREAT_SAP.get()))) {
-                    pPlayer.drop(new ItemStack(ItemInit.GREAT_SAP.get()), false);
-                }
-
-                pLevel.playSound(pPlayer, pPos, SoundEvents.HONEYCOMB_WAX_ON, SoundSource.BLOCKS, 1, 1.25f);
+            if (itemStack.isEmpty()) {
+                pPlayer.setItemInHand(pHand, new ItemStack(ItemInit.QUICKSILVER.get()));
+            } else if (!pPlayer.getInventory().add(new ItemStack(ItemInit.QUICKSILVER.get()))) {
+                pPlayer.drop(new ItemStack(ItemInit.QUICKSILVER.get()), false);
             }
+
+            pLevel.playSound(pPlayer, pPos, SoundInit.SILVERWOOD_STEP.get(), SoundSource.BLOCKS, 1, 1.25f);
+
             if (!pLevel.isClientSide) {
                 pLevel.setBlock(pPos, pState.setValue(SAP, false), 2);
             }
@@ -101,7 +94,7 @@ public class GreatwoodTapBlock extends BaseEntityBlock implements SimpleWaterlog
         if (pState.getBlock() != pNewState.getBlock()) {
             boolean sap = pState.getValue(SAP);
             if (sap) {
-                ItemStack sapStack = new ItemStack(ItemInit.GREAT_SAP.get(), 1);
+                ItemStack sapStack = new ItemStack(ItemInit.QUICKSILVER.get(), 1);
                 pLevel.addFreshEntity(new ItemEntity(pLevel, pPos.getX(), pPos.getY(), pPos.getZ(), sapStack));
             }
         }
@@ -139,7 +132,7 @@ public class GreatwoodTapBlock extends BaseEntityBlock implements SimpleWaterlog
     @Override
     public BlockState updateShape(BlockState pState, Direction pDirection, BlockState pNeighborState, LevelAccessor pLevel, BlockPos pPos, BlockPos pNeighborPos)
     {
-        if (!isOnGreatwoodTree(pLevel, pPos, pState)) {
+        if (!isOnSilverwoodTree(pLevel, pPos, pState)) {
             pLevel.destroyBlock(pPos, true);
         }
 
@@ -150,10 +143,10 @@ public class GreatwoodTapBlock extends BaseEntityBlock implements SimpleWaterlog
         return super.updateShape(pState, pDirection, pNeighborState, pLevel, pPos, pNeighborPos);
     }
 
-    public boolean isOnGreatwoodTree(LevelAccessor pLevel, BlockPos pPos, BlockState pState) {
+    public boolean isOnSilverwoodTree(LevelAccessor pLevel, BlockPos pPos, BlockState pState) {
         Direction tapDirection = pState.getValue(FACING);
         Block tappedBlock = pLevel.getBlockState(pPos.relative(tapDirection.getOpposite())).getBlock();
-        return tappedBlock.equals(BlockInit.GREATWOOD_LOG.get()) || tappedBlock.equals(BlockInit.GREATWOOD_WOOD.get()) || tappedBlock.equals(BlockInit.STRIPPED_GREATWOOD_LOG.get()) || tappedBlock.equals(BlockInit.STRIPPED_GREATWOOD_WOOD.get());
+        return tappedBlock.equals(BlockInit.SILVERWOOD_LOG.get()) || tappedBlock.equals(BlockInit.SILVERWOOD_WOOD.get()) || tappedBlock.equals(BlockInit.STRIPPED_SILVERWOOD_LOG.get()) || tappedBlock.equals(BlockInit.STRIPPED_SILVERWOOD_WOOD.get());
     }
 
     @Nullable
@@ -166,11 +159,11 @@ public class GreatwoodTapBlock extends BaseEntityBlock implements SimpleWaterlog
 
     @org.jetbrains.annotations.Nullable
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> blockEntity) {
-        return createTickerHelper(blockEntity, BlockEntityInit.GREATWOOD_TAP.get(), GreatwoodTapBlockEntity::tick);
+        return createTickerHelper(blockEntity, BlockEntityInit.SILVERWOOD_TAP.get(), SilverwoodTapBlockEntity::tick);
     }
 
     @Override
     public @org.jetbrains.annotations.Nullable BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-        return BlockEntityInit.GREATWOOD_TAP.get().create(pos, state);
+        return BlockEntityInit.SILVERWOOD_TAP.get().create(pos, state);
     }
 }

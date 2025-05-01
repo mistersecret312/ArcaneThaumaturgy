@@ -25,6 +25,8 @@ public class BlockEntityInit
             () -> BlockEntityType.Builder.of(ResearchTableBlockEntity::new, BlockInit.RESEARCH_TABLE.get()).build(null));
     public static final RegistryObject<BlockEntityType<GreatwoodTapBlockEntity>> GREATWOOD_TAP = BLOCK_ENTITIES.register("greatwood_tap",
             () -> BlockEntityType.Builder.of(GreatwoodTapBlockEntity::new, BlockInit.GREATWOOD_TAP.get()).build(null));
+    public static final RegistryObject<BlockEntityType<SilverwoodTapBlockEntity>> SILVERWOOD_TAP = BLOCK_ENTITIES.register("silverwood_tap",
+            () -> BlockEntityType.Builder.of(SilverwoodTapBlockEntity::new, BlockInit.SILVERWOOD_TAP.get()).build(null));
 
     public static void register(IEventBus bus)
     {

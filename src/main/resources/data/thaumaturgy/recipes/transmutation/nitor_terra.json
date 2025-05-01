@@ -3,7 +3,7 @@
   "aspects":
   [
     {
-      "aspect": "thaumaturgy:ignis",
+      "aspect": "thaumaturgy:terra",
       "amount": 3
     },
     {
@@ -21,7 +21,7 @@
   },
   "result":
   {
-    "item": "thaumaturgy:nitor",
+    "item": "thaumaturgy:nitor_terra",
     "amount": 1
   }
 }

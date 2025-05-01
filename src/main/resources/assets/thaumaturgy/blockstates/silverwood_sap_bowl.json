@@ -1,0 +1,22 @@
+{
+  "variants": {
+    "sap=0": {
+      "model": "thaumaturgy:block/silverwood_sap_bowl"
+    },
+    "sap=1": {
+      "model": "thaumaturgy:block/silverwood_sap_bowl_1"
+    },
+    "sap=2": {
+      "model": "thaumaturgy:block/silverwood_sap_bowl_2"
+    },
+    "sap=3": {
+      "model": "thaumaturgy:block/silverwood_sap_bowl_3"
+    },
+    "sap=4": {
+      "model": "thaumaturgy:block/silverwood_sap_bowl_4"
+    },
+    "sap=5": {
+      "model": "thaumaturgy:block/silverwood_sap_bowl_5"
+    }
+  }
+}

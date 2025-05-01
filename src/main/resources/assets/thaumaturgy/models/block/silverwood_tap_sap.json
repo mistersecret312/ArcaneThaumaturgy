@@ -1,0 +1,43 @@
+{
+	"credit": "Made with Blockbench",
+	"textures": {
+		"0": "thaumaturgy:block/silverwood_tap_sap",
+		"particle": "thaumaturgy:block/silverwood_tap_sap"
+	},
+	"elements": [
+		{
+			"from": [6, 6, 12.75],
+			"to": [10, 10, 16.75],
+			"rotation": {"angle": -22.5, "axis": "x", "origin": [8, 8, 16.75]},
+			"faces": {
+				"north": {"uv": [4, 4, 8, 8], "texture": "#0"},
+				"east": {"uv": [0, 4, 4, 8], "texture": "#0"},
+				"south": {"uv": [12, 4, 16, 8], "texture": "#0"},
+				"west": {"uv": [8, 4, 12, 8], "texture": "#0"},
+				"up": {"uv": [8, 4, 4, 0], "texture": "#0"},
+				"down": {"uv": [12, 0, 8, 4], "texture": "#0"}
+			}
+		},
+		{
+			"from": [6, 6, 10.75],
+			"to": [10, 8, 12.75],
+			"rotation": {"angle": -22.5, "axis": "x", "origin": [8, 8, 16.75]},
+			"faces": {
+				"north": {"uv": [2, 10, 6, 12], "texture": "#0"},
+				"east": {"uv": [0, 10, 2, 12], "texture": "#0"},
+				"south": {"uv": [8, 10, 12, 12], "texture": "#0"},
+				"west": {"uv": [6, 10, 8, 12], "texture": "#0"},
+				"up": {"uv": [6, 10, 2, 8], "texture": "#0"},
+				"down": {"uv": [10, 8, 6, 10], "texture": "#0"}
+			}
+		}
+	],
+	"groups": [
+		{
+			"name": "group",
+			"origin": [0, 0, -20],
+			"color": 0,
+			"children": [0, 1]
+		}
+	]
+}
