@@ -172,6 +172,7 @@ public class ItemTabInit
                         output.accept(BlockInit.SILVERWOOD_SIGN.get());
                         output.accept(BlockInit.SILVERWOOD_HANGING_SIGN.get());
                         output.accept(BlockInit.SILVERWOOD_LEAVES.get());
+                        output.accept(BlockInit.SILVERWOOD_SAPLING.get());
 
                         output.accept(BlockInit.ARCANE_STONE.get());
                         output.accept(BlockInit.ARCANE_STONE_STAIRS.get());
