@@ -7,10 +7,10 @@
   ],
   "key": {
     "P": {
-      "item": "minecraft:glass_pane"
+      "tag": "forge:glass_panes/colorless"
     },
     "G": {
-      "item": "minecraft:gold_ingot"
+      "tag": "forge:ingots/gold"
     },
     "C": {
       "tag": "thaumaturgy:vis_crystals"

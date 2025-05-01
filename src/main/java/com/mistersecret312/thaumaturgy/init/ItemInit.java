@@ -44,16 +44,17 @@ public class ItemInit
     public static final RegistryObject<Item> CINNABAR_CRYSTAL = ITEMS.register("cinnabar_crystal", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> QUICKSILVER = ITEMS.register("quicksilver", () -> new Item(new Item.Properties()));
 
-    public static final RegistryObject<Item> PURIFIED_NETHERITE_NUCLEUS = ITEMS.register("purified_netherite_nucleus", () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> PURIFIED_DIAMOND_NUCLEUS = ITEMS.register("purified_diamond_nucleus", () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> PURIFIED_EMERALD_NUCLEUS = ITEMS.register("purified_emerald_nucleus", () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> PURIFIED_QUARTZ_NUCLEUS = ITEMS.register("purified_quartz_nucleus", () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> PURIFIED_LAPIS_NUCLEUS = ITEMS.register("purified_lapis_nucleus", () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> PURIFIED_REDSTONE_NUCLEUS = ITEMS.register("purified_redstone_nucleus", () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> PURIFIED_IRON_NUCLEUS = ITEMS.register("purified_iron_nucleus", () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> PURIFIED_GOLD_NUCLEUS = ITEMS.register("purified_gold_nucleus", () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> PURIFIED_COPPER_NUCLEUS = ITEMS.register("purified_copper_nucleus", () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> PURIFIED_QUICKSILVER_NUCLEUS = ITEMS.register("purified_quicksilver_nucleus", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> PURE_NETHERITE_NUCLEUS = ITEMS.register("pure_netherite_nucleus", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> PURE_DIAMOND_NUCLEUS = ITEMS.register("pure_diamond_nucleus", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> PURE_EMERALD_NUCLEUS = ITEMS.register("pure_emerald_nucleus", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> PURE_QUARTZ_NUCLEUS = ITEMS.register("pure_quartz_nucleus", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> PURE_LAPIS_NUCLEUS = ITEMS.register("pure_lapis_nucleus", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> PURE_REDSTONE_NUCLEUS = ITEMS.register("pure_redstone_nucleus", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> PURE_IRON_NUCLEUS = ITEMS.register("pure_iron_nucleus", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> PURE_GOLD_NUCLEUS = ITEMS.register("pure_gold_nucleus", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> PURE_COPPER_NUCLEUS = ITEMS.register("pure_copper_nucleus", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> PURE_COAL_NUCLEUS = ITEMS.register("pure_coal_nucleus", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> PURE_QUICKSILVER_NUCLEUS = ITEMS.register("pure_quicksilver_nucleus", () -> new Item(new Item.Properties()));
 
     public static final RegistryObject<Item> ASPECT = ITEMS.register("aspect", AspectItem::new);
 

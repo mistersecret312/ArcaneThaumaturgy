@@ -9,7 +9,7 @@
       "item": "thaumaturgy:greatwood_slab"
     },
     "G": {
-      "item": "minecraft:gold_ingot"
+      "tag": "forge:ingots/gold"
     }
   },
   "pattern": [

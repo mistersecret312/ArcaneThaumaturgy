@@ -57,16 +57,17 @@ public class ItemTabInit
 
                         output.accept(ItemInit.ARCANE_STEEL_INGOT.get());
 
-                        output.accept(ItemInit.PURIFIED_NETHERITE_NUCLEUS.get());
-                        output.accept(ItemInit.PURIFIED_DIAMOND_NUCLEUS.get());
-                        output.accept(ItemInit.PURIFIED_EMERALD_NUCLEUS.get());
-                        output.accept(ItemInit.PURIFIED_QUARTZ_NUCLEUS.get());
-                        output.accept(ItemInit.PURIFIED_LAPIS_NUCLEUS.get());
-                        output.accept(ItemInit.PURIFIED_REDSTONE_NUCLEUS.get());
-                        output.accept(ItemInit.PURIFIED_IRON_NUCLEUS.get());
-                        output.accept(ItemInit.PURIFIED_GOLD_NUCLEUS.get());
-                        output.accept(ItemInit.PURIFIED_COPPER_NUCLEUS.get());
-                        output.accept(ItemInit.PURIFIED_QUICKSILVER_NUCLEUS.get());
+                        output.accept(ItemInit.PURE_NETHERITE_NUCLEUS.get());
+                        output.accept(ItemInit.PURE_DIAMOND_NUCLEUS.get());
+                        output.accept(ItemInit.PURE_EMERALD_NUCLEUS.get());
+                        output.accept(ItemInit.PURE_QUARTZ_NUCLEUS.get());
+                        output.accept(ItemInit.PURE_LAPIS_NUCLEUS.get());
+                        output.accept(ItemInit.PURE_REDSTONE_NUCLEUS.get());
+                        output.accept(ItemInit.PURE_IRON_NUCLEUS.get());
+                        output.accept(ItemInit.PURE_GOLD_NUCLEUS.get());
+                        output.accept(ItemInit.PURE_COPPER_NUCLEUS.get());
+                        output.accept(ItemInit.PURE_COAL_NUCLEUS.get());
+                        output.accept(ItemInit.PURE_QUICKSILVER_NUCLEUS.get());
 
                         output.accept(ItemInit.QUICKSILVER.get());
                         output.accept(ItemInit.CINNABAR_CRYSTAL.get());
