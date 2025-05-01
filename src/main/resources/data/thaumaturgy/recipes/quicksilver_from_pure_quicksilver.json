@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.8,
+  "group": "quicksilver",
+  "ingredient": {
+    "item": "thaumaturgy:pure_quicksilver_nucleus"
+  },
+  "result": "thaumaturgy:quicksilver"
+}

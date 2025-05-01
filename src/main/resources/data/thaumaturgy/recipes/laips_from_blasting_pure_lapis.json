@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.2,
+  "group": "lapis",
+  "ingredient": {
+    "item": "thaumaturgy:pure_lapis_nucleus"
+  },
+  "result": "minecraft:lapis_lazuli"
+}

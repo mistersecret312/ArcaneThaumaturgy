@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "P": {
+      "item": "thaumaturgy:silverwood_planks"
+    },
+    "S": {
+      "item": "thaumaturgy:silverwood_slab"
+    }
+  },
+  "pattern": [
+    "SSS",
+    "PSP",
+    "P P"
+  ],
+  "result": {
+    "item": "thaumaturgy:silverwood_table",
+    "count": 3
+  },
+  "show_notification": true
+}

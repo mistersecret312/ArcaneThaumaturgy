@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.2,
+  "group": "quartz",
+  "ingredient": {
+    "item": "thaumaturgy:pure_quartz_nucleus"
+  },
+  "result": "minecraft:quartz"
+}

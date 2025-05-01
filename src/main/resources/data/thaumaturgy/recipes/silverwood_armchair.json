@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "P": {
+      "item": "thaumaturgy:silverwood_planks"
+    },
+    "S": {
+      "item": "thaumaturgy:silverwood_slab"
+    },
+    "W": {
+      "item": "minecraft:blue_wool"
+    }
+  },
+  "pattern": [
+    "P  ",
+    "PWS",
+    "P P"
+  ],
+  "result": {
+    "item": "thaumaturgy:silverwood_armchair",
+    "count": 1
+  },
+  "show_notification": true
+}

@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 1.0,
+  "group": "gold_ingot",
+  "ingredient": {
+    "item": "thaumaturgy:pure_gold_nucleus"
+  },
+  "result": "minecraft:gold_ingot"
+}
