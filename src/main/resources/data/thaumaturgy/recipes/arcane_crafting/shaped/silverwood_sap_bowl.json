@@ -1,0 +1,31 @@
+{
+  "type": "thaumaturgy:arcane_crafting_shaped",
+  "category": "misc",
+  "key": {
+    "P": {
+      "item": "thaumaturgy:silverwood_planks"
+    },
+    "I": {
+      "item": "thaumaturgy:arcane_steel_ingot"
+    }
+  },
+  "pattern": [
+    "   ",
+    "I I",
+    "PIP"
+  ],
+  "aspects": [
+    {
+      "aspect": "thaumaturgy:ignis",
+      "amount": 5
+    },
+    {
+      "aspect": "thaumaturgy:ordo",
+      "amount": 5
+    }
+  ],
+  "result": {
+    "item": "thaumaturgy:silverwood_sap_bowl"
+  },
+  "show_notification": true
+}

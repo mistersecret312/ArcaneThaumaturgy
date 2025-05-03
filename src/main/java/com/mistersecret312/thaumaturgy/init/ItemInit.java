@@ -21,6 +21,7 @@ public class ItemInit
     public static final RegistryObject<Item> GOLD_KNOB = ITEMS.register("gold_knob", () -> new Item(new Item.Properties().stacksTo(16)));
     public static final RegistryObject<Item> GREATWOOD_CORE = ITEMS.register("greatwood_core", () -> new Item(new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> ARCANE_STEEL_INGOT = ITEMS.register("arcane_steel_ingot", () -> new Item(new Item.Properties().rarity(Rarity.RARE)));
+    public static final RegistryObject<Item> ARCANE_STEEL_NUGGET = ITEMS.register("arcane_steel_nugget", () -> new Item(new Item.Properties().rarity(Rarity.RARE)));
 
     public static final RegistryObject<WandItem> IRON_WAND = ITEMS.register("iron_wand", () -> new WandItem(new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<WandItem> GOLD_WAND = ITEMS.register("gold_wand", () -> new WandItem(new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON)));

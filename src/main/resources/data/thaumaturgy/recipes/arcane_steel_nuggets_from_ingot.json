@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "thaumaturgy:arcane_steel_ingot"
+    }
+  ],
+  "result": {
+    "item": "thaumaturgy:arcane_steel_nugget",
+    "count": 9
+  },
+  "show_notification": true
+}

@@ -1,0 +1,27 @@
+{
+  "type": "thaumaturgy:transmutation",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:potentia",
+      "amount": 5
+    },
+    {
+      "aspect": "thaumaturgy:permutatio",
+      "amount": 3
+    },
+    {
+      "aspect": "thaumaturgy:praecantatio",
+      "amount": 3
+    }
+  ],
+  "catalyst":
+  {
+    "item": "thaumaturgy:greatwood_sapling"
+  },
+  "result":
+  {
+    "item": "thaumaturgy:silverwood_sapling",
+    "amount": 1
+  }
+}

@@ -3,6 +3,7 @@ package com.mistersecret312.thaumaturgy.init;
 import com.mistersecret312.thaumaturgy.ArcaneThaumaturgyMod;
 import com.mistersecret312.thaumaturgy.blocks.*;
 import com.mistersecret312.thaumaturgy.world.GreatwoodTreeGrower;
+import com.mistersecret312.thaumaturgy.world.SilverwoodTreeGrower;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.entity.EntityType;
@@ -77,7 +78,7 @@ public class BlockInit
     public static final RegistryObject<Block> GREATWOOD_TAP = BLOCKS.register("greatwood_tap", () -> new GreatwoodTapBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(3.0F).sound(SoundType.NETHER_WOOD).ignitedByLava().noOcclusion().requiresCorrectToolForDrops()));
     public static final RegistryObject<Block> GREATWOOD_SAP_BOWL = registerBlock("greatwood_sap_bowl", () -> new GreatwoodSapBowlBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(3.0F).sound(SoundType.NETHER_WOOD).ignitedByLava().noOcclusion().requiresCorrectToolForDrops()));
 
-    public static final RegistryObject<Block> SILVERWOOD_SAPLING = registerBlock("silverwood_sapling", () -> new SaplingBlock(new GreatwoodTreeGrower(), BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_CYAN).noCollission().randomTicks().instabreak().sound(SoundType.SWEET_BERRY_BUSH).pushReaction(PushReaction.DESTROY).noOcclusion()));
+    public static final RegistryObject<Block> SILVERWOOD_SAPLING = registerBlock("silverwood_sapling", () -> new SaplingBlock(new SilverwoodTreeGrower(), BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_CYAN).noCollission().randomTicks().instabreak().sound(SoundType.SWEET_BERRY_BUSH).pushReaction(PushReaction.DESTROY).noOcclusion()));
     public static final RegistryObject<Block> SILVERWOOD_LEAVES = registerBlock("silverwood_leaves", () -> new LeavesBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_CYAN).noOcclusion().strength(0.6F).randomTicks().sound(SoundType.AZALEA_LEAVES).noOcclusion().isValidSpawn(BlockInit::ocelotOrParrot).isSuffocating((BlockState, BlockGetter, BlockPos) -> false).isViewBlocking((BlockState, BlockGetter, BlockPos) -> false).ignitedByLava().pushReaction(PushReaction.DESTROY).isRedstoneConductor((BlockState, BlockGetter, BlockPos) -> false)));
     public static final RegistryObject<Block> SILVERWOOD_LOG = registerBlock("silverwood_log", () -> new SilverwoodRotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GRAY).strength(4.0F).sound(SoundTypeInit.SILVERWOOD).requiresCorrectToolForDrops()));
     public static final RegistryObject<Block> SILVERWOOD_WOOD = registerBlock("silverwood_wood", () -> new SilverwoodRotatedPillarBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GRAY).strength(4.0F).sound(SoundTypeInit.SILVERWOOD).requiresCorrectToolForDrops()));

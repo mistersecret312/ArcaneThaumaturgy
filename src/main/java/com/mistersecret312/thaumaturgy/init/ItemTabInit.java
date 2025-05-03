@@ -58,6 +58,7 @@ public class ItemTabInit
                         output.accept(ItemInit.GREAT_SYRUP_BOTTLE.get());
 
                         output.accept(ItemInit.ARCANE_STEEL_INGOT.get());
+                        output.accept(ItemInit.ARCANE_STEEL_NUGGET.get());
 
                         output.accept(ItemInit.PURE_NETHERITE_NUCLEUS.get());
                         output.accept(ItemInit.PURE_DIAMOND_NUCLEUS.get());

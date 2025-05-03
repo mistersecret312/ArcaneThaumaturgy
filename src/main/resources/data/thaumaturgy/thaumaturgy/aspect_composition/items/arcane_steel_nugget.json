@@ -1,0 +1,14 @@
+{
+  "item": "thaumaturgy:arcane_steel_nugget",
+  "aspects":
+  [
+    {
+      "aspect": "thaumaturgy:metallum",
+      "amount": 1
+    },
+    {
+      "aspect": "thaumaturgy:praecantatio",
+      "amount": 1
+    }
+  ]
+}
