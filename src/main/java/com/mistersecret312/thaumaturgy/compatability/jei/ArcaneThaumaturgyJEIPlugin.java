@@ -21,6 +21,7 @@ import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.registration.*;
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.AirItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.SpawnEggItem;
@@ -81,7 +82,11 @@ public class ArcaneThaumaturgyJEIPlugin implements IModPlugin
 
             List<Item> items = new ArrayList<>();
             Collections.reverse(compositions);
-            compositions.forEach(composition -> items.add(composition.getItem()));
+            compositions.forEach(composition ->
+            {
+                if(!(composition.getItem() instanceof AirItem))
+                    items.add(composition.getItem());
+            });
 
             compositionRecipes.add(new CompositionRecipe(aspect, items));
         });
