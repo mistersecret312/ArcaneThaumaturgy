@@ -24,7 +24,7 @@ public class GreatwoodTapBlockEntity extends BlockEntity {
     private int ticker = -1;
 
     public GreatwoodTapBlockEntity(BlockPos pPos, BlockState pBlockState) {
-        super(BlockEntityInit.SILVERWOOD_TAP.get(), pPos, pBlockState);
+        super(BlockEntityInit.GREATWOOD_TAP.get(), pPos, pBlockState);
     }
 
     public static void tick(Level pLevel, BlockPos pPos, BlockState pState, GreatwoodTapBlockEntity tap) {
