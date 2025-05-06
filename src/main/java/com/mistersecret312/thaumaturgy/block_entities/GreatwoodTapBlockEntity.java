@@ -3,6 +3,7 @@ package com.mistersecret312.thaumaturgy.block_entities;
 import com.mistersecret312.thaumaturgy.init.BlockEntityInit;
 import com.mistersecret312.thaumaturgy.init.BlockInit;
 import com.mistersecret312.thaumaturgy.init.NetworkInit;
+import com.mistersecret312.thaumaturgy.init.ParticleInit;
 import com.mistersecret312.thaumaturgy.network.packets.UpdateCrucibleClientboundPacket;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -72,7 +73,7 @@ public class GreatwoodTapBlockEntity extends BlockEntity {
                 }
 
                 for (int i = 0; i < 3; i++) {
-                    pLevel.addParticle(ParticleTypes.DRIPPING_HONEY, x, y, z, 0, 0, 0);
+                    pLevel.addParticle(ParticleInit.GREATWOOD_SAP_HANGING.get(), x, y, z, 0, 0, 0);
                 }
 
                 tap.ticker = pRandom.nextInt(100, 200);

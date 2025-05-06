@@ -2,6 +2,7 @@ package com.mistersecret312.thaumaturgy.block_entities;
 
 import com.mistersecret312.thaumaturgy.init.BlockEntityInit;
 import com.mistersecret312.thaumaturgy.init.BlockInit;
+import com.mistersecret312.thaumaturgy.init.ParticleInit;
 import com.mistersecret312.thaumaturgy.init.SoundInit;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -70,7 +71,7 @@ public class SilverwoodTapBlockEntity extends BlockEntity {
                 }
 
                 for (int i = 0; i < 3; i++) {
-                    pLevel.addParticle(ParticleTypes.DRIPPING_WATER, x, y, z, 0, 0, 0);
+                    pLevel.addParticle(ParticleInit.SILVERWOOD_SAP_HANGING.get(), x, y, z, 0, 0, 0);
                 }
 
                 tap.ticker = pRandom.nextInt(100, 200);

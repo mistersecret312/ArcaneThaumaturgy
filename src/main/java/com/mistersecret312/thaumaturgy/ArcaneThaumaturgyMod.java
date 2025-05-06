@@ -2,6 +2,12 @@ package com.mistersecret312.thaumaturgy;
 
 import com.mistersecret312.thaumaturgy.client.Layers;
 import com.mistersecret312.thaumaturgy.client.gui.WandAspectOverlay;
+import com.mistersecret312.thaumaturgy.client.particles.greatwood.GreatwoodSapFallParticleProvider;
+import com.mistersecret312.thaumaturgy.client.particles.greatwood.GreatwoodSapHangParticleProvider;
+import com.mistersecret312.thaumaturgy.client.particles.greatwood.GreatwoodSapLandParticleProvider;
+import com.mistersecret312.thaumaturgy.client.particles.silverwood.SilverwoodSapFallParticleProvider;
+import com.mistersecret312.thaumaturgy.client.particles.silverwood.SilverwoodSapHangParticleProvider;
+import com.mistersecret312.thaumaturgy.client.particles.silverwood.SilverwoodSapLandParticleProvider;
 import com.mistersecret312.thaumaturgy.client.renderer.*;
 import com.mistersecret312.thaumaturgy.client.screen.ArcaneWorkbenchScreen;
 import com.mistersecret312.thaumaturgy.datapack.AspectComposition;
@@ -57,6 +63,7 @@ public class ArcaneThaumaturgyMod
         RecipeTypeInit.Types.register(modEventBus);
         AspectInit.register(modEventBus);
         MenuInit.register(modEventBus);
+        ParticleInit.register(modEventBus);
 
         MinecraftForge.EVENT_BUS.register(this);
 
@@ -101,6 +108,18 @@ public class ArcaneThaumaturgyMod
 
                 MenuScreens.register(MenuInit.ARCANE_WORKBENCH.get(), ArcaneWorkbenchScreen::new);
             });
+        }
+
+        @SubscribeEvent
+        public static void registerParticles(RegisterParticleProvidersEvent event)
+        {
+            event.registerSpriteSet(ParticleInit.SILVERWOOD_SAP_HANGING.get(), SilverwoodSapHangParticleProvider::new);
+            event.registerSpriteSet(ParticleInit.SILVERWOOD_SAP_FALLING.get(), SilverwoodSapFallParticleProvider::new);
+            event.registerSpriteSet(ParticleInit.SILVERWOOD_SAP_LANDING.get(), SilverwoodSapLandParticleProvider::new);
+
+            event.registerSpriteSet(ParticleInit.GREATWOOD_SAP_HANGING.get(), GreatwoodSapHangParticleProvider::new);
+            event.registerSpriteSet(ParticleInit.GREATWOOD_SAP_FALLING.get(), GreatwoodSapFallParticleProvider::new);
+            event.registerSpriteSet(ParticleInit.GREATWOOD_SAP_LANDING.get(), GreatwoodSapLandParticleProvider::new);
         }
 
         @SubscribeEvent
