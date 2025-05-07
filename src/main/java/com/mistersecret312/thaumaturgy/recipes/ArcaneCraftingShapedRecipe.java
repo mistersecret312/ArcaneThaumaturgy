@@ -115,6 +115,9 @@ public class ArcaneCraftingShapedRecipe implements IArcaneCraftingRecipe, IShape
      * Checks if the region of a crafting inventory is match for the recipe.
      */
     private boolean matches(ArcaneWorkbenchCraftingContainer pCraftingInventory, int pWidth, int pHeight, boolean pMirrored) {
+        if(pCraftingInventory.stacks.isEmpty() && !this.aspectCost.isEmpty())
+            return false;
+
         for(int i = 0; i < pCraftingInventory.getWidth(); ++i) {
             for(int j = 0; j < pCraftingInventory.getHeight(); ++j) {
                 int k = i - pWidth;
@@ -142,7 +145,7 @@ public class ArcaneCraftingShapedRecipe implements IArcaneCraftingRecipe, IShape
             AspectStack recipeStack = this.aspectCost.stream().filter(aspectStack -> aspectStack.getAspect().equals(aspectChecked)).findFirst().orElse(AspectStack.EMPTY);
             if(stack.isEmpty())
                 return false;
-            if(recipeStack.getAmount() >= stack.getAmount())
+            if(recipeStack.getAmount() > stack.getAmount())
                 return false;
         }
 

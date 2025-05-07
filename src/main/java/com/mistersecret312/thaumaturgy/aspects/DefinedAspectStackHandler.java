@@ -95,7 +95,7 @@ public class DefinedAspectStackHandler implements INBTSerializable<CompoundTag>
             {
                 if (!simulate)
                 {
-                    definedStacks.put(aspect, AspectStack.EMPTY);
+                    definedStacks.put(aspect, new AspectStack(aspect, 0));
                     return existing;
                 } else return existing.copy();
             }

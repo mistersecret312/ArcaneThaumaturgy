@@ -28,6 +28,9 @@ public class ItemTabInit
                         output.accept(ItemInit.THAUMOMETER.get());
                         output.accept(ItemInit.REVELATION_GOGGLES.get());
 
+                        output.accept(WandItem.createPrimal(ItemInit.IRON_WAND.get(), 25, false));
+                        output.accept(WandItem.createPrimal(ItemInit.GOLD_WAND.get(), 50, false));
+
                         output.accept(WandItem.createPrimal(ItemInit.IRON_WAND.get(), 25, true));
                         output.accept(WandItem.createPrimal(ItemInit.GOLD_WAND.get(), 50, true));
 

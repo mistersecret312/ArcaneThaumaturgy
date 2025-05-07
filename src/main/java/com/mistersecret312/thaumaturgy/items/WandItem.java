@@ -16,6 +16,7 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
@@ -90,8 +91,8 @@ public class WandItem extends Item
         ItemStack stack = new ItemStack(item);
         List<Aspect> basePrimals = List.of(AspectInit.AER.get(), AspectInit.TERRA.get(), AspectInit.IGNIS.get(), AspectInit.AQUA.get(), AspectInit.ORDO.get(), AspectInit.PERDITIO.get());
         DefinedAspectStackHandler handler = new DefinedAspectStackHandler(basePrimals, capacity);
-        if(full)
-            basePrimals.forEach(primal -> handler.setStackInSlot(primal, new AspectStack(primal, capacity)));
+
+        basePrimals.forEach(primal -> handler.setStackInSlot(primal, new AspectStack(primal, full ? capacity : 0)));
 
         if(item instanceof WandItem wand)
         {
@@ -100,6 +101,8 @@ public class WandItem extends Item
 
         return stack;
     }
+
+
 
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level pLevel, List<Component> pTooltipComponents,
@@ -113,13 +116,14 @@ public class WandItem extends Item
         basePrimals.forEach(primal ->
         {
             AspectStack aspectStack = aspects.getStackInSlot(primal);
-            if (!aspectStack.isEmpty())
-            {
-                List<Integer> rgb = primal.getColor();
-                int color = (rgb.get(0) << 16) | (rgb.get(1) << 8) | rgb.get(2);
+            if (aspectStack.isEmpty())
+                aspectStack = new AspectStack(primal, 0);
 
-                pTooltipComponents.add(aspectStack.getTranslatable().append(": " + aspectStack.getAmount()).withStyle(style -> style.withColor(color)));
-            }
+            List<Integer> rgb = primal.getColor();
+            int color = (rgb.get(0) << 16) | (rgb.get(1) << 8) | rgb.get(2);
+
+            pTooltipComponents.add(aspectStack.getTranslatable().append(": " + aspectStack.getAmount()).withStyle(style -> style.withColor(color)));
+
         });
 
     }

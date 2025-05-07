@@ -29,9 +29,17 @@ public class ArcaneWorkbenchCraftingContainer implements CraftingContainer
         ItemStack stack = wand.getStackInSlot(0);
         if (!stack.isEmpty() && stack.getItem() instanceof WandItem wandItem)
         {
+            if(wandItem.getAspects(stack) == null)
+                stack = WandItem.createPrimal(wandItem, 25, false);
+
             List<Aspect> primal = List.of(AspectInit.ORDO.get(), AspectInit.AER.get(), AspectInit.AQUA.get(), AspectInit.IGNIS.get(), AspectInit.TERRA.get(), AspectInit.PERDITIO.get());
             for (Aspect aspect : primal)
-                this.stacks.add(wandItem.getAspects(stack).getStackInSlot(aspect).copy());
+            {
+                AspectStack aspectStack = wandItem.getAspects(stack).getStackInSlot(aspect).copy();
+                if(aspectStack == null)
+                    aspectStack = new AspectStack(aspect, 0);
+                this.stacks.add(aspectStack);
+            }
         }
     }
 
@@ -77,7 +85,7 @@ public class ArcaneWorkbenchCraftingContainer implements CraftingContainer
 
     public AspectStack getAspect(Aspect aspect)
     {
-        return this.stacks.stream().filter(aspectStack -> aspectStack.getAspect().equals(aspect)).findFirst().orElse(AspectStack.EMPTY);
+        return this.stacks.stream().filter(aspectStack -> !aspectStack.isEmpty() && aspectStack.getAspect().equals(aspect)).findFirst().orElse(AspectStack.EMPTY);
     }
 
     @Override
