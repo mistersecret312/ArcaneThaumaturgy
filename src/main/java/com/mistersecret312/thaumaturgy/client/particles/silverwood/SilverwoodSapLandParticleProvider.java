@@ -22,7 +22,7 @@ public class SilverwoodSapLandParticleProvider implements ParticleProvider<Simpl
     {
         SilverwoodSapParticle particle = new SilverwoodSapParticle.DripLandParticleSilverwood(pLevel, pX, pY, pZ);
         particle.setLifetime((int)(128.0D / (Math.random() * 0.8D + 0.2D)));
-        particle.setColor(1F, 1F, 1F);
+        particle.setColor(0.9f, 0.9f, 0.9f);
         particle.pickSprite(set);
         return particle;
     }

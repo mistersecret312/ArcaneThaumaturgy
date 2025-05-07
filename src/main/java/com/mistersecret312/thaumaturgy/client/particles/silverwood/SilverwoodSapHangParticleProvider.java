@@ -24,7 +24,7 @@ public class SilverwoodSapHangParticleProvider implements ParticleProvider<Simpl
         SilverwoodSapParticle particle = new SilverwoodSapParticle.DripHangParticleSilverwood(pLevel, pX, pY, pZ, ParticleInit.SILVERWOOD_SAP_FALLING.get());
         particle.setLifetime(100);
         particle.setGravity(particle.getGravity()*0.01F);
-        particle.setColor(1F, 1F, 1F);
+        particle.setColor(0.9f, 0.9f, 0.9f);
         particle.pickSprite(set);
         return particle;
     }

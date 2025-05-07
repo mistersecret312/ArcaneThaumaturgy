@@ -73,7 +73,7 @@ public class GreatwoodTapBlockEntity extends BlockEntity {
                 }
 
                 for (int i = 0; i < 3; i++) {
-                    pLevel.addParticle(ParticleInit.GREATWOOD_SAP_HANGING.get(), x, y, z, 0, 0, 0);
+                    pLevel.addParticle(ParticleInit.GREATWOOD_SAP_HANGING.get(), x, y- 0.0625, z, 0, 0, 0);
                 }
 
                 tap.ticker = pRandom.nextInt(100, 200);

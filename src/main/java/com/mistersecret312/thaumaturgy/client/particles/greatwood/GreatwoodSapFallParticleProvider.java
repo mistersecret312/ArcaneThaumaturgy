@@ -23,7 +23,7 @@ public class GreatwoodSapFallParticleProvider implements ParticleProvider<Simple
     {
         GreatwoodSapParticle particle = new GreatwoodSapParticle.HoneyFallAndLandParticleGreatwood(pLevel, pX, pY, pZ, ParticleInit.GREATWOOD_SAP_LANDING.get());
         particle.setGravity(0.01F);
-        particle.setColor(1F, 0.815F, 0.45F);
+        particle.setColor(0.90f,0.58f,0.27f);
         particle.pickSprite(set);
         return particle;
     }

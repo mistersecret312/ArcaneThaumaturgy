@@ -23,7 +23,7 @@ public class SilverwoodSapFallParticleProvider implements ParticleProvider<Simpl
     {
         SilverwoodSapParticle particle = new SilverwoodSapParticle.HoneyFallAndLandParticleSilverwood(pLevel, pX, pY, pZ, ParticleInit.SILVERWOOD_SAP_LANDING.get());
         particle.setGravity(0.01F);
-        particle.setColor(1F, 1F, 1F);
+        particle.setColor(0.9f, 0.9f, 0.9f);
         particle.pickSprite(set);
         return particle;
     }
