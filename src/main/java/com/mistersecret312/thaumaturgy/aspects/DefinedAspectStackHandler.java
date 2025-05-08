@@ -5,11 +5,12 @@ import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.Tag;
 import net.minecraftforge.common.util.INBTSerializable;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class DefinedAspectStackHandler implements INBTSerializable<CompoundTag>
+public class DefinedAspectStackHandler
 {
     protected HashMap<Aspect, AspectStack> definedStacks;
     protected boolean totalCapacity;
@@ -27,7 +28,10 @@ public class DefinedAspectStackHandler implements INBTSerializable<CompoundTag>
     public DefinedAspectStackHandler(List<Aspect> aspects, int capacity)
     {
         this.definedStacks = new HashMap<>(aspects.size());
-        aspects.forEach(aspect -> definedStacks.put(aspect, AspectStack.EMPTY));
+        for (int i = 0; i < aspects.size(); i++)
+        {
+            this.definedStacks.put(aspects.get(i), AspectStack.EMPTY);
+        }
 
         this.totalCapacity = false;
         this.maxCapacity = capacity;
@@ -155,6 +159,13 @@ public class DefinedAspectStackHandler implements INBTSerializable<CompoundTag>
         else return definedStacks.get(aspect).getAmount();
     }
 
+    public List<Aspect> getAspectTypes()
+    {
+        List<Aspect> aspects = new ArrayList<>();
+        this.definedStacks.forEach((aspect, stack) -> aspects.add(aspect));
+        return aspects;
+    }
+
     public int getSize()
     {
         return definedStacks.size();
@@ -165,7 +176,6 @@ public class DefinedAspectStackHandler implements INBTSerializable<CompoundTag>
         return maxCapacity;
     }
 
-    @Override
     public CompoundTag serializeNBT()
     {
         CompoundTag tag = new CompoundTag();
@@ -180,15 +190,22 @@ public class DefinedAspectStackHandler implements INBTSerializable<CompoundTag>
         return tag;
     }
 
-    @Override
-    public void deserializeNBT(CompoundTag nbt)
+    public static DefinedAspectStackHandler deserializeNBT(CompoundTag nbt)
     {
+        HashMap<Aspect, AspectStack> definedStacks = new HashMap<>();
+        List<Aspect> aspects = new ArrayList<>();
+
         nbt.getList("Aspects", Tag.TAG_COMPOUND).forEach(tag -> {
             AspectStack stack = AspectStack.deserializeNBT(((CompoundTag) tag));
+            aspects.add(stack.getAspect());
             definedStacks.put(stack.getAspect(), stack);
         });
 
-        this.totalCapacity = nbt.getBoolean("total_capacity");
-        this.maxCapacity = nbt.getInt("max_capacity");
+        boolean totalCapacity = nbt.getBoolean("total_capacity");
+        int maxCapacity = nbt.getInt("max_capacity");
+
+        DefinedAspectStackHandler handler = new DefinedAspectStackHandler(aspects, totalCapacity, maxCapacity);
+        aspects.forEach(aspect -> handler.definedStacks.put(aspect, definedStacks.get(aspect)));
+        return handler;
     }
 }

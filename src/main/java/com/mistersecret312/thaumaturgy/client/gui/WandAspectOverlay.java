@@ -40,6 +40,8 @@ public class WandAspectOverlay
         int cap = handler.getMaxCapacity();
         int[] aspects = new int[6];
         List<Aspect> basePrimals = List.of(AspectInit.AER.get(), AspectInit.TERRA.get(), AspectInit.IGNIS.get(), AspectInit.AQUA.get(), AspectInit.ORDO.get(), AspectInit.PERDITIO.get());
+        if(!handler.getAspectTypes().equals(basePrimals))
+            return;
         for (int i = 0; i < 6; i++)
         {
             aspects[i] = handler.getStackInSlot(basePrimals.get(i)).getAmount();

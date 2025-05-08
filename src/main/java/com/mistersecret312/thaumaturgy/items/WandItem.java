@@ -30,6 +30,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 public class WandItem extends Item
@@ -112,32 +113,45 @@ public class WandItem extends Item
 
         DefinedAspectStackHandler aspects = this.getAspects(stack);
         List<Aspect> basePrimals = List.of(AspectInit.AER.get(), AspectInit.TERRA.get(), AspectInit.IGNIS.get(), AspectInit.AQUA.get(), AspectInit.ORDO.get(), AspectInit.PERDITIO.get());
-
-        basePrimals.forEach(primal ->
+        if(new HashSet<>(aspects.getAspectTypes()).containsAll(basePrimals))
         {
-            AspectStack aspectStack = aspects.getStackInSlot(primal);
-            if (aspectStack.isEmpty())
-                aspectStack = new AspectStack(primal, 0);
+            basePrimals.forEach(aspect ->
+            {
+                AspectStack aspectStack = aspects.getStackInSlot(aspect);
+                if (aspectStack.isEmpty()) aspectStack = new AspectStack(aspect, 0);
 
-            List<Integer> rgb = primal.getColor();
-            int color = (rgb.get(0) << 16) | (rgb.get(1) << 8) | rgb.get(2);
+                List<Integer> rgb = aspect.getColor();
+                int color = (rgb.get(0) << 16) | (rgb.get(1) << 8) | rgb.get(2);
 
-            pTooltipComponents.add(aspectStack.getTranslatable().append(": " + aspectStack.getAmount()).withStyle(style -> style.withColor(color)));
+                pTooltipComponents.add(aspectStack.getTranslatable().append(": " + aspectStack.getAmount()).withStyle(style -> style.withColor(color)));
 
-        });
+            });
+        }
+        else
+        {
+            aspects.getAspectTypes().forEach(aspect ->
+            {
+                AspectStack aspectStack = aspects.getStackInSlot(aspect);
+                if (aspectStack.isEmpty()) aspectStack = new AspectStack(aspect, 0);
 
+                List<Integer> rgb = aspect.getColor();
+                int color = (rgb.get(0) << 16) | (rgb.get(1) << 8) | rgb.get(2);
+
+                pTooltipComponents.add(aspectStack.getTranslatable().append(": " + aspectStack.getAmount()).withStyle(style -> style.withColor(color)));
+
+            });
+        }
     }
 
     public DefinedAspectStackHandler getAspects(ItemStack stack)
     {
-        List<Aspect> basePrimals = List.of(AspectInit.AER.get(), AspectInit.TERRA.get(), AspectInit.IGNIS.get(), AspectInit.AQUA.get(), AspectInit.ORDO.get(), AspectInit.PERDITIO.get());
-
-        DefinedAspectStackHandler handler = new DefinedAspectStackHandler(basePrimals, 25);
-
         if(stack.getTag() != null && stack.getTag().contains(VIS_STORAGE))
-            handler.deserializeNBT(stack.getTag().getCompound(VIS_STORAGE));
-
-        return handler;
+            return DefinedAspectStackHandler.deserializeNBT(stack.getTag().getCompound(VIS_STORAGE));
+        else
+        {
+            List<Aspect> basePrimals = List.of(AspectInit.AER.get(), AspectInit.TERRA.get(), AspectInit.IGNIS.get(), AspectInit.AQUA.get(), AspectInit.ORDO.get(), AspectInit.PERDITIO.get());
+            return new DefinedAspectStackHandler(basePrimals, 1);
+        }
     }
 
     public void setAspects(ItemStack stack, DefinedAspectStackHandler handler)

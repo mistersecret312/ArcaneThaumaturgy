@@ -14,6 +14,21 @@
     }
   },
   "result": {
-    "item": "thaumaturgy:iron_wand"
+    "item": "thaumaturgy:iron_wand",
+    "count": 1,
+    "nbt": {
+      "vis_storage": {
+        "total_capacity": 0,
+        "Aspects": [
+          { "amount": 0, "aspect": "thaumaturgy:ignis" },
+          { "amount": 0, "aspect": "thaumaturgy:terra" },
+          { "amount": 0, "aspect": "thaumaturgy:perditio" },
+          { "amount": 0, "aspect": "thaumaturgy:aer"},
+          { "amount": 0, "aspect": "thaumaturgy:aqua" },
+          { "amount": 0, "aspect": "thaumaturgy:ordo" }
+        ],
+        "max_capacity": 25
+      }
+    }
   }
 }
