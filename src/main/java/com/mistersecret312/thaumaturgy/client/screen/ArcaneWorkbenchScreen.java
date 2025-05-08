@@ -80,8 +80,8 @@ public class ArcaneWorkbenchScreen extends AbstractContainerScreen<ArcaneWorkben
                 {
                     //Aer
                     poseStack.pushPose();
-                    poseStack.translate(88, 10, 0);
-                    graphics.blit(primal.get(0).getTexture(), x + (22 * 0), y, 0, 0, 18, 16, 16, 16);
+                    poseStack.translate(89, 11, 0);
+                    graphics.blit(primal.get(0).getTexture(), x + (22 * 0), y, 0, 0, 16, 16, 16, 16);
                     poseStack.scale(0.5f, 0.5f, 0.5f);
                     Minecraft.getInstance().font.drawInBatch(String.valueOf(aer.getAmount()), 2 * (x + (22 * 0) + 15), 2 * (y + 14), -1, true, poseStack.last().pose(), graphics.bufferSource(), Font.DisplayMode.NORMAL, 0, 15728880);
                     poseStack.popPose();
@@ -93,8 +93,8 @@ public class ArcaneWorkbenchScreen extends AbstractContainerScreen<ArcaneWorkben
                 {
                     //Terra
                     poseStack.pushPose();
-                    poseStack.translate(109, 34, 0);
-                    graphics.blit(primal.get(1).getTexture(), x + (22 * 1), y, 0, 0, 18, 18, 18, 18);
+                    poseStack.translate(110, 35, 0);
+                    graphics.blit(primal.get(1).getTexture(), x + (22 * 1), y, 0, 0, 16, 16, 16, 16);
                     poseStack.scale(0.5f, 0.5f, 0.5f);
                     Minecraft.getInstance().font.drawInBatch(String.valueOf(terra.getAmount()), 2 * (x + (22 * 1) + 15), 2 * (y + 14), -1, true, poseStack.last().pose(), graphics.bufferSource(), Font.DisplayMode.NORMAL, 0, 15728880);
                     poseStack.popPose();
@@ -106,8 +106,8 @@ public class ArcaneWorkbenchScreen extends AbstractContainerScreen<ArcaneWorkben
                 {
                     //Ignis
                     poseStack.pushPose();
-                    poseStack.translate(87, 84, 0);
-                    graphics.blit(primal.get(2).getTexture(), x + (22 * 2), y, 0, 0, 18, 18, 18, 18);
+                    poseStack.translate(88, 85, 0);
+                    graphics.blit(primal.get(2).getTexture(), x + (22 * 2), y, 0, 0, 16, 16, 16, 16);
                     poseStack.scale(0.5f, 0.5f, 0.5f);
                     Minecraft.getInstance().font.drawInBatch(String.valueOf(ignis.getAmount()), 2 * (x + (22 * 2) + 15), 2 * (y + 14), -1, true, poseStack.last().pose(), graphics.bufferSource(), Font.DisplayMode.NORMAL, 0, 15728880);
                     poseStack.popPose();
@@ -119,8 +119,8 @@ public class ArcaneWorkbenchScreen extends AbstractContainerScreen<ArcaneWorkben
                 {
                     //Aqua
                     poseStack.pushPose();
-                    poseStack.translate(22, 108, 0);
-                    graphics.blit(primal.get(3).getTexture(), x + (22 * 3), y, 0, 0, 18, 18, 18, 18);
+                    poseStack.translate(23, 109, 0);
+                    graphics.blit(primal.get(3).getTexture(), x + (22 * 3), y, 0, 0, 16, 16, 16, 16);
                     poseStack.scale(0.5f, 0.5f, 0.5f);
                     Minecraft.getInstance().font.drawInBatch(String.valueOf(handler.getStackInSlot(primal.get(3)).getAmount()), 2 * (x + (22 * 3) + 15), 2 * (y + 14), -1, true, poseStack.last().pose(), graphics.bufferSource(), Font.DisplayMode.NORMAL, 0, 15728880);
                     poseStack.popPose();
@@ -132,8 +132,8 @@ public class ArcaneWorkbenchScreen extends AbstractContainerScreen<ArcaneWorkben
                 {
                     //Ordo
                     poseStack.pushPose();
-                    poseStack.translate(-43, 84, 0);
-                    graphics.blit(primal.get(4).getTexture(), x + (22 * 4), y, 0, 0, 18, 18, 18, 18);
+                    poseStack.translate(-42, 85, 0);
+                    graphics.blit(primal.get(4).getTexture(), x + (22 * 4), y, 0, 0, 16, 16, 16, 16);
                     poseStack.scale(0.5f, 0.5f, 0.5f);
                     Minecraft.getInstance().font.drawInBatch(String.valueOf(ordo.getAmount()), 2 * (x + (22 * 4) + 15), 2 * (y + 14), -1, true, poseStack.last().pose(), graphics.bufferSource(), Font.DisplayMode.NORMAL, 0, 15728880);
                     poseStack.popPose();
@@ -145,8 +145,8 @@ public class ArcaneWorkbenchScreen extends AbstractContainerScreen<ArcaneWorkben
                 {
                     //Terra
                     poseStack.pushPose();
-                    poseStack.translate(-65, 34, 0);
-                    graphics.blit(primal.get(5).getTexture(), x + (22 * 5), y, 0, 0, 18, 18, 18, 18);
+                    poseStack.translate(-64, 35, 0);
+                    graphics.blit(primal.get(5).getTexture(), x + (22 * 5), y, 0, 0, 16, 16, 16, 16);
                     poseStack.scale(0.5f, 0.5f, 0.5f);
                     Minecraft.getInstance().font.drawInBatch(String.valueOf(perditio.getAmount()), 2 * (x + (22 * 5) + 15), 2 * (y + 14), -1, true, poseStack.last().pose(), graphics.bufferSource(), Font.DisplayMode.NORMAL, 0, 15728880);
                     poseStack.popPose();
